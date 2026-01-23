@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ui, defaultLang } from '../i18n/ui';
+
+const lang = defaultLang; // For now static, later can be dynamic
+const t = ui[lang];
+---
+
+<Layout title={`Chessbitz - ${t.legal}`}>
+    <div class="prose dark:prose-invert max-w-none text-stone-800 dark:text-stone-200">
+        <h1 class="text-3xl font-bold mb-6 text-amber-600 dark:text-amber-400">{t.legalPageTitle}</h1>
+        
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4 border-b border-stone-300 dark:border-stone-700 pb-2">{t.legalAboutTitle}</h2>
+            <p class="mb-4" set:html={t.legalAboutText1} />
+            <p class="mb-4">
+                {t.legalAboutText2}
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4 border-b border-stone-300 dark:border-stone-700 pb-2">{t.legalPrivacyTitle}</h2>
+            <p class="mb-4" set:html={t.legalPrivacyText} />
+            <ul class="list-disc pl-5 space-y-2">
+                <li set:html={t.legalLocalStorage} />
+            </ul>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4 border-b border-stone-300 dark:border-stone-700 pb-2">{t.legalCreditsTitle}</h2>
+            <p class="mb-4">
+                {t.legalCreditsText}
+            </p>
+            
+            <div class="bg-stone-200 dark:bg-stone-800/50 p-4 rounded-lg border-l-4 border-amber-500">
+                <h3 class="font-bold text-sm mb-2 uppercase tracking-wide text-stone-600 dark:text-stone-400">{t.legal3DModelTitle}</h3>
+                <p class="italic text-sm">
+                    "chess king" (<a href="https://skfb.ly/pqzuU" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-600">https://skfb.ly/pqzuU</a>) 
+                    by <strong>Amresh08_x_y_z</strong> is licensed under 
+                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-600">Creative Commons Attribution</a>.
+                </p>
+            </div>
+        </section>
+
+        <div class="mt-8 pt-6 border-t border-stone-300 dark:border-stone-700 text-center">
+            <a href="/" class="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 font-bold hover:underline">
+                {t.legalBackHome}
+            </a>
+        </div>
+    </div>
+</Layout>

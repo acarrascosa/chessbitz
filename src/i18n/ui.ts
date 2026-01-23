@@ -14,7 +14,19 @@ export const ui = {
         copied: '¡Enlace Copiado!',
         legal: 'Aviso Legal',
         developedBy: 'Desarrollado con ♥ por',
-        buyMeCoffee: 'Invítame a un café'
+        buyMeCoffee: 'Invítame a un café',
+        // Legal Page
+        legalPageTitle: 'Aviso Legal y Privacidad',
+        legalAboutTitle: 'Sobre este proyecto',
+        legalAboutText1: 'Chessbitz es un proyecto personal de portafolio y demostración técnica creado por <strong>Álvaro Carrascosa</strong>. No tiene fines comerciales directos ni está afiliado a ninguna organización oficial de ajedrez.',
+        legalAboutText2: 'El contenido educativo sobre aperturas se proporciona "tal cual" con fines de aprendizaje y entretenimiento. No se garantiza la exactitud absoluta de todas las líneas teóricas, aunque se ha puesto esfuerzo en su veracidad.',
+        legalPrivacyTitle: 'Privacidad y Cookies',
+        legalPrivacyText: 'Este sitio web <strong>no utiliza cookies de rastreo ni de terceros</strong> para analítica o publicidad.',
+        legalLocalStorage: '<strong>Almacenamiento Local (LocalStorage):</strong> Utilizamos el almacenamiento local de su navegador únicamente para guardar su preferencia de tema (Modo Oscuro/Claro). Este dato no sale de su dispositivo.',
+        legalCreditsTitle: 'Créditos y Licencias',
+        legalCreditsText: 'Este proyecto utiliza recursos de código abierto y arte bajo licencias Creative Commons.',
+        legal3DModelTitle: 'Modelo 3D',
+        legalBackHome: '← Volver al Inicio'
     },
     en: {
         start: 'Start',
@@ -31,7 +43,19 @@ export const ui = {
         copied: 'Link Copied!',
         legal: 'Legal Notice',
         developedBy: 'Developed with ♥ by',
-        buyMeCoffee: 'Buy Me a Coffee'
+        buyMeCoffee: 'Buy Me a Coffee',
+        // Legal Page
+        legalPageTitle: 'Legal Notice & Privacy',
+        legalAboutTitle: 'About this Project',
+        legalAboutText1: 'Chessbitz is a personal portfolio and technical demo project created by <strong>Álvaro Carrascosa</strong>. It has no direct commercial purpose and is not affiliated with any official chess organization.',
+        legalAboutText2: 'The educational content regarding openings is provided "as is" for learning and entertainment purposes. Absolute accuracy of all theoretical lines is not guaranteed, though effort has been made to ensure veracity.',
+        legalPrivacyTitle: 'Privacy & Cookies',
+        legalPrivacyText: 'This website <strong>does not use tracking or third-party cookies</strong> for analytics or advertising.',
+        legalLocalStorage: '<strong>Local Storage:</strong> We use your browser\'s local storage solely to save your theme preference (Dark/Light Mode). This data does not leave your device.',
+        legalCreditsTitle: 'Credits & Licenses',
+        legalCreditsText: 'This project uses open-source resources and art under Creative Commons licenses.',
+        legal3DModelTitle: '3D Model',
+        legalBackHome: '← Back to Home'
     }
 };
 
