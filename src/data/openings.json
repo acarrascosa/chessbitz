@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "eco": "C60",
+        "name": "Ruy Lopez",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+        "content": {
+            "es": {
+                "name": "Apertura Española",
+                "description": "Una de las aperturas más antiguas y clásicas. Las blancas presionan el caballo defensor de e5.",
+                "explanations": [
+                    "Controla el centro y abre líneas para el alfil.",
+                    "Respuesta clásica, controlando el centro.",
+                    "Desarrolla el caballo y ataca el peón central.",
+                    "Defiende el peón y desarrolla una pieza.",
+                    "La jugada clave de la Ruy Lopez. Presiona indirectamente el centro al atacar al defensor."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez",
+                "description": "One of the oldest and most classic openings. White puts pressure on the knight defending e5.",
+                "explanations": [
+                    "Controls the center and opens lines for the bishop.",
+                    "Classic response, controlling the center.",
+                    "Develops the knight and attacks the center pawn.",
+                    "Defends the pawn and develops a piece.",
+                    "The key move of the Ruy Lopez. Indirectly pressures the center by attacking the defender."
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "eco": "B20",
+        "name": "Sicilian Defense",
+        "pgn": "1. e4 c5",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Siciliana",
+                "description": "La respuesta más popular y combativa contra 1. e4. Las negras luchan por el centro desde el flanco.",
+                "explanations": [
+                    "Las blancas ocupan el centro.",
+                    "Las negras contraatacan desde el flanco, controlando la casilla d4."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense",
+                "description": "The most popular and combative response to 1. e4. Black fights for the center from the flank.",
+                "explanations": [
+                    "White occupies the center.",
+                    "Black counter-attacks from the flank, controlling d4."
+                ]
+            }
+        }
+    },
+    {
+        "id": 3,
+        "eco": "D06",
+        "name": "Queen's Gambit",
+        "pgn": "1. d4 d5 2. c4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito de Dama",
+                "description": "Un sacrificio de peón temporal para controlar el centro. Muy sólida y estratégica.",
+                "explanations": [
+                    "Ocupa el centro y prepara el desarrollo.",
+                    "Impide la expansión blanca e iguala en el centro.",
+                    "Ofrece un peón lateral para desviar el peón central negro."
+                ]
+            },
+            "en": {
+                "name": "Queen's Gambit",
+                "description": "A temporary pawn sacrifice to control the center. Very solid and strategic.",
+                "explanations": [
+                    "Occupies the center and prepares development.",
+                    "Prevents white expansion and equalizes in the center.",
+                    "Offers a flank pawn to deflect the black center pawn."
+                ]
+            }
+        }
+    }
+]

@@ -1,0 +1,32 @@
+{
+  "name": "chessbitz.com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@nanostores/react": "^1.0.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.182.0",
+    "astro": "^5.16.15",
+    "canvas-confetti": "^1.9.4",
+    "chess.js": "^1.4.0",
+    "lucide-react": "^0.563.0",
+    "nanostores": "^1.1.0",
+    "react": "^19.2.3",
+    "react-chessboard": "^5.8.6",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.18",
+    "three": "^0.182.0"
+  }
+}
