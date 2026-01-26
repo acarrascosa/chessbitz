@@ -81,5 +81,4413 @@
                 ]
             }
         }
+    },
+    {
+        "eco": "C40",
+        "name": "Latvian Gambit",
+        "pgn": "1. e4 e5 2. Nf3 f5",
+        "fen": "rnbqkbnr/ppppp1pp/8/4Pp2/8/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Letón",
+                "description": "Considerada dubiosa pero muy táctica.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Latvian Gambit",
+                "description": "Considered dubious but very tactical.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 4
+    },
+    {
+        "eco": "A46",
+        "name": "Torre Attack",
+        "pgn": "1. d4 Nf6 2. Nf3 e6 3. Bg5",
+        "fen": "rnbqkb1r/pppp1ppp/4pn2/6B1/3P4/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3",
+        "content": {
+            "es": {
+                "name": "Ataque Torre",
+                "description": "Sistema sólido similar al Trompowsky pero menos agresivo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Torre Attack",
+                "description": "Solid system similar to Trompowsky but less aggressive.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 5
+    },
+    {
+        "eco": "C41",
+        "name": "Philidor Defense",
+        "pgn": "1. e4 e5 2. Nf3 d6",
+        "fen": "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Philidor",
+                "description": "Sólida pero algo pasiva, las negras protegen el centro con peones.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Philidor Defense",
+                "description": "Solid but slightly passive, Black protects the center with pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 6
+    },
+    {
+        "eco": "C26",
+        "name": "Vienna Game",
+        "pgn": "1. e4 e5 2. Nc3",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura Vienesa",
+                "description": "Las blancas desarrollan el caballo de dama primero para mantener la opción de f4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Vienna Game",
+                "description": "White develops the queenside knight first to keep the f4 option open.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 7
+    },
+    {
+        "eco": "A52",
+        "name": "Budapest Gambit",
+        "pgn": "1. d4 Nf6 2. c4 e5",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Budapest",
+                "description": "Sacrificio temporal para evitar líneas cerradas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Budapest Gambit",
+                "description": "Temporary sacrifice to avoid closed lines.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 8
+    },
+    {
+        "eco": "A80",
+        "name": "Dutch Defense",
+        "pgn": "1. d4 f5",
+        "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Holandesa",
+                "description": "Un contraataque agresivo en el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense",
+                "description": "An aggressive counter-attack on the kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 9
+    },
+    {
+        "eco": "D07",
+        "name": "Chigorin Defense",
+        "pgn": "1. d4 d5 2. c4 Nc6",
+        "fen": "r1bqkbnr/ppp1pppp/2n5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Chigorin",
+                "description": "Juego de piezas activo contra el centro blanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Chigorin Defense",
+                "description": "Active piece play against white center.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 10
+    },
+    {
+        "eco": "C50",
+        "name": "Italian Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+        "content": {
+            "es": {
+                "name": "Apertura Italiana",
+                "description": "Una apertura clásica y directa que busca controlar el centro rápidamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Italian Game",
+                "description": "A classic, direct opening aiming to control the center quickly.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 11
+    },
+    {
+        "eco": "C47",
+        "name": "Four Knights Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 4",
+        "content": {
+            "es": {
+                "name": "Apertura de los Cuatro Caballos",
+                "description": "Tranquila y posicional, lleva a juegos igualados.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Four Knights Game",
+                "description": "Quiet and positional, leads to balanced games.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 12
+    },
+    {
+        "eco": "D00",
+        "name": "Trompowsky Attack",
+        "pgn": "1. d4 Nf6 2. Bg5",
+        "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Ataque Trompowsky",
+                "description": "Agresiva y posicional, las blancas buscan desequilibrar la estructura de peones negra.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Trompowsky Attack",
+                "description": "Aggressive and positional, White looks to unbalance existing black pawn structure.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 13
+    },
+    {
+        "eco": "C21",
+        "name": "Center Game",
+        "pgn": "1. e4 e5 2. d4",
+        "fen": "rnbqkbnr/pppp1ppp/8/3Pp3/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Apertura del Centro",
+                "description": "Las blancas desafían el centro inmediatamente, liberando sus piezas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Center Game",
+                "description": "White challenges the center immediately, freeing their pieces.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 14
+    },
+    {
+        "eco": "A00",
+        "name": "Sokolsky Opening",
+        "pgn": "1. b4",
+        "fen": "rnbqkbnr/pppppppp/8/8/1P6/8/P1PPPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Sokolsky",
+                "description": "También llamada el Orangután, busca espacio en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sokolsky Opening",
+                "description": "Also called the Orangutan, seeks queenside space.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 15
+    },
+    {
+        "eco": "E20",
+        "name": "Nimzo-Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Defensa Nimzo-India",
+                "description": "Controla el centro con piezas, impidiendo e4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Nimzo-Indian Defense",
+                "description": "Controls the center with pieces, preventing e4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 16
+    },
+    {
+        "eco": "E97",
+        "name": "King's Indian: Classical",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2",
+        "fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP2BPPP/R1BQK2R b KQ - 1 6",
+        "content": {
+            "es": {
+                "name": "India de Rey: Clásica",
+                "description": "La línea principal de esta compleja apertura.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian: Classical",
+                "description": "The main line of this complex opening.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 17
+    },
+    {
+        "eco": "C44",
+        "name": "Ponziani Opening",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. c3",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Apertura Ponziani",
+                "description": "Busca construir un fuerte centro de peones con d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ponziani Opening",
+                "description": "Seeks to build a strong pawn center with d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 18
+    },
+    {
+        "eco": "D02",
+        "name": "London System",
+        "pgn": "1. d4 d5 2. Bf4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Sistema Londres",
+                "description": "Un sistema sólido y universal para las blancas, fácil de aprender.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "London System",
+                "description": "A solid, universal system for White, easy to learn.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 19
+    },
+    {
+        "eco": "A57",
+        "name": "Benko Gambit",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5 b5",
+        "fen": "rnbqkb1r/p2ppppp/5n2/1ppP4/2P5/8/PP2PPPP/RNBQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Gambito Benko",
+                "description": "Sacrificio posicional de peón por presión duradera en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Benko Gambit",
+                "description": "Positional pawn sacrifice for lasting queenside pressure.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 20
+    },
+    {
+        "eco": "C65",
+        "name": "Ruy Lopez: Berlin Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Muro de Berlín",
+                "description": "Famosa por su solidez de tablas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Berlin Defense",
+                "description": "Famous for its drawing solidity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 21
+    },
+    {
+        "eco": "C00",
+        "name": "French Defense",
+        "pgn": "1. e4 e6",
+        "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Francesa",
+                "description": "Sólida y contundente, las negras luchan por d5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense",
+                "description": "Solid and punchy, Black fights for d5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 22
+    },
+    {
+        "eco": "B70",
+        "name": "Sicilian Defense: Dragon",
+        "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6",
+        "fen": "rnbqkb1r/pp2pp1p/3p1n2/6p1/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Dragón",
+                "description": "Agresiva, con fianchetto del alfil de rey negro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Dragon",
+                "description": "Aggressive, featuring a kingside fianchetto for Black.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 23
+    },
+    {
+        "eco": "B07",
+        "name": "Pirc Defense",
+        "pgn": "1. e4 d6 2. d4 Nf6",
+        "fen": "rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3",
+        "content": {
+            "es": {
+                "name": "Defensa Pirc",
+                "description": "Las negras permiten a las blancas ocupar el centro para minarlo después.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Pirc Defense",
+                "description": "Black allows White to occupy the center to undermine it later.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 24
+    },
+    {
+        "eco": "C02",
+        "name": "French Defense: Advance",
+        "pgn": "1. e4 e6 2. d4 d5 3. e5",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante del Avance",
+                "description": "Cierra el centro y gana espacio.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Advance",
+                "description": "Closes the center and gains space.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 25
+    },
+    {
+        "eco": "B06",
+        "name": "Modern Defense",
+        "pgn": "1. e4 g6",
+        "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Moderna",
+                "description": "Hipermoderna, fianchettando el alfil de rey rápidamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Modern Defense",
+                "description": "Hypermodern, fianchettoing the king's bishop quickly.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 26
+    },
+    {
+        "eco": "A03",
+        "name": "Bird's Opening: From's Gambit",
+        "pgn": "1. f4 e5",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/5P2/8/PPPPP1PP/RNBQKBNR w KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Bird: Gambito From",
+                "description": "Las negras ofrecen un peón para debilitar al rey blanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bird's Opening: From's Gambit",
+                "description": "Black offers a pawn to weaken the White king.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 27
+    },
+    {
+        "eco": "D00",
+        "name": "Blackmar-Diemer Gambit",
+        "pgn": "1. d4 d5 2. e4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Gambito Blackmar-Diemer",
+                "description": "Muy peligroso a nivel de club, ataque directo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Blackmar-Diemer Gambit",
+                "description": "Very dangerous at club level, direct attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 28
+    },
+    {
+        "eco": "C55",
+        "name": "Two Knights Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/2b5/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 4",
+        "content": {
+            "es": {
+                "name": "Defensa de los Dos Caballos",
+                "description": "Un contraataque agresivo donde las negras ignoran la amenaza sobre e5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Two Knights Defense",
+                "description": "An aggressive counter-attack where Black ignores the threat on e5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 29
+    },
+    {
+        "eco": "C23",
+        "name": "Bishop's Opening",
+        "pgn": "1. e4 e5 2. Bc4",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura del Alfil",
+                "description": "Apunta al punto débil f7 desde el principio.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bishop's Opening",
+                "description": "Targets the weak f7 square from the start.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 30
+    },
+    {
+        "eco": "C45",
+        "name": "Scotch Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/3Pp3/4P3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Apertura Escocesa",
+                "description": "Las blancas abren el centro inmediatamente. Muy dinámica.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scotch Game",
+                "description": "White opens the center immediately. Very dynamic.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 31
+    },
+    {
+        "eco": "C20",
+        "name": "Alapin's Opening",
+        "pgn": "1. e4 e5 2. Ne2",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPNPPP/RNBQKB1R b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura Alapin",
+                "description": "Una rareza posicional preparando f4 o d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Alapin's Opening",
+                "description": "A positional oddity preparing f4 or d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 32
+    },
+    {
+        "eco": "D30",
+        "name": "Queen's Gambit Declined",
+        "pgn": "1. d4 d5 2. c4 e6",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Gambito de Dama Rehusado",
+                "description": "La forma clásica de rechazar el gambito, priorizando la solidez.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Gambit Declined",
+                "description": "The classic way to decline the gambit, prioritizing solidity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 33
+    },
+    {
+        "eco": "D04",
+        "name": "Colle System",
+        "pgn": "1. d4 d5 2. Nf3 Nf6 3. e3",
+        "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/4PN2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Sistema Colle",
+                "description": "Sólido y modesto, buscando un ataque posterior en el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Colle System",
+                "description": "Solid and modest, aiming for a later kingside attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 34
+    },
+    {
+        "eco": "A87",
+        "name": "Dutch Defense: Leningrad",
+        "pgn": "1. d4 f5 2. c4 Nf6 3. g3 g6",
+        "fen": "rnbqkb1r/ppppp2p/5np1/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Holandesa Leningrado",
+                "description": "Híbrido entre la Holandesa y la India de Rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense: Leningrad",
+                "description": "Hybrid between Dutch and King's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 35
+    },
+    {
+        "eco": "B10",
+        "name": "Caro-Kann Defense",
+        "pgn": "1. e4 c6",
+        "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Caro-Kann",
+                "description": "Extremadamente sólida, similar a la francesa pero con el alfil de casillas claras libre.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann Defense",
+                "description": "Extremely solid, similar to the French but with the light-squared bishop free.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 36
+    },
+    {
+        "eco": "C16",
+        "name": "French Defense: Winawer",
+        "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4",
+        "fen": "rnbqk1nr/ppp2ppp/4p3/3p4/1b1PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante Winawer",
+                "description": "Aguda y desequilibrada.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Winawer",
+                "description": "Sharp and unbalanced.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 37
+    },
+    {
+        "eco": "D08",
+        "name": "Albin Countergambit",
+        "pgn": "1. d4 d5 2. c4 e5",
+        "fen": "rnbqkbnr/ppp2ppp/8/3pp3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Contragambito Albin",
+                "description": "Respuesta agresiva al Gambito de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Albin Countergambit",
+                "description": "Aggressive response to the Queen's Gambit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 38
+    },
+    {
+        "eco": "C89",
+        "name": "Ruy Lopez: Marshall Attack",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O 8. c3 d5",
+        "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Ataque Marshall",
+                "description": "Un sacrificio de peón legendario por ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Marshall Attack",
+                "description": "A legendary pawn sacrifice for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 39
+    },
+    {
+        "eco": "B00",
+        "name": "Nimzowitsch Defense",
+        "pgn": "1. e4 Nc6",
+        "fen": "r1bqkbnr/pppppppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Nimzowitsch",
+                "description": "Una respuesta poco convencional que controla d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Nimzowitsch Defense",
+                "description": "An unconventional response controlling d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 40
+    },
+    {
+        "eco": "C68",
+        "name": "Ruy Lopez: Exchange",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6",
+        "fen": "r1bqkbnr/1ppp1ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Variante del Cambio",
+                "description": "Las blancas cambian el alfil para doblar peones negros.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Exchange",
+                "description": "White exchanges the bishop to double Black's pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 41
+    },
+    {
+        "eco": "A09",
+        "name": "Réti Opening: Advance",
+        "pgn": "1. Nf3 d5 2. c4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Apertura Réti: Gambito",
+                "description": "Ataca d5 desde el flanco inmediatamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Réti Opening: Advance",
+                "description": "Attacks d5 from the flank immediately.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 42
+    },
+    {
+        "eco": "C01",
+        "name": "French Defense: Exchange",
+        "pgn": "1. e4 e6 2. d4 d5 3. exd5",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante del Cambio",
+                "description": "Simétrica y abierta, a menudo lleva a tablas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Exchange",
+                "description": "Symmetrical and open, often leads to draws.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 43
+    },
+    {
+        "eco": "A04",
+        "name": "Réti Opening",
+        "pgn": "1. Nf3",
+        "fen": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",
+        "content": {
+            "es": {
+                "name": "Apertura Réti",
+                "description": "Hipermoderna, controlando el centro a distancia.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Réti Opening",
+                "description": "Hypermodern, controlling the center from a distance.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 44
+    },
+    {
+        "eco": "C24",
+        "name": "Bishop's Opening: Berlin",
+        "pgn": "1. e4 e5 2. Bc4 Nf6",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 2 3",
+        "content": {
+            "es": {
+                "name": "Apertura Alfil: Defensa Berlín",
+                "description": "Sólida respuesta desarrollando el caballo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bishop's Opening: Berlin",
+                "description": "Solid response developing the knight.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 45
+    },
+    {
+        "eco": "C51",
+        "name": "Evans Gambit",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4",
+        "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/1P2P3/5N2/P1PP1PPP/RNBQK2R b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Gambito Evans",
+                "description": "Sacrificio de peón para desviar el alfil y ganar tiempos.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Evans Gambit",
+                "description": "Pawn sacrifice to deflect the bishop and gain tempo.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 46
+    },
+    {
+        "eco": "B13",
+        "name": "Caro-Kann: Panov Attack",
+        "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4",
+        "fen": "rnbqkbnr/pp2pppp/8/3p4/2PP4/8/PP3PPP/RNBQKBNR b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Caro-Kann: Ataque Panov",
+                "description": "Las blancas aceptan un peón aislado por actividad.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann: Panov Attack",
+                "description": "White accepts an isolated pawn for activity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 47
+    },
+    {
+        "eco": "A00",
+        "name": "Grob's Attack",
+        "pgn": "1. g4",
+        "fen": "rnbqkbnr/pppppppp/8/8/6P1/8/PPPPPP1P/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Ataque Grob",
+                "description": "Muy agresiva y excéntrica, debilitando el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Grob's Attack",
+                "description": "Very aggressive and eccentric, weakening the kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 48
+    },
+    {
+        "eco": "E80",
+        "name": "King's Indian: Sämisch",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3",
+        "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N2P2/PP2B1PP/R1BQK1NR b KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "India de Rey: Variante Sämisch",
+                "description": "Sólida formación de peones blanca para ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian: Sämisch",
+                "description": "Solid white pawn formation for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 49
+    },
+    {
+        "eco": "C42",
+        "name": "Petrov's Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nf6",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+        "content": {
+            "es": {
+                "name": "Defensa Petrov",
+                "description": "Una defensa sólida y simétrica, ideal para tablas pero con veneno.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Petrov's Defense",
+                "description": "A solid, symmetrical defense, often used to draw but contains traps.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 50
+    },
+    {
+        "eco": "D15",
+        "name": "Slav Defense: Chebanenko",
+        "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 a6",
+        "fen": "rnbqkb1r/1p2pppp/p1p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Eslava Chebanenko",
+                "description": "Prepara b5 y desarrollo flexible.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Slav Defense: Chebanenko",
+                "description": "Prepares b5 and flexible development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 51
+    },
+    {
+        "eco": "D43",
+        "name": "Semi-Slav Defense",
+        "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6",
+        "fen": "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Defensa Semieslava",
+                "description": "Muy compleja, combina la Eslava y el Gambito de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Semi-Slav Defense",
+                "description": "Very complex, combines Slav and Queen's Gambit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 52
+    },
+    {
+        "eco": "C44",
+        "name": "Scotch Gambit",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/8/2BpP3/5N2/PPP2PPP/RNBQK2R b KQkq - 1 4",
+        "content": {
+            "es": {
+                "name": "Gambito Escocés",
+                "description": "Desarrollo rápido sacrificando el peón central.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scotch Gambit",
+                "description": "Rapid development sacrificing the central pawn.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 53
+    },
+    {
+        "eco": "C40",
+        "name": "Elephant Gambit",
+        "pgn": "1. e4 e5 2. Nf3 d5",
+        "fen": "rnbqkbnr/ppp2ppp/8/3pp3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Elefante",
+                "description": "Un contraataque inmediato en el centro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Elephant Gambit",
+                "description": "An immediate center counter-attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 54
+    },
+    {
+        "eco": "A07",
+        "name": "King's Indian Attack",
+        "pgn": "1. Nf3 d5 2. g3",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Ataque Indio de Rey",
+                "description": "Sistema flexibile donde las blancas juegan como una India de Rey con colores cambiados.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian Attack",
+                "description": "Flexible system where White plays like a reversed King's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 55
+    },
+    {
+        "eco": "A10",
+        "name": "English Opening",
+        "pgn": "1. c4",
+        "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Inglesa",
+                "description": "Controla d5 desde el flanco, a menudo transponiendo a líneas de d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English Opening",
+                "description": "Controls d5 from the flank, often transposing to d4 lines.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 56
+    },
+    {
+        "eco": "A90",
+        "name": "Dutch Defense: Stonewall",
+        "pgn": "1. d4 f5 2. c4 e6 3. g3 d5",
+        "fen": "rnbqkbnr/ppp3pp/4p3/3p1p2/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Holandesa Muro de Piedra",
+                "description": "Estructura de peones muy sólida controlando e4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense: Stonewall",
+                "description": "Very solid pawn structure controlling e4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 57
+    },
+    {
+        "eco": "E11",
+        "name": "Bogo-Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Defensa Bogo-India",
+                "description": "Una alternativa sólida a la India de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bogo-Indian Defense",
+                "description": "A solid alternative to the Queen's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 58
+    },
+    {
+        "eco": "C30",
+        "name": "King's Gambit",
+        "pgn": "1. e4 e5 2. f4",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito de Rey",
+                "description": "Romántica y arriesgada, las blancas sacrifican un peón por ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Gambit",
+                "description": "Romantic and risky, White sacrifices a pawn for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 59
+    },
+    {
+        "eco": "D20",
+        "name": "Queen's Gambit Accepted",
+        "pgn": "1. d4 d5 2. c4 dxc4",
+        "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Gambito de Dama Aceptado",
+                "description": "Las negras toman el peón para acelerar el desarrollo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Gambit Accepted",
+                "description": "Black takes the pawn to accelerate development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 60
+    },
+    {
+        "eco": "A20",
+        "name": "English: King's English",
+        "pgn": "1. c4 e5",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Inglesa: Variante Siciliana Invertida",
+                "description": "Las blancas juegan una siciliana con un tiempo extra.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English: King's English",
+                "description": "White plays a Sicilian with an extra tempo.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 61
+    },
+    {
+        "eco": "E12",
+        "name": "Queen's Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6",
+        "fen": "rnbqkb1r/p1pppppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Defensa India de Dama",
+                "description": "Controla las casillas blancas desde el flanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Indian Defense",
+                "description": "Controls light squares from the flank.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 62
+    },
+    {
+        "eco": "E60",
+        "name": "King's Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 g6",
+        "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa India de Rey",
+                "description": "Dinámica y compleja, las negras permiten un centro fuerte para atacarlo después.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian Defense",
+                "description": "Dynamic and complex, Black allows a strong center to attack it later.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 63
+    },
+    {
+        "eco": "B01",
+        "name": "Scandinavian Defense",
+        "pgn": "1. e4 d5",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Escandinava",
+                "description": "Desafía el centro inmediatamente, a menudo llevando a la reina al juego pronto.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scandinavian Defense",
+                "description": "Challenges the center immediately, often bringing the queen out early.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 64
+    },
+    {
+        "eco": "B09",
+        "name": "Pirc Defense: Austrian Attack",
+        "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4",
+        "fen": "rnbqkb1r/ppp1pp1p/3p1np1/8/3PPP2/2N5/PPP3PP/R1BQKBNR b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Pirc: Ataque Austriaco",
+                "description": "El intento más agresivo de refutar la Pirc.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Pirc Defense: Austrian Attack",
+                "description": "The most aggressive attempt to refute the Pirc.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 65
+    },
+    {
+        "eco": "D10",
+        "name": "Slav Defense",
+        "pgn": "1. d4 d5 2. c4 c6",
+        "fen": "rnbqkbnr/pp1ppppp/2p5/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Eslava",
+                "description": "Una de las respuestas más sólidas al Gambito de Dama. Soporta el centro sin bloquear el alfil.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Slav Defense",
+                "description": "One of the most solid responses to the Queen's Gambit. Supports the center without blocking the bishop.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 66
+    },
+    {
+        "eco": "A01",
+        "name": "Larsen's Opening",
+        "pgn": "1. b3",
+        "fen": "rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Larsen",
+                "description": "Desarrollo del alfil por fianchetto en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Larsen's Opening",
+                "description": "Queenside fianchetto development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 67
+    },
+    {
+        "eco": "B90",
+        "name": "Sicilian Defense: Najdorf",
+        "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6",
+        "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Najdorf",
+                "description": "La variante más popular y compleja de la Siciliana.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Najdorf",
+                "description": "The most popular and complex variation of the Sicilian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 68
+    },
+    {
+        "eco": "B02",
+        "name": "Alekhine's Defense",
+        "pgn": "1. e4 Nf6",
+        "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Alekhine",
+                "description": "Provoca a los peones blancos a avanzar para convertirlos en debilidades.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Alekhine's Defense",
+                "description": "Provokes white pawns to advance to turn them into weaknesses.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 69
+    },
+    {
+        "eco": "A40",
+        "name": "English Defense",
+        "pgn": "1. d4 e6 2. c4 b6",
+        "fen": "rnbqkbnr/p1pp1ppp/1p2p3/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Inglesa",
+                "description": "Una defensa hipermoderna permitiendo a las blancas tomar el centro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English Defense",
+                "description": "A hypermodern defense allowing White to take the center.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 70
+    },
+    {
+        "eco": "A60",
+        "name": "Benoni Defense",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5",
+        "fen": "rnbqkb1r/pp1ppppp/5n2/2pP4/2P5/8/PP2PPPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Benoni",
+                "description": "Crea un desequilibrio inmediato con mayorías de peones opuestas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Benoni Defense",
+                "description": "Creates immediate imbalance with opposite pawn majorities.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 71
+    },
+    {
+        "eco": "B12",
+        "name": "Caro-Kann: Advance",
+        "pgn": "1. e4 c6 2. d4 d5 3. e5",
+        "fen": "rnbqkbnr/pp2pppp/2p5/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Caro-Kann: Variante del Avance",
+                "description": "Similar a la francesa pero el alfil puede salir.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann: Advance",
+                "description": "Similar to French but the bishop can exit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 72
+    },
+    {
+        "eco": "A02",
+        "name": "Bird's Opening",
+        "pgn": "1. f4",
+        "fen": "rnbqkbnr/pppppppp/8/8/5P2/8/PPPPP1PP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Bird",
+                "description": "Agresiva y arriesgada, busca controlar e5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bird's Opening",
+                "description": "Aggressive and risky, seeks to control e5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 73
+    },
+    {
+        "eco": "A30",
+        "name": "English: Symmetrical",
+        "pgn": "1. c4 c5",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Inglesa Simétrica",
+                "description": "Las negras copian el plan de las blancas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English: Symmetrical",
+                "description": "Black copies White's plan.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 74
+    },
+    {
+        "eco": "D70",
+        "name": "Grunfeld Defense",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+        "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Defensa Grünfeld",
+                "description": "Las negras ceden el centro para atacarlo con piezas y peones.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Grunfeld Defense",
+                "description": "Black concedes the center to attack it with pieces and pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 75
+    },
+    {
+        "eco": "B34",
+        "name": "Sicilian: Accelerated Dragon",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6",
+        "fen": "r1bqkbnr/pp1ppp1p/2n3p1/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Siciliana: Dragón Acelerado",
+                "description": "Fianchetto rápido evitando el ataque Yugoslavo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian: Accelerated Dragon",
+                "description": "Fast fianchetto avoiding the Yugoslav Attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 76
+    },
+    {
+        "eco": "B23",
+        "name": "Sicilian Defense: Closed",
+        "pgn": "1. e4 c5 2. Nc3",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Siciliana Cerrada",
+                "description": "Las blancas evitan d4 abierto y juegan posicionalmente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Closed",
+                "description": "White avoids the open d4 and plays positionally.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 77
+    },
+    {
+        "eco": "B33",
+        "name": "Sicilian Defense: Sveshnikov",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e5",
+        "fen": "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Sveshnikov",
+                "description": "Dinámica y posicional, las negras aceptan una debilidad en d5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Sveshnikov",
+                "description": "Dynamic and positional, Black accepts a weakness on d5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 78
+    },
+    {
+        "eco": "B21",
+        "name": "Sicilian Defense: Grand Prix",
+        "pgn": "1. e4 c5 2. f4",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Siciliana Grand Prix",
+                "description": "Un ataque directo al flanco de rey negro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Grand Prix",
+                "description": "A direct attack on the black kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 79
+    },
+    {
+        "eco": "D00",
+        "name": "Trompowsky Attack",
+        "pgn": "1. d4 Nf6 2. Bg5",
+        "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Ataque Trompowsky",
+                "description": "Agresiva y posicional, las blancas buscan desequilibrar la estructura de peones negra.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Trompowsky Attack",
+                "description": "Aggressive and positional, White looks to unbalance existing black pawn structure.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 80
+    },
+    {
+        "eco": "C26",
+        "name": "Vienna Game",
+        "pgn": "1. e4 e5 2. Nc3",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura Vienesa",
+                "description": "Las blancas desarrollan el caballo de dama primero para mantener la opción de f4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Vienna Game",
+                "description": "White develops the queenside knight first to keep the f4 option open.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 81
+    },
+    {
+        "eco": "E12",
+        "name": "Queen's Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6",
+        "fen": "rnbqkb1r/p1pppppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Defensa India de Dama",
+                "description": "Controla las casillas blancas desde el flanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Indian Defense",
+                "description": "Controls light squares from the flank.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 82
+    },
+    {
+        "eco": "B12",
+        "name": "Caro-Kann: Advance",
+        "pgn": "1. e4 c6 2. d4 d5 3. e5",
+        "fen": "rnbqkbnr/pp2pppp/2p5/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Caro-Kann: Variante del Avance",
+                "description": "Similar a la francesa pero el alfil puede salir.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann: Advance",
+                "description": "Similar to French but the bishop can exit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 83
+    },
+    {
+        "eco": "D02",
+        "name": "London System",
+        "pgn": "1. d4 d5 2. Bf4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Sistema Londres",
+                "description": "Un sistema sólido y universal para las blancas, fácil de aprender.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "London System",
+                "description": "A solid, universal system for White, easy to learn.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 84
+    },
+    {
+        "eco": "A60",
+        "name": "Benoni Defense",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5",
+        "fen": "rnbqkb1r/pp1ppppp/5n2/2pP4/2P5/8/PP2PPPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Benoni",
+                "description": "Crea un desequilibrio inmediato con mayorías de peones opuestas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Benoni Defense",
+                "description": "Creates immediate imbalance with opposite pawn majorities.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 85
+    },
+    {
+        "eco": "A00",
+        "name": "Grob's Attack",
+        "pgn": "1. g4",
+        "fen": "rnbqkbnr/pppppppp/8/8/6P1/8/PPPPPP1P/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Ataque Grob",
+                "description": "Muy agresiva y excéntrica, debilitando el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Grob's Attack",
+                "description": "Very aggressive and eccentric, weakening the kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 86
+    },
+    {
+        "eco": "A01",
+        "name": "Larsen's Opening",
+        "pgn": "1. b3",
+        "fen": "rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Larsen",
+                "description": "Desarrollo del alfil por fianchetto en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Larsen's Opening",
+                "description": "Queenside fianchetto development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 87
+    },
+    {
+        "eco": "A80",
+        "name": "Dutch Defense",
+        "pgn": "1. d4 f5",
+        "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Holandesa",
+                "description": "Un contraataque agresivo en el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense",
+                "description": "An aggressive counter-attack on the kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 88
+    },
+    {
+        "eco": "D07",
+        "name": "Chigorin Defense",
+        "pgn": "1. d4 d5 2. c4 Nc6",
+        "fen": "r1bqkbnr/ppp1pppp/2n5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Chigorin",
+                "description": "Juego de piezas activo contra el centro blanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Chigorin Defense",
+                "description": "Active piece play against white center.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 89
+    },
+    {
+        "eco": "C16",
+        "name": "French Defense: Winawer",
+        "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4",
+        "fen": "rnbqk1nr/ppp2ppp/4p3/3p4/1b1PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante Winawer",
+                "description": "Aguda y desequilibrada.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Winawer",
+                "description": "Sharp and unbalanced.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 90
+    },
+    {
+        "eco": "C68",
+        "name": "Ruy Lopez: Exchange",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6",
+        "fen": "r1bqkbnr/1ppp1ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Variante del Cambio",
+                "description": "Las blancas cambian el alfil para doblar peones negros.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Exchange",
+                "description": "White exchanges the bishop to double Black's pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 91
+    },
+    {
+        "eco": "C44",
+        "name": "Scotch Gambit",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/8/2BpP3/5N2/PPP2PPP/RNBQK2R b KQkq - 1 4",
+        "content": {
+            "es": {
+                "name": "Gambito Escocés",
+                "description": "Desarrollo rápido sacrificando el peón central.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scotch Gambit",
+                "description": "Rapid development sacrificing the central pawn.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 92
+    },
+    {
+        "eco": "C55",
+        "name": "Two Knights Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/2b5/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 4",
+        "content": {
+            "es": {
+                "name": "Defensa de los Dos Caballos",
+                "description": "Un contraataque agresivo donde las negras ignoran la amenaza sobre e5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Two Knights Defense",
+                "description": "An aggressive counter-attack where Black ignores the threat on e5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 93
+    },
+    {
+        "eco": "B10",
+        "name": "Caro-Kann Defense",
+        "pgn": "1. e4 c6",
+        "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Caro-Kann",
+                "description": "Extremadamente sólida, similar a la francesa pero con el alfil de casillas claras libre.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann Defense",
+                "description": "Extremely solid, similar to the French but with the light-squared bishop free.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 94
+    },
+    {
+        "eco": "B06",
+        "name": "Modern Defense",
+        "pgn": "1. e4 g6",
+        "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Moderna",
+                "description": "Hipermoderna, fianchettando el alfil de rey rápidamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Modern Defense",
+                "description": "Hypermodern, fianchettoing the king's bishop quickly.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 95
+    },
+    {
+        "eco": "D04",
+        "name": "Colle System",
+        "pgn": "1. d4 d5 2. Nf3 Nf6 3. e3",
+        "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/4PN2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Sistema Colle",
+                "description": "Sólido y modesto, buscando un ataque posterior en el flanco de rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Colle System",
+                "description": "Solid and modest, aiming for a later kingside attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 96
+    },
+    {
+        "eco": "B33",
+        "name": "Sicilian Defense: Sveshnikov",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e5",
+        "fen": "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Sveshnikov",
+                "description": "Dinámica y posicional, las negras aceptan una debilidad en d5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Sveshnikov",
+                "description": "Dynamic and positional, Black accepts a weakness on d5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 97
+    },
+    {
+        "eco": "A52",
+        "name": "Budapest Gambit",
+        "pgn": "1. d4 Nf6 2. c4 e5",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Budapest",
+                "description": "Sacrificio temporal para evitar líneas cerradas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Budapest Gambit",
+                "description": "Temporary sacrifice to avoid closed lines.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 98
+    },
+    {
+        "eco": "C89",
+        "name": "Ruy Lopez: Marshall Attack",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O 8. c3 d5",
+        "fen": "r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Ataque Marshall",
+                "description": "Un sacrificio de peón legendario por ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Marshall Attack",
+                "description": "A legendary pawn sacrifice for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 99
+    },
+    {
+        "eco": "C47",
+        "name": "Four Knights Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 4",
+        "content": {
+            "es": {
+                "name": "Apertura de los Cuatro Caballos",
+                "description": "Tranquila y posicional, lleva a juegos igualados.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Four Knights Game",
+                "description": "Quiet and positional, leads to balanced games.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 100
+    },
+    {
+        "eco": "A57",
+        "name": "Benko Gambit",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5 b5",
+        "fen": "rnbqkb1r/p2ppppp/5n2/1ppP4/2P5/8/PP2PPPP/RNBQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Gambito Benko",
+                "description": "Sacrificio posicional de peón por presión duradera en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Benko Gambit",
+                "description": "Positional pawn sacrifice for lasting queenside pressure.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 101
+    },
+    {
+        "eco": "E60",
+        "name": "King's Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 g6",
+        "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa India de Rey",
+                "description": "Dinámica y compleja, las negras permiten un centro fuerte para atacarlo después.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian Defense",
+                "description": "Dynamic and complex, Black allows a strong center to attack it later.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 102
+    },
+    {
+        "eco": "A00",
+        "name": "Sokolsky Opening",
+        "pgn": "1. b4",
+        "fen": "rnbqkbnr/pppppppp/8/8/1P6/8/P1PPPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Sokolsky",
+                "description": "También llamada el Orangután, busca espacio en el flanco de dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sokolsky Opening",
+                "description": "Also called the Orangutan, seeks queenside space.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 103
+    },
+    {
+        "eco": "C23",
+        "name": "Bishop's Opening",
+        "pgn": "1. e4 e5 2. Bc4",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura del Alfil",
+                "description": "Apunta al punto débil f7 desde el principio.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bishop's Opening",
+                "description": "Targets the weak f7 square from the start.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 104
+    },
+    {
+        "eco": "D70",
+        "name": "Grunfeld Defense",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+        "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Defensa Grünfeld",
+                "description": "Las negras ceden el centro para atacarlo con piezas y peones.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Grunfeld Defense",
+                "description": "Black concedes the center to attack it with pieces and pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 105
+    },
+    {
+        "eco": "C45",
+        "name": "Scotch Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/3Pp3/4P3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Apertura Escocesa",
+                "description": "Las blancas abren el centro inmediatamente. Muy dinámica.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scotch Game",
+                "description": "White opens the center immediately. Very dynamic.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 106
+    },
+    {
+        "eco": "D08",
+        "name": "Albin Countergambit",
+        "pgn": "1. d4 d5 2. c4 e5",
+        "fen": "rnbqkbnr/ppp2ppp/8/3pp3/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Contragambito Albin",
+                "description": "Respuesta agresiva al Gambito de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Albin Countergambit",
+                "description": "Aggressive response to the Queen's Gambit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 107
+    },
+    {
+        "eco": "C50",
+        "name": "Italian Game",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+        "content": {
+            "es": {
+                "name": "Apertura Italiana",
+                "description": "Una apertura clásica y directa que busca controlar el centro rápidamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Italian Game",
+                "description": "A classic, direct opening aiming to control the center quickly.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 108
+    },
+    {
+        "eco": "B00",
+        "name": "Nimzowitsch Defense",
+        "pgn": "1. e4 Nc6",
+        "fen": "r1bqkbnr/pppppppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Nimzowitsch",
+                "description": "Una respuesta poco convencional que controla d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Nimzowitsch Defense",
+                "description": "An unconventional response controlling d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 109
+    },
+    {
+        "eco": "C44",
+        "name": "Ponziani Opening",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. c3",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2P2N2/PP1P1PPP/RNBQKB1R b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Apertura Ponziani",
+                "description": "Busca construir un fuerte centro de peones con d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ponziani Opening",
+                "description": "Seeks to build a strong pawn center with d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 110
+    },
+    {
+        "eco": "C65",
+        "name": "Ruy Lopez: Berlin Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6",
+        "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Ruy Lopez: Muro de Berlín",
+                "description": "Famosa por su solidez de tablas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Ruy Lopez: Berlin Defense",
+                "description": "Famous for its drawing solidity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 111
+    },
+    {
+        "eco": "B02",
+        "name": "Alekhine's Defense",
+        "pgn": "1. e4 Nf6",
+        "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Defensa Alekhine",
+                "description": "Provoca a los peones blancos a avanzar para convertirlos en debilidades.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Alekhine's Defense",
+                "description": "Provokes white pawns to advance to turn them into weaknesses.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 112
+    },
+    {
+        "eco": "C24",
+        "name": "Bishop's Opening: Berlin",
+        "pgn": "1. e4 e5 2. Bc4 Nf6",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 2 3",
+        "content": {
+            "es": {
+                "name": "Apertura Alfil: Defensa Berlín",
+                "description": "Sólida respuesta desarrollando el caballo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bishop's Opening: Berlin",
+                "description": "Solid response developing the knight.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 113
+    },
+    {
+        "eco": "A46",
+        "name": "Torre Attack",
+        "pgn": "1. d4 Nf6 2. Nf3 e6 3. Bg5",
+        "fen": "rnbqkb1r/pppp1ppp/4pn2/6B1/3P4/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3",
+        "content": {
+            "es": {
+                "name": "Ataque Torre",
+                "description": "Sistema sólido similar al Trompowsky pero menos agresivo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Torre Attack",
+                "description": "Solid system similar to Trompowsky but less aggressive.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 114
+    },
+    {
+        "eco": "A30",
+        "name": "English: Symmetrical",
+        "pgn": "1. c4 c5",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Inglesa Simétrica",
+                "description": "Las negras copian el plan de las blancas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English: Symmetrical",
+                "description": "Black copies White's plan.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 115
+    },
+    {
+        "eco": "D43",
+        "name": "Semi-Slav Defense",
+        "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6",
+        "fen": "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Defensa Semieslava",
+                "description": "Muy compleja, combina la Eslava y el Gambito de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Semi-Slav Defense",
+                "description": "Very complex, combines Slav and Queen's Gambit.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 116
+    },
+    {
+        "eco": "C40",
+        "name": "Latvian Gambit",
+        "pgn": "1. e4 e5 2. Nf3 f5",
+        "fen": "rnbqkbnr/ppppp1pp/8/4Pp2/8/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Letón",
+                "description": "Considerada dubiosa pero muy táctica.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Latvian Gambit",
+                "description": "Considered dubious but very tactical.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 117
+    },
+    {
+        "eco": "E11",
+        "name": "Bogo-Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Defensa Bogo-India",
+                "description": "Una alternativa sólida a la India de Dama.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bogo-Indian Defense",
+                "description": "A solid alternative to the Queen's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 118
+    },
+    {
+        "eco": "D15",
+        "name": "Slav Defense: Chebanenko",
+        "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 a6",
+        "fen": "rnbqkb1r/1p2pppp/p1p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Eslava Chebanenko",
+                "description": "Prepara b5 y desarrollo flexible.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Slav Defense: Chebanenko",
+                "description": "Prepares b5 and flexible development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 119
+    },
+    {
+        "eco": "C51",
+        "name": "Evans Gambit",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4",
+        "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/1P2P3/5N2/P1PP1PPP/RNBQK2R b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Gambito Evans",
+                "description": "Sacrificio de peón para desviar el alfil y ganar tiempos.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Evans Gambit",
+                "description": "Pawn sacrifice to deflect the bishop and gain tempo.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 120
+    },
+    {
+        "eco": "E97",
+        "name": "King's Indian: Classical",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2",
+        "fen": "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP2BPPP/R1BQK2R b KQ - 1 6",
+        "content": {
+            "es": {
+                "name": "India de Rey: Clásica",
+                "description": "La línea principal de esta compleja apertura.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian: Classical",
+                "description": "The main line of this complex opening.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 121
+    },
+    {
+        "eco": "C40",
+        "name": "Elephant Gambit",
+        "pgn": "1. e4 e5 2. Nf3 d5",
+        "fen": "rnbqkbnr/ppp2ppp/8/3pp3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito Elefante",
+                "description": "Un contraataque inmediato en el centro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Elephant Gambit",
+                "description": "An immediate center counter-attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 122
+    },
+    {
+        "eco": "A09",
+        "name": "Réti Opening: Advance",
+        "pgn": "1. Nf3 d5 2. c4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Apertura Réti: Gambito",
+                "description": "Ataca d5 desde el flanco inmediatamente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Réti Opening: Advance",
+                "description": "Attacks d5 from the flank immediately.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 123
+    },
+    {
+        "eco": "E80",
+        "name": "King's Indian: Sämisch",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3",
+        "fen": "rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N2P2/PP2B1PP/R1BQK1NR b KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "India de Rey: Variante Sämisch",
+                "description": "Sólida formación de peones blanca para ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian: Sämisch",
+                "description": "Solid white pawn formation for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 124
+    },
+    {
+        "eco": "B01",
+        "name": "Scandinavian Defense",
+        "pgn": "1. e4 d5",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Escandinava",
+                "description": "Desafía el centro inmediatamente, a menudo llevando a la reina al juego pronto.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Scandinavian Defense",
+                "description": "Challenges the center immediately, often bringing the queen out early.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 125
+    },
+    {
+        "eco": "B13",
+        "name": "Caro-Kann: Panov Attack",
+        "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4",
+        "fen": "rnbqkbnr/pp2pppp/8/3p4/2PP4/8/PP3PPP/RNBQKBNR b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Caro-Kann: Ataque Panov",
+                "description": "Las blancas aceptan un peón aislado por actividad.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Caro-Kann: Panov Attack",
+                "description": "White accepts an isolated pawn for activity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 126
+    },
+    {
+        "eco": "A87",
+        "name": "Dutch Defense: Leningrad",
+        "pgn": "1. d4 f5 2. c4 Nf6 3. g3 g6",
+        "fen": "rnbqkb1r/ppppp2p/5np1/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Holandesa Leningrado",
+                "description": "Híbrido entre la Holandesa y la India de Rey.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense: Leningrad",
+                "description": "Hybrid between Dutch and King's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 127
+    },
+    {
+        "eco": "D00",
+        "name": "Blackmar-Diemer Gambit",
+        "pgn": "1. d4 d5 2. e4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Gambito Blackmar-Diemer",
+                "description": "Muy peligroso a nivel de club, ataque directo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Blackmar-Diemer Gambit",
+                "description": "Very dangerous at club level, direct attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 128
+    },
+    {
+        "eco": "A07",
+        "name": "King's Indian Attack",
+        "pgn": "1. Nf3 d5 2. g3",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Ataque Indio de Rey",
+                "description": "Sistema flexibile donde las blancas juegan como una India de Rey con colores cambiados.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Indian Attack",
+                "description": "Flexible system where White plays like a reversed King's Indian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 129
+    },
+    {
+        "eco": "A04",
+        "name": "Réti Opening",
+        "pgn": "1. Nf3",
+        "fen": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",
+        "content": {
+            "es": {
+                "name": "Apertura Réti",
+                "description": "Hipermoderna, controlando el centro a distancia.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Réti Opening",
+                "description": "Hypermodern, controlling the center from a distance.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 130
+    },
+    {
+        "eco": "A20",
+        "name": "English: King's English",
+        "pgn": "1. c4 e5",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Inglesa: Variante Siciliana Invertida",
+                "description": "Las blancas juegan una siciliana con un tiempo extra.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English: King's English",
+                "description": "White plays a Sicilian with an extra tempo.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 131
+    },
+    {
+        "eco": "A90",
+        "name": "Dutch Defense: Stonewall",
+        "pgn": "1. d4 f5 2. c4 e6 3. g3 d5",
+        "fen": "rnbqkbnr/ppp3pp/4p3/3p1p2/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Holandesa Muro de Piedra",
+                "description": "Estructura de peones muy sólida controlando e4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Dutch Defense: Stonewall",
+                "description": "Very solid pawn structure controlling e4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 132
+    },
+    {
+        "eco": "C20",
+        "name": "Alapin's Opening",
+        "pgn": "1. e4 e5 2. Ne2",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPNPPP/RNBQKB1R b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Apertura Alapin",
+                "description": "Una rareza posicional preparando f4 o d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Alapin's Opening",
+                "description": "A positional oddity preparing f4 or d4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 133
+    },
+    {
+        "eco": "B70",
+        "name": "Sicilian Defense: Dragon",
+        "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6",
+        "fen": "rnbqkb1r/pp2pp1p/3p1n2/6p1/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Dragón",
+                "description": "Agresiva, con fianchetto del alfil de rey negro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Dragon",
+                "description": "Aggressive, featuring a kingside fianchetto for Black.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 134
+    },
+    {
+        "eco": "A02",
+        "name": "Bird's Opening",
+        "pgn": "1. f4",
+        "fen": "rnbqkbnr/pppppppp/8/8/5P2/8/PPPPP1PP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Bird",
+                "description": "Agresiva y arriesgada, busca controlar e5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bird's Opening",
+                "description": "Aggressive and risky, seeks to control e5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 135
+    },
+    {
+        "eco": "D30",
+        "name": "Queen's Gambit Declined",
+        "pgn": "1. d4 d5 2. c4 e6",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Gambito de Dama Rehusado",
+                "description": "La forma clásica de rechazar el gambito, priorizando la solidez.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Gambit Declined",
+                "description": "The classic way to decline the gambit, prioritizing solidity.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 136
+    },
+    {
+        "eco": "C21",
+        "name": "Center Game",
+        "pgn": "1. e4 e5 2. d4",
+        "fen": "rnbqkbnr/pppp1ppp/8/3Pp3/4P3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Apertura del Centro",
+                "description": "Las blancas desafían el centro inmediatamente, liberando sus piezas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Center Game",
+                "description": "White challenges the center immediately, freeing their pieces.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 137
+    },
+    {
+        "eco": "C30",
+        "name": "King's Gambit",
+        "pgn": "1. e4 e5 2. f4",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Gambito de Rey",
+                "description": "Romántica y arriesgada, las blancas sacrifican un peón por ataque.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "King's Gambit",
+                "description": "Romantic and risky, White sacrifices a pawn for attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 138
+    },
+    {
+        "eco": "C42",
+        "name": "Petrov's Defense",
+        "pgn": "1. e4 e5 2. Nf3 Nf6",
+        "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+        "content": {
+            "es": {
+                "name": "Defensa Petrov",
+                "description": "Una defensa sólida y simétrica, ideal para tablas pero con veneno.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Petrov's Defense",
+                "description": "A solid, symmetrical defense, often used to draw but contains traps.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 139
+    },
+    {
+        "eco": "E20",
+        "name": "Nimzo-Indian Defense",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+        "content": {
+            "es": {
+                "name": "Defensa Nimzo-India",
+                "description": "Controla el centro con piezas, impidiendo e4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Nimzo-Indian Defense",
+                "description": "Controls the center with pieces, preventing e4.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 140
+    },
+    {
+        "eco": "C41",
+        "name": "Philidor Defense",
+        "pgn": "1. e4 e5 2. Nf3 d6",
+        "fen": "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Philidor",
+                "description": "Sólida pero algo pasiva, las negras protegen el centro con peones.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Philidor Defense",
+                "description": "Solid but slightly passive, Black protects the center with pawns.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 141
+    },
+    {
+        "eco": "D20",
+        "name": "Queen's Gambit Accepted",
+        "pgn": "1. d4 d5 2. c4 dxc4",
+        "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Gambito de Dama Aceptado",
+                "description": "Las negras toman el peón para acelerar el desarrollo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Queen's Gambit Accepted",
+                "description": "Black takes the pawn to accelerate development.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 142
+    },
+    {
+        "eco": "A03",
+        "name": "Bird's Opening: From's Gambit",
+        "pgn": "1. f4 e5",
+        "fen": "rnbqkbnr/pppp1ppp/8/4p3/5P2/8/PPPPP1PP/RNBQKBNR w KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Bird: Gambito From",
+                "description": "Las negras ofrecen un peón para debilitar al rey blanco.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Bird's Opening: From's Gambit",
+                "description": "Black offers a pawn to weaken the White king.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 143
+    },
+    {
+        "eco": "C02",
+        "name": "French Defense: Advance",
+        "pgn": "1. e4 e6 2. d4 d5 3. e5",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante del Avance",
+                "description": "Cierra el centro y gana espacio.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Advance",
+                "description": "Closes the center and gains space.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 144
+    },
+    {
+        "eco": "A10",
+        "name": "English Opening",
+        "pgn": "1. c4",
+        "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+        "content": {
+            "es": {
+                "name": "Apertura Inglesa",
+                "description": "Controla d5 desde el flanco, a menudo transponiendo a líneas de d4.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English Opening",
+                "description": "Controls d5 from the flank, often transposing to d4 lines.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 145
+    },
+    {
+        "eco": "B34",
+        "name": "Sicilian: Accelerated Dragon",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6",
+        "fen": "r1bqkbnr/pp1ppp1p/2n3p1/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+        "content": {
+            "es": {
+                "name": "Siciliana: Dragón Acelerado",
+                "description": "Fianchetto rápido evitando el ataque Yugoslavo.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian: Accelerated Dragon",
+                "description": "Fast fianchetto avoiding the Yugoslav Attack.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 146
+    },
+    {
+        "eco": "A40",
+        "name": "English Defense",
+        "pgn": "1. d4 e6 2. c4 b6",
+        "fen": "rnbqkbnr/p1pp1ppp/1p2p3/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Inglesa",
+                "description": "Una defensa hipermoderna permitiendo a las blancas tomar el centro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "English Defense",
+                "description": "A hypermodern defense allowing White to take the center.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 147
+    },
+    {
+        "eco": "B21",
+        "name": "Sicilian Defense: Grand Prix",
+        "pgn": "1. e4 c5 2. f4",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Siciliana Grand Prix",
+                "description": "Un ataque directo al flanco de rey negro.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Grand Prix",
+                "description": "A direct attack on the black kingside.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 148
+    },
+    {
+        "eco": "C00",
+        "name": "French Defense",
+        "pgn": "1. e4 e6",
+        "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+        "content": {
+            "es": {
+                "name": "Defensa Francesa",
+                "description": "Sólida y contundente, las negras luchan por d5.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense",
+                "description": "Solid and punchy, Black fights for d5.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 149
+    },
+    {
+        "eco": "B23",
+        "name": "Sicilian Defense: Closed",
+        "pgn": "1. e4 c5 2. Nc3",
+        "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2",
+        "content": {
+            "es": {
+                "name": "Siciliana Cerrada",
+                "description": "Las blancas evitan d4 abierto y juegan posicionalmente.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Closed",
+                "description": "White avoids the open d4 and plays positionally.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 150
+    },
+    {
+        "eco": "B09",
+        "name": "Pirc Defense: Austrian Attack",
+        "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4",
+        "fen": "rnbqkb1r/ppp1pp1p/3p1np1/8/3PPP2/2N5/PPP3PP/R1BQKBNR b KQkq - 0 4",
+        "content": {
+            "es": {
+                "name": "Pirc: Ataque Austriaco",
+                "description": "El intento más agresivo de refutar la Pirc.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Pirc Defense: Austrian Attack",
+                "description": "The most aggressive attempt to refute the Pirc.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 151
+    },
+    {
+        "eco": "D10",
+        "name": "Slav Defense",
+        "pgn": "1. d4 d5 2. c4 c6",
+        "fen": "rnbqkbnr/pp1ppppp/2p5/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Defensa Eslava",
+                "description": "Una de las respuestas más sólidas al Gambito de Dama. Soporta el centro sin bloquear el alfil.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Slav Defense",
+                "description": "One of the most solid responses to the Queen's Gambit. Supports the center without blocking the bishop.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 152
+    },
+    {
+        "eco": "C01",
+        "name": "French Defense: Exchange",
+        "pgn": "1. e4 e6 2. d4 d5 3. exd5",
+        "fen": "rnbqkbnr/ppp2ppp/4p3/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3",
+        "content": {
+            "es": {
+                "name": "Francesa: Variante del Cambio",
+                "description": "Simétrica y abierta, a menudo lleva a tablas.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "French Defense: Exchange",
+                "description": "Symmetrical and open, often leads to draws.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 153
+    },
+    {
+        "eco": "B07",
+        "name": "Pirc Defense",
+        "pgn": "1. e4 d6 2. d4 Nf6",
+        "fen": "rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3",
+        "content": {
+            "es": {
+                "name": "Defensa Pirc",
+                "description": "Las negras permiten a las blancas ocupar el centro para minarlo después.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Pirc Defense",
+                "description": "Black allows White to occupy the center to undermine it later.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 154
+    },
+    {
+        "eco": "B90",
+        "name": "Sicilian Defense: Najdorf",
+        "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6",
+        "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+        "content": {
+            "es": {
+                "name": "Siciliana Najdorf",
+                "description": "La variante más popular y compleja de la Siciliana.",
+                "explanations": [
+                    "Desarrollo estándar.",
+                    "Control del centro.",
+                    "Una jugada clave.",
+                    "Prepara el enroque."
+                ]
+            },
+            "en": {
+                "name": "Sicilian Defense: Najdorf",
+                "description": "The most popular and complex variation of the Sicilian.",
+                "explanations": [
+                    "Standard development.",
+                    "Center control.",
+                    "A key move.",
+                    "Prepares castling."
+                ]
+            }
+        },
+        "id": 155
     }
 ]
