@@ -96,7 +96,7 @@ const Background3D = () => {
 
     return (
         <div className="fixed inset-0 -z-10 bg-stone-950">
-            <Canvas camera={{ position: [0, 0, 6], fov: 40 }} shadows dpr={[1, 2]}>
+            <Canvas camera={{ position: [0, 0, 6], fov: 40 }} shadows dpr={[1, 2]} eventSource={document.body} eventPrefix="client">
                 <BackgroundColor isDark={isDark} />
                 <ambientLight intensity={isDark ? 0.5 : 0.8} />
                 <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} intensity={2} castShadow color="#fbbf24" />

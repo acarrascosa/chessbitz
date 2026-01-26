@@ -26,7 +26,13 @@ export const ui = {
         legalCreditsTitle: 'Créditos y Licencias',
         legalCreditsText: 'Este proyecto utiliza recursos de código abierto y arte bajo licencias Creative Commons.',
         legal3DModelTitle: 'Modelo 3D',
-        legalBackHome: '← Volver al Inicio'
+        legalBackHome: '← Volver al Inicio',
+        // Phase 15 New UI
+        subtitle: 'Tu apertura diaria',
+        aboutTitle: 'Sobre el Proyecto',
+        aboutDesc: 'Este proyecto nace como una idea para mi portfolio de desarrollador, combinando mis pasiones por el ajedrez y la tecnología. Intenta resolver el problema de la parálisis por análisis ofreciendo una apertura al día para estudiar.',
+        techStack: 'Tecnologías utilizadas',
+        close: 'Cerrar'
     },
     en: {
         start: 'Start',
@@ -55,7 +61,13 @@ export const ui = {
         legalCreditsTitle: 'Credits & Licenses',
         legalCreditsText: 'This project uses open-source resources and art under Creative Commons licenses.',
         legal3DModelTitle: '3D Model',
-        legalBackHome: '← Back to Home'
+        legalBackHome: '← Back to Home',
+        // Phase 15 New UI
+        subtitle: 'Your Daily Opening',
+        aboutTitle: 'About the Project',
+        aboutDesc: 'This project was born as an idea for my developer portfolio, combining my passions for chess and technology. It tries to solve analysis paralysis by offering one opening per day to study.',
+        techStack: 'Tech Stack',
+        close: 'Close'
     }
 };
 

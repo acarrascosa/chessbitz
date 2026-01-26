@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Background3D from '../components/Background3D';
 import ThemeToggle from '../components/ThemeToggle';
+import AboutModal from '../components/AboutModal';
 import { ui, defaultLang } from '../i18n/ui';
 
 interface Props {
@@ -89,13 +90,24 @@ const t = ui[lang];
         <!-- UI Wrapper that gets hidden -->
         <div class="ui-wrapper flex flex-col min-h-screen transition-opacity duration-500 ease-in-out">
             <header class="w-full p-6 flex justify-between items-center z-10 max-w-7xl mx-auto">
-                <div class="flex items-center gap-3">
-                    <img src="/chessbitzlogo.webp" alt="Chessbitz Logo" class="w-10 h-10 object-contain drop-shadow-md" />
-                    <span class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-stone-600 dark:from-amber-400 dark:to-stone-200">
-                        Chessbitz
+                <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="/chessbitzlogo.webp" alt="Chessbitz Logo" class="w-10 h-10 object-contain drop-shadow-md" />
+                        <span class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-stone-600 dark:from-amber-400 dark:to-stone-200">
+                            Chessbitz
+                        </span>
+                    </div>
+                    {/* Subtitle / Separator */}
+                    <div className="hidden md:block h-6 w-px bg-stone-300 dark:bg-stone-700 mx-2"></div>
+                    <span className="text-sm font-medium text-stone-500 dark:text-stone-400 tracking-wide">
+                        {t.subtitle}
                     </span>
                 </div>
-                <ThemeToggle client:load />
+                
+                <div class="flex items-center gap-3">
+                    <AboutModal client:load lang={lang} />
+                    <ThemeToggle client:load />
+                </div>
             </header>
 
             <main class="flex-grow flex flex-col items-center justify-center p-4 z-10 w-full max-w-7xl mx-auto">
