@@ -18,11 +18,11 @@ export interface Opening {
   };
 }
 
-const LAUNCH_DATE = '2024-01-01';
+const LAUNCH_DATE = '2026-01-25';
 
 export function getDailyOpening(date: Date = new Date()): Opening {
   // Use a fixed launch date in UTC
-  const launchDate = new Date(Date.UTC(2024, 0, 1)); // Jan 1, 2024 UTC
+  const launchDate = new Date(Date.UTC(2026, 0, 25)); // Jan 25, 2026 UTC
 
   // Create a UTC date for "now" (ignoring time)
   // We grab the user's local year/month/date but pretend it's UTC

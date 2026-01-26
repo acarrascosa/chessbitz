@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom'; // Using react-dom directly for portal
 import { HelpCircle, X, Cpu, Code2, Box, Palette } from 'lucide-react';
 import { ui, defaultLang } from '../i18n/ui';
 
@@ -21,14 +22,14 @@ const AboutModal: React.FC<AboutModalProps> = ({ lang = defaultLang }) => {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className="p-2 rounded-lg bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-amber-100 dark:hover:bg-amber-900/30 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                className="p-2 rounded-full bg-stone-200/50 dark:bg-stone-800/50 hover:bg-stone-300 dark:hover:bg-stone-700 backdrop-blur-sm transition-colors border border-stone-300 dark:border-stone-600 text-stone-800 dark:text-amber-400 cursor-pointer"
                 title={t.aboutTitle}
             >
                 <HelpCircle size={20} />
             </button>
 
-            {isOpen && (
-                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+            {isOpen && typeof document !== 'undefined' && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     {/* Backdrop */}
                     <div
                         className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]"
@@ -84,7 +85,8 @@ const AboutModal: React.FC<AboutModalProps> = ({ lang = defaultLang }) => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </>
     );

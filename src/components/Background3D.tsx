@@ -42,14 +42,21 @@ const KingModel = ({ isDark }: { isDark: boolean }) => {
 
             // Mouse Parallax (Using pointer for better support)
             const { pointer } = state;
-            // Interpolate for smoothness
-            // x/y are normalized (-1 to 1)
-            meshRef.current.rotation.x += (pointer.y * 1.2 - meshRef.current.rotation.x) * 0.05;
-            meshRef.current.rotation.y += (pointer.x * 1.2 - meshRef.current.rotation.y) * 0.05;
 
-            // Positional parallax
-            meshRef.current.position.x = pointer.x * 0.8;
-            meshRef.current.position.y = -1 + pointer.y * 0.5;
+            // Subtler target values
+            const targetRotX = pointer.y * 0.8; // Was 1.2
+            const targetRotY = pointer.x * 0.8;
+
+            const targetPosX = pointer.x * 0.4; // Was 0.8
+            const targetPosY = -1 + pointer.y * 0.2; // Was 0.5
+
+            // Interpolate Rotation
+            meshRef.current.rotation.x += (targetRotX - meshRef.current.rotation.x) * 0.05;
+            meshRef.current.rotation.y += (targetRotY - meshRef.current.rotation.y) * 0.05;
+
+            // Interpolate Position (Smooth movement)
+            meshRef.current.position.x += (targetPosX - meshRef.current.position.x) * 0.05;
+            meshRef.current.position.y += (targetPosY - meshRef.current.position.y) * 0.05;
         }
     });
 
