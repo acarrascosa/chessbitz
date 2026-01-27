@@ -1,12 +1,13 @@
 ---
-import '../styles/global.css';
-import Background3D from '../components/Background3D';
-import ThemeToggle from '../components/ThemeToggle';
-import AboutModal from '../components/AboutModal';
-import { ui, defaultLang } from '../i18n/ui';
+import "../styles/global.css";
+import Background3D from "../components/Background3D";
+import ThemeToggle from "../components/ThemeToggle";
+import AboutModal from "../components/AboutModal";
+import Onboarding from "../components/Onboarding";
+import { ui, defaultLang } from "../i18n/ui";
 
 interface Props {
-	title: string;
+    title: string;
     lang?: keyof typeof ui;
 }
 
@@ -16,29 +17,33 @@ const t = ui[lang];
 
 <!doctype html>
 <html lang={lang} class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Chessbitz - Daily Chess Opening" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/webp" href="/chessbitzlogo.webp" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Chessbitz - Daily Chess Opening" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/webp" href="/chessbitzlogo.webp" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
         <script is:inline>
             // Avoid flash of wrong theme
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
+            if (
+                localStorage.theme === "dark" ||
+                (!("theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
             } else {
-                document.documentElement.classList.remove('dark')
+                document.documentElement.classList.remove("dark");
             }
 
             // Easter Egg
             console.log(
-                '%c Stop! Wait a minute... ',
-                'color: #f59e0b; font-size: 24px; font-weight: bold; background: #292524; padding: 10px; border-radius: 5px;'
+                "%c Stop! Wait a minute... ",
+                "color: #f59e0b; font-size: 24px; font-weight: bold; background: #292524; padding: 10px; border-radius: 5px;",
             );
             console.log(
-                '%cLooking for secrets? Here is a good one: https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                'color: #a8a29e; font-size: 14px;'
+                "%cLooking for secrets? Here is a good one: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "color: #a8a29e; font-size: 14px;",
             );
         </script>
         <style>
@@ -48,92 +53,159 @@ const t = ui[lang];
                 opacity: 0;
                 pointer-events: none;
             }
-            
+
             /* Hide the button itself when in Zen Mode so it's fully immersive */
             body.zen-mode #view-bg-btn {
                 opacity: 0;
                 pointer-events: none;
             }
         </style>
-	</head>
-	<body class="bg-stone-100 dark:bg-stone-900 text-stone-900 dark:text-stone-100 min-h-screen flex flex-col font-sans transition-colors duration-300 relative">
-		
+    </head>
+    <body
+        class="bg-stone-100 dark:bg-stone-900 text-stone-900 dark:text-stone-100 min-h-screen flex flex-col font-sans transition-colors duration-300 relative"
+    >
         <Background3D client:load />
 
+        <Onboarding client:load lang={lang} />
+
         <!-- View Background Trigger Button (Fixed Bottom Left) -->
-        <button id="view-bg-btn" class="fixed bottom-6 left-6 z-50 p-3 bg-stone-900/50 dark:bg-stone-100/20 backdrop-blur-md rounded-full text-white dark:text-stone-100 hover:scale-110 transition-transform shadow-lg group cursor-pointer border border-white/10 transition-opacity duration-500" aria-label="View Background">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-             <span class="absolute left-full ml-3 bg-black/70 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        <button
+            id="view-bg-btn"
+            class="hidden md:flex fixed bottom-6 left-6 z-50 p-3 bg-stone-900/50 dark:bg-stone-100/20 backdrop-blur-md rounded-full text-white dark:text-stone-100 hover:scale-110 transition-transform shadow-lg group cursor-pointer border border-white/10 transition-opacity duration-500"
+            aria-label="View Background"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
+                ></path><circle cx="12" cy="12" r="3"></circle></svg
+            >
+            <span
+                class="absolute left-full ml-3 bg-black/70 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+            >
                 {t.zenMode}
-             </span>
+            </span>
         </button>
 
         <script>
-            const btn = document.getElementById('view-bg-btn');
-            
+            const btn = document.getElementById("view-bg-btn");
+
             // Toggle Zen Mode on button click
             if (btn) {
-                btn.addEventListener('click', (e) => {
+                btn.addEventListener("click", (e) => {
                     e.stopPropagation(); // Prevent immediate closing
-                    document.body.classList.add('zen-mode');
+                    document.body.classList.add("zen-mode");
                 });
             }
 
             // Exit Zen Mode on any click elsewhere
-            document.addEventListener('click', () => {
-                if (document.body.classList.contains('zen-mode')) {
-                    document.body.classList.remove('zen-mode');
+            document.addEventListener("click", () => {
+                if (document.body.classList.contains("zen-mode")) {
+                    document.body.classList.remove("zen-mode");
                 }
             });
         </script>
 
         <!-- UI Wrapper that gets hidden -->
-        <div class="ui-wrapper flex flex-col min-h-screen transition-opacity duration-500 ease-in-out">
-            <header class="w-full p-6 flex justify-between items-center z-10 max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-                <div class="flex items-center gap-3">
-                    <img src="/chessbitzlogo.webp" alt="Chessbitz Logo" class="w-10 h-10 object-contain drop-shadow-md" />
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-stone-600 dark:from-amber-400 dark:to-stone-200 leading-none">
-                            Chessbitz
-                        </span>
-                        <span class="text-sm font-medium text-stone-500 dark:text-stone-400 tracking-wide mt-0.5">
-                            {t.subtitle}
-                        </span>
+        <div
+            class="ui-wrapper flex flex-col min-h-screen transition-opacity duration-500 ease-in-out"
+        >
+            <header
+                class="w-full p-6 flex justify-between items-center z-10 max-w-7xl mx-auto"
+            >
+                <div
+                    class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4"
+                >
+                    <div class="flex items-center gap-3">
+                        <img
+                            src="/chessbitzlogo.webp"
+                            alt="Chessbitz Logo"
+                            class="w-10 h-10 object-contain drop-shadow-md"
+                        />
+                        <div class="flex flex-col">
+                            <span
+                                class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-stone-600 dark:from-amber-400 dark:to-stone-200 leading-none"
+                            >
+                                Chessbitz
+                            </span>
+                            <span
+                                class="text-sm font-medium text-stone-500 dark:text-stone-400 tracking-wide mt-0.5"
+                            >
+                                {t.subtitle}
+                            </span>
+                        </div>
                     </div>
                 </div>
-                </div>
-                
+
                 <div class="flex items-center gap-3">
                     <AboutModal client:load lang={lang} />
                     <ThemeToggle client:load />
                 </div>
             </header>
 
-            <main class="flex-grow flex flex-col items-center justify-center p-4 z-10 w-full max-w-7xl mx-auto">
-                <div class="w-full bg-white/30 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-2xl rounded-3xl p-6 md:p-12 overflow-hidden relative">
+            <main
+                class="flex-grow flex flex-col items-center justify-center p-4 z-10 w-full max-w-7xl mx-auto"
+            >
+                <div
+                    class="w-full bg-white/30 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-2xl rounded-3xl p-6 md:p-12 overflow-hidden relative"
+                >
                     <!-- Glassmorphism Container Content -->
                     <slot />
                 </div>
             </main>
 
-            <footer class="w-full p-6 text-center z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-600 dark:text-stone-400">
+            <footer
+                class="w-full p-6 text-center z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-600 dark:text-stone-400"
+            >
                 <div>
-                    {t.developedBy} <a href="https://www.linkedin.com/in/acarrascosa/" target="_blank" class="hover:text-stone-900 dark:hover:text-stone-200 underline">acarrascosa</a>
+                    {t.developedBy}
+                    <a
+                        href="https://www.linkedin.com/in/acarrascosa/"
+                        target="_blank"
+                        class="hover:text-stone-900 dark:hover:text-stone-200 underline"
+                        >acarrascosa</a
+                    >
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="/legal" class="hover:text-stone-900 dark:hover:text-stone-200 underline transition-colors">
+                    <a
+                        href="/legal"
+                        class="hover:text-stone-900 dark:hover:text-stone-200 underline transition-colors"
+                    >
                         {t.legal}
                     </a>
-                    <a href="https://buymeacoffee.com/acarrascosa" target="_blank" rel="noopener noreferrer" 
-                    class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-full font-bold shadow-lg transition-transform hover:scale-105"
+                    <a
+                        href="https://buymeacoffee.com/acarrascosa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-full font-bold shadow-lg transition-transform hover:scale-105"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-coffee"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4h-1.12"/></svg>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-coffee"
+                            ><path d="M10 2v2"></path><path d="M14 2v2"
+                            ></path><path
+                                d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4h-1.12"
+                            ></path></svg
+                        >
                         {t.buyMeCoffee}
                     </a>
                 </div>
             </footer>
         </div>
-
-	</body>
+    </body>
 </html>

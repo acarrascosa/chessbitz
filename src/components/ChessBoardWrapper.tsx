@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Chess } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import { ChevronLeft, ChevronRight, Info, Share2, Copy, Check } from 'lucide-react';
@@ -130,9 +131,10 @@ const ChessBoardWrapper: React.FC<ChessBoardWrapperProps> = ({ pgn, orientation 
     return (
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-center w-full relative">
 
-            {/* Celebration Modal Overlay */}
-            {showShareModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+
+            {/* Celebration Modal Overlay - Portal to Body */}
+            {showShareModal && typeof document !== 'undefined' && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowShareModal(false)} />
                     <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-2xl p-8 max-w-sm w-full relative z-10 border border-stone-200 dark:border-stone-700 animate-[fadeIn_0.5s_ease-out]">
                         <button onClick={() => setShowShareModal(false)} className="absolute top-4 right-4 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200">
@@ -188,7 +190,8 @@ const ChessBoardWrapper: React.FC<ChessBoardWrapperProps> = ({ pgn, orientation 
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
 
             {/* Board & Controls Container */}
