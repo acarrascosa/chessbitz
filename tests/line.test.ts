@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { START_FEN, fenAt, pairMoves, parseLine } from '../src/lib/line';
+import { START_FEN, fenAt, moveLabel, pairMoves, parseLine } from '../src/lib/line';
 
 const RUY_LOPEZ = '1. e4 e5 2. Nf3 Nc6 3. Bb5';
 
@@ -36,5 +36,12 @@ describe('pairMoves', () => {
             [2, 'Nf3', 'Nc6'],
             [3, 'Bb5', undefined],
         ]);
+    });
+});
+
+describe('moveLabel', () => {
+    it('numbers white and black moves', () => {
+        const plies = parseLine('1. e4 e5 2. Nf3');
+        expect(plies.map(moveLabel)).toEqual(['1. e4', '1... e5', '2. Nf3']);
     });
 });

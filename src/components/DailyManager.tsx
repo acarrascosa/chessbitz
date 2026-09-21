@@ -37,14 +37,14 @@ const DailyManager: React.FC<DailyManagerProps> = ({ count, lang = defaultLang }
     }, [slot.index]);
 
     if (load.status === 'error') {
-        return <p role="alert" className="py-24 text-center text-stone-600 dark:text-stone-400">{t.loadError}</p>;
+        return <p role="alert" className="py-24 text-center text-ink-muted">{t.loadError}</p>;
     }
     if (load.status === 'loading') {
         return (
             <div className="w-full flex flex-col items-center gap-6 py-6 animate-pulse" aria-busy="true" aria-label={t.loading}>
-                <div className="h-4 w-40 rounded bg-stone-300/60 dark:bg-stone-700/60" />
-                <div className="h-10 w-2/3 max-w-md rounded bg-stone-300/60 dark:bg-stone-700/60" />
-                <div className="w-full max-w-[450px] aspect-square rounded bg-stone-300/60 dark:bg-stone-700/60" />
+                <div className="h-4 w-40 rounded bg-surface-2" />
+                <div className="h-10 w-2/3 max-w-md rounded bg-surface-2" />
+                <div className="w-full max-w-[450px] aspect-square rounded bg-surface-2" />
             </div>
         );
     }

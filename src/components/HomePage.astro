@@ -1,0 +1,16 @@
+---
+import DailyManager from './DailyManager';
+import Layout from '../layouts/Layout.astro';
+import { scheduledOpenings } from '../lib/catalog';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout lang={lang} page="home">
+    <DailyManager client:only="react" count={scheduledOpenings.length} lang={lang} />
+</Layout>

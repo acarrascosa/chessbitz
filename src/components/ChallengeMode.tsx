@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Chess, type Square } from 'chess.js';
 import { Info, Lightbulb } from 'lucide-react';
 import Board, { type SquareStyles } from './Board';
-import { fenAt, pairMoves, type Ply } from '../lib/line';
+import { fenAt, moveLabel, pairMoves, type Ply } from '../lib/line';
 import {
     MAX_HINT_LEVEL, MAX_MISTAKES, isPlayerTurn, judgeAttempt,
     type ChallengeAction, type ChallengeState, type PlyResult,
@@ -24,18 +24,20 @@ type Feedback = { kind: 'correct' | 'wrong'; square: Square };
 const OPPONENT_DELAY_MS = 600;
 const FEEDBACK_MS = 700;
 
+/** Square highlights are drawn as overlays so the wood colour stays visible underneath. */
+const overlay = (color: string): React.CSSProperties => ({ boxShadow: `inset 0 0 0 100vmax ${color}` });
 const STYLE = {
-    selected: { backgroundColor: 'rgba(245, 158, 11, 0.6)' },
-    target: { background: 'radial-gradient(circle, rgba(28, 25, 23, 0.35) 22%, transparent 24%)' },
-    hint: { boxShadow: 'inset 0 0 0 4px rgba(59, 130, 246, 0.85)' },
-    correct: { backgroundColor: 'rgba(34, 197, 94, 0.6)' },
-    wrong: { backgroundColor: 'rgba(239, 68, 68, 0.65)' },
+    selected: overlay('rgba(214, 170, 60, 0.55)'),
+    target: { backgroundImage: 'radial-gradient(circle, rgba(31, 40, 35, 0.38) 21%, transparent 23%)' },
+    hint: { outline: '4px solid rgba(47, 111, 143, 0.9)', outlineOffset: '-4px' },
+    correct: overlay('rgba(47, 125, 79, 0.55)'),
+    wrong: overlay('rgba(179, 67, 47, 0.6)'),
 } satisfies Record<string, React.CSSProperties>;
 
 const RESULT_DOT: Record<PlyResult, string> = {
-    perfect: 'bg-green-500',
-    assisted: 'bg-amber-400',
-    revealed: 'bg-red-500',
+    perfect: 'bg-good',
+    assisted: 'bg-warn',
+    revealed: 'bg-bad',
 };
 
 function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
@@ -98,7 +100,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
     if (feedback) squareStyles[feedback.square] = STYLE[feedback.kind];
 
     const arrows = playerTurn && target && state.hintLevel >= MAX_HINT_LEVEL
-        ? [{ startSquare: target.from, endSquare: target.to, color: 'rgba(59, 130, 246, 0.85)' }]
+        ? [{ startSquare: target.from, endSquare: target.to, color: 'rgba(47, 111, 143, 0.9)' }]
         : [];
 
     const hintLines = target ? [
@@ -110,13 +112,15 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
     const statusText = feedback?.kind === 'wrong' ? t.wrongMove
         : feedback?.kind === 'correct' ? t.correctMove
             : playerTurn ? t.yourTurn : t.opponentTurn;
+    const statusColor = feedback?.kind === 'wrong' ? 'text-bad' : feedback?.kind === 'correct' ? 'text-good' : 'text-ink';
 
     const renderPly = (ply?: Ply) => {
         if (!ply) return <span />;
         const played = ply.index < state.cursor;
         const outcome = state.results[ply.index];
+        const isLast = ply.index === state.cursor - 1;
         return (
-            <span className={`flex items-center gap-1.5 px-2 py-1 rounded font-medium ${ply.index === state.cursor - 1 ? 'bg-amber-500/20' : ''} ${played ? 'text-stone-800 dark:text-stone-200' : 'text-stone-400 dark:text-stone-600'}`}>
+            <span className={`flex items-center gap-1.5 px-2 py-1 rounded-md font-medium tabular-nums ${isLast ? 'bg-accent-soft' : ''} ${played ? 'text-ink' : 'text-ink-muted/50'}`}>
                 {outcome && <span className={`w-2 h-2 rounded-full ${RESULT_DOT[outcome]}`} aria-hidden="true" />}
                 {played ? ply.san : '···'}
             </span>
@@ -124,9 +128,9 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
     };
 
     return (
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start justify-center w-full">
-            <div className="flex flex-col items-center gap-4 w-full lg:w-auto flex-shrink-0">
-                <div className={`w-full max-w-[450px] lg:w-[450px] aspect-square shadow-2xl rounded-sm overflow-hidden border-4 border-stone-800/80 dark:border-stone-900/50 ${feedback?.kind === 'wrong' ? 'animate-[shake_0.3s_ease-in-out]' : ''}`}>
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start justify-center w-full">
+            <div className={`board-frame w-full max-w-[480px] lg:w-[480px] shrink-0 ${feedback?.kind === 'wrong' ? 'animate-[shake_0.3s_ease-in-out]' : ''}`}>
+                <div className="aspect-square">
                     <Board
                         id="challenge"
                         fen={fen}
@@ -141,55 +145,51 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
                 </div>
             </div>
 
-            <div className="w-full lg:w-80 flex flex-col gap-4">
+            <div className="w-full max-w-[480px] lg:w-[22rem] flex flex-col">
                 {result ?? (
-                    <div className="bg-stone-100/80 dark:bg-stone-900/80 rounded-xl shadow-xl border border-stone-300 dark:border-stone-700 overflow-hidden flex flex-col lg:h-[500px]">
-                        <div className="bg-stone-200 dark:bg-stone-800 p-4 border-b border-stone-300 dark:border-stone-700 flex items-center justify-between gap-2">
-                            <span className="text-stone-800 dark:text-stone-100 font-bold text-sm uppercase tracking-wider">
+                    <div className="card overflow-hidden flex flex-col lg:min-h-[496px] animate-rise">
+                        <div className="px-5 py-4 bg-surface-2 border-b border-line flex items-center justify-between gap-2">
+                            <span className="eyebrow">
                                 {t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
                             </span>
-                            <span className="flex items-center gap-1" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
+                            <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
                                 {Array.from({ length: MAX_MISTAKES }, (_, i) => (
-                                    <span key={i} className={`w-2.5 h-2.5 rounded-full ${i < state.mistakes ? 'bg-red-500' : 'bg-stone-400/50 dark:bg-stone-600'}`} />
+                                    <span key={i} className={`w-2.5 h-2.5 rounded-full transition-colors ${i < state.mistakes ? 'bg-bad' : 'bg-line'}`} />
                                 ))}
                             </span>
                         </div>
 
-                        <div className="p-4 border-b border-stone-300 dark:border-stone-700 space-y-3">
-                            <p aria-live="polite" className={`text-sm font-semibold ${feedback?.kind === 'wrong' ? 'text-red-600 dark:text-red-400' : feedback?.kind === 'correct' ? 'text-green-700 dark:text-green-400' : 'text-stone-700 dark:text-stone-300'}`}>
-                                {statusText}
-                            </p>
+                        <div className="p-5 border-b border-line space-y-3">
+                            <p aria-live="polite" className={`font-semibold ${statusColor}`}>{statusText}</p>
                             <button
                                 onClick={() => dispatch({ type: 'hint' })}
                                 disabled={!playerTurn || state.hintLevel >= MAX_HINT_LEVEL}
-                                className="w-full flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-semibold bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 disabled:opacity-40 transition-colors"
+                                className="btn btn-quiet w-full py-2 text-sm"
                             >
                                 <Lightbulb size={16} aria-hidden="true" />
-                                {t.hint} ({state.hintLevel}/{MAX_HINT_LEVEL})
+                                {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
                             </button>
-                            <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1 min-h-[4.25rem]" aria-live="polite">
+                            <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
                                 {hintLines.map(line => <li key={line}>{line}</li>)}
                             </ul>
                         </div>
 
-                        <ol className="flex-grow overflow-y-auto p-2 text-sm" aria-label={t.progress}>
+                        <ol className="flex-grow overflow-y-auto px-3 py-2 text-sm max-h-64 lg:max-h-none" aria-label={t.progress}>
                             {moveList.map(pair => (
-                                <li key={pair.number} className="grid grid-cols-[2.5rem_1fr_1fr] items-center gap-1 py-0.5">
-                                    <span className="px-2 text-stone-500 font-mono">{pair.number}.</span>
+                                <li key={pair.number} className="grid grid-cols-[2.25rem_1fr_1fr] items-center gap-1 py-0.5">
+                                    <span className="px-2 text-ink-muted tabular-nums">{pair.number}.</span>
                                     {renderPly(pair.white)}
                                     {renderPly(pair.black)}
                                 </li>
                             ))}
                         </ol>
 
-                        <div className="bg-stone-200/50 dark:bg-stone-800/50 border-t border-stone-300 dark:border-stone-700 p-4">
-                            <div className="flex items-center gap-2 mb-2 text-amber-600 dark:text-amber-400">
-                                <Info size={16} aria-hidden="true" />
-                                <span className="text-xs font-bold uppercase tracking-wider">
-                                    {t.analysis}{lastPly && ` · ${Math.floor(lastPly.index / 2) + 1}${lastPly.color === 'w' ? '.' : '...'} ${lastPly.san}`}
-                                </span>
+                        <div className="bg-surface-2 border-t border-line p-5">
+                            <div className="flex items-center gap-2 mb-2 eyebrow">
+                                <Info size={14} aria-hidden="true" />
+                                {t.analysis}{lastPly && <span className="normal-case tracking-normal"> · {moveLabel(lastPly)}</span>}
                             </div>
-                            <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed italic min-h-[2.5rem]">
+                            <p className="text-sm text-ink leading-relaxed min-h-[2.5rem]">
                                 {lastPly ? explanations[lastPly.index] : '—'}
                             </p>
                         </div>

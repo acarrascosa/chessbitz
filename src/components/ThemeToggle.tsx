@@ -8,27 +8,19 @@ const ThemeToggle = ({ lang = defaultLang }: { lang?: Lang }) => {
     const theme = useStore(themeStore);
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+    useEffect(() => setMounted(true), []);
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        themeStore.set(newTheme);
-    };
-
-    if (!mounted) {
-        return <div className="p-2 w-9 h-9" />; // Placeholder to avoid hydration mismatch
-    }
+    // Placeholder with the same size to avoid layout shift before hydration.
+    if (!mounted) return <span className="icon-btn" aria-hidden="true" />;
 
     return (
         <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-stone-200/50 dark:bg-stone-800/50 hover:bg-stone-300 dark:hover:bg-stone-700 backdrop-blur-sm transition-colors border border-stone-300 dark:border-stone-600 text-stone-800 dark:text-amber-400 cursor-pointer"
+            onClick={() => themeStore.set(theme === 'light' ? 'dark' : 'light')}
+            className="icon-btn"
             aria-label={ui[lang].toggleTheme}
             title={ui[lang].toggleTheme}
         >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
         </button>
     );
 };

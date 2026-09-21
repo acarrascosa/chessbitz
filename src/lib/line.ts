@@ -38,6 +38,11 @@ export function fenAt(plies: Ply[], plyIndex: number): string {
     return plyIndex < 0 ? START_FEN : (plies[plyIndex]?.fen ?? START_FEN);
 }
 
+/** Human-readable move number and SAN, e.g. "3. Bb5" or "3... a6". */
+export function moveLabel(ply: Ply): string {
+    return `${Math.floor(ply.index / 2) + 1}${ply.color === 'w' ? '.' : '...'} ${ply.san}`;
+}
+
 /** Groups plies into numbered rows ("1. e4 e5") for move lists. */
 export function pairMoves(plies: Ply[]): MovePair[] {
     const pairs: MovePair[] = [];

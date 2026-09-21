@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ui, homePath, type Lang } from '../i18n/ui';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+---
+
+<Layout title={t.legal} lang={lang} page="legal">
+    <article class="card max-w-3xl mx-auto p-6 md:p-10 space-y-8 leading-relaxed">
+        <h1 class="font-display text-3xl md:text-4xl font-semibold">{t.legalPageTitle}</h1>
+
+        <section class="space-y-3">
+            <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalAboutTitle}</h2>
+            <p set:html={t.legalAboutText1} />
+            <p>{t.legalAboutText2}</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalPrivacyTitle}</h2>
+            <p set:html={t.legalPrivacyText} />
+            <ul class="list-disc pl-5 space-y-2">
+                <li set:html={t.legalLocalStorage} />
+                <li set:html={t.legalAnonymousStats} />
+            </ul>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalCreditsTitle}</h2>
+            <p>{t.legalCreditsText}</p>
+            <div class="bg-surface-2 p-4 rounded-lg border-l-4 border-accent">
+                <h3 class="eyebrow mb-2">{t.legal3DModelTitle}</h3>
+                <p class="text-sm">
+                    "chess king" (<a href="https://skfb.ly/pqzuU" target="_blank" rel="noopener noreferrer" class="underline hover:text-accent">skfb.ly/pqzuU</a>)
+                    by <strong>Amresh08_x_y_z</strong>,
+                    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>.
+                </p>
+            </div>
+        </section>
+
+        <a href={homePath(lang)} class="inline-flex font-semibold text-accent hover:underline">{t.legalBackHome}</a>
+    </article>
+</Layout>

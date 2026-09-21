@@ -21,7 +21,7 @@ type Mode = 'challenge' | 'study';
 function celebrate() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const end = Date.now() + 2500;
-    const colors = ['#f59e0b', '#fbbf24', '#ffffff'];
+    const colors = ['#d4b37a', '#1f4435', '#f4efe4'];
     (function frame() {
         confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors });
         confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors });
@@ -69,24 +69,24 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
 
     const tabClass = (active: boolean) =>
         `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-colors ${active
-            ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow'
-            : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100'}`;
+            ? 'bg-surface text-ink shadow-sm'
+            : 'text-ink-muted hover:text-ink'}`;
 
     return (
         <div className="w-full flex flex-col items-center">
-            <header className="text-center space-y-3 mb-6">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400">
+            <header className="text-center space-y-3 mb-8 animate-rise">
+                <p className="eyebrow">
                     {t.challengeNumber.replace('{n}', String(day + 1))} · {opening.eco}
                 </p>
-                <h1 className="text-3xl md:text-5xl font-black tracking-tight text-stone-800 dark:text-stone-100 drop-shadow-sm">
+                <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-balance">
                     {content.name}
                 </h1>
-                <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-2xl mx-auto leading-relaxed border-l-4 border-amber-500 pl-4 py-1 bg-stone-400/10 dark:bg-stone-800/20 italic">
+                <p className="font-display italic text-lg md:text-xl text-ink-muted max-w-2xl mx-auto text-balance">
                     {content.description}
                 </p>
             </header>
 
-            <div role="tablist" className="flex gap-1 p-1 mb-6 rounded-full bg-stone-200/70 dark:bg-stone-800/70 border border-stone-300 dark:border-stone-700">
+            <div role="tablist" className="inline-flex gap-1 p-1 mb-8 rounded-full bg-surface-2 border border-line">
                 <button role="tab" aria-selected={mode === 'challenge'} onClick={() => setMode('challenge')} className={tabClass(mode === 'challenge')}>
                     <Swords size={16} aria-hidden="true" /> {t.modeChallenge}
                 </button>
@@ -127,16 +127,16 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
                     orientation={orientation}
                     explanations={content.moves}
                     lang={lang}
-                    initialPly={finished ? plies.length - 1 : undefined}
+                    initialPly={plies.length - 1}
                 />
             )}
 
             {finished && (
-                <section className="w-full max-w-4xl mt-8 bg-stone-100/80 dark:bg-stone-900/80 rounded-xl border border-stone-300 dark:border-stone-700 p-5">
-                    <h2 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-2">
-                        <Lightbulb size={16} aria-hidden="true" /> {t.planTitle}
+                <section className="card w-full max-w-[480px] lg:max-w-[calc(480px+22rem+2.5rem)] mt-8 p-6 animate-rise">
+                    <h2 className="flex items-center gap-2 eyebrow mb-3">
+                        <Lightbulb size={14} aria-hidden="true" /> {t.planTitle}
                     </h2>
-                    <p className="text-stone-700 dark:text-stone-300 leading-relaxed">{content.idea}</p>
+                    <p className="font-display text-lg leading-relaxed">{content.idea}</p>
                 </section>
             )}
         </div>

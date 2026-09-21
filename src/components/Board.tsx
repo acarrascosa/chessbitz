@@ -17,7 +17,8 @@ interface BoardProps {
     onSquareClick?: (square: Square) => void;
 }
 
-const LAST_MOVE_STYLE = { backgroundColor: 'rgba(245, 158, 11, 0.45)' };
+const LAST_MOVE_STYLE = { boxShadow: 'inset 0 0 0 100vmax rgba(214, 170, 60, 0.42)' };
+const NOTATION = { fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '0.7rem' };
 
 /**
  * react-chessboard measures square DOM nodes to animate pieces and throws
@@ -90,8 +91,10 @@ export default function Board({ id, fen, orientation = 'white', lastMove, square
                             onPieceDrop: onMove && (({ sourceSquare, targetSquare }) =>
                                 targetSquare !== null && targetSquare !== sourceSquare && onMove(sourceSquare as Square, targetSquare as Square)),
                             onSquareClick: onSquareClick && (({ square }) => onSquareClick(square as Square)),
-                            darkSquareStyle: { backgroundColor: '#57534e' },
-                            lightSquareStyle: { backgroundColor: '#d6d3d1' },
+                            darkSquareStyle: { backgroundColor: 'var(--board-dark)' },
+                            lightSquareStyle: { backgroundColor: 'var(--board-light)' },
+                            darkSquareNotationStyle: { ...NOTATION, color: 'var(--board-light)' },
+                            lightSquareNotationStyle: { ...NOTATION, color: 'var(--board-dark)' },
                         }}
                     />
                 )}
