@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { createPortal } from 'react-dom'; // Using react-dom directly for portal
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { HelpCircle, X, Cpu, Code2, Box, Palette } from 'lucide-react';
-import { ui, defaultLang } from '../i18n/ui';
+import { ui, defaultLang, type Lang } from '../i18n/ui';
 
 interface AboutModalProps {
-    lang?: keyof typeof ui;
+    lang?: Lang;
 }
 
-const TechBadge = ({ icon: Icon, label }: { icon: any, label: string }) => (
+const TechBadge = ({ icon: Icon, label }: { icon: React.ComponentType<{ size?: number; className?: string }>, label: string }) => (
     <div className="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 px-3 py-2 rounded-lg text-xs font-semibold text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
         <Icon size={14} className="text-amber-600 dark:text-amber-500" />
         {label}
@@ -18,17 +18,25 @@ const AboutModal: React.FC<AboutModalProps> = ({ lang = defaultLang }) => {
     const [isOpen, setIsOpen] = useState(false);
     const t = ui[lang];
 
+    useEffect(() => {
+        if (!isOpen) return;
+        const onKeyDown = (e: KeyboardEvent) => e.key === 'Escape' && setIsOpen(false);
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, [isOpen]);
+
     return (
         <>
             <button
                 onClick={() => setIsOpen(true)}
                 className="p-2 rounded-full bg-stone-200/50 dark:bg-stone-800/50 hover:bg-stone-300 dark:hover:bg-stone-700 backdrop-blur-sm transition-colors border border-stone-300 dark:border-stone-600 text-stone-800 dark:text-amber-400 cursor-pointer"
                 title={t.aboutTitle}
+                aria-label={t.aboutTitle}
             >
                 <HelpCircle size={20} />
             </button>
 
-            {isOpen && typeof document !== 'undefined' && createPortal(
+            {isOpen && createPortal(
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     {/* Backdrop */}
                     <div
@@ -37,13 +45,14 @@ const AboutModal: React.FC<AboutModalProps> = ({ lang = defaultLang }) => {
                     />
 
                     {/* Modal */}
-                    <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full relative z-10 border border-stone-200 dark:border-stone-700 animate-[scaleIn_0.3s_ease-out] overflow-hidden">
+                    <div role="dialog" aria-modal="true" aria-labelledby="about-title" className="bg-white dark:bg-stone-900 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full relative z-10 border border-stone-200 dark:border-stone-700 animate-[scaleIn_0.3s_ease-out] overflow-hidden">
 
                         {/* Decorative header */}
                         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 to-amber-700" />
 
                         <button
                             onClick={() => setIsOpen(false)}
+                            aria-label={t.close}
                             className="absolute top-4 right-4 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
                         >
                             <X size={20} />
@@ -54,7 +63,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ lang = defaultLang }) => {
                                 <div className="p-3 bg-amber-100 dark:bg-amber-900/40 rounded-full text-amber-600 dark:text-amber-500">
                                     <Code2 size={28} />
                                 </div>
-                                <h3 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
+                                <h3 id="about-title" className="text-2xl font-bold text-stone-900 dark:text-stone-100">
                                     {t.aboutTitle}
                                 </h3>
                             </div>

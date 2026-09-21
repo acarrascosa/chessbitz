@@ -4,11 +4,11 @@ import Background3D from "../components/Background3D";
 import ThemeToggle from "../components/ThemeToggle";
 import AboutModal from "../components/AboutModal";
 import Onboarding from "../components/Onboarding";
-import { ui, defaultLang } from "../i18n/ui";
+import { ui, defaultLang, type Lang } from "../i18n/ui";
 
 interface Props {
     title: string;
-    lang?: keyof typeof ui;
+    lang?: Lang;
 }
 
 const { title, lang = defaultLang } = Astro.props;
@@ -20,7 +20,7 @@ const t = ui[lang];
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content="Chessbitz - Daily Chess Opening" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/webp" href="/chessbitzlogo.webp" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
@@ -35,16 +35,6 @@ const t = ui[lang];
             } else {
                 document.documentElement.classList.remove("dark");
             }
-
-            // Easter Egg
-            console.log(
-                "%c Stop! Wait a minute... ",
-                "color: #f59e0b; font-size: 24px; font-weight: bold; background: #292524; padding: 10px; border-radius: 5px;",
-            );
-            console.log(
-                "%cLooking for secrets? Here is a good one: https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                "color: #a8a29e; font-size: 14px;",
-            );
         </script>
         <style>
             /* UI Hiding Logic */
@@ -72,7 +62,7 @@ const t = ui[lang];
         <button
             id="view-bg-btn"
             class="hidden md:flex fixed bottom-6 left-6 z-50 p-3 bg-stone-900/50 dark:bg-stone-100/20 backdrop-blur-md rounded-full text-white dark:text-stone-100 hover:scale-110 transition-transform shadow-lg group cursor-pointer border border-white/10 transition-opacity duration-500"
-            aria-label="View Background"
+            aria-label={t.zenMode}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,6 +74,7 @@ const t = ui[lang];
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
+                aria-hidden="true"
                 ><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
                 ></path><circle cx="12" cy="12" r="3"></circle></svg
             >
@@ -146,7 +137,7 @@ const t = ui[lang];
 
                 <div class="flex items-center gap-3">
                     <AboutModal client:load lang={lang} />
-                    <ThemeToggle client:load />
+                    <ThemeToggle client:load lang={lang} />
                 </div>
             </header>
 
@@ -169,6 +160,7 @@ const t = ui[lang];
                     <a
                         href="https://www.linkedin.com/in/acarrascosa/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="hover:text-stone-900 dark:hover:text-stone-200 underline"
                         >acarrascosa</a
                     >
@@ -197,6 +189,7 @@ const t = ui[lang];
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             class="lucide lucide-coffee"
+                            aria-hidden="true"
                             ><path d="M10 2v2"></path><path d="M14 2v2"
                             ></path><path
                                 d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4h-1.12"

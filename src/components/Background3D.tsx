@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { useStore } from '@nanostores/react';
 import { themeStore } from '../store/theme';
 
-const KingModel = ({ isDark }: { isDark: boolean }) => {
+const KingModel = () => {
     const meshRef = useRef<THREE.Group>(null);
     // Preload asset
     const { scene } = useGLTF('/king.glb');
@@ -16,10 +16,6 @@ const KingModel = ({ isDark }: { isDark: boolean }) => {
         c.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
                 const mesh = child as THREE.Mesh;
-                // We can just use one material and animate its color, but standard replacement is safer
-                // We'll update the material ref in useFrame or effect if we want smooth transition, 
-                // but rebuilding material on prop change is okay for now. 
-                // To be smooth, we should simply update color prop.
                 mesh.material = new THREE.MeshStandardMaterial({
                     color: '#fcd34d', // Base Gold
                     roughness: 0.1,
@@ -43,12 +39,11 @@ const KingModel = ({ isDark }: { isDark: boolean }) => {
             // Mouse Parallax (Using pointer for better support)
             const { pointer } = state;
 
-            // Subtler target values
-            const targetRotX = pointer.y * 0.8; // Was 1.2
+            const targetRotX = pointer.y * 0.8;
             const targetRotY = pointer.x * 0.8;
 
-            const targetPosX = pointer.x * 0.4; // Was 0.8
-            const targetPosY = -1 + pointer.y * 0.2; // Was 0.5
+            const targetPosX = pointer.x * 0.4;
+            const targetPosY = -1 + pointer.y * 0.2;
 
             // Interpolate Rotation
             meshRef.current.rotation.x += (targetRotX - meshRef.current.rotation.x) * 0.05;
@@ -81,7 +76,6 @@ const BackgroundColor = ({ isDark }: { isDark: boolean }) => {
 
         // Also update fog if attached
         if (state.scene.fog) {
-            // @ts-ignore
             state.scene.fog.color.lerp(target, delta * 2);
         }
     });
@@ -99,17 +93,18 @@ const Background3D = () => {
         setMounted(true);
     }, []);
 
-    if (!mounted) return <div className="fixed inset-0 bg-stone-950 -z-10" />;
+    const backdrop = 'fixed inset-0 -z-10 bg-stone-200 dark:bg-stone-950';
+    if (!mounted) return <div className={backdrop} aria-hidden="true" />;
 
     return (
-        <div className="fixed inset-0 -z-10 bg-stone-950">
+        <div className={backdrop} aria-hidden="true">
             <Canvas camera={{ position: [0, 0, 6], fov: 40 }} shadows dpr={[1, 2]} eventSource={document.body} eventPrefix="client">
                 <BackgroundColor isDark={isDark} />
                 <ambientLight intensity={isDark ? 0.5 : 0.8} />
                 <spotLight position={[10, 10, 10]} angle={0.5} penumbra={1} intensity={2} castShadow color="#fbbf24" />
                 <pointLight position={[-10, -10, -10]} intensity={isDark ? 1 : 0.5} color="#3b82f6" />
 
-                <KingModel isDark={isDark} />
+                <KingModel />
 
                 {isDark && <Stars radius={50} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />}
                 <Environment preset={isDark ? "city" : "studio"} />

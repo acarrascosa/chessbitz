@@ -12,8 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# scripts
-scripts/
+# legacy data scripts (superseded)
+scripts/legacy/
 
 # environment variables
 .env
@@ -24,3 +24,6 @@ scripts/
 
 # jetbrains setting folder
 .idea/
+
+# local tooling
+.claude/
