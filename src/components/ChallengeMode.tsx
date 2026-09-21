@@ -120,7 +120,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
         const outcome = state.results[ply.index];
         const isLast = ply.index === state.cursor - 1;
         return (
-            <span className={`flex items-center gap-1.5 px-2 py-1 rounded-md font-medium tabular-nums ${isLast ? 'bg-accent-soft' : ''} ${played ? 'text-ink' : 'text-ink-muted/50'}`}>
+            <span className={`flex items-center gap-1.5 px-2 py-1 rounded-md font-medium tabular-nums ${isLast ? 'bg-accent-soft' : ''} ${played ? 'text-ink' : 'text-ink-muted'}`}>
                 {outcome && <span className={`w-2 h-2 rounded-full ${RESULT_DOT[outcome]}`} aria-hidden="true" />}
                 {played ? ply.san : '···'}
             </span>
@@ -141,6 +141,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
                         onMove={attempt}
                         canDragPiece={square => playerTurn && ownsPiece(square)}
                         onSquareClick={handleSquareClick}
+                        lang={lang}
                     />
                 </div>
             </div>

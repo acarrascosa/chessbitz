@@ -37,6 +37,10 @@ export const ui = {
         hintSquare: 'La pieza está en {square}',
         hintMove: 'La jugada es {san}',
         pieces: { p: 'un peón', n: 'un caballo', b: 'un alfil', r: 'una torre', q: 'la dama', k: 'el rey' },
+        pieceNames: {
+            wP: 'peón blanco', wN: 'caballo blanco', wB: 'alfil blanco', wR: 'torre blanca', wQ: 'dama blanca', wK: 'rey blanco',
+            bP: 'peón negro', bN: 'caballo negro', bB: 'alfil negro', bR: 'torre negra', bQ: 'dama negra', bK: 'rey negro',
+        } as Record<string, string>,
         progress: 'Progreso',
         analysis: 'Análisis',
         loading: 'Cargando…',
@@ -118,6 +122,10 @@ export const ui = {
         hintSquare: 'The piece is on {square}',
         hintMove: 'The move is {san}',
         pieces: { p: 'a pawn', n: 'a knight', b: 'a bishop', r: 'a rook', q: 'the queen', k: 'the king' },
+        pieceNames: {
+            wP: 'white pawn', wN: 'white knight', wB: 'white bishop', wR: 'white rook', wQ: 'white queen', wK: 'white king',
+            bP: 'black pawn', bN: 'black knight', bB: 'black bishop', bR: 'black rook', bQ: 'black queen', bK: 'black king',
+        } as Record<string, string>,
         progress: 'Progress',
         analysis: 'Analysis',
         loading: 'Loading…',

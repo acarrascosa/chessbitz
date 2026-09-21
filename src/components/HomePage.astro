@@ -12,5 +12,16 @@ const { lang } = Astro.props;
 ---
 
 <Layout lang={lang} page="home">
+    <script is:inline slot="head" define:vars={{ count: scheduledOpenings.length }}>
+        // Start downloading today's opening before the app hydrates.
+        // Mirrors getDayNumber/getRotationIndex in src/lib/daily.ts.
+        (() => {
+            const now = new Date();
+            const day = Math.max(0, Math.round((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 25)) / 864e5));
+            const index = day % count;
+            window.__dailyOpening = { index, promise: fetch(`/data/daily/${index}.json`).then(r => (r.ok ? r.json() : Promise.reject(r.status))) };
+            window.__dailyOpening.promise.catch(() => {});
+        })();
+    </script>
     <DailyManager client:only="react" count={scheduledOpenings.length} lang={lang} />
 </Layout>

@@ -62,7 +62,7 @@ const StudyMode: React.FC<StudyModeProps> = ({ plies, orientation = 'white', exp
             <div className="flex flex-col items-center gap-4 w-full max-w-[480px] lg:w-[480px] shrink-0">
                 <div className="board-frame w-full">
                     <div className="aspect-square">
-                        <Board id="study" fen={fenAt(plies, currentMoveIndex)} orientation={orientation} lastMove={currentPly} />
+                        <Board id="study" fen={fenAt(plies, currentMoveIndex)} orientation={orientation} lastMove={currentPly} lang={lang} />
                     </div>
                 </div>
 

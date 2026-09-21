@@ -7,6 +7,8 @@ import ThemeToggle from "../components/ThemeToggle";
 import AboutModal from "../components/AboutModal";
 import Onboarding from "../components/Onboarding";
 import Logo from "../components/Logo.astro";
+import frauncesLatin from "@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url";
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import { ui, defaultLang, homePath, legalPath, languages, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -35,6 +37,8 @@ const ogImage = new URL(`/og/default-${lang}.png`, Astro.site);
         <link rel="canonical" href={canonical} />
         {languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(pathFor(l), Astro.site)} />)}
         <link rel="alternate" hreflang="x-default" href={new URL(pathFor(defaultLang), Astro.site)} />
+        <link rel="preload" href={frauncesLatin} as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -70,6 +74,7 @@ const ogImage = new URL(`/og/default-${lang}.png`, Astro.site);
                 pointer-events: none;
             }
         </style>
+        <slot name="head" />
     </head>
     <body class="text-ink font-sans min-h-screen antialiased">
         <!-- The 3D king is decorative and heavy: only load it where there is room to see it. -->
@@ -98,7 +103,7 @@ const ogImage = new URL(`/og/default-${lang}.png`, Astro.site);
 
         <div class="ui-wrapper relative flex flex-col min-h-screen transition-opacity duration-500">
             <header class="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-5 pb-2 flex items-center justify-between gap-4">
-                <a href={homePath(lang)} class="flex items-center gap-3 group" aria-label="Chessbitz">
+                <a href={homePath(lang)} class="flex items-center gap-3 group">
                     <Logo class="h-11 w-auto transition-transform group-hover:-rotate-3" />
                     <span class="flex flex-col leading-none">
                         <span class="font-display text-2xl font-semibold tracking-tight">Chessbitz</span>
@@ -122,7 +127,7 @@ const ogImage = new URL(`/og/default-${lang}.png`, Astro.site);
                 </nav>
             </header>
 
-            <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-10">
+            <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-10 min-h-[100svh]">
                 <slot />
             </main>
 

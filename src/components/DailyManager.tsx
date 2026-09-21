@@ -9,6 +9,12 @@ interface DailyManagerProps {
     lang?: Lang;
 }
 
+declare global {
+    interface Window {
+        __dailyOpening?: { index: number; promise: Promise<Opening> };
+    }
+}
+
 type Load = { status: 'loading' } | { status: 'ready'; opening: Opening } | { status: 'error' };
 
 /**
@@ -21,19 +27,25 @@ const DailyManager: React.FC<DailyManagerProps> = ({ count, lang = defaultLang }
     const [load, setLoad] = useState<Load>({ status: 'loading' });
 
     useEffect(() => {
-        const controller = new AbortController();
-        fetch(dailyDataUrl(slot.index), { signal: controller.signal })
-            .then(response => {
+        let cancelled = false;
+        // HomePage.astro starts this request in <head>; reuse it when it matches.
+        const preload = window.__dailyOpening;
+        const request = preload?.index === slot.index
+            ? preload.promise
+            : fetch(dailyDataUrl(slot.index)).then(response => {
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 return response.json() as Promise<Opening>;
-            })
-            .then(opening => setLoad({ status: 'ready', opening }))
+            });
+        request
+            .then(opening => !cancelled && setLoad({ status: 'ready', opening }))
             .catch(error => {
-                if (controller.signal.aborted) return;
+                if (cancelled) return;
                 console.error('Could not load the daily opening:', error);
                 setLoad({ status: 'error' });
             });
-        return () => controller.abort();
+        return () => {
+            cancelled = true;
+        };
     }, [slot.index]);
 
     if (load.status === 'error') {

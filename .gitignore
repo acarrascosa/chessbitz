@@ -30,3 +30,7 @@ scripts/legacy/
 
 # wrangler local state
 .wrangler/
+
+# playwright
+test-results/
+playwright-report/
