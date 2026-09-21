@@ -19,8 +19,8 @@ describe('openings catalog', () => {
     });
 
     it('serves the same opening all day long', () => {
-        const morning = getDailyOpening(new Date(2026, 5, 1, 0, 5));
-        const night = getDailyOpening(new Date(2026, 5, 1, 23, 55));
+        const morning = getDailyOpening(new Date(2026, 5, 1, 0, 5)).opening;
+        const night = getDailyOpening(new Date(2026, 5, 1, 23, 55)).opening;
         expect(morning.id).toBe(night.id);
     });
 });

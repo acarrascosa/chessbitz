@@ -1,12 +1,20 @@
 import { Component, useEffect, useRef, useState, type ReactNode } from 'react';
-import { Chessboard } from 'react-chessboard';
+import { Chessboard, type Arrow } from 'react-chessboard';
 import type { Square } from 'chess.js';
+
+export type SquareStyles = Partial<Record<Square, React.CSSProperties>>;
 
 interface BoardProps {
     id: string;
     fen: string;
     orientation?: 'white' | 'black';
     lastMove?: { from: Square; to: Square };
+    squareStyles?: SquareStyles;
+    arrows?: Arrow[];
+    /** Enables drag-and-drop for pieces accepted by `canDragPiece`. Return true to keep the drop. */
+    onMove?: (from: Square, to: Square) => boolean;
+    canDragPiece?: (square: Square) => boolean;
+    onSquareClick?: (square: Square) => void;
 }
 
 const LAST_MOVE_STYLE = { backgroundColor: 'rgba(245, 158, 11, 0.45)' };
@@ -54,11 +62,14 @@ class BoardErrorBoundary extends Component<{ children: (failed: boolean) => Reac
     }
 }
 
-export default function Board({ id, fen, orientation = 'white', lastMove }: BoardProps) {
+export default function Board({ id, fen, orientation = 'white', lastMove, squareStyles = {}, arrows = [], onMove, canDragPiece, onSquareClick }: BoardProps) {
     const ref = useRef<HTMLDivElement>(null);
     const canAnimate = useCanAnimate(ref);
 
-    const squareStyles = lastMove ? { [lastMove.from]: LAST_MOVE_STYLE, [lastMove.to]: LAST_MOVE_STYLE } : {};
+    const styles = {
+        ...(lastMove ? { [lastMove.from]: LAST_MOVE_STYLE, [lastMove.to]: LAST_MOVE_STYLE } : {}),
+        ...squareStyles,
+    };
 
     return (
         <div ref={ref} className="w-full h-full">
@@ -69,11 +80,16 @@ export default function Board({ id, fen, orientation = 'white', lastMove }: Boar
                             id,
                             position: fen,
                             boardOrientation: orientation,
-                            allowDragging: false,
+                            allowDragging: Boolean(onMove),
                             allowDrawingArrows: false,
+                            arrows,
                             showAnimations: canAnimate && !failed,
                             animationDurationInMs: 200,
-                            squareStyles,
+                            squareStyles: styles,
+                            canDragPiece: canDragPiece && (({ square }) => square !== null && canDragPiece(square as Square)),
+                            onPieceDrop: onMove && (({ sourceSquare, targetSquare }) =>
+                                targetSquare !== null && targetSquare !== sourceSquare && onMove(sourceSquare as Square, targetSquare as Square)),
+                            onSquareClick: onSquareClick && (({ square }) => onSquareClick(square as Square)),
                             darkSquareStyle: { backgroundColor: '#57534e' },
                             lightSquareStyle: { backgroundColor: '#d6d3d1' },
                         }}
