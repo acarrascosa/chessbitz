@@ -1,41 +1,46 @@
 import type { Color } from 'chess.js';
-import openings from '../data/openings.json';
 import { getDayNumber, getRotationIndex } from './daily';
 import type { Lang } from '../i18n/ui';
 
 export interface OpeningText {
     name: string;
+    /** One-line hook shown under the title. */
     description: string;
+    /** Strategic plans and typical ideas (2–3 sentences). */
+    idea: string;
     /** One explanation per ply of `pgn`. */
-    explanations: string[];
+    moves: string[];
 }
 
-export interface Opening {
-    id: number;
+/** Authoring format of `src/data/openings/*.json`. */
+export interface OpeningEntry {
+    slug: string;
     eco: string;
-    name: string;
-    pgn: string;
-    fen: string;
     /** Side whose choice defines the opening; the player plays it in the challenge. */
-    side?: Color;
-    content: Record<Lang, OpeningText>;
+    side: Color;
+    pgn: string;
+    es: OpeningText;
+    en: OpeningText;
 }
 
-export interface DailyOpening {
+export interface Opening extends OpeningEntry {
+    /** Source file name, e.g. `sicilian`. */
+    family: string;
+}
+
+export interface DailySlot {
     day: number;
-    opening: Opening;
+    /** Position in the schedule, also the static data file to fetch. */
+    index: number;
 }
 
-const catalog = openings as Opening[];
-
-// Fallback until every opening declares `side`: defenses and black gambits are black's choice.
-const BLACK_OPENING = /defen[cs]e|counter|declined|accepted|\b(QGD|QGA|KID|KGD)\b|sicilian|french|caro|pirc|modern|alekhine|scandinavian|benoni|benko|dutch|gr(ue|ü|u)nfeld|nimzo|slav|indian|philidor|petrov|russian game|budapest|latvian|elephant|englund|blumenfeld|borg/i;
-
-export function getPlayerSide(opening: Opening): Color {
-    return opening.side ?? (BLACK_OPENING.test(opening.name) ? 'b' : 'w');
-}
-
-export function getDailyOpening(date: Date = new Date()): DailyOpening {
+export function getDailySlot(count: number, date: Date = new Date()): DailySlot {
     const day = getDayNumber(date);
-    return { day, opening: catalog[getRotationIndex(day, catalog.length)] };
+    return { day, index: getRotationIndex(day, count) };
+}
+
+export const dailyDataUrl = (index: number) => `/data/daily/${index}.json`;
+
+export function textFor(opening: Opening, lang: Lang): OpeningText {
+    return opening[lang];
 }

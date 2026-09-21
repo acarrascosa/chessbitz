@@ -1,0 +1,752 @@
+[
+  {
+    "slug": "modern-benoni",
+    "eco": "A60",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6",
+    "es": {
+      "name": "Benoni Moderna",
+      "description": "Una estructura asimétrica: mayoría blanca en el centro contra mayoría negra en el flanco de dama.",
+      "idea": "Las negras juegan ...g6, ...Ag7, ...O-O y ...a6–b5 con presión en la gran diagonal. Las blancas buscan e4–e5 para romper en el centro; es una defensa de lucha, favorita de Tal.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4 desde el flanco.",
+        "Avanza y gana espacio.",
+        "Golpea el peón de d5.",
+        "Refuerza d5.",
+        "Cambia para crear la estructura asimétrica.",
+        "Recaptura con el peón de c, manteniendo la cuña en d5.",
+        "Frena el avance del peón y prepara el fianchetto."
+      ]
+    },
+    "en": {
+      "name": "Modern Benoni",
+      "description": "An asymmetrical structure: White's central majority against Black's queenside majority.",
+      "idea": "Black plays ...g6, ...Bg7, ...O-O and ...a6–b5 with pressure on the long diagonal. White aims for e4–e5 to break through the centre; it is a fighting defence, Tal's favourite.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4 from the flank.",
+        "Advances and gains space.",
+        "Strikes the d5 pawn.",
+        "Supports d5.",
+        "Exchanges to create the asymmetrical structure.",
+        "Recaptures with the c-pawn, keeping the d5 wedge.",
+        "Stops the pawn's advance and prepares the fianchetto."
+      ]
+    }
+  },
+  {
+    "slug": "benoni-flick-knife",
+    "eco": "A67",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6 6. e4 g6 7. f4 Bg7 8. Bb5+",
+    "es": {
+      "name": "Benoni: Ataque Taimanov (Flick-Knife)",
+      "description": "Un jaque que descoordina a las negras antes de lanzar e5: la línea más temida de la Benoni.",
+      "idea": "Tras 8...Cfd7 las piezas negras se estorban y e5 amenaza con arrasar. Muchos jugadores abandonaron la Benoni por esta línea; las negras necesitan conocer ...Dh4+ y ...a6 con precisión.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza.",
+        "Golpea d5.",
+        "Refuerza d5.",
+        "Cambia.",
+        "Recaptura con la cuña en d5.",
+        "Frena el peón.",
+        "Levanta un centro de peones.",
+        "Prepara el fianchetto.",
+        "Tercer peón central, amenazando e5.",
+        "Completa el fianchetto.",
+        "Jaque que obliga a las negras a tapar con una pieza mal situada."
+      ]
+    },
+    "en": {
+      "name": "Benoni: Taimanov (Flick-Knife) Attack",
+      "description": "A check that disrupts Black before e5 lands: the Benoni's most feared line.",
+      "idea": "After 8...Nfd7 Black's pieces get in each other's way and e5 threatens to crash through. Many players gave up the Benoni because of it; Black must know ...Qh4+ and ...a6 accurately.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances.",
+        "Strikes d5.",
+        "Supports d5.",
+        "Exchanges.",
+        "Recaptures with the d5 wedge.",
+        "Stops the pawn.",
+        "Builds a pawn centre.",
+        "Prepares the fianchetto.",
+        "A third central pawn, threatening e5.",
+        "Completes the fianchetto.",
+        "A check forcing Black to block with a badly placed piece."
+      ]
+    }
+  },
+  {
+    "slug": "benoni-classical",
+    "eco": "A70",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6 6. e4 g6 7. Nf3 Bg7 8. Be2",
+    "es": {
+      "name": "Benoni: Variante Clásica",
+      "description": "Desarrollo natural y enroque corto, preparando e5 o la maniobra Cd2–c4.",
+      "idea": "Las blancas presionan d6 con Cd2–c4 y Af4, y buscan e5 en el momento justo. Las negras juegan ...Te8, ...a6, ...b5 o ...Ca6–c7 para activar su mayoría.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza.",
+        "Golpea d5.",
+        "Refuerza d5.",
+        "Cambia.",
+        "Recaptura con la cuña.",
+        "Frena el peón.",
+        "Levanta el centro.",
+        "Prepara el fianchetto.",
+        "Desarrolla y apoya e5.",
+        "Completa el fianchetto.",
+        "Desarrollo tranquilo que prepara el enroque."
+      ]
+    },
+    "en": {
+      "name": "Benoni: Classical Variation",
+      "description": "Natural development and short castling, preparing e5 or the Nd2–c4 manoeuvre.",
+      "idea": "White pressures d6 with Nd2–c4 and Bf4 and looks for e5 at the right moment. Black plays ...Re8, ...a6, ...b5 or ...Na6–c7 to activate the majority.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances.",
+        "Strikes d5.",
+        "Supports d5.",
+        "Exchanges.",
+        "Recaptures with the wedge.",
+        "Stops the pawn.",
+        "Builds the centre.",
+        "Prepares the fianchetto.",
+        "Develops and supports e5.",
+        "Completes the fianchetto.",
+        "Quiet development preparing castling."
+      ]
+    }
+  },
+  {
+    "slug": "benoni-fianchetto",
+    "eco": "A62",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6 6. Nf3 g6 7. g3",
+    "es": {
+      "name": "Benoni: Variante del Fianchetto",
+      "description": "Las blancas enfrentan su alfil en g2 al de g7 y juegan con seguridad.",
+      "idea": "El alfil de g2 protege el rey y presiona el flanco de dama negro. Las negras buscan ...a6, ...b5 y ...Te8; las blancas, Cd2–c4 y a4 para frenar la mayoría.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza.",
+        "Golpea d5.",
+        "Refuerza d5.",
+        "Cambia.",
+        "Recaptura con la cuña.",
+        "Frena el peón.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara Ag2 para un rey seguro y presión en el flanco de dama."
+      ]
+    },
+    "en": {
+      "name": "Benoni: Fianchetto Variation",
+      "description": "White meets the g7 bishop with its own on g2 and plays safely.",
+      "idea": "The g2 bishop shields the king and pressures Black's queenside. Black aims for ...a6, ...b5 and ...Re8; White for Nd2–c4 and a4 to restrain the majority.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances.",
+        "Strikes d5.",
+        "Supports d5.",
+        "Exchanges.",
+        "Recaptures with the wedge.",
+        "Stops the pawn.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares Bg2 for a safe king and queenside pressure."
+      ]
+    }
+  },
+  {
+    "slug": "czech-benoni",
+    "eco": "A56",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e5",
+    "es": {
+      "name": "Benoni Checa",
+      "description": "Las negras cierran el centro por completo con peones en c5 y e5.",
+      "idea": "Con el centro bloqueado, las negras preparan ...Ae7, ...O-O y la ruptura ...f5; las blancas juegan e4, h3, Ad3 y g4 o b4. Una lucha lenta de maniobras.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza y gana espacio.",
+        "Cierra el centro y prepara la ruptura ...f5."
+      ]
+    },
+    "en": {
+      "name": "Czech Benoni",
+      "description": "Black closes the centre completely with pawns on c5 and e5.",
+      "idea": "With the centre locked, Black prepares ...Be7, ...O-O and the ...f5 break; White plays e4, h3, Bd3 and g4 or b4. A slow manoeuvring battle.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances and gains space.",
+        "Closes the centre and prepares the ...f5 break."
+      ]
+    }
+  },
+  {
+    "slug": "old-benoni",
+    "eco": "A43",
+    "side": "b",
+    "pgn": "1. d4 c5",
+    "es": {
+      "name": "Benoni Antigua",
+      "description": "Las negras desafían d4 en la primera jugada.",
+      "idea": "Tras 2.d5 las negras juegan ...d6, ...e5 o ...g6 con estructuras de Benoni sin que las blancas hayan jugado c4. Las blancas tienen más opciones para desarrollar el caballo en c3.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca d4 de inmediato desde el flanco."
+      ]
+    },
+    "en": {
+      "name": "Old Benoni",
+      "description": "Black challenges d4 on move one.",
+      "idea": "After 2.d5 Black plays ...d6, ...e5 or ...g6 with Benoni structures before White has played c4. White has more freedom to develop the knight to c3.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks d4 from the flank at once."
+      ]
+    }
+  },
+  {
+    "slug": "benko-gambit",
+    "eco": "A57",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 b5",
+    "es": {
+      "name": "Gambito Benko",
+      "description": "Un peón sacrificado a cambio de columnas abiertas en a y b durante toda la partida.",
+      "idea": "Si las blancas aceptan, las negras juegan ...a6, ...Axa6, ...g6 y ...Ag7 con presión duradera en el flanco de dama. La compensación persiste incluso en el final.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza y gana espacio.",
+        "Ofrece el peón de b para abrir columnas en el flanco de dama."
+      ]
+    },
+    "en": {
+      "name": "Benko Gambit",
+      "description": "A pawn sacrificed for open a- and b-files that last all game.",
+      "idea": "If White accepts, Black plays ...a6, ...Bxa6, ...g6 and ...Bg7 with lasting queenside pressure. The compensation persists even into the endgame.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances and gains space.",
+        "Offers the b-pawn to open files on the queenside."
+      ]
+    }
+  },
+  {
+    "slug": "benko-gambit-accepted",
+    "eco": "A58",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 b5 4. cxb5 a6 5. bxa6 Bxa6",
+    "es": {
+      "name": "Gambito Benko aceptado",
+      "description": "El alfil de dama recupera en a6 y las columnas a y b quedan abiertas.",
+      "idea": "Las negras siguen con ...d6, ...g6, ...Ag7, ...O-O, ...Cbd7 y ...Db6 con torres en a8 y b8. Las blancas deben enrocar con cuidado y consolidar el peón extra.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza.",
+        "Ofrece el peón de b.",
+        "Acepta el gambito.",
+        "Ofrece otro peón para abrir la columna a.",
+        "Captura de nuevo.",
+        "Recupera con el alfil, que impide el enroque blanco natural."
+      ]
+    },
+    "en": {
+      "name": "Benko Gambit Accepted",
+      "description": "The queen's bishop recaptures on a6 and the a- and b-files are open.",
+      "idea": "Black follows with ...d6, ...g6, ...Bg7, ...O-O, ...Nbd7 and ...Qb6 with rooks on a8 and b8. White must castle carefully and consolidate the extra pawn.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances.",
+        "Offers the b-pawn.",
+        "Accepts the gambit.",
+        "Offers another pawn to open the a-file.",
+        "Captures again.",
+        "Recaptures with the bishop, which hinders White's natural castling."
+      ]
+    }
+  },
+  {
+    "slug": "benko-declined",
+    "eco": "A57",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 b5 4. Nf3",
+    "es": {
+      "name": "Gambito Benko rehusado (4.Cf3)",
+      "description": "Las blancas desarrollan sin tomar el peón y apuntan a la cuña de d5.",
+      "idea": "Si las negras capturan en c4, las blancas juegan e4 y recuperan con Axc4 ganando espacio. Es una forma práctica de evitar la teoría del gambito aceptado.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ataca d4.",
+        "Avanza.",
+        "Ofrece el peón de b.",
+        "Desarrolla sin aceptar el gambito y protege d4."
+      ]
+    },
+    "en": {
+      "name": "Benko Gambit Declined (4.Nf3)",
+      "description": "White develops without taking the pawn and supports the d5 wedge.",
+      "idea": "If Black takes on c4, White plays e4 and recaptures with Bxc4, gaining space. It is a practical way to avoid the theory of the accepted gambit.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Hits d4.",
+        "Advances.",
+        "Offers the b-pawn.",
+        "Develops without accepting the gambit and covers d4."
+      ]
+    }
+  },
+  {
+    "slug": "budapest-gambit",
+    "eco": "A51",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e5",
+    "es": {
+      "name": "Gambito Budapest",
+      "description": "Un contragolpe inmediato: las negras recuperan el peón con ...Cg4 y buscan actividad.",
+      "idea": "Tras 3.dxe5 Cg4 las negras atacan e5 con ...Cc6 y ...Ab4+. Es una defensa práctica y llena de trampas, aunque las blancas pueden mantener algo de ventaja.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ofrece el peón de e para abrir el juego."
+      ]
+    },
+    "en": {
+      "name": "Budapest Gambit",
+      "description": "An immediate counter-strike: Black regains the pawn with ...Ng4 and seeks activity.",
+      "idea": "After 3.dxe5 Ng4 Black attacks e5 with ...Nc6 and ...Bb4+. It is a practical defence full of traps, though White can keep a small edge.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Offers the e-pawn to open the game."
+      ]
+    }
+  },
+  {
+    "slug": "budapest-fajarowicz",
+    "eco": "A51",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e5 3. dxe5 Ne4",
+    "es": {
+      "name": "Budapest: Variante Fajarowicz",
+      "description": "El caballo salta a e4 en lugar de g4, con trampas contra f2.",
+      "idea": "Las negras buscan ...Ab4+, ...d6 o ...Cc6 con desarrollo rápido. Objetivamente dudosa, pero con muchas celadas para las blancas desprevenidas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ofrece el peón.",
+        "Acepta el gambito.",
+        "Centraliza el caballo apuntando a f2 y d2."
+      ]
+    },
+    "en": {
+      "name": "Budapest: Fajarowicz Variation",
+      "description": "The knight jumps to e4 instead of g4, with traps against f2.",
+      "idea": "Black aims for ...Bb4+, ...d6 or ...Nc6 with rapid development. Objectively dubious, but full of traps for the unwary.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Offers the pawn.",
+        "Accepts the gambit.",
+        "Centralises the knight, eyeing f2 and d2."
+      ]
+    }
+  },
+  {
+    "slug": "old-indian-defense",
+    "eco": "A53",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 d6 3. Nc3 e5",
+    "es": {
+      "name": "Defensa India Antigua",
+      "description": "Una India de Rey sin fianchetto: el alfil va a e7.",
+      "idea": "Las negras juegan ...Cbd7, ...Ae7, ...c6 y ...O-O con una posición sólida. Menos dinámica que la India de Rey, pero con planes claros y poca teoría.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...e5.",
+        "Desarrolla.",
+        "Golpea d4 para luchar por el centro."
+      ]
+    },
+    "en": {
+      "name": "Old Indian Defense",
+      "description": "A King's Indian without the fianchetto: the bishop goes to e7.",
+      "idea": "Black plays ...Nbd7, ...Be7, ...c6 and ...O-O with a solid position. Less dynamic than the King's Indian, but with clear plans and little theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...e5.",
+        "Develops.",
+        "Strikes d4 to fight for the centre."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-defense",
+    "eco": "A80",
+    "side": "b",
+    "pgn": "1. d4 f5",
+    "es": {
+      "name": "Defensa Holandesa",
+      "description": "Las negras controlan e4 con el peón de f y se preparan para atacar en el flanco de rey.",
+      "idea": "Las negras renuncian a la simetría y buscan juego activo en el flanco de rey. Sus tres grandes sistemas son la Leningrado (...g6), la Stonewall (...d5 y ...e6) y la Clásica (...e6 y ...d6).",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4 con un peón, preparando un ataque en el flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "Dutch Defense",
+      "description": "Black controls e4 with the f-pawn and gears up for kingside play.",
+      "idea": "Black gives up symmetry for active kingside play. The three big systems are the Leningrad (...g6), the Stonewall (...d5 and ...e6) and the Classical (...e6 and ...d6).",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4 with a pawn, preparing kingside play."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-leningrad",
+    "eco": "A86",
+    "side": "b",
+    "pgn": "1. d4 f5 2. c4 Nf6 3. g3 g6",
+    "es": {
+      "name": "Holandesa: Variante Leningrado",
+      "description": "Holandesa más India de Rey: el alfil en g7 y la ruptura ...e5.",
+      "idea": "Las negras juegan ...Ag7, ...O-O, ...d6 y buscan ...e5 o ...c6 con ...Da5. Es la versión más dinámica de la Holandesa.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Desarrolla y refuerza el control de e4.",
+        "Prepara el fianchetto del alfil de rey.",
+        "Prepara su propio fianchetto, como en la India de Rey."
+      ]
+    },
+    "en": {
+      "name": "Dutch: Leningrad Variation",
+      "description": "Dutch plus King's Indian: bishop on g7 and the ...e5 break.",
+      "idea": "Black plays ...Bg7, ...O-O, ...d6 and aims for ...e5 or ...c6 with ...Qa5. It is the most dynamic version of the Dutch.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Develops and reinforces control of e4.",
+        "Prepares the king's bishop fianchetto.",
+        "Prepares its own fianchetto, King's Indian style."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-stonewall",
+    "eco": "A90",
+    "side": "b",
+    "pgn": "1. d4 f5 2. c4 Nf6 3. g3 e6 4. Bg2 d5",
+    "es": {
+      "name": "Holandesa: Muro de Piedra (Stonewall)",
+      "description": "Peones en c6, d5, e6 y f5: un muro que controla e4 para siempre.",
+      "idea": "Las negras ocupan e4 con el caballo y atacan en el flanco de rey con ...De8–h5. A cambio, e5 queda débil y el alfil de c8 es malo; las blancas buscan Af4 y Ce5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara ...d5 y abre el alfil de f8.",
+        "Completa el fianchetto.",
+        "Cierra el muro de peones fijando la casilla e4."
+      ]
+    },
+    "en": {
+      "name": "Dutch: Stonewall",
+      "description": "Pawns on c6, d5, e6 and f5: a wall that controls e4 for good.",
+      "idea": "Black plants a knight on e4 and attacks on the kingside with ...Qe8–h5. In return e5 is weak and the c8 bishop is bad; White aims for Bf4 and Ne5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares ...d5 and opens the f8 bishop.",
+        "Completes the fianchetto.",
+        "Completes the pawn wall, fixing control of e4."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-classical",
+    "eco": "A91",
+    "side": "b",
+    "pgn": "1. d4 f5 2. c4 Nf6 3. g3 e6 4. Bg2 Be7",
+    "es": {
+      "name": "Holandesa: Variante Clásica",
+      "description": "Desarrollo flexible con ...Ae7, sin decidir aún entre ...d5 y ...d6.",
+      "idea": "Con ...d6, ...De8 y ...e5 las negras buscan un ataque clásico; con ...d5 pasan a estructuras de Stonewall. Las blancas suelen jugar Cf3, O-O, Cc3 y d5 o e4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Abre el alfil de f8.",
+        "Completa el fianchetto.",
+        "Desarrollo flexible que prepara el enroque."
+      ]
+    },
+    "en": {
+      "name": "Dutch: Classical Variation",
+      "description": "Flexible development with ...Be7, still undecided between ...d5 and ...d6.",
+      "idea": "With ...d6, ...Qe8 and ...e5 Black aims for a classical attack; with ...d5 it becomes a Stonewall. White usually plays Nf3, O-O, Nc3 and d5 or e4.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Opens the f8 bishop.",
+        "Completes the fianchetto.",
+        "Flexible development preparing castling."
+      ]
+    }
+  },
+  {
+    "slug": "staunton-gambit",
+    "eco": "A82",
+    "side": "w",
+    "pgn": "1. d4 f5 2. e4",
+    "es": {
+      "name": "Gambito Staunton",
+      "description": "Las blancas atacan el peón de f5 antes de que las negras se organicen.",
+      "idea": "Tras 2...fxe4 3.Cc3 Cf6 4.Ag5 las blancas recuperan el peón o ganan un desarrollo muy rápido. Es la respuesta más agresiva a la Holandesa.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Ofrece un peón para abrir líneas contra el rey negro."
+      ]
+    },
+    "en": {
+      "name": "Staunton Gambit",
+      "description": "White attacks the f5 pawn before Black gets organised.",
+      "idea": "After 2...fxe4 3.Nc3 Nf6 4.Bg5 White either regains the pawn or gets very fast development. It is the most aggressive answer to the Dutch.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Offers a pawn to open lines against Black's king."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-hopton-attack",
+    "eco": "A80",
+    "side": "w",
+    "pgn": "1. d4 f5 2. Bg5",
+    "es": {
+      "name": "Holandesa: Ataque Hopton",
+      "description": "El alfil sale a g5 para impedir ...Cf6 cómodo y provocar debilidades.",
+      "idea": "Si 2...h6 3.Ah4 g5 4.Ag3 las negras debilitan mucho su flanco de rey. Las blancas siguen con e3, Cd2 y un centro sólido.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Desarrolla el alfil a g5 y dificulta el desarrollo natural negro."
+      ]
+    },
+    "en": {
+      "name": "Dutch: Hopton Attack",
+      "description": "The bishop comes to g5 to hinder a comfortable ...Nf6 and provoke weaknesses.",
+      "idea": "After 2...h6 3.Bh4 g5 4.Bg3 Black seriously weakens the kingside. White follows with e3, Nd2 and a solid centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Develops the bishop to g5, hindering Black's natural development."
+      ]
+    }
+  },
+  {
+    "slug": "englund-gambit",
+    "eco": "A40",
+    "side": "b",
+    "pgn": "1. d4 e5",
+    "es": {
+      "name": "Gambito Englund",
+      "description": "Un gambito dudoso pero tramposo contra 1.d4.",
+      "idea": "Tras 2.dxe5 Cc6 3.Cf3 De7 4.Af4 Db4+ 5.Ad2 Dxb2 las negras amenazan ...Dc1# si 6.Ac3??. Con juego correcto las blancas quedan con un peón de ventaja.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ofrece el peón de e para provocar complicaciones rápidas."
+      ]
+    },
+    "en": {
+      "name": "Englund Gambit",
+      "description": "A dubious but tricky gambit against 1.d4.",
+      "idea": "After 2.dxe5 Nc6 3.Nf3 Qe7 4.Bf4 Qb4+ 5.Bd2 Qxb2 Black threatens ...Qc1# after 6.Bc3??. With correct play White stays a pawn up.",
+      "moves": [
+        "Occupies the centre.",
+        "Offers the e-pawn to provoke early complications."
+      ]
+    }
+  },
+  {
+    "slug": "english-defense",
+    "eco": "A40",
+    "side": "b",
+    "pgn": "1. d4 e6 2. c4 b6",
+    "es": {
+      "name": "Defensa Inglesa",
+      "description": "Un fianchetto de dama contra el centro blanco, con ideas hipermodernas.",
+      "idea": "Las negras presionan e4 y d4 con ...Ab7, ...Ab4+ y ...f5. Si las blancas juegan e4 enseguida, las negras atacan ese centro con piezas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5 o ...b6 sin comprometerse.",
+        "Gana espacio.",
+        "Prepara ...Ab7 para presionar e4."
+      ]
+    },
+    "en": {
+      "name": "English Defense",
+      "description": "A queenside fianchetto against White's centre, with hypermodern ideas.",
+      "idea": "Black pressures e4 and d4 with ...Bb7, ...Bb4+ and ...f5. If White plays e4 at once, Black attacks that centre with pieces.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5 or ...b6 without committing.",
+        "Gains space.",
+        "Prepares ...Bb7 to pressure e4."
+      ]
+    }
+  },
+  {
+    "slug": "budapest-rubinstein",
+    "eco": "A52",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e5 3. dxe5 Ng4 4. Bf4",
+    "es": {
+      "name": "Budapest: Variante Rubinstein (4.Af4)",
+      "description": "Las blancas protegen e5 con el alfil y desarrollan con naturalidad.",
+      "idea": "Tras 4...Cc6 5.Cf3 Ab4+ 6.Cbd2 De7 7.e3 las negras recuperan el peón con juego activo. Las blancas quedan con una estructura algo mejor.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Ofrece el peón.",
+        "Acepta el gambito.",
+        "El caballo ataca e5.",
+        "Defiende e5 con el alfil."
+      ]
+    },
+    "en": {
+      "name": "Budapest: Rubinstein Variation (4.Bf4)",
+      "description": "White protects e5 with the bishop and develops naturally.",
+      "idea": "After 4...Nc6 5.Nf3 Bb4+ 6.Nbd2 Qe7 7.e3 Black regains the pawn with active play. White keeps a slightly better structure.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Offers the pawn.",
+        "Accepts the gambit.",
+        "The knight attacks e5.",
+        "Defends e5 with the bishop."
+      ]
+    }
+  },
+  {
+    "slug": "dutch-leningrad-main-line",
+    "eco": "A87",
+    "side": "b",
+    "pgn": "1. d4 f5 2. c4 Nf6 3. g3 g6 4. Bg2 Bg7 5. Nf3 O-O 6. O-O d6",
+    "es": {
+      "name": "Holandesa Leningrado: Línea principal",
+      "description": "Ambos alfiles en la gran diagonal y las negras preparan ...e5.",
+      "idea": "Tras 7.Cc3 las negras eligen entre ...Cc6, ...De8 o ...c6 con ...Da5. El plan es ...e5 en el centro o ataque en el flanco de rey con ...h6 y ...g5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara el fianchetto.",
+        "Completa el fianchetto.",
+        "Ocupa la gran diagonal.",
+        "Desarrolla.",
+        "Enroca.",
+        "Enroca.",
+        "Controla e5 y prepara ...e5."
+      ]
+    },
+    "en": {
+      "name": "Dutch Leningrad: Main Line",
+      "description": "Both bishops on the long diagonal and Black prepares ...e5.",
+      "idea": "After 7.Nc3 Black chooses between ...Nc6, ...Qe8 or ...c6 with ...Qa5. The plan is ...e5 in the centre or a kingside attack with ...h6 and ...g5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares the fianchetto.",
+        "Completes the fianchetto.",
+        "Takes the long diagonal.",
+        "Develops.",
+        "Castles.",
+        "Castles.",
+        "Controls e5 and prepares ...e5."
+      ]
+    }
+  }
+]

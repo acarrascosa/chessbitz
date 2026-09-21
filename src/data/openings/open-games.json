@@ -1,0 +1,1422 @@
+[
+  {
+    "slug": "scotch-game",
+    "eco": "C44",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
+    "es": {
+      "name": "Apertura Escocesa",
+      "description": "Las blancas abren el centro en la jugada 3, rechazando las maniobras lentas de la Española.",
+      "idea": "Tras 3...exd4 4.Cxd4 las blancas tienen un caballo centralizado y más espacio. Kaspárov la resucitó en los 90: da juego abierto y activo sin demasiada teoría forzada.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Réplica simétrica en el centro.",
+        "Desarrolla atacando e5.",
+        "Defiende e5 con el caballo.",
+        "Golpea el centro de inmediato para abrir el juego."
+      ]
+    },
+    "en": {
+      "name": "Scotch Game",
+      "description": "White opens the centre on move 3, rejecting the slow manoeuvres of the Ruy Lopez.",
+      "idea": "After 3...exd4 4.Nxd4 White has a centralised knight and more space. Kasparov revived it in the 1990s: open, active play without too much forcing theory.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Symmetrical central reply.",
+        "Develops while attacking e5.",
+        "Defends e5 with the knight.",
+        "Strikes in the centre straight away to open the game."
+      ]
+    }
+  },
+  {
+    "slug": "scotch-classical",
+    "eco": "C45",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5",
+    "es": {
+      "name": "Escocesa: Variante Clásica",
+      "description": "Las negras atacan el caballo centralizado con el alfil y presionan d4.",
+      "idea": "Tras 5.Ae3 Df6 6.c3 Cge7 las negras acumulan presión sobre d4. Las blancas mantienen el centro con c3 y buscan desarrollarse rápido con Ac4 y O-O.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura y elimina el peón central blanco.",
+        "Recupera el peón con un caballo centralizado.",
+        "Desarrolla atacando al caballo de d4."
+      ]
+    },
+    "en": {
+      "name": "Scotch Game: Classical Variation",
+      "description": "Black hits the centralised knight with the bishop and pressures d4.",
+      "idea": "After 5.Be3 Qf6 6.c3 Nge7 Black piles up pressure on d4. White holds the centre with c3 and aims for quick development with Bc4 and O-O.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Captures, removing White's central pawn.",
+        "Regains the pawn with a centralised knight.",
+        "Develops by attacking the d4 knight."
+      ]
+    }
+  },
+  {
+    "slug": "scotch-schmidt",
+    "eco": "C45",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6",
+    "es": {
+      "name": "Escocesa: Variante Schmidt",
+      "description": "La respuesta más natural: el caballo contraataca e4.",
+      "idea": "La línea principal 5.Cxc6 bxc6 6.e5 De7 7.De2 Cd5 lleva a posiciones desequilibradas. Las negras aceptan peones doblados a cambio de la columna b y un centro de peones compacto.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura el peón.",
+        "Recupera con el caballo centralizado.",
+        "Contraataca e4 con desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Scotch Game: Schmidt Variation",
+      "description": "The most natural reply: the knight counterattacks e4.",
+      "idea": "The main line 5.Nxc6 bxc6 6.e5 Qe7 7.Qe2 Nd5 leads to unbalanced positions. Black accepts doubled pawns in exchange for the b-file and a compact pawn centre.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Takes the pawn.",
+        "Regains it with a centralised knight.",
+        "Counterattacks e4 with development."
+      ]
+    }
+  },
+  {
+    "slug": "scotch-mieses",
+    "eco": "C45",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 bxc6 6. e5",
+    "es": {
+      "name": "Escocesa: Variante Mieses",
+      "description": "Las blancas cambian en c6 y persiguen al caballo de f6 con el peón.",
+      "idea": "Tras 6...De7 7.De2 Cd5 8.c4 las blancas ganan espacio mientras la dama negra bloquea su propio alfil. Las negras buscan ...Aa6, ...g6 y ...Ag7 para activar sus piezas.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura el peón.",
+        "Recupera con el caballo.",
+        "Contraataca e4.",
+        "Cambia caballos para doblar los peones negros.",
+        "Recaptura hacia el centro y abre la columna b.",
+        "Expulsa al caballo de f6 y gana espacio."
+      ]
+    },
+    "en": {
+      "name": "Scotch Game: Mieses Variation",
+      "description": "White trades on c6 and chases the f6 knight with the pawn.",
+      "idea": "After 6...Qe7 7.Qe2 Nd5 8.c4 White gains space while Black's queen blocks its own bishop. Black aims for ...Ba6, ...g6 and ...Bg7 to activate the pieces.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Takes the pawn.",
+        "Regains it with the knight.",
+        "Counterattacks e4.",
+        "Trades knights to double Black's pawns.",
+        "Recaptures towards the centre, opening the b-file.",
+        "Kicks the f6 knight and gains space."
+      ]
+    }
+  },
+  {
+    "slug": "scotch-gambit",
+    "eco": "C44",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Bc4",
+    "es": {
+      "name": "Gambito Escocés",
+      "description": "Las blancas no recuperan el peón y prefieren desarrollar apuntando a f7.",
+      "idea": "Si 4...Cf6 se entra en los Dos Caballos (5.e5 o 5.O-O); si 4...Ac5, en líneas del Giuoco Piano con c3. Las blancas juegan con ventaja de desarrollo a cambio del peón.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura el peón.",
+        "Desarrolla el alfil contra f7 en vez de recuperar el peón."
+      ]
+    },
+    "en": {
+      "name": "Scotch Gambit",
+      "description": "White does not regain the pawn and prefers to develop towards f7.",
+      "idea": "4...Nf6 transposes to Two Knights lines (5.e5 or 5.O-O); 4...Bc5 leads to Giuoco Piano lines with c3. White plays with a lead in development for the pawn.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Takes the pawn.",
+        "Develops the bishop against f7 instead of regaining the pawn."
+      ]
+    }
+  },
+  {
+    "slug": "goring-gambit",
+    "eco": "C44",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. c3",
+    "es": {
+      "name": "Gambito Göring",
+      "description": "Un gambito escocés con c3: las blancas ofrecen incluso un segundo peón.",
+      "idea": "Si 4...dxc3 5.Cxc3, las blancas tienen desarrollo muy rápido y presión sobre f7 con Ac4. La réplica 4...d5 permite a las negras devolver material y liberar el juego.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura el peón.",
+        "Ofrece otro peón para acelerar el desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Göring Gambit",
+      "description": "A Scotch gambit with c3: White even offers a second pawn.",
+      "idea": "If 4...dxc3 5.Nxc3, White has very fast development and pressure on f7 with Bc4. The reply 4...d5 lets Black return material and free the game.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Takes the pawn.",
+        "Offers another pawn to speed up development."
+      ]
+    }
+  },
+  {
+    "slug": "scotch-steinitz",
+    "eco": "C45",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qh4",
+    "es": {
+      "name": "Escocesa: Variante Steinitz",
+      "description": "La dama negra sale a atacar e4 con amenazas inmediatas.",
+      "idea": "Las negras amenazan ...Dxe4+ y ganan un peón si las blancas no son precisas (5.Cc3 o 5.Cb5). A cambio, la dama queda expuesta y las blancas pueden ganar tiempo atacándola.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Rompe en el centro.",
+        "Captura el peón.",
+        "Recupera con el caballo.",
+        "Ataca e4 con la dama de inmediato."
+      ]
+    },
+    "en": {
+      "name": "Scotch Game: Steinitz Variation",
+      "description": "Black's queen comes out to hit e4 with immediate threats.",
+      "idea": "Black threatens ...Qxe4+ and can win a pawn if White is careless (5.Nc3 or 5.Nb5). In return the queen is exposed and White can gain time by attacking it.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Breaks in the centre.",
+        "Takes the pawn.",
+        "Regains it with the knight.",
+        "Attacks e4 with the queen immediately."
+      ]
+    }
+  },
+  {
+    "slug": "four-knights-spanish",
+    "eco": "C48",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5",
+    "es": {
+      "name": "Cuatro Caballos: Variante Española",
+      "description": "Desarrollo clásico y simétrico con la clavada española sobre c6.",
+      "idea": "Las blancas desarrollan todas sus piezas menores con naturalidad y juegan con la presión sobre c6 y e5. Las negras eligen entre la simetría (...Ab4) o el agresivo ...Cd4 de Rubinstein.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Desarrolla y protege e4.",
+        "Desarrolla atacando e4.",
+        "Presiona el caballo de c6, defensor de e5."
+      ]
+    },
+    "en": {
+      "name": "Four Knights: Spanish Variation",
+      "description": "Classical, symmetrical development with the Spanish pressure on c6.",
+      "idea": "White develops all minor pieces naturally and plays on the pressure against c6 and e5. Black chooses between symmetry (...Bb4) and Rubinstein's aggressive ...Nd4.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Develops and protects e4.",
+        "Develops while attacking e4.",
+        "Pressures the c6 knight, e5's defender."
+      ]
+    }
+  },
+  {
+    "slug": "four-knights-scotch",
+    "eco": "C47",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. d4",
+    "es": {
+      "name": "Cuatro Caballos: Variante Escocesa",
+      "description": "Las blancas abren el centro con todos los caballos ya desarrollados.",
+      "idea": "Tras 4...exd4 5.Cxd4 Ab4 6.Cxc6 bxc6 7.Ad3 la partida se vuelve abierta y dinámica. Es una forma sencilla de jugar un centro abierto con desarrollo armónico.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Desarrolla y protege e4.",
+        "Desarrolla atacando e4.",
+        "Rompe en el centro."
+      ]
+    },
+    "en": {
+      "name": "Four Knights: Scotch Variation",
+      "description": "White opens the centre with all knights already developed.",
+      "idea": "After 4...exd4 5.Nxd4 Bb4 6.Nxc6 bxc6 7.Bd3 the game becomes open and dynamic. It is a simple way to get an open centre with harmonious development.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Develops and protects e4.",
+        "Develops while attacking e4.",
+        "Breaks in the centre."
+      ]
+    }
+  },
+  {
+    "slug": "four-knights-rubinstein",
+    "eco": "C48",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5 Nd4",
+    "es": {
+      "name": "Cuatro Caballos: Contragambito Rubinstein",
+      "description": "Las negras ignoran la presión sobre e5 y saltan con el caballo al centro.",
+      "idea": "Si 5.Cxe5 De7, las negras recuperan material con amenazas. La réplica más segura es 5.Aa4 o 5.Cxd4, llevando a posiciones equilibradas donde el caballo de d4 molesta.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Desarrolla y protege e4.",
+        "Ataca e4.",
+        "Presiona c6.",
+        "Contraataca al alfil y ocupa d4, ofreciendo el peón de e5."
+      ]
+    },
+    "en": {
+      "name": "Four Knights: Rubinstein Countergambit",
+      "description": "Black ignores the pressure on e5 and jumps into the centre with the knight.",
+      "idea": "If 5.Nxe5 Qe7, Black regains material with threats. The safest reply is 5.Ba4 or 5.Nxd4, leading to balanced positions where the d4 knight is annoying.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Develops and protects e4.",
+        "Attacks e4.",
+        "Pressures c6.",
+        "Counters the bishop and occupies d4, offering the e5 pawn."
+      ]
+    }
+  },
+  {
+    "slug": "four-knights-halloween-gambit",
+    "eco": "C47",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5",
+    "es": {
+      "name": "Cuatro Caballos: Gambito Halloween",
+      "description": "Un caballo sacrificado por un peón para arrollar el centro con d4.",
+      "idea": "Tras 4...Cxe5 5.d4 las blancas persiguen a los caballos negros con d5 y f4, ganando mucho espacio. Objetivamente dudoso, pero muy peligroso si las negras no conocen la defensa.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Desarrolla y protege e4.",
+        "Ataca e4.",
+        "Sacrifica el caballo para ganar tiempos con los peones centrales."
+      ]
+    },
+    "en": {
+      "name": "Four Knights: Halloween Gambit",
+      "description": "A knight sacrificed for a pawn to roll the centre forward with d4.",
+      "idea": "After 4...Nxe5 5.d4 White chases Black's knights with d5 and f4, gaining lots of space. Objectively dubious, but very dangerous if Black does not know the defence.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Develops and protects e4.",
+        "Attacks e4.",
+        "Sacrifices the knight to gain time with the central pawns."
+      ]
+    }
+  },
+  {
+    "slug": "four-knights-symmetrical",
+    "eco": "C49",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5 Bb4",
+    "es": {
+      "name": "Cuatro Caballos: Variante Simétrica",
+      "description": "Las negras copian cada jugada blanca: una posición clásica de equilibrio.",
+      "idea": "Tras 5.O-O O-O 6.d3 d6 7.Ag5 las clavadas sobre los caballos de f3 y f6 marcan la lucha. Quien rompa antes la simetría con ventaja de tiempo suele imponerse.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Desarrolla y protege e4.",
+        "Ataca e4.",
+        "Presiona c6.",
+        "Copia la idea: presiona el caballo de c3, defensor de e4."
+      ]
+    },
+    "en": {
+      "name": "Four Knights: Symmetrical Variation",
+      "description": "Black mirrors every white move: a classical balanced position.",
+      "idea": "After 5.O-O O-O 6.d3 d6 7.Bg5 the pins on the f3 and f6 knights define the fight. Whoever breaks the symmetry first with a tempo to spare usually prevails.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Develops and protects e4.",
+        "Attacks e4.",
+        "Pressures c6.",
+        "Mirrors the idea: pressures the c3 knight, e4's defender."
+      ]
+    }
+  },
+  {
+    "slug": "petrov-defense",
+    "eco": "C42",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nf6",
+    "es": {
+      "name": "Defensa Petrov",
+      "description": "Las negras contraatacan e4 en lugar de defender e5: la defensa rusa, muy sólida.",
+      "idea": "Tras 3.Cxe5 d6! las negras recuperan el peón con posiciones simétricas y equilibradas. Es una de las defensas más fiables al máximo nivel, favorita de Caruana y Kramnik.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4 sin defender e5."
+      ]
+    },
+    "en": {
+      "name": "Petrov's Defense",
+      "description": "Black counterattacks e4 instead of defending e5: the rock-solid Russian Defence.",
+      "idea": "After 3.Nxe5 d6! Black regains the pawn with symmetrical, balanced positions. It is one of the most reliable defences at elite level, favoured by Caruana and Kramnik.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4 instead of defending e5."
+      ]
+    }
+  },
+  {
+    "slug": "petrov-classical",
+    "eco": "C42",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4",
+    "es": {
+      "name": "Petrov: Línea clásica",
+      "description": "El orden correcto: primero ...d6 para expulsar al caballo, luego capturar en e4.",
+      "idea": "Tras 5.d4 d5 6.Ad3 ambos bandos tienen piezas activas y estructura simétrica. Las blancas buscan presionar el caballo de e4 con c4 y Te1.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4.",
+        "Captura el peón de e5.",
+        "Expulsa al caballo antes de tomar en e4, evitando trampas en la columna e.",
+        "El caballo se retira a una casilla segura.",
+        "Recupera el peón con igualdad material."
+      ]
+    },
+    "en": {
+      "name": "Petrov: Classical Line",
+      "description": "The correct order: first ...d6 to kick the knight, then take on e4.",
+      "idea": "After 5.d4 d5 6.Bd3 both sides have active pieces and a symmetrical structure. White tries to pressure the e4 knight with c4 and Re1.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4.",
+        "Takes the e5 pawn.",
+        "Kicks the knight before taking on e4, avoiding tricks on the e-file.",
+        "The knight retreats to a safe square.",
+        "Regains the pawn, restoring material balance."
+      ]
+    }
+  },
+  {
+    "slug": "petrov-cochrane-gambit",
+    "eco": "C42",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nxf7",
+    "es": {
+      "name": "Petrov: Gambito Cochrane",
+      "description": "Un sacrificio de caballo en f7 para dejar al rey negro sin enroque.",
+      "idea": "Tras 4...Rxf7 5.d4 las blancas tienen dos peones por la pieza y un centro fuerte. El rey negro expuesto es su compensación; en la práctica es muy incómodo de defender.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4.",
+        "Captura en e5.",
+        "Expulsa al caballo.",
+        "Sacrifica el caballo en f7 para desplazar al rey negro."
+      ]
+    },
+    "en": {
+      "name": "Petrov: Cochrane Gambit",
+      "description": "A knight sacrifice on f7 to strip the black king of castling.",
+      "idea": "After 4...Kxf7 5.d4 White has two pawns for the piece and a strong centre. The exposed black king is the compensation; in practice it is very awkward to defend.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4.",
+        "Takes on e5.",
+        "Kicks the knight.",
+        "Sacrifices the knight on f7 to displace the black king."
+      ]
+    }
+  },
+  {
+    "slug": "petrov-steinitz-attack",
+    "eco": "C43",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nf6 3. d4",
+    "es": {
+      "name": "Petrov: Ataque Steinitz",
+      "description": "Las blancas responden al contraataque con otro golpe en el centro.",
+      "idea": "Tras 3...Cxe4 4.Ad3 d5 5.Cxe5 las posiciones son abiertas y las blancas conservan un pequeño tiempo extra. Evita la simetría de 3.Cxe5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4.",
+        "Abre el centro en lugar de capturar en e5."
+      ]
+    },
+    "en": {
+      "name": "Petrov: Steinitz Attack",
+      "description": "White answers the counterattack with another central strike.",
+      "idea": "After 3...Nxe4 4.Bd3 d5 5.Nxe5 the positions are open and White keeps a small extra tempo. It avoids the symmetry of 3.Nxe5.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4.",
+        "Opens the centre instead of taking on e5."
+      ]
+    }
+  },
+  {
+    "slug": "stafford-gambit",
+    "eco": "C42",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nf6 3. Nxe5 Nc6",
+    "es": {
+      "name": "Gambito Stafford",
+      "description": "Un gambito lleno de trampas popularizado en internet: las negras entregan e5 por actividad.",
+      "idea": "Tras 4.Cxc6 dxc6 las negras abren líneas para sus alfiles y buscan ...Ac5 y ...Cg4 contra f2. Si las blancas juegan 5.d3 con calma, el gambito no tiene compensación suficiente.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4.",
+        "Captura el peón de e5.",
+        "Ofrece un peón para abrir líneas y tender trampas contra f2."
+      ]
+    },
+    "en": {
+      "name": "Stafford Gambit",
+      "description": "A trap-laden gambit popularised online: Black gives up e5 for activity.",
+      "idea": "After 4.Nxc6 dxc6 Black opens lines for the bishops and aims for ...Bc5 and ...Ng4 against f2. If White calmly plays 5.d3, the gambit lacks enough compensation.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4.",
+        "Takes the e5 pawn.",
+        "Offers a pawn to open lines and set traps against f2."
+      ]
+    }
+  },
+  {
+    "slug": "philidor-defense",
+    "eco": "C41",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 d6",
+    "es": {
+      "name": "Defensa Philidor",
+      "description": "Las negras protegen e5 con un peón: sólido, pero algo encerrado.",
+      "idea": "El alfil de f8 queda tras la cadena de peones y las negras ceden espacio. Tras 3.d4 deben elegir entre mantener e5 (...Cd7) o cambiar (...exd4) y jugar con piezas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Refuerza e5 con un peón en vez de con el caballo."
+      ]
+    },
+    "en": {
+      "name": "Philidor Defense",
+      "description": "Black protects e5 with a pawn: solid, if a little cramped.",
+      "idea": "The f8 bishop sits behind the pawn chain and Black concedes space. After 3.d4 Black chooses between holding e5 (...Nd7) or exchanging (...exd4) and playing with pieces.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Supports e5 with a pawn instead of the knight."
+      ]
+    }
+  },
+  {
+    "slug": "philidor-hanham",
+    "eco": "C41",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 d6 3. d4 Nd7",
+    "es": {
+      "name": "Philidor: Variante Hanham",
+      "description": "Las negras mantienen el punto fuerte de e5 a toda costa.",
+      "idea": "Con ...Cd7, ...Cgf6, ...Ae7 y ...c6 las negras construyen una fortaleza similar a la India Antigua. Las blancas deben vigilar el truco Axf7+ y ganar espacio con Ac4 y O-O.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Protege e5 con un peón.",
+        "Ataca e5 por segunda vez.",
+        "Defiende e5 con el caballo sin ceder el centro."
+      ]
+    },
+    "en": {
+      "name": "Philidor: Hanham Variation",
+      "description": "Black holds the e5 stronghold at all costs.",
+      "idea": "With ...Nd7, ...Ngf6, ...Be7 and ...c6 Black builds a fortress similar to the Old Indian. White must watch the Bxf7+ trick and gain space with Bc4 and O-O.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Protects e5 with a pawn.",
+        "Attacks e5 a second time.",
+        "Defends e5 with the knight without giving up the centre."
+      ]
+    }
+  },
+  {
+    "slug": "ponziani-opening",
+    "eco": "C44",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. c3",
+    "es": {
+      "name": "Apertura Ponziani",
+      "description": "Las blancas preparan d4 con un peón antes de desarrollar el alfil.",
+      "idea": "El objetivo es construir un centro e4–d4. Las negras reaccionan mejor golpeando pronto con 3...Cf6 o 3...d5, aprovechando que c3 quita esa casilla al caballo blanco.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Prepara d4 para levantar un centro de peones."
+      ]
+    },
+    "en": {
+      "name": "Ponziani Opening",
+      "description": "White prepares d4 with a pawn before developing the bishop.",
+      "idea": "The goal is an e4–d4 centre. Black reacts best by striking early with 3...Nf6 or 3...d5, taking advantage of c3 no longer being available to White's knight.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Prepares d4 to build a pawn centre."
+      ]
+    }
+  },
+  {
+    "slug": "center-game",
+    "eco": "C22",
+    "side": "w",
+    "pgn": "1. e4 e5 2. d4 exd4 3. Qxd4",
+    "es": {
+      "name": "Apertura del Centro",
+      "description": "Las blancas abren en la jugada 2 y recuperan el peón con la dama.",
+      "idea": "La dama centralizada es fuerte pero se expone a 3...Cc6 con ganancia de tiempo. Las blancas suelen seguir con De3, Cc3, Ad2 y enroque largo para atacar.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Abre el centro de inmediato.",
+        "Captura el peón central.",
+        "Recupera el peón con la dama, a riesgo de perder tiempo."
+      ]
+    },
+    "en": {
+      "name": "Center Game",
+      "description": "White opens on move 2 and regains the pawn with the queen.",
+      "idea": "The centralised queen is strong but runs into 3...Nc6 with tempo. White usually continues Qe3, Nc3, Bd2 and long castling to attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Opens the centre at once.",
+        "Takes the central pawn.",
+        "Regains the pawn with the queen, at the risk of losing time."
+      ]
+    }
+  },
+  {
+    "slug": "danish-gambit",
+    "eco": "C21",
+    "side": "w",
+    "pgn": "1. e4 e5 2. d4 exd4 3. c3",
+    "es": {
+      "name": "Gambito Danés",
+      "description": "Hasta dos peones sacrificados por un desarrollo relámpago y dos alfiles apuntando al rey.",
+      "idea": "Tras 3...dxc3 4.Ac4 cxb2 5.Axb2 los alfiles blancos en c4 y b2 miran directamente a f7 y g7. Las negras deben devolver material con ...d5 para neutralizar el ataque.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Abre el centro.",
+        "Captura el peón.",
+        "Ofrece otro peón para abrir líneas a los alfiles."
+      ]
+    },
+    "en": {
+      "name": "Danish Gambit",
+      "description": "Up to two pawns sacrificed for lightning development and two bishops aimed at the king.",
+      "idea": "After 3...dxc3 4.Bc4 cxb2 5.Bxb2 White's bishops on c4 and b2 point straight at f7 and g7. Black must return material with ...d5 to neutralise the attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Opens the centre.",
+        "Takes the pawn.",
+        "Offers another pawn to open lines for the bishops."
+      ]
+    }
+  },
+  {
+    "slug": "bishops-opening",
+    "eco": "C23",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Bc4",
+    "es": {
+      "name": "Apertura de Alfil",
+      "description": "Las blancas sacan primero el alfil y mantienen abiertas muchas transposiciones.",
+      "idea": "Sin comprometer el caballo de g1, las blancas pueden elegir después f4 (estilo Gambito de Rey), d3 con Cf3 (Italiana lenta) o d4. Es flexible y evita la Defensa Petrov.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla el alfil contra f7 dejando libre el peón de f."
+      ]
+    },
+    "en": {
+      "name": "Bishop's Opening",
+      "description": "White develops the bishop first and keeps many transpositions open.",
+      "idea": "Without committing the g1 knight, White can later choose f4 (King's Gambit style), d3 with Nf3 (slow Italian) or d4. It is flexible and avoids the Petrov Defence.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops the bishop towards f7, keeping the f-pawn free."
+      ]
+    }
+  },
+  {
+    "slug": "bishops-opening-berlin",
+    "eco": "C24",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Bc4 Nf6",
+    "es": {
+      "name": "Apertura de Alfil: Defensa Berlinesa",
+      "description": "Las negras contraatacan e4 de inmediato.",
+      "idea": "Tras 3.d3 las blancas protegen e4 y la partida recuerda a la Italiana lenta; con 3.d4 se abre el juego al estilo del Gambito Urusov. Las negras buscan ...c6 y ...d5 para ocupar el centro.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla el alfil.",
+        "Ataca e4 con desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Bishop's Opening: Berlin Defense",
+      "description": "Black counterattacks e4 immediately.",
+      "idea": "After 3.d3 White protects e4 and the game resembles a slow Italian; 3.d4 opens it up in Urusov Gambit style. Black aims for ...c6 and ...d5 to occupy the centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops the bishop.",
+        "Attacks e4 with development."
+      ]
+    }
+  },
+  {
+    "slug": "vienna-game",
+    "eco": "C25",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nc3",
+    "es": {
+      "name": "Apertura Vienesa",
+      "description": "El caballo protege e4 y deja libre el peón de f para un ataque con f4.",
+      "idea": "Las blancas preparan f4 en condiciones más favorables que en el Gambito de Rey, o un juego tranquilo con g3 y Ag2. Es flexible y muy popular a nivel de club.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla protegiendo e4 y deja el peón de f listo para avanzar."
+      ]
+    },
+    "en": {
+      "name": "Vienna Game",
+      "description": "The knight protects e4 and keeps the f-pawn free for an f4 attack.",
+      "idea": "White prepares f4 under better circumstances than in the King's Gambit, or a quieter g3 and Bg2 setup. It is flexible and very popular at club level.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops while protecting e4, keeping the f-pawn ready to advance."
+      ]
+    }
+  },
+  {
+    "slug": "vienna-gambit",
+    "eco": "C29",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nc3 Nf6 3. f4",
+    "es": {
+      "name": "Gambito Vienés",
+      "description": "Un Gambito de Rey con el caballo ya en c3: agresivo y con ideas claras.",
+      "idea": "La réplica principal 3...d5! 4.fxe5 Cxe4 lleva a posiciones tácticas donde el caballo negro de e4 es fuerte. Las blancas buscan Cf3, d3 y abrir la columna f contra el rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla protegiendo e4.",
+        "Ataca e4 con desarrollo.",
+        "Golpea e5 para abrir la columna f."
+      ]
+    },
+    "en": {
+      "name": "Vienna Gambit",
+      "description": "A King's Gambit with the knight already on c3: aggressive with clear ideas.",
+      "idea": "The main reply 3...d5! 4.fxe5 Nxe4 leads to tactical positions where Black's e4 knight is strong. White aims for Nf3, d3 and opening the f-file against the king.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops while protecting e4.",
+        "Attacks e4 with development.",
+        "Hits e5 to open the f-file."
+      ]
+    }
+  },
+  {
+    "slug": "vienna-frankenstein-dracula",
+    "eco": "C27",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nc3 Nf6 3. Bc4 Nxe4",
+    "es": {
+      "name": "Vienesa: Variante Frankenstein-Drácula",
+      "description": "El nombre lo dice todo: una de las líneas más salvajes de la teoría.",
+      "idea": "Tras 4.Dh5 Cd6 5.Ab3 Cc6 6.Cb5 g6 7.Df3 f5 8.Dd5 De7 9.Cxc7+ Rd8 10.Cxa8 b6 las negras entregan una torre a cambio de encerrar al caballo blanco y ganar desarrollo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla protegiendo e4.",
+        "Ataca e4.",
+        "Desarrolla el alfil contra f7.",
+        "Captura en e4 usando el truco del tenedor para recuperar la pieza."
+      ]
+    },
+    "en": {
+      "name": "Vienna: Frankenstein-Dracula Variation",
+      "description": "The name says it all: one of the wildest lines in opening theory.",
+      "idea": "After 4.Qh5 Nd6 5.Bb3 Nc6 6.Nb5 g6 7.Qf3 f5 8.Qd5 Qe7 9.Nxc7+ Kd8 10.Nxa8 b6 Black gives up a rook in return for trapping the white knight and gaining development.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops while protecting e4.",
+        "Attacks e4.",
+        "Develops the bishop towards f7.",
+        "Takes on e4 using the fork trick to regain the piece."
+      ]
+    }
+  },
+  {
+    "slug": "vienna-max-lange-defense",
+    "eco": "C25",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nc3 Nc6",
+    "es": {
+      "name": "Vienesa: Defensa Max Lange",
+      "description": "Las negras refuerzan e5 y se preparan para el ataque con f4.",
+      "idea": "Si 3.f4 exf4 4.Cf3 g5 surge el Gambito Pierce/Hamppe, muy táctico. Contra 3.g3 o 3.Ac4 las negras desarrollan con ...Ac5 o ...Cf6 y juego sólido.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla protegiendo e4.",
+        "Refuerza e5 anticipando el avance f4."
+      ]
+    },
+    "en": {
+      "name": "Vienna: Max Lange Defense",
+      "description": "Black supports e5 and prepares for the f4 attack.",
+      "idea": "After 3.f4 exf4 4.Nf3 g5 the very tactical Pierce/Hamppe gambits arise. Against 3.g3 or 3.Bc4 Black develops with ...Bc5 or ...Nf6 and solid play.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops while protecting e4.",
+        "Supports e5 in anticipation of f4."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit",
+    "eco": "C30",
+    "side": "w",
+    "pgn": "1. e4 e5 2. f4",
+    "es": {
+      "name": "Gambito de Rey",
+      "description": "El gambito romántico por excelencia: un peón por la columna f y el centro.",
+      "idea": "Si las negras aceptan, las blancas juegan Cf3, d4 y Ac4 para dominar el centro y atacar f7. El precio es el debilitamiento de su propio rey en la diagonal e1–h4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece un peón para desviar e5 y abrir la columna f."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit",
+      "description": "The quintessential romantic gambit: a pawn for the f-file and the centre.",
+      "idea": "If Black accepts, White plays Nf3, d4 and Bc4 to dominate the centre and attack f7. The price is weakening White's own king on the e1–h4 diagonal.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers a pawn to deflect e5 and open the f-file."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-accepted",
+    "eco": "C33",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 exf4",
+    "es": {
+      "name": "Gambito de Rey Aceptado",
+      "description": "Las negras cogen el peón y desafían a las blancas a demostrar su compensación.",
+      "idea": "El peón de f4 dificulta el desarrollo blanco (controla e3 y g3). Las negras suelen defenderlo con ...g5 o devolverlo con ...d5 para desarrollarse con comodidad.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón, que además controla e3 y g3."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit Accepted",
+      "description": "Black grabs the pawn and dares White to prove the compensation.",
+      "idea": "The f4 pawn hinders White's development (it controls e3 and g3). Black usually defends it with ...g5 or returns it with ...d5 to develop comfortably.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn, which also controls e3 and g3."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-declined-classical",
+    "eco": "C30",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 Bc5",
+    "es": {
+      "name": "Gambito de Rey Rehusado: Clásico",
+      "description": "Las negras rehúsan el peón y apuntan su alfil al rey blanco sin enroque.",
+      "idea": "El alfil de c5 impide que las blancas enroquen corto con comodidad. Si 3.fxe5?? Dh4+ gana material; las blancas suelen jugar 3.Cf3 d6 4.c3 para preparar d4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Rehúsa y clava el alfil en la diagonal g1–a7 contra el rey."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit Declined: Classical",
+      "description": "Black declines the pawn and aims the bishop at the uncastled white king.",
+      "idea": "The c5 bishop stops White from castling short comfortably. If 3.fxe5?? Qh4+ wins material; White usually plays 3.Nf3 d6 4.c3 to prepare d4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Declines and places the bishop on the g1–a7 diagonal against the king."
+      ]
+    }
+  },
+  {
+    "slug": "falkbeer-countergambit",
+    "eco": "C31",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 d5",
+    "es": {
+      "name": "Contragambito Falkbeer",
+      "description": "Las negras responden al gambito con otro gambito en el centro.",
+      "idea": "Tras 3.exd5 las negras suelen jugar 3...exf4 o 3...e4 para cortar el desarrollo blanco. Es una lucha abierta donde el primero que complete el desarrollo toma la iniciativa.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Contragolpe central que ignora el peón ofrecido."
+      ]
+    },
+    "en": {
+      "name": "Falkbeer Countergambit",
+      "description": "Black answers the gambit with a central counter-gambit.",
+      "idea": "After 3.exd5 Black usually plays 3...exf4 or 3...e4 to cramp White's development. It is an open fight where whoever finishes developing first takes the initiative.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "A central counter-strike that ignores the offered pawn."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-kieseritzky",
+    "eco": "C39",
+    "side": "w",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 g5 4. h4 g4 5. Ne5",
+    "es": {
+      "name": "Gambito de Rey: Variante Kieseritzky",
+      "description": "Las blancas atacan la cadena de peones negra y sacan el caballo a e5.",
+      "idea": "El caballo de e5 apunta a f7 y g4, y las blancas buscan d4 y Ac4. Las negras suelen contraatacar con ...Cf6 y ...d6 o ...d5; es una línea tan táctica como teórica.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Impide ...Dh4+ y ataca el peón de f4.",
+        "Defiende f4 con otro peón.",
+        "Ataca la cadena de peones negra por la base.",
+        "Avanza y expulsa al caballo de f3.",
+        "El caballo salta al centro apuntando a f7 y g4."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Kieseritzky Variation",
+      "description": "White attacks Black's pawn chain and brings the knight to e5.",
+      "idea": "The e5 knight eyes f7 and g4, and White aims for d4 and Bc4. Black usually counterattacks with ...Nf6 and ...d6 or ...d5; the line is as tactical as it is theoretical.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Prevents ...Qh4+ and attacks the f4 pawn.",
+        "Defends f4 with another pawn.",
+        "Attacks Black's pawn chain at its base.",
+        "Advances and kicks the f3 knight.",
+        "The knight jumps to the centre, eyeing f7 and g4."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-muzio",
+    "eco": "C37",
+    "side": "w",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 g5 4. Bc4 g4 5. O-O",
+    "es": {
+      "name": "Gambito de Rey: Gambito Muzio",
+      "description": "Las blancas entregan un caballo entero para abrir la columna f contra el rey negro.",
+      "idea": "Tras 5...gxf3 6.Dxf3 las blancas tienen torre, dama y alfil apuntando a f7 con enorme ventaja de desarrollo. Objetivamente arriesgado, pero en la práctica terrorífico para las negras.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla e impide ...Dh4+.",
+        "Defiende f4.",
+        "Apunta a f7 con el alfil.",
+        "Ataca al caballo de f3.",
+        "Enroca dejando el caballo: sacrifica la pieza por el ataque."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Muzio Gambit",
+      "description": "White gives up a whole knight to open the f-file against the black king.",
+      "idea": "After 5...gxf3 6.Qxf3 White has rook, queen and bishop aimed at f7 with a huge lead in development. Objectively risky, but terrifying for Black in practice.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops and prevents ...Qh4+.",
+        "Defends f4.",
+        "Aims the bishop at f7.",
+        "Attacks the f3 knight.",
+        "Castles, leaving the knight: the piece is sacrificed for the attack."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-bishops-gambit",
+    "eco": "C33",
+    "side": "w",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Bc4",
+    "es": {
+      "name": "Gambito de Rey: Gambito de Alfil",
+      "description": "Las blancas permiten el jaque de dama en h4 a cambio de desarrollo rápido.",
+      "idea": "Tras 3...Dh4+ 4.Rf1 el rey blanco pierde el enroque pero la dama negra quedará expuesta a Cf3. Las blancas buscan d4, Cf3 y Cc3 con un centro fuerte.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla el alfil contra f7, permitiendo ...Dh4+."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Bishop's Gambit",
+      "description": "White allows the queen check on h4 in exchange for fast development.",
+      "idea": "After 3...Qh4+ 4.Kf1 White's king loses castling but Black's queen will be exposed to Nf3. White aims for d4, Nf3 and Nc3 with a strong centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops the bishop towards f7, allowing ...Qh4+."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-fischer-defense",
+    "eco": "C34",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 d6",
+    "es": {
+      "name": "Gambito de Rey: Defensa Fischer",
+      "description": "La 'refutación' de Fischer: impedir Ce5 antes de defender el peón con ...g5.",
+      "idea": "Con ...d6 las negras quitan la casilla e5 al caballo y luego sostienen f4 con ...g5. Las blancas suelen jugar 4.d4 g5 5.h4 g4 6.Cg1 para recuperar el peón.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla e impide ...Dh4+.",
+        "Controla e5 para que ...g5 no permita Ce5."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Fischer Defense",
+      "description": "Fischer's 'refutation': take away e5 before holding the pawn with ...g5.",
+      "idea": "With ...d6 Black denies the knight e5 and then holds f4 with ...g5. White usually plays 4.d4 g5 5.h4 g4 6.Ng1 to regain the pawn.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops and prevents ...Qh4+.",
+        "Controls e5 so that ...g5 will not allow Ne5."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-modern-defense",
+    "eco": "C36",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 d5",
+    "es": {
+      "name": "Gambito de Rey: Defensa Moderna",
+      "description": "Las negras devuelven el peón de inmediato para abrir el centro y desarrollarse.",
+      "idea": "Tras 4.exd5 Cf6 las negras recuperan el peón de d5 con piezas activas. Es una forma práctica de neutralizar el gambito sin aprender teoría larga.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla e impide ...Dh4+.",
+        "Contragolpe central para liberar el juego negro."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Modern Defense",
+      "description": "Black returns the pawn at once to open the centre and develop.",
+      "idea": "After 4.exd5 Nf6 Black wins back the d5 pawn with active pieces. It is a practical way to neutralise the gambit without learning long theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops and prevents ...Qh4+.",
+        "Central counter-strike to free Black's game."
+      ]
+    }
+  },
+  {
+    "slug": "kings-gambit-cunningham",
+    "eco": "C35",
+    "side": "b",
+    "pgn": "1. e4 e5 2. f4 exf4 3. Nf3 Be7",
+    "es": {
+      "name": "Gambito de Rey: Defensa Cunningham",
+      "description": "El alfil amenaza un jaque molesto en h4 que desplaza al rey blanco.",
+      "idea": "Si las blancas no reaccionan, ...Ah4+ obliga al rey a moverse y le quita el enroque. Las blancas suelen jugar 4.Ac4 o 4.Cc3, aceptando complicaciones.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla e impide ...Dh4+.",
+        "Prepara el jaque de alfil en h4 para desplazar al rey blanco."
+      ]
+    },
+    "en": {
+      "name": "King's Gambit: Cunningham Defense",
+      "description": "The bishop threatens an annoying check on h4 that displaces the white king.",
+      "idea": "If White ignores it, ...Bh4+ forces the king to move and lose castling rights. White usually plays 4.Bc4 or 4.Nc3, accepting complications.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops and prevents ...Qh4+.",
+        "Prepares a bishop check on h4 to displace White's king."
+      ]
+    }
+  },
+  {
+    "slug": "latvian-gambit",
+    "eco": "C40",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 f5",
+    "es": {
+      "name": "Gambito Letón",
+      "description": "Un Gambito de Rey con negras: arriesgadísimo y lleno de trampas.",
+      "idea": "Tras 3.Cxe5 Df6 4.d4 d6 5.Cc4 las negras buscan abrir la columna f, pero su rey queda muy débil. Es un arma de sorpresa más que una defensa fiable.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4 con un peón, abriendo el flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "Latvian Gambit",
+      "description": "A King's Gambit with Black: extremely risky and full of traps.",
+      "idea": "After 3.Nxe5 Qf6 4.d4 d6 5.Nc4 Black tries to open the f-file, but the king becomes very weak. It is a surprise weapon rather than a reliable defence.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4 with a pawn, opening the kingside."
+      ]
+    }
+  },
+  {
+    "slug": "elephant-gambit",
+    "eco": "C40",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 d5",
+    "es": {
+      "name": "Gambito Elefante",
+      "description": "Las negras golpean el centro sin haber defendido e5.",
+      "idea": "Tras 3.exd5 e4 o 3...Ad6 las negras buscan desarrollo rápido y trampas. Con juego correcto (3.exd5 y 4.De2) las blancas quedan con un peón extra y buena posición.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contragolpe central que ignora el ataque a e5."
+      ]
+    },
+    "en": {
+      "name": "Elephant Gambit",
+      "description": "Black strikes at the centre without having defended e5.",
+      "idea": "After 3.exd5 e4 or 3...Bd6 Black looks for quick development and traps. With correct play (3.exd5 and 4.Qe2) White is a pawn up with a good position.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Central counter-strike that ignores the attack on e5."
+      ]
+    }
+  },
+  {
+    "slug": "damiano-defense",
+    "eco": "C40",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 f6",
+    "es": {
+      "name": "Defensa Damiano",
+      "description": "Un clásico ejemplo de lo que no hay que hacer: el peón de f defiende e5 y abre el rey.",
+      "idea": "Tras 3.Cxe5! fxe5? 4.Dh5+ las blancas atacan con fuerza al rey negro. La defensa es instructiva: nunca debilites la diagonal e8–h5 sin necesidad.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Defiende e5 debilitando gravemente la diagonal del rey."
+      ]
+    },
+    "en": {
+      "name": "Damiano Defense",
+      "description": "A classic example of what not to do: the f-pawn defends e5 and exposes the king.",
+      "idea": "After 3.Nxe5! fxe5? 4.Qh5+ White attacks the black king forcefully. The lesson: never weaken the e8–h5 diagonal without reason.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Defends e5 but badly weakens the king's diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "wayward-queen-attack",
+    "eco": "C20",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Qh5",
+    "es": {
+      "name": "Ataque Parham (dama errante)",
+      "description": "La dama sale pronto buscando el mate del pastor: popular entre principiantes.",
+      "idea": "La dama ataca e5 y f7 a la vez. Con 2...Cc6 3.Ac4 g6! 4.Df3 Cf6 las negras defienden todo y ganan tiempos atacando a la dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "La dama ataca e5 y f7 a la vez, con ideas de mate rápido."
+      ]
+    },
+    "en": {
+      "name": "Wayward Queen (Parham) Attack",
+      "description": "The queen comes out early looking for Scholar's Mate: popular with beginners.",
+      "idea": "The queen hits e5 and f7 at once. With 2...Nc6 3.Bc4 g6! 4.Qf3 Nf6 Black defends everything and gains time by attacking the queen.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "The queen hits e5 and f7 at once, hoping for a quick mate."
+      ]
+    }
+  },
+  {
+    "slug": "philidor-exchange",
+    "eco": "C41",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 d6 3. d4 exd4",
+    "es": {
+      "name": "Philidor: Variante del Cambio",
+      "description": "Las negras ceden el centro para jugar con piezas activas.",
+      "idea": "Tras 4.Cxd4 Cf6 5.Cc3 Ae7 las negras preparan ...O-O, ...Te8 y ...Af8 presionando e4. Las blancas tienen más espacio, pero la posición negra es sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Protege e5 con un peón.",
+        "Ataca e5 de nuevo.",
+        "Cambia en d4 para liberar su juego."
+      ]
+    },
+    "en": {
+      "name": "Philidor: Exchange Variation",
+      "description": "Black gives up the centre to play with active pieces.",
+      "idea": "After 4.Nxd4 Nf6 5.Nc3 Be7 Black prepares ...O-O, ...Re8 and ...Bf8, pressuring e4. White has more space, but Black's position is solid.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Protects e5 with a pawn.",
+        "Attacks e5 again.",
+        "Trades on d4 to free the game."
+      ]
+    }
+  },
+  {
+    "slug": "petrov-nimzowitsch-attack",
+    "eco": "C42",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. Nc3",
+    "es": {
+      "name": "Petrov: Ataque Nimzowitsch",
+      "description": "Las blancas cambian el caballo de e4 y enrocan largo.",
+      "idea": "Tras 5...Cxc3 6.dxc3 las blancas juegan Ae3, Dd2 y O-O-O con un ataque rápido en el flanco de rey. Es la forma más ambiciosa de romper la simetría de la Petrov.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Contraataca e4.",
+        "Captura en e5.",
+        "Expulsa al caballo.",
+        "Se retira.",
+        "Recupera el peón.",
+        "Ofrece el cambio del caballo centralizado."
+      ]
+    },
+    "en": {
+      "name": "Petrov: Nimzowitsch Attack",
+      "description": "White trades off the e4 knight and castles long.",
+      "idea": "After 5...Nxc3 6.dxc3 White plays Be3, Qd2 and O-O-O with a fast kingside attack. It is the most ambitious way to break the Petrov's symmetry.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Counterattacks e4.",
+        "Takes on e5.",
+        "Kicks the knight.",
+        "Retreats.",
+        "Regains the pawn.",
+        "Offers to trade the centralised knight."
+      ]
+    }
+  },
+  {
+    "slug": "portuguese-opening",
+    "eco": "C20",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Bb5",
+    "es": {
+      "name": "Apertura Portuguesa",
+      "description": "El alfil sale a b5 antes del caballo, algo inusual.",
+      "idea": "Las blancas preparan c3 y d4 con el alfil fuera de la cadena. Las negras responden con ...c6 o ...Cf6 ganando tiempo sobre el alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla el alfil antes del caballo, preparando c3 y d4."
+      ]
+    },
+    "en": {
+      "name": "Portuguese Opening",
+      "description": "The bishop goes to b5 before the knight, an unusual order.",
+      "idea": "White prepares c3 and d4 with the bishop outside the chain. Black answers ...c6 or ...Nf6, gaining time on the bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops the bishop before the knight, preparing c3 and d4."
+      ]
+    }
+  }
+]

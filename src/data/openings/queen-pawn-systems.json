@@ -1,0 +1,526 @@
+[
+  {
+    "slug": "queens-pawn-game",
+    "eco": "D02",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Nf3",
+    "es": {
+      "name": "Apertura de Peón de Dama",
+      "description": "Desarrollo flexible sin comprometer aún c4: la puerta a muchos sistemas.",
+      "idea": "Las blancas pueden transponer al Gambito de Dama con c4 o elegir sistemas como el Londres, el Colle o el Torre. Es la opción de quien quiere evitar la teoría del rival.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla, controla e5 y mantiene todas las opciones abiertas."
+      ]
+    },
+    "en": {
+      "name": "Queen's Pawn Game",
+      "description": "Flexible development without committing to c4 yet: the gateway to many systems.",
+      "idea": "White can transpose to the Queen's Gambit with c4 or choose systems like the London, Colle or Torre. It suits players who want to sidestep the opponent's theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops, controls e5 and keeps every option open."
+      ]
+    }
+  },
+  {
+    "slug": "london-system",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Bf4",
+    "es": {
+      "name": "Sistema Londres",
+      "description": "El sistema más popular del ajedrez online: el mismo esquema contra casi todo.",
+      "idea": "Las blancas colocan Af4, e3, c3, Cd2, Cf3 y Ad3 formando una estructura muy sólida. Los planes típicos son Ce5 con ataque en el flanco de rey o expansión en el centro con e4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla el alfil fuera de la cadena antes de jugar e3."
+      ]
+    },
+    "en": {
+      "name": "London System",
+      "description": "The most popular system in online chess: the same setup against almost anything.",
+      "idea": "White sets up Bf4, e3, c3, Nd2, Nf3 and Bd3 in a very solid structure. Typical plans are Ne5 with a kingside attack or central expansion with e4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops the bishop outside the chain before playing e3."
+      ]
+    }
+  },
+  {
+    "slug": "london-system-main-line",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Bf4 Nf6 3. e3 c5 4. c3 Nc6 5. Nd2",
+    "es": {
+      "name": "Sistema Londres: Estructura principal",
+      "description": "La pirámide de peones c3–d4–e3 que aguanta cualquier ataque al centro.",
+      "idea": "Contra ...c5 y ...Db6 las blancas defienden b2 con Db3 o Dc1. Siguen Cgf3, Ad3 y O-O, con la opción de Ce5 y un ataque con Df3–h3 o g4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla el alfil fuera de la cadena.",
+        "Desarrolla y controla e4.",
+        "Refuerza d4 y abre el alfil de f1.",
+        "Ataca d4 desde el flanco.",
+        "Refuerza d4 formando la pirámide de peones.",
+        "Desarrolla y presiona d4.",
+        "Desarrolla el caballo por d2 para mantener c3 y apoyar e4."
+      ]
+    },
+    "en": {
+      "name": "London System: Main Structure",
+      "description": "The c3–d4–e3 pawn pyramid that withstands any attack on the centre.",
+      "idea": "Against ...c5 and ...Qb6 White defends b2 with Qb3 or Qc1. Ngf3, Bd3 and O-O follow, with the option of Ne5 and an attack with Qf3–h3 or g4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops the bishop outside the chain.",
+        "Develops and controls e4.",
+        "Supports d4 and opens the f1 bishop.",
+        "Hits d4 from the flank.",
+        "Supports d4, forming the pawn pyramid.",
+        "Develops and pressures d4.",
+        "Develops the knight via d2 to keep c3 and support e4."
+      ]
+    }
+  },
+  {
+    "slug": "london-vs-kings-indian",
+    "eco": "A48",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. Nf3 g6 3. Bf4",
+    "es": {
+      "name": "Sistema Londres contra el fianchetto",
+      "description": "El Londres adaptado a esquemas de India de Rey o Grünfeld.",
+      "idea": "Las blancas juegan e3, h3, Ae2 y O-O, y a menudo c3 o c4. Las negras buscan ...d6 y ...e5 o ...c5 para desafiar el centro; el alfil de f4 vigila esas rupturas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "El alfil controla e5 y frena la ruptura ...e5."
+      ]
+    },
+    "en": {
+      "name": "London System vs the Fianchetto",
+      "description": "The London adapted against King's Indian or Grünfeld setups.",
+      "idea": "White plays e3, h3, Be2 and O-O, often with c3 or c4. Black aims for ...d6 and ...e5 or ...c5 to challenge the centre; the f4 bishop watches those breaks.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "The bishop controls e5 and restrains the ...e5 break."
+      ]
+    }
+  },
+  {
+    "slug": "jobava-london",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Nc3 Nf6 3. Bf4",
+    "es": {
+      "name": "Londres Jobava",
+      "description": "El Londres agresivo: caballo en c3 y amenazas como Cb5 contra c7.",
+      "idea": "Las blancas combinan Af4 y Cc3 con ideas de Cb5, e3, Ad3 y un ataque con h4 o Dh5. Popularizado por Baadur Jobava y por jugadores online.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla presionando d5 y preparando e4.",
+        "Desarrolla y controla e4.",
+        "El alfil sale apuntando a c7 junto con la idea Cb5."
+      ]
+    },
+    "en": {
+      "name": "Jobava London",
+      "description": "The aggressive London: knight on c3 and threats like Nb5 against c7.",
+      "idea": "White combines Bf4 and Nc3 with ideas of Nb5, e3, Bd3 and an attack with h4 or Qh5. Popularised by Baadur Jobava and online players.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops, pressuring d5 and preparing e4.",
+        "Develops and controls e4.",
+        "The bishop comes out eyeing c7 together with the Nb5 idea."
+      ]
+    }
+  },
+  {
+    "slug": "colle-system",
+    "eco": "D05",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Nf3 Nf6 3. e3 e6 4. Bd3",
+    "es": {
+      "name": "Sistema Colle",
+      "description": "Un esquema cerrado que prepara la ruptura e4 con apoyo de todas las piezas.",
+      "idea": "Las blancas juegan c3, Cbd2, O-O, Te1 y e4 para abrir el juego contra el flanco de rey negro. El alfil de d3 es la pieza clave del ataque.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d4 y abre el alfil de rey.",
+        "Refuerza d5.",
+        "El alfil apunta al flanco de rey y apoya la futura ruptura e4."
+      ]
+    },
+    "en": {
+      "name": "Colle System",
+      "description": "A closed setup that prepares the e4 break with every piece's support.",
+      "idea": "White plays c3, Nbd2, O-O, Re1 and e4 to open the game against Black's kingside. The d3 bishop is the key attacking piece.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops.",
+        "Develops.",
+        "Supports d4 and opens the king's bishop.",
+        "Supports d5.",
+        "The bishop aims at the kingside and supports the future e4 break."
+      ]
+    }
+  },
+  {
+    "slug": "colle-zukertort",
+    "eco": "D05",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Nf3 Nf6 3. e3 e6 4. Bd3 c5 5. b3",
+    "es": {
+      "name": "Sistema Colle-Zukertort",
+      "description": "Dos alfiles apuntando al enroque negro: Ab2 y Ad3.",
+      "idea": "Las blancas juegan Ab2, Cbd2, O-O y Ce5, a menudo con f4 y un ataque directo. El alfil de b2 queda muy activo si el centro se abre.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d4.",
+        "Refuerza d5.",
+        "Apunta el alfil al flanco de rey.",
+        "Ataca d4 desde el flanco.",
+        "Prepara el fianchetto de dama en b2."
+      ]
+    },
+    "en": {
+      "name": "Colle-Zukertort System",
+      "description": "Two bishops aimed at Black's king: Bb2 and Bd3.",
+      "idea": "White plays Bb2, Nbd2, O-O and Ne5, often with f4 and a direct attack. The b2 bishop becomes very active if the centre opens.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops.",
+        "Develops.",
+        "Supports d4.",
+        "Supports d5.",
+        "Aims the bishop at the kingside.",
+        "Hits d4 from the flank.",
+        "Prepares the queenside fianchetto on b2."
+      ]
+    }
+  },
+  {
+    "slug": "torre-attack",
+    "eco": "A46",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. Nf3 e6 3. Bg5",
+    "es": {
+      "name": "Ataque Torre",
+      "description": "Una clavada temprana que evita la teoría de las defensas indias.",
+      "idea": "Las blancas siguen con e3, Cbd2, c3 y Ad3, preparando e4. Si las negras juegan ...h6 y ...g5, debilitan su flanco de rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara ...d5 o ...b6.",
+        "Clava el caballo de f6 y prepara e3–e4."
+      ]
+    },
+    "en": {
+      "name": "Torre Attack",
+      "description": "An early pin that sidesteps Indian defence theory.",
+      "idea": "White follows with e3, Nbd2, c3 and Bd3, preparing e4. If Black plays ...h6 and ...g5, the kingside is weakened.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares ...d5 or ...b6.",
+        "Pins the f6 knight and prepares e3–e4."
+      ]
+    }
+  },
+  {
+    "slug": "trompowsky-attack",
+    "eco": "A45",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. Bg5",
+    "es": {
+      "name": "Ataque Trompowsky",
+      "description": "Las blancas amenazan Axf6 para doblar peones en la segunda jugada.",
+      "idea": "Las negras responden con ...Ce4, ...e6 o ...d5. Si las blancas cambian en f6, obtienen una estructura mejor a cambio de la pareja de alfiles.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Amenaza Axf6 para dañar la estructura negra."
+      ]
+    },
+    "en": {
+      "name": "Trompowsky Attack",
+      "description": "White threatens Bxf6 and doubled pawns on move two.",
+      "idea": "Black answers ...Ne4, ...e6 or ...d5. If White trades on f6, the resulting structure is better in exchange for the bishop pair.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Threatens Bxf6 to damage Black's structure."
+      ]
+    }
+  },
+  {
+    "slug": "trompowsky-ne4",
+    "eco": "A45",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. Bg5 Ne4",
+    "es": {
+      "name": "Trompowsky: 2...Ce4",
+      "description": "El caballo ataca al alfil y evita los peones doblados.",
+      "idea": "Tras 3.Af4 c5 o 3.h4 (Ataque Raptor) la partida se vuelve muy táctica. Las negras buscan presionar b2 con ...Db6.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Amenaza Axf6.",
+        "Esquiva el cambio y ataca al alfil de g5."
+      ]
+    },
+    "en": {
+      "name": "Trompowsky: 2...Ne4",
+      "description": "The knight attacks the bishop and avoids doubled pawns.",
+      "idea": "After 3.Bf4 c5 or 3.h4 (Raptor Attack) the game becomes very tactical. Black aims to pressure b2 with ...Qb6.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Threatens Bxf6.",
+        "Sidesteps the exchange and attacks the g5 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "levitsky-attack",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Bg5",
+    "es": {
+      "name": "Ataque Levitsky",
+      "description": "El alfil sale a g5 para atacar e7 y dificultar el desarrollo negro.",
+      "idea": "Las blancas preparan e3, c4 o Cd2 según la respuesta negra; si 2...h6 3.Ah4 c5 la posición se vuelve dinámica. Un sistema poco teórico y práctico.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e7 y dificulta ...Cf6 y ...e6 naturales."
+      ]
+    },
+    "en": {
+      "name": "Levitsky Attack",
+      "description": "The bishop comes to g5 to hit e7 and hamper Black's development.",
+      "idea": "White prepares e3, c4 or Nd2 depending on Black's reply; after 2...h6 3.Bh4 c5 the position becomes dynamic. A practical, low-theory system.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Hits e7 and makes the natural ...Nf6 and ...e6 awkward."
+      ]
+    }
+  },
+  {
+    "slug": "veresov-attack",
+    "eco": "D01",
+    "side": "w",
+    "pgn": "1. d4 d5 2. Nc3 Nf6 3. Bg5",
+    "es": {
+      "name": "Ataque Veresov",
+      "description": "Caballo en c3 y alfil en g5, preparando f3 y e4.",
+      "idea": "Las blancas quieren f3 y e4 para abrir el centro con ventaja de desarrollo, a menudo con enroque largo. Las negras responden con ...Cbd7, ...c5 o ...Af5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Desarrolla presionando d5 y preparando e4.",
+        "Desarrolla y controla e4.",
+        "Clava el caballo que controla e4."
+      ]
+    },
+    "en": {
+      "name": "Veresov Attack",
+      "description": "Knight on c3 and bishop on g5, preparing f3 and e4.",
+      "idea": "White wants f3 and e4 to open the centre with a lead in development, often castling long. Black answers ...Nbd7, ...c5 or ...Bf5.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Develops, pressuring d5 and preparing e4.",
+        "Develops and controls e4.",
+        "Pins the knight that controls e4."
+      ]
+    }
+  },
+  {
+    "slug": "blackmar-diemer-gambit",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. e4",
+    "es": {
+      "name": "Gambito Blackmar-Diemer",
+      "description": "Un gambito salvaje contra 1...d5: un peón por la columna f y el ataque.",
+      "idea": "Tras 2...dxe4 3.Cc3 Cf6 4.f3 exf3 5.Cxf3 las blancas tienen desarrollo rápido y la columna f abierta contra el rey negro. Muy peligroso a nivel de club.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el peón de e para abrir líneas rápidamente."
+      ]
+    },
+    "en": {
+      "name": "Blackmar-Diemer Gambit",
+      "description": "A wild gambit against 1...d5: a pawn for the f-file and the attack.",
+      "idea": "After 2...dxe4 3.Nc3 Nf6 4.f3 exf3 5.Nxf3 White has fast development and an open f-file against the black king. Very dangerous at club level.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the e-pawn to open lines quickly."
+      ]
+    }
+  },
+  {
+    "slug": "blackmar-diemer-accepted",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. e4 dxe4 3. Nc3 Nf6 4. f3",
+    "es": {
+      "name": "Blackmar-Diemer: Gambito aceptado con f3",
+      "description": "Las blancas ofrecen un segundo peón para abrir la columna f.",
+      "idea": "Si 4...exf3 5.Cxf3 las blancas siguen con Ad3, O-O y De1–h4 contra el rey. Las negras pueden rehusar con 4...e5 o 4...Af5 para devolver material.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ofrece el gambito.",
+        "Acepta el peón.",
+        "Desarrolla atacando el peón de e4.",
+        "Defiende e4 con desarrollo.",
+        "Ataca e4 con un peón para abrir la columna f."
+      ]
+    },
+    "en": {
+      "name": "Blackmar-Diemer: Accepted with f3",
+      "description": "White offers a second pawn to open the f-file.",
+      "idea": "After 4...exf3 5.Nxf3 White follows with Bd3, O-O and Qe1–h4 against the king. Black can decline with 4...e5 or 4...Bf5 to return material.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Offers the gambit.",
+        "Accepts the pawn.",
+        "Develops while attacking the e4 pawn.",
+        "Defends e4 with development.",
+        "Hits e4 with a pawn to open the f-file."
+      ]
+    }
+  },
+  {
+    "slug": "stonewall-attack",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 d5 2. e3 Nf6 3. Bd3 c5 4. c3 Nc6 5. f4",
+    "es": {
+      "name": "Ataque Stonewall",
+      "description": "Las blancas forman un muro con c3, d4, e3 y f4 y atacan con Ce5.",
+      "idea": "El caballo se instala en e5 y las blancas atacan con Df3–h3, g4 o Tf3. El alfil de c1 es malo y la casilla e4 queda débil: las negras deben aprovecharlo con ...Af5 o ...Ag4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Refuerza d4 y abre el alfil de rey.",
+        "Desarrolla y controla e4.",
+        "Apunta el alfil al flanco de rey.",
+        "Ataca d4 desde el flanco.",
+        "Refuerza d4.",
+        "Presiona d4.",
+        "Completa el muro de peones para controlar e5."
+      ]
+    },
+    "en": {
+      "name": "Stonewall Attack",
+      "description": "White builds a wall with c3, d4, e3 and f4 and attacks with Ne5.",
+      "idea": "The knight settles on e5 and White attacks with Qf3–h3, g4 or Rf3. The c1 bishop is bad and e4 is weak: Black should exploit it with ...Bf5 or ...Bg4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Supports d4 and opens the king's bishop.",
+        "Develops and controls e4.",
+        "Aims the bishop at the kingside.",
+        "Hits d4 from the flank.",
+        "Supports d4.",
+        "Pressures d4.",
+        "Completes the pawn wall to control e5."
+      ]
+    }
+  },
+  {
+    "slug": "barry-attack",
+    "eco": "D00",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. Nf3 g6 3. Nc3 d5 4. Bf4",
+    "es": {
+      "name": "Ataque Barry",
+      "description": "Un ataque directo contra los esquemas de Grünfeld: Dd2, Ah6 y h4.",
+      "idea": "Las blancas siguen con e3, Ae2, Ce5 y a veces h4–h5 contra el enroque. Es muy popular a nivel de club por la facilidad de sus planes de ataque.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Desarrolla y apoya e4.",
+        "Ocupa el centro.",
+        "El alfil controla e5 y prepara Dd2 y Ah6."
+      ]
+    },
+    "en": {
+      "name": "Barry Attack",
+      "description": "A direct attack against Grünfeld setups: Qd2, Bh6 and h4.",
+      "idea": "White follows with e3, Be2, Ne5 and sometimes h4–h5 against the castled king. It is popular at club level because its attacking plans are easy to follow.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Develops and supports e4.",
+        "Occupies the centre.",
+        "The bishop controls e5 and prepares Qd2 and Bh6."
+      ]
+    }
+  },
+  {
+    "slug": "torre-vs-kings-indian",
+    "eco": "A48",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. Nf3 g6 3. Bg5",
+    "es": {
+      "name": "Ataque Torre contra el fianchetto",
+      "description": "La clavada llega antes de que las negras enroquen.",
+      "idea": "Las blancas juegan Cbd2, e3 y c3, a veces con Axf6 para dañar la estructura negra. Las negras suelen responder con ...Ag7, ...O-O y ...d6 o ...c5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Clava el caballo de f6 antes del enroque negro."
+      ]
+    },
+    "en": {
+      "name": "Torre Attack vs the Fianchetto",
+      "description": "The pin comes before Black has castled.",
+      "idea": "White plays Nbd2, e3 and c3, sometimes Bxf6 to damage Black's structure. Black usually answers ...Bg7, ...O-O and ...d6 or ...c5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Pins the f6 knight before Black castles."
+      ]
+    }
+  }
+]

@@ -1,0 +1,674 @@
+[
+  {
+    "slug": "scandinavian-defense",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5",
+    "es": {
+      "name": "Defensa Escandinava",
+      "description": "Las negras desafían e4 desde la primera jugada: directa y fácil de aprender.",
+      "idea": "Tras 2.exd5 las negras recuperan con la dama o con el caballo. El plan es un desarrollo sencillo con ...Af5 o ...Ag4, ...c6 y ...e6, en una estructura parecida a la Caro-Kann.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Ataca e4 de inmediato, forzando a las blancas a decidir."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian Defense",
+      "description": "Black challenges e4 on move one: direct and easy to learn.",
+      "idea": "After 2.exd5 Black recaptures with the queen or the knight. The plan is simple development with ...Bf5 or ...Bg4, ...c6 and ...e6, in a Caro-Kann-like structure.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Attacks e4 at once, forcing White to decide."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-main-line",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qa5",
+    "es": {
+      "name": "Escandinava: Línea principal con ...Da5",
+      "description": "La dama se sitúa en a5, a salvo y apuntando al caballo de c3 y a la diagonal del rey.",
+      "idea": "Las negras siguen con ...Cf6, ...c6 y ...Af5, formando una posición sólida. Las blancas ganan algún tiempo con d4, Cf3 y Ac4, y buscan presionar a la dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón central.",
+        "Recupera con la dama, aceptando perder un tiempo.",
+        "Desarrolla atacando a la dama.",
+        "La dama se retira a a5, desde donde presiona c3 y e1."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: Main Line with ...Qa5",
+      "description": "The queen settles on a5, safe and eyeing the c3 knight and the king's diagonal.",
+      "idea": "Black follows with ...Nf6, ...c6 and ...Bf5, forming a solid position. White gains some time with d4, Nf3 and Bc4, and tries to harass the queen.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the central pawn.",
+        "Recaptures with the queen, accepting a loss of time.",
+        "Develops while attacking the queen.",
+        "The queen retreats to a5, pressuring c3 and e1."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-qd6",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd6",
+    "es": {
+      "name": "Escandinava: Variante ...Dd6",
+      "description": "La versión moderna: la dama en d6 controla el centro y cubre e5.",
+      "idea": "Las negras juegan ...Cf6, ...a6, ...c6 y ...Ag4 o ...Af5, con la dama bien protegida. Las blancas deben evitar ideas como Cb5 que molesten a la dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón.",
+        "Recupera con la dama.",
+        "Ataca a la dama con desarrollo.",
+        "La dama se coloca en d6, controlando e5 y el centro."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: ...Qd6 Variation",
+      "description": "The modern version: the queen on d6 controls the centre and covers e5.",
+      "idea": "Black plays ...Nf6, ...a6, ...c6 and ...Bg4 or ...Bf5, with the queen well protected. White must look out for ideas like Nb5 that bother the queen.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the pawn.",
+        "Recaptures with the queen.",
+        "Attacks the queen with development.",
+        "The queen goes to d6, controlling e5 and the centre."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-qd8",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Qxd5 3. Nc3 Qd8",
+    "es": {
+      "name": "Escandinava: Retirada a d8",
+      "description": "La dama vuelve a casa: la versión más sólida y paciente.",
+      "idea": "Las negras pierden tiempos pero quedan sin blancos tácticos: ...Cf6, ...c6, ...Af5 y ...e6. Las blancas tienen más espacio y desarrollo, que deben convertir antes de que las negras se equilibren.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón.",
+        "Recupera con la dama.",
+        "Ataca a la dama.",
+        "La dama se retira a su casilla original, lejos de cualquier ataque."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: ...Qd8 Retreat",
+      "description": "The queen goes home: the most solid, patient version.",
+      "idea": "Black loses time but offers no tactical targets: ...Nf6, ...c6, ...Bf5 and ...e6. White has more space and development and must convert them before Black equalises.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the pawn.",
+        "Recaptures with the queen.",
+        "Attacks the queen.",
+        "The queen retreats to its home square, away from any attack."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-modern",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Nf6",
+    "es": {
+      "name": "Escandinava: Variante Moderna",
+      "description": "Las negras recuperan el peón con el caballo en lugar de sacar la dama.",
+      "idea": "Si las blancas defienden el peón con c4, las negras pueden jugar gambitos como el Islandés (...e6). Contra 3.d4 las negras recuperan en d5 con juego rápido de piezas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón.",
+        "Desarrolla y prepara recuperar el peón con el caballo."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: Modern Variation",
+      "description": "Black regains the pawn with the knight instead of bringing out the queen.",
+      "idea": "If White defends the pawn with c4, Black can play gambits such as the Icelandic (...e6). Against 3.d4 Black recaptures on d5 with quick piece play.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the pawn.",
+        "Develops and prepares to regain the pawn with the knight."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-portuguese-gambit",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Nf6 3. d4 Bg4",
+    "es": {
+      "name": "Escandinava: Gambito Portugués",
+      "description": "Las negras dejan el peón de d5 y desarrollan con amenazas contra la dama.",
+      "idea": "Tras 4.f3 Af5 5.c4 e6 las negras entregan un peón a cambio de desarrollo rápido y líneas abiertas. Es un arma agresiva, muy apreciada en partidas rápidas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón.",
+        "Desarrolla.",
+        "Refuerza el centro.",
+        "Ataca a la dama de d1 con desarrollo, ignorando el peón de d5."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: Portuguese Gambit",
+      "description": "Black leaves the d5 pawn and develops with threats against the queen.",
+      "idea": "After 4.f3 Bf5 5.c4 e6 Black gives a pawn for rapid development and open lines. It is an aggressive weapon, much liked in fast games.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the pawn.",
+        "Develops.",
+        "Reinforces the centre.",
+        "Develops with an attack on the d1 queen, ignoring the d5 pawn."
+      ]
+    }
+  },
+  {
+    "slug": "scandinavian-icelandic-gambit",
+    "eco": "B01",
+    "side": "b",
+    "pgn": "1. e4 d5 2. exd5 Nf6 3. c4 e6",
+    "es": {
+      "name": "Escandinava: Gambito Islandés",
+      "description": "Contra c4, las negras sacrifican un peón para abrir el centro de inmediato.",
+      "idea": "Tras 4.dxe6 Axe6 las negras tienen desarrollo muy rápido y presión sobre la columna d y el flanco de rey. Las blancas deben devolver material o sufrir un ataque peligroso.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Captura el peón.",
+        "Desarrolla.",
+        "Protege d5 con un peón.",
+        "Ofrece otro peón para abrir líneas hacia el rey blanco."
+      ]
+    },
+    "en": {
+      "name": "Scandinavian: Icelandic Gambit",
+      "description": "Against c4, Black sacrifices a pawn to open the centre immediately.",
+      "idea": "After 4.dxe6 Bxe6 Black has very fast development and pressure along the d-file and on the kingside. White must return material or face a dangerous attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Takes the pawn.",
+        "Develops.",
+        "Protects d5 with a pawn.",
+        "Offers another pawn to open lines towards the white king."
+      ]
+    }
+  },
+  {
+    "slug": "alekhine-defense",
+    "eco": "B02",
+    "side": "b",
+    "pgn": "1. e4 Nf6",
+    "es": {
+      "name": "Defensa Alekhine",
+      "description": "Las negras invitan a los peones blancos a avanzar para atacarlos después.",
+      "idea": "Es una defensa hipermoderna: las blancas ganan espacio con e5, d4 y c4, y las negras intentan demostrar que ese centro es un objetivo. Exige conocer bien cada estructura.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4 y provoca el avance de los peones blancos."
+      ]
+    },
+    "en": {
+      "name": "Alekhine's Defense",
+      "description": "Black invites White's pawns forward in order to attack them later.",
+      "idea": "It is a hypermodern defence: White gains space with e5, d4 and c4, and Black tries to show that the centre is a target. It demands a good grasp of each structure.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4 and provokes White's pawns forward."
+      ]
+    }
+  },
+  {
+    "slug": "alekhine-four-pawns-attack",
+    "eco": "B03",
+    "side": "w",
+    "pgn": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. c4 Nb6 5. f4",
+    "es": {
+      "name": "Alekhine: Ataque de los Cuatro Peones",
+      "description": "La respuesta más ambiciosa: cuatro peones en fila para aplastar a las negras.",
+      "idea": "Las blancas tienen un centro enorme en c4, d4, e5 y f4. Las negras lo atacan con ...dxe5, ...Af5, ...Cc6 y ...c5; si el centro se sostiene, las blancas ganan, y si cae, las negras quedan muy activas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Avanza con ganancia de tiempo.",
+        "El caballo se centraliza en d5.",
+        "Ocupa el centro con otro peón.",
+        "Golpea la cabeza de la cadena en e5.",
+        "Expulsa al caballo de d5.",
+        "El caballo se retira a b6 presionando c4.",
+        "Refuerza e5 y completa el gran centro de peones."
+      ]
+    },
+    "en": {
+      "name": "Alekhine: Four Pawns Attack",
+      "description": "The most ambitious reply: four pawns in a row to crush Black.",
+      "idea": "White has a huge centre on c4, d4, e5 and f4. Black attacks it with ...dxe5, ...Bf5, ...Nc6 and ...c5; if it holds, White wins, and if it falls, Black becomes very active.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Advances with tempo.",
+        "The knight centralises on d5.",
+        "Occupies the centre with another pawn.",
+        "Hits the head of the chain on e5.",
+        "Kicks the d5 knight.",
+        "The knight retreats to b6, eyeing c4.",
+        "Supports e5 and completes the big pawn centre."
+      ]
+    }
+  },
+  {
+    "slug": "alekhine-modern",
+    "eco": "B04",
+    "side": "w",
+    "pgn": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. Nf3",
+    "es": {
+      "name": "Alekhine: Variante Moderna",
+      "description": "Las blancas se conforman con un centro moderado y desarrollo sano.",
+      "idea": "En lugar de perseguir al caballo, las blancas desarrollan con Ae2, O-O y c4 en el momento oportuno. Las negras suelen jugar ...Ag4 o ...g6 y presionar e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Avanza con ganancia de tiempo.",
+        "El caballo se centraliza.",
+        "Ocupa el centro.",
+        "Ataca la cadena en e5.",
+        "Desarrolla y protege e5 sin sobreextenderse."
+      ]
+    },
+    "en": {
+      "name": "Alekhine: Modern Variation",
+      "description": "White settles for a moderate centre and healthy development.",
+      "idea": "Instead of chasing the knight, White develops with Be2, O-O and c4 at the right moment. Black usually plays ...Bg4 or ...g6 and pressures e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Advances with tempo.",
+        "The knight centralises.",
+        "Occupies the centre.",
+        "Hits the chain on e5.",
+        "Develops and protects e5 without overextending."
+      ]
+    }
+  },
+  {
+    "slug": "alekhine-exchange",
+    "eco": "B03",
+    "side": "w",
+    "pgn": "1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. c4 Nb6 5. exd6",
+    "es": {
+      "name": "Alekhine: Variante del Cambio",
+      "description": "Las blancas cambian el peón de e5 y juegan con más espacio en el flanco de dama.",
+      "idea": "Si 5...cxd6 surge una estructura asimétrica con peones en c4–d4 contra d6; si 5...exd6, una posición más abierta. En ambos casos las blancas mantienen algo de espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Avanza con ganancia de tiempo.",
+        "El caballo se centraliza.",
+        "Ocupa el centro.",
+        "Ataca e5.",
+        "Expulsa al caballo.",
+        "El caballo se retira a b6.",
+        "Cambia el peón adelantado antes de que se convierta en objetivo."
+      ]
+    },
+    "en": {
+      "name": "Alekhine: Exchange Variation",
+      "description": "White trades the e5 pawn and plays with more queenside space.",
+      "idea": "5...cxd6 leads to an asymmetrical structure with c4–d4 against d6; 5...exd6 to a more open position. In both cases White keeps some space.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Advances with tempo.",
+        "The knight centralises.",
+        "Occupies the centre.",
+        "Hits e5.",
+        "Kicks the knight.",
+        "The knight retreats to b6.",
+        "Trades the advanced pawn before it becomes a target."
+      ]
+    }
+  },
+  {
+    "slug": "pirc-defense",
+    "eco": "B07",
+    "side": "b",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6",
+    "es": {
+      "name": "Defensa Pirc",
+      "description": "Las negras ceden el centro para atacarlo luego con el alfil en g7.",
+      "idea": "Con ...Ag7, ...O-O y rupturas como ...c5 o ...e5, las negras presionan el centro blanco. Las blancas eligen entre ataques agresivos (Austriaco, 150) o desarrollo clásico.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5 y prepara ...Cf6.",
+        "Levanta el centro ideal.",
+        "Ataca e4.",
+        "Defiende e4 con desarrollo.",
+        "Prepara el fianchetto para presionar el centro desde lejos."
+      ]
+    },
+    "en": {
+      "name": "Pirc Defense",
+      "description": "Black concedes the centre in order to attack it later with the g7 bishop.",
+      "idea": "With ...Bg7, ...O-O and breaks like ...c5 or ...e5, Black pressures White's centre. White chooses between aggressive attacks (Austrian, 150) or classical development.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5 and prepares ...Nf6.",
+        "Builds the ideal centre.",
+        "Attacks e4.",
+        "Defends e4 with development.",
+        "Prepares the fianchetto to pressure the centre from afar."
+      ]
+    }
+  },
+  {
+    "slug": "pirc-austrian-attack",
+    "eco": "B09",
+    "side": "w",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4",
+    "es": {
+      "name": "Pirc: Ataque Austriaco",
+      "description": "Tres peones en el centro y la amenaza de e5: la respuesta más agresiva a la Pirc.",
+      "idea": "Las blancas preparan e5 para expulsar al caballo de f6. Las negras deben golpear rápido con ...c5 o ...Cc6 y ...e5, o se verán arrolladas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5.",
+        "Levanta el centro.",
+        "Ataca e4.",
+        "Defiende e4.",
+        "Prepara el fianchetto.",
+        "Añade un tercer peón central y prepara e5."
+      ]
+    },
+    "en": {
+      "name": "Pirc: Austrian Attack",
+      "description": "Three central pawns and the threat of e5: the most aggressive reply to the Pirc.",
+      "idea": "White prepares e5 to kick the f6 knight. Black must strike fast with ...c5 or ...Nc6 and ...e5, or be overrun.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5.",
+        "Builds the centre.",
+        "Attacks e4.",
+        "Defends e4.",
+        "Prepares the fianchetto.",
+        "Adds a third central pawn and prepares e5."
+      ]
+    }
+  },
+  {
+    "slug": "pirc-classical",
+    "eco": "B08",
+    "side": "w",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Nf3",
+    "es": {
+      "name": "Pirc: Sistema Clásico",
+      "description": "Desarrollo natural y enroque corto: las blancas no buscan un ataque inmediato.",
+      "idea": "Las blancas juegan Ae2, O-O y h3, manteniendo el centro. Las negras buscan ...c6, ...b5 o ...e5 para desafiarlo con calma.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5.",
+        "Levanta el centro.",
+        "Ataca e4.",
+        "Defiende e4.",
+        "Prepara el fianchetto.",
+        "Desarrollo clásico que prepara el enroque corto."
+      ]
+    },
+    "en": {
+      "name": "Pirc: Classical System",
+      "description": "Natural development and short castling: White does not rush an attack.",
+      "idea": "White plays Be2, O-O and h3, maintaining the centre. Black aims for ...c6, ...b5 or ...e5 to challenge it calmly.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5.",
+        "Builds the centre.",
+        "Attacks e4.",
+        "Defends e4.",
+        "Prepares the fianchetto.",
+        "Classical development preparing short castling."
+      ]
+    }
+  },
+  {
+    "slug": "pirc-150-attack",
+    "eco": "B07",
+    "side": "w",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Be3 Bg7 5. Qd2",
+    "es": {
+      "name": "Pirc: Ataque 150",
+      "description": "Ae3 y Dd2 para cambiar el alfil de g7 con Ah6 y lanzar h4–h5.",
+      "idea": "El nombre viene de un ataque 'para jugadores de 150 ELO inglés': sencillo y eficaz. Las blancas enrocan largo y atacan; las negras contraatacan con ...c6, ...b5 y ...Cbd7.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5.",
+        "Levanta el centro.",
+        "Ataca e4.",
+        "Defiende e4.",
+        "Prepara el fianchetto.",
+        "Desarrolla el alfil con idea de Dd2 y Ah6.",
+        "Completa el fianchetto.",
+        "Prepara Ah6 para cambiar el alfil clave de la defensa."
+      ]
+    },
+    "en": {
+      "name": "Pirc: 150 Attack",
+      "description": "Be3 and Qd2 to trade the g7 bishop with Bh6 and push h4–h5.",
+      "idea": "The name refers to an attack 'for 150-rated English players': simple and effective. White castles long and attacks; Black counters with ...c6, ...b5 and ...Nbd7.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5.",
+        "Builds the centre.",
+        "Attacks e4.",
+        "Defends e4.",
+        "Prepares the fianchetto.",
+        "Develops the bishop aiming for Qd2 and Bh6.",
+        "Completes the fianchetto.",
+        "Prepares Bh6 to trade the key defensive bishop."
+      ]
+    }
+  },
+  {
+    "slug": "czech-pirc",
+    "eco": "B07",
+    "side": "b",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 c6",
+    "es": {
+      "name": "Pirc Checa",
+      "description": "Las negras preparan ...b5 y ...Da5 en lugar del fianchetto inmediato.",
+      "idea": "El peón de c6 controla d5 y b5 y permite ...e5 o ...b5 con juego en el flanco de dama. Es una alternativa flexible, a medio camino entre la Pirc y la Caro-Kann.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5.",
+        "Levanta el centro.",
+        "Ataca e4.",
+        "Defiende e4.",
+        "Prepara ...Da5 y ...b5 sin comprometer el alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "Czech Pirc",
+      "description": "Black prepares ...b5 and ...Qa5 instead of an immediate fianchetto.",
+      "idea": "The c6 pawn controls d5 and b5 and allows ...e5 or ...b5 with queenside play. It is a flexible alternative, halfway between the Pirc and the Caro-Kann.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5.",
+        "Builds the centre.",
+        "Attacks e4.",
+        "Defends e4.",
+        "Prepares ...Qa5 and ...b5 without committing the king's bishop."
+      ]
+    }
+  },
+  {
+    "slug": "lion-defense",
+    "eco": "B07",
+    "side": "b",
+    "pgn": "1. e4 d6 2. d4 Nf6 3. Nc3 Nbd7",
+    "es": {
+      "name": "Defensa del León",
+      "description": "Las negras preparan ...e5 con una estructura tipo Philidor.",
+      "idea": "Tras ...e5, ...Ae7, ...c6 y ...O-O las negras tienen una posición sólida y elástica. Las blancas deben evitar el cambio de damas en d8 y ganar espacio con Ac4 o g4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e5.",
+        "Levanta el centro.",
+        "Ataca e4.",
+        "Defiende e4.",
+        "Prepara ...e5 con apoyo del caballo."
+      ]
+    },
+    "en": {
+      "name": "Lion Defense",
+      "description": "Black prepares ...e5 with a Philidor-like structure.",
+      "idea": "After ...e5, ...Be7, ...c6 and ...O-O Black has a solid, elastic position. White should avoid a queen trade on d8 and gain space with Bc4 or g4.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e5.",
+        "Builds the centre.",
+        "Attacks e4.",
+        "Defends e4.",
+        "Prepares ...e5 with the knight's support."
+      ]
+    }
+  },
+  {
+    "slug": "modern-defense",
+    "eco": "B06",
+    "side": "b",
+    "pgn": "1. e4 g6",
+    "es": {
+      "name": "Defensa Moderna",
+      "description": "El fianchetto primero y el resto después: hipermodernismo puro.",
+      "idea": "Las negras retrasan ...Cf6 para no dar objetivos y mantienen opciones como ...d6, ...c6 o ...a6–b5. Las blancas ocupan el centro y deben evitar sobreextenderse.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara el fianchetto sin comprometer ninguna otra pieza."
+      ]
+    },
+    "en": {
+      "name": "Modern Defense",
+      "description": "Fianchetto first, everything else later: pure hypermodernism.",
+      "idea": "Black delays ...Nf6 so as to offer no targets and keeps options like ...d6, ...c6 or ...a6–b5. White occupies the centre and must avoid overextending.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares the fianchetto without committing any other piece."
+      ]
+    }
+  },
+  {
+    "slug": "nimzowitsch-defense",
+    "eco": "B00",
+    "side": "b",
+    "pgn": "1. e4 Nc6",
+    "es": {
+      "name": "Defensa Nimzowitsch",
+      "description": "El caballo de dama sale primero y presiona d4 y e5.",
+      "idea": "Las negras pueden seguir con ...e5, ...d5 o ...d6, según las blancas. Es poco común y lleva a posiciones fuera de la teoría habitual.",
+      "moves": [
+        "Ocupa el centro.",
+        "Desarrolla presionando d4 y dejando abiertas varias estructuras."
+      ]
+    },
+    "en": {
+      "name": "Nimzowitsch Defense",
+      "description": "The queen's knight comes out first, eyeing d4 and e5.",
+      "idea": "Black may follow with ...e5, ...d5 or ...d6 depending on White's play. It is uncommon and leads away from standard theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Develops, eyeing d4 and keeping several structures open."
+      ]
+    }
+  },
+  {
+    "slug": "owen-defense",
+    "eco": "B00",
+    "side": "b",
+    "pgn": "1. e4 b6",
+    "es": {
+      "name": "Defensa Owen",
+      "description": "Un fianchetto en el flanco de dama para presionar e4 desde b7.",
+      "idea": "El alfil de b7 ataca e4 y las negras siguen con ...e6, ...Cf6 y ...c5. Las blancas suelen proteger e4 con Ad3 y desarrollarse con naturalidad.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...Ab7 para atacar e4 desde la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "Owen's Defense",
+      "description": "A queenside fianchetto to pressure e4 from b7.",
+      "idea": "The b7 bishop attacks e4 and Black follows with ...e6, ...Nf6 and ...c5. White usually protects e4 with Bd3 and develops naturally.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...Bb7 to attack e4 from the long diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "st-george-defense",
+    "eco": "B00",
+    "side": "b",
+    "pgn": "1. e4 a6",
+    "es": {
+      "name": "Defensa San Jorge",
+      "description": "La apertura con la que Miles venció a Kárpov en 1980: ...a6 y ...b5 inmediatos.",
+      "idea": "Las negras expanden el flanco de dama con ...b5, ...Ab7 y ...e6, presionando e4. Es poco ortodoxa y concede el centro, pero lleva a posiciones muy originales.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...b5 y ...Ab7 contra e4."
+      ]
+    },
+    "en": {
+      "name": "St. George Defense",
+      "description": "The opening Miles used to beat Karpov in 1980: immediate ...a6 and ...b5.",
+      "idea": "Black expands on the queenside with ...b5, ...Bb7 and ...e6, pressuring e4. It is unorthodox and concedes the centre, but leads to very original positions.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...b5 and ...Bb7 against e4."
+      ]
+    }
+  },
+  {
+    "slug": "alekhine-scandinavian",
+    "eco": "B02",
+    "side": "b",
+    "pgn": "1. e4 Nf6 2. Nc3 d5",
+    "es": {
+      "name": "Alekhine: Variante Escandinava",
+      "description": "Contra 2.Cc3 las negras golpean el centro con ...d5.",
+      "idea": "Si 3.exd5 Cxd5 las negras recuperan con buen juego; si 3.e5, surgen posiciones de tipo Francesa con ...Cfd7. Las blancas no logran la ventaja de espacio típica de la Alekhine.",
+      "moves": [
+        "Ocupa el centro.",
+        "Ataca e4.",
+        "Protege e4 con desarrollo.",
+        "Golpea el centro de inmediato."
+      ]
+    },
+    "en": {
+      "name": "Alekhine: Scandinavian Variation",
+      "description": "Against 2.Nc3 Black strikes the centre with ...d5.",
+      "idea": "After 3.exd5 Nxd5 Black regains the pawn with good play; after 3.e5 French-like positions with ...Nfd7 arise. White does not get the usual Alekhine space advantage.",
+      "moves": [
+        "Occupies the centre.",
+        "Attacks e4.",
+        "Protects e4 with development.",
+        "Strikes the centre at once."
+      ]
+    }
+  }
+]

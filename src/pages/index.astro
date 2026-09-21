@@ -1,8 +1,9 @@
 ---
 import DailyManager from '../components/DailyManager';
 import Layout from '../layouts/Layout.astro';
+import { scheduledOpenings } from '../lib/catalog';
 ---
 
 <Layout title="Chessbitz">
-    <DailyManager client:only="react" />
+    <DailyManager client:only="react" count={scheduledOpenings.length} />
 </Layout>

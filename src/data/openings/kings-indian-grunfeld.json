@@ -1,0 +1,906 @@
+[
+  {
+    "slug": "kings-indian-defense",
+    "eco": "E70",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6",
+    "es": {
+      "name": "Defensa India de Rey",
+      "description": "Las negras ceden el centro para contraatacarlo: el arma de Fischer y Kaspárov.",
+      "idea": "Tras el enroque, las negras rompen con ...e5 o ...c5. En las estructuras cerradas las blancas atacan en el flanco de dama y las negras lanzan ...f5–f4–g5 contra el rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto del alfil de rey.",
+        "Desarrolla y prepara e4.",
+        "El alfil ocupa la gran diagonal.",
+        "Levanta un gran centro de peones.",
+        "Controla e5 y prepara la ruptura ...e5."
+      ]
+    },
+    "en": {
+      "name": "King's Indian Defense",
+      "description": "Black concedes the centre to counterattack it: Fischer's and Kasparov's weapon.",
+      "idea": "After castling Black breaks with ...e5 or ...c5. In closed structures White attacks on the queenside while Black throws ...f5–f4–g5 at the king.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the king's bishop fianchetto.",
+        "Develops and prepares e4.",
+        "The bishop takes the long diagonal.",
+        "Builds a big pawn centre.",
+        "Controls e5 and prepares the ...e5 break."
+      ]
+    }
+  },
+  {
+    "slug": "kid-classical",
+    "eco": "E92",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5",
+    "es": {
+      "name": "India de Rey: Variante Clásica",
+      "description": "La ruptura ...e5 contra el desarrollo más natural de las blancas.",
+      "idea": "Las blancas eligen entre 7.O-O (Mar del Plata), 7.d5 (Petrosian), 7.Ae3 (Gligoric) o el cambio 7.dxe5. Cada opción define una estructura muy distinta.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla y controla e5.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea el centro blanco en d4."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Classical Variation",
+      "description": "The ...e5 break against White's most natural development.",
+      "idea": "White chooses between 7.O-O (Mar del Plata), 7.d5 (Petrosian), 7.Be3 (Gligoric) or the 7.dxe5 exchange. Each choice defines a very different structure.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops and controls e5.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes White's centre on d4."
+      ]
+    }
+  },
+  {
+    "slug": "kid-mar-del-plata",
+    "eco": "E97",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. O-O Nc6 8. d5 Ne7",
+    "es": {
+      "name": "India de Rey: Variante Mar del Plata",
+      "description": "El centro se cierra y empieza una carrera de ataques en flancos opuestos.",
+      "idea": "Las negras juegan ...Ce8 o ...Cd7, ...f5, ...f4 y ...g5 contra el rey blanco; las blancas, c5 y Cb5 contra c7. Quien llegue antes suele ganar.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea d4.",
+        "Enroca manteniendo la tensión.",
+        "Presiona d4 una vez más.",
+        "Cierra el centro ganando tiempo sobre el caballo.",
+        "El caballo se dirige al flanco de rey para apoyar ...f5."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Mar del Plata Variation",
+      "description": "The centre closes and a race of attacks on opposite wings begins.",
+      "idea": "Black plays ...Ne8 or ...Nd7, ...f5, ...f4 and ...g5 against the white king; White plays c5 and Nb5 against c7. Whoever arrives first usually wins.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes d4.",
+        "Castles while keeping the tension.",
+        "Pressures d4 once more.",
+        "Closes the centre, gaining time on the knight.",
+        "The knight heads to the kingside to support ...f5."
+      ]
+    }
+  },
+  {
+    "slug": "kid-bayonet-attack",
+    "eco": "E97",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. O-O Nc6 8. d5 Ne7 9. b4",
+    "es": {
+      "name": "India de Rey: Ataque Bayoneta",
+      "description": "Las blancas aceleran su ataque en el flanco de dama con b4.",
+      "idea": "Con b4 y c5 las blancas abren líneas contra c7 antes de que el ataque negro llegue. Fue la línea favorita de Kramnik contra la India de Rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea d4.",
+        "Enroca.",
+        "Presiona d4.",
+        "Cierra el centro.",
+        "El caballo va hacia el flanco de rey.",
+        "Prepara c5 para abrir el flanco de dama sin perder tiempo."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Bayonet Attack",
+      "description": "White speeds up the queenside attack with b4.",
+      "idea": "With b4 and c5 White opens lines against c7 before Black's attack arrives. It was Kramnik's favourite line against the King's Indian.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes d4.",
+        "Castles.",
+        "Pressures d4.",
+        "Closes the centre.",
+        "The knight heads to the kingside.",
+        "Prepares c5 to open the queenside without losing time."
+      ]
+    }
+  },
+  {
+    "slug": "kid-petrosian",
+    "eco": "E92",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. d5",
+    "es": {
+      "name": "India de Rey: Sistema Petrosian",
+      "description": "Las blancas cierran el centro de inmediato y preparan Ag5.",
+      "idea": "Tras 7...a5 8.Ag5 las blancas clavan el caballo de f6 y dificultan ...f5. La lucha es lenta y estratégica, con las blancas buscando el flanco de dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea d4.",
+        "Cierra el centro antes de enrocar para jugar Ag5."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Petrosian System",
+      "description": "White closes the centre at once and prepares Bg5.",
+      "idea": "After 7...a5 8.Bg5 White pins the f6 knight and makes ...f5 harder. The fight is slow and strategic, with White aiming at the queenside.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes d4.",
+        "Closes the centre before castling in order to play Bg5."
+      ]
+    }
+  },
+  {
+    "slug": "kid-gligoric",
+    "eco": "E92",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. Be3",
+    "es": {
+      "name": "India de Rey: Sistema Gligoric",
+      "description": "Las blancas mantienen la tensión central y desarrollan el alfil a e3.",
+      "idea": "Las blancas esperan a que las negras definan el centro; si 7...Cg4 8.Ag5 f6 9.Ah4, el alfil sigue activo. Es una forma flexible de evitar las líneas más teóricas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea d4.",
+        "Refuerza d4 y mantiene la tensión sin cerrar el centro."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Gligoric System",
+      "description": "White keeps the central tension and develops the bishop to e3.",
+      "idea": "White waits for Black to define the centre; after 7...Ng4 8.Bg5 f6 9.Bh4 the bishop stays active. It is a flexible way to avoid the most theoretical lines.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes d4.",
+        "Supports d4 and keeps the tension without closing the centre."
+      ]
+    }
+  },
+  {
+    "slug": "kid-exchange",
+    "eco": "E92",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2 e5 7. dxe5",
+    "es": {
+      "name": "India de Rey: Variante del Cambio",
+      "description": "Las blancas cambian damas pronto y buscan una pequeña ventaja en el final.",
+      "idea": "Tras 7...dxe5 8.Dxd8 Txd8 9.Ag5 las blancas presionan d8 y la casilla d5. Las negras igualan con precisión, pero no pueden jugar para ganar con facilidad.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Golpea d4.",
+        "Cambia en e5 para simplificar hacia un final."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Exchange Variation",
+      "description": "White trades queens early and seeks a small endgame edge.",
+      "idea": "After 7...dxe5 8.Qxd8 Rxd8 9.Bg5 White pressures d8 and the d5 square. Black equalises with accuracy, but finds it hard to play for a win.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops.",
+        "Castles.",
+        "Prepares castling.",
+        "Strikes d4.",
+        "Trades on e5 to simplify towards an endgame."
+      ]
+    }
+  },
+  {
+    "slug": "kid-samisch",
+    "eco": "E80",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3",
+    "es": {
+      "name": "India de Rey: Variante Sämisch",
+      "description": "Las blancas blindan e4 y preparan Ae3, Dd2 y un ataque con g4–h4.",
+      "idea": "El peón de f3 protege e4 e impide ...Cg4. Las negras responden con ...c5, ...e5 o el gambito ...O-O, ...c6 y ...b5, buscando actividad en el flanco de dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Refuerza e4 y prepara Ae3 con enroque largo."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Sämisch Variation",
+      "description": "White fortifies e4 and prepares Be3, Qd2 and a g4–h4 attack.",
+      "idea": "The f3 pawn protects e4 and prevents ...Ng4. Black answers ...c5, ...e5 or the ...O-O, ...c6 and ...b5 gambit, seeking queenside activity.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Supports e4 and prepares Be3 with long castling."
+      ]
+    }
+  },
+  {
+    "slug": "kid-four-pawns",
+    "eco": "E76",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4",
+    "es": {
+      "name": "India de Rey: Ataque de los Cuatro Peones",
+      "description": "El centro más ambicioso posible: peones en c4, d4, e4 y f4.",
+      "idea": "Las blancas amenazan e5 para aplastar a las negras. La réplica típica es 5...O-O 6.Cf3 c5 7.d5 e6, con estructuras de Benoni muy afiladas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Añade un cuarto peón al centro y amenaza e5."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Four Pawns Attack",
+      "description": "The most ambitious centre possible: pawns on c4, d4, e4 and f4.",
+      "idea": "White threatens e5 to crush Black. The typical reply is 5...O-O 6.Nf3 c5 7.d5 e6, with very sharp Benoni structures.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Adds a fourth pawn to the centre and threatens e5."
+      ]
+    }
+  },
+  {
+    "slug": "kid-averbakh",
+    "eco": "E73",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 O-O 6. Bg5",
+    "es": {
+      "name": "India de Rey: Variante Averbakh",
+      "description": "El alfil en g5 frena la ruptura ...e5 y prepara Dd2.",
+      "idea": "Las blancas dejan el caballo de g1 flexible y clavan el caballo de f6, dificultando ...e5. Las negras suelen responder con ...c5 o ...h6 y ...e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla sin comprometer el caballo de g1.",
+        "Enroca.",
+        "Clava el caballo y desanima la ruptura ...e5."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Averbakh Variation",
+      "description": "The g5 bishop slows down the ...e5 break and prepares Qd2.",
+      "idea": "White keeps the g1 knight flexible and pins the f6 knight, making ...e5 harder. Black usually answers ...c5 or ...h6 and ...e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops without committing the g1 knight.",
+        "Castles.",
+        "Pins the knight and discourages the ...e5 break."
+      ]
+    }
+  },
+  {
+    "slug": "kid-makogonov",
+    "eco": "E71",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. h3",
+    "es": {
+      "name": "India de Rey: Variante Makogonov",
+      "description": "Un movimiento profiláctico: evita ...Cg4 y ...Ag4 y prepara Ae3.",
+      "idea": "Las blancas pueden seguir con Ae3, Ad3 y Cf3 o Cge2, e incluso g4 contra el rey. Es un sistema flexible y moderno contra la India de Rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Quita la casilla g4 a las piezas negras antes de desarrollar el flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Makogonov Variation",
+      "description": "A prophylactic move: stops ...Ng4 and ...Bg4 and prepares Be3.",
+      "idea": "White can follow with Be3, Bd3 and Nf3 or Nge2, even g4 against the king. It is a flexible, modern system against the King's Indian.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Takes g4 away from Black's pieces before developing the kingside."
+      ]
+    }
+  },
+  {
+    "slug": "kid-smyslov",
+    "eco": "E91",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Bg5",
+    "es": {
+      "name": "India de Rey: Sistema Smyslov",
+      "description": "Una clavada temprana sobre f6 con desarrollo clásico del caballo.",
+      "idea": "Las blancas siguen con Ae2, Dd2 y O-O, presionando la casilla e5. Las negras suelen jugar ...h6 y ...c5 o ...Ca6 y ...e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Levanta el centro.",
+        "Controla e5.",
+        "Desarrolla y controla e5.",
+        "Enroca.",
+        "Clava el caballo de f6 antes de desarrollar el alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Smyslov System",
+      "description": "An early pin on f6 with classical knight development.",
+      "idea": "White follows with Be2, Qd2 and O-O, pressuring the e5 square. Black usually plays ...h6 and ...c5 or ...Na6 and ...e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Builds the centre.",
+        "Controls e5.",
+        "Develops and controls e5.",
+        "Castles.",
+        "Pins the f6 knight before developing the king's bishop."
+      ]
+    }
+  },
+  {
+    "slug": "kid-fianchetto",
+    "eco": "E60",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nf3 Bg7 4. g3",
+    "es": {
+      "name": "India de Rey: Variante del Fianchetto",
+      "description": "Las blancas también ponen su alfil en g2 y se enfrentan en la gran diagonal.",
+      "idea": "El rey blanco queda muy seguro y la partida es más posicional. Las negras suelen jugar ...d6, ...Cc6 o ...Cbd7 y ...e5, o el esquema de Yugoslavia con ...c5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla sin permitir la clavada.",
+        "Ocupa la gran diagonal.",
+        "Prepara Ag2 para contrarrestar al alfil de g7."
+      ]
+    },
+    "en": {
+      "name": "King's Indian: Fianchetto Variation",
+      "description": "White also puts the bishop on g2 and the two face off on the long diagonal.",
+      "idea": "White's king is very safe and the game is more positional. Black usually plays ...d6, ...Nc6 or ...Nbd7 and ...e5, or the Yugoslav setup with ...c5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops without allowing pins.",
+        "Takes the long diagonal.",
+        "Prepares Bg2 to counter the g7 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-defense",
+    "eco": "D80",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+    "es": {
+      "name": "Defensa Grünfeld",
+      "description": "Las negras permiten un gran centro blanco para demolerlo con piezas.",
+      "idea": "Tras 4.cxd5 Cxd5 5.e4 Cxc3 6.bxc3 las blancas tienen un centro enorme; las negras lo atacan con ...Ag7, ...c5 y ...Cc6. Es dinámica y muy teórica.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro invitando a las blancas a construir un centro de peones."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld Defense",
+      "description": "Black allows a big white centre in order to demolish it with pieces.",
+      "idea": "After 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 White has a huge centre; Black attacks it with ...Bg7, ...c5 and ...Nc6. It is dynamic and highly theoretical.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre, inviting White to build a pawn centre."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-exchange",
+    "eco": "D85",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4",
+    "es": {
+      "name": "Grünfeld: Variante del Cambio",
+      "description": "Las blancas aceptan el reto y levantan el gran centro de peones.",
+      "idea": "Tras 5...Cxc3 6.bxc3 Ag7 el centro c3–d4–e4 es la fuerza y el objetivo a la vez. Las blancas buscan d5 o un ataque en el flanco de rey; las negras presionan d4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Cambia en d5.",
+        "Recaptura con el caballo.",
+        "Expulsa al caballo y ocupa el centro con dos peones."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld: Exchange Variation",
+      "description": "White accepts the challenge and builds the big pawn centre.",
+      "idea": "After 5...Nxc3 6.bxc3 Bg7 the c3–d4–e4 centre is both strength and target. White aims for d5 or a kingside attack; Black pressures d4.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Trades on d5.",
+        "Recaptures with the knight.",
+        "Kicks the knight and occupies the centre with two pawns."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-exchange-rb1",
+    "eco": "D85",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 Bg7 7. Nf3 c5 8. Rb1",
+    "es": {
+      "name": "Grünfeld Cambio: Sistema moderno con Tb1",
+      "description": "La torre sale a b1 para proteger b2 y presionar b7.",
+      "idea": "Las blancas evitan ...Da5 y ...Axc3+ con molestias, y preparan Ae2 y O-O. Es la línea de élite más moderna: el centro se mantiene y las negras deben generar contrajuego.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Cambia en d5.",
+        "Recaptura con el caballo.",
+        "Expulsa al caballo.",
+        "Cambia caballos.",
+        "Recaptura hacia el centro.",
+        "El alfil presiona c3 y d4.",
+        "Desarrolla y protege d4.",
+        "Golpea d4 desde el flanco.",
+        "Saca la torre de la diagonal del alfil de g7 y presiona b7."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld Exchange: Modern Rb1 System",
+      "description": "The rook goes to b1 to protect b2 and pressure b7.",
+      "idea": "White avoids ...Qa5 and ...Bxc3+ nuisances and prepares Be2 and O-O. It is the most modern elite line: the centre holds and Black must generate counterplay.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Trades on d5.",
+        "Recaptures with the knight.",
+        "Kicks the knight.",
+        "Trades knights.",
+        "Recaptures towards the centre.",
+        "The bishop pressures c3 and d4.",
+        "Develops and protects d4.",
+        "Hits d4 from the flank.",
+        "Moves the rook off the g7 bishop's diagonal and pressures b7."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-russian",
+    "eco": "D96",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 Bg7 5. Qb3",
+    "es": {
+      "name": "Grünfeld: Sistema Ruso",
+      "description": "La dama presiona d5 para forzar ...dxc4 y ganar el centro con e4.",
+      "idea": "Tras 5...dxc4 6.Dxc4 O-O 7.e4 las blancas tienen el centro ideal. Las negras eligen entre sistemas como la Húngara (...a6) o Smyslov (...Ag4) para atacarlo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Presiona d5 para forzar el cambio en c4."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld: Russian System",
+      "description": "The queen pressures d5 to force ...dxc4 and win the centre with e4.",
+      "idea": "After 5...dxc4 6.Qxc4 O-O 7.e4 White has the ideal centre. Black chooses systems like the Hungarian (...a6) or Smyslov (...Bg4) to attack it.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Pressures d5 to force the exchange on c4."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-bf4",
+    "eco": "D82",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Bf4",
+    "es": {
+      "name": "Grünfeld: Variante 4.Af4",
+      "description": "Las blancas desarrollan el alfil y presionan c7 antes de cambiar en el centro.",
+      "idea": "Tras 4...Ag7 5.e3 c5 las negras buscan el gambito con ...O-O y ...cxd4. Es una forma sólida de evitar el gran centro teórico de la Variante del Cambio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Desarrolla el alfil fuera de la cadena y presiona c7."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld: 4.Bf4 Variation",
+      "description": "White develops the bishop and eyes c7 before exchanging in the centre.",
+      "idea": "After 4...Bg7 5.e3 c5 Black often goes for the gambit with ...O-O and ...cxd4. It is a solid way to avoid the theoretical big centre of the Exchange.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Develops the bishop outside the chain and eyes c7."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-bg5",
+    "eco": "D80",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Bg5",
+    "es": {
+      "name": "Grünfeld: Variante 4.Ag5",
+      "description": "Las blancas amenazan Axf6 para debilitar el control negro de e4 y d5.",
+      "idea": "Tras 4...Ce4 5.Ah4 las negras ganan tiempo contra el alfil y el caballo de c3. Es un sistema incómodo y poco teórico, útil para evitar la preparación del rival.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Clava el caballo de f6 y amenaza cambiarlo."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld: 4.Bg5 Variation",
+      "description": "White threatens Bxf6 to weaken Black's grip on e4 and d5.",
+      "idea": "After 4...Ne4 5.Bh4 Black gains time against the bishop and the c3 knight. It is an awkward, low-theory system useful for sidestepping preparation.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Pins the f6 knight and threatens to take it."
+      ]
+    }
+  },
+  {
+    "slug": "neo-grunfeld",
+    "eco": "D70",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. g3 d5",
+    "es": {
+      "name": "Neo-Grünfeld",
+      "description": "La idea de la Grünfeld contra el fianchetto blanco.",
+      "idea": "Tras 4.cxd5 Cxd5 5.Ag2 Ag7 las negras presionan d4 con ...c5 o ...Cb6 y ...Cc6. Las blancas buscan e4 para ganar tiempo sobre el caballo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Prepara su propio fianchetto.",
+        "Golpea el centro al estilo Grünfeld."
+      ]
+    },
+    "en": {
+      "name": "Neo-Grünfeld",
+      "description": "The Grünfeld idea against White's fianchetto.",
+      "idea": "After 4.cxd5 Nxd5 5.Bg2 Bg7 Black pressures d4 with ...c5 or ...Nb6 and ...Nc6. White aims for e4 to gain time on the knight.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Prepares its own fianchetto.",
+        "Strikes the centre Grünfeld-style."
+      ]
+    }
+  },
+  {
+    "slug": "kid-yugoslav",
+    "eco": "E65",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nf3 Bg7 4. g3 O-O 5. Bg2 d6 6. O-O c5",
+    "es": {
+      "name": "India de Rey Fianchetto: Variante Yugoslava",
+      "description": "Las negras atacan d4 desde el flanco con estructura de Benoni.",
+      "idea": "Tras 7.Cc3 Cc6 8.d5 Ca5 las negras presionan c4 con ...a6, ...Tb8 y ...b5. Las blancas defienden con Dd3 o Cd2 y buscan juego en el centro.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Ocupa la gran diagonal.",
+        "Prepara Ag2.",
+        "Enroca.",
+        "Completa el fianchetto.",
+        "Controla e5.",
+        "Enroca.",
+        "Golpea d4 desde el flanco."
+      ]
+    },
+    "en": {
+      "name": "King's Indian Fianchetto: Yugoslav Variation",
+      "description": "Black hits d4 from the flank with a Benoni structure.",
+      "idea": "After 7.Nc3 Nc6 8.d5 Na5 Black pressures c4 with ...a6, ...Rb8 and ...b5. White defends with Qd3 or Nd2 and seeks central play.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Takes the long diagonal.",
+        "Prepares Bg2.",
+        "Castles.",
+        "Completes the fianchetto.",
+        "Controls e5.",
+        "Castles.",
+        "Hits d4 from the flank."
+      ]
+    }
+  },
+  {
+    "slug": "grunfeld-exchange-classical",
+    "eco": "D86",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 Bg7 7. Bc4",
+    "es": {
+      "name": "Grünfeld Cambio: Variante Clásica (7.Ac4)",
+      "description": "El alfil apunta a f7 y el caballo irá a e2 para proteger d4.",
+      "idea": "Las blancas juegan Ce2, O-O y Ae3, con ideas de f4–f5 contra el rey. Las negras presionan d4 con ...c5, ...Cc6 y ...Ag4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Golpea el centro.",
+        "Cambia en d5.",
+        "Recaptura con el caballo.",
+        "Expulsa al caballo.",
+        "Cambia caballos.",
+        "Recaptura hacia el centro.",
+        "Presiona c3 y d4.",
+        "Desarrolla el alfil a su diagonal más activa, contra f7."
+      ]
+    },
+    "en": {
+      "name": "Grünfeld Exchange: Classical (7.Bc4)",
+      "description": "The bishop aims at f7 and the knight will go to e2 to protect d4.",
+      "idea": "White plays Ne2, O-O and Be3, with f4–f5 ideas against the king. Black pressures d4 with ...c5, ...Nc6 and ...Bg4.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Strikes the centre.",
+        "Trades on d5.",
+        "Recaptures with the knight.",
+        "Kicks the knight.",
+        "Trades knights.",
+        "Recaptures towards the centre.",
+        "Pressures c3 and d4.",
+        "Develops the bishop to its most active diagonal, against f7."
+      ]
+    }
+  }
+]

@@ -1,0 +1,866 @@
+[
+  {
+    "slug": "queens-gambit",
+    "eco": "D06",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4",
+    "es": {
+      "name": "Gambito de Dama",
+      "description": "No es un gambito de verdad: las blancas ofrecen c4 para desviar el peón central negro.",
+      "idea": "Si las negras capturan, las blancas recuperan el peón y logran e4; si mantienen d5, las blancas presionan el centro con Cc3, Ag5 y Cf3. Es la base del ajedrez posicional clásico.",
+      "moves": [
+        "Ocupa el centro y abre la diagonal del alfil de dama.",
+        "Réplica simétrica que frena e4.",
+        "Ataca d5 desde el flanco para desviar el peón central."
+      ]
+    },
+    "en": {
+      "name": "Queen's Gambit",
+      "description": "Not a real gambit: White offers c4 to lure away Black's central pawn.",
+      "idea": "If Black captures, White regains the pawn and achieves e4; if Black holds d5, White pressures the centre with Nc3, Bg5 and Nf3. It is the foundation of classical positional chess.",
+      "moves": [
+        "Occupies the centre and opens the queen's bishop.",
+        "Symmetrical reply that stops e4.",
+        "Attacks d5 from the flank to deflect the central pawn."
+      ]
+    }
+  },
+  {
+    "slug": "queens-gambit-declined",
+    "eco": "D30",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6",
+    "es": {
+      "name": "Gambito de Dama Rehusado",
+      "description": "Las negras sostienen d5 con un peón: la defensa más clásica y fiable.",
+      "idea": "La estructura es sólida pero el alfil de c8 queda encerrado; liberarlo con ...b6 o ...e5 es la tarea estratégica de las negras. Las blancas buscan presión en el flanco de dama o el ataque de minorías.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5 a costa de encerrar el alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "Queen's Gambit Declined",
+      "description": "Black supports d5 with a pawn: the most classical and reliable defence.",
+      "idea": "The structure is solid but the c8 bishop is locked in; freeing it with ...b6 or ...e5 is Black's strategic task. White seeks queenside pressure or the minority attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5 at the cost of locking in the c8 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-orthodox",
+    "eco": "D63",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 Nbd7",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Defensa Ortodoxa",
+      "description": "La posición que definió los campeonatos del mundo de Capablanca y Alekhine.",
+      "idea": "Las negras preparan ...c6 y ...dxc4 seguido de ...Cd5 para cambiar piezas, o la liberadora ...e5. Las blancas presionan con Tc1, Ad3 y la tensión en c4 y d5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Añade presión sobre d5.",
+        "Defiende d5 con desarrollo.",
+        "Clava al defensor de d5.",
+        "Rompe la clavada.",
+        "Refuerza d4 y abre la diagonal del alfil de rey.",
+        "El rey negro se pone a salvo.",
+        "Desarrolla y controla e5.",
+        "Prepara ...c6 y la liberación ...e5 o ...c5."
+      ]
+    },
+    "en": {
+      "name": "QGD: Orthodox Defense",
+      "description": "The position that defined the Capablanca–Alekhine world championship.",
+      "idea": "Black prepares ...c6 and ...dxc4 followed by ...Nd5 to trade pieces, or the freeing ...e5. White pressures with Rc1, Bd3 and the tension on c4 and d5.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Adds pressure on d5.",
+        "Defends d5 with development.",
+        "Pins d5's defender.",
+        "Breaks the pin.",
+        "Supports d4 and opens the king's bishop.",
+        "Black's king goes to safety.",
+        "Develops and controls e5.",
+        "Prepares ...c6 and the freeing ...e5 or ...c5."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-exchange",
+    "eco": "D35",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5 exd5 5. Bg5",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Variante del Cambio",
+      "description": "La estructura Carlsbad y el famoso ataque de minorías en el flanco de dama.",
+      "idea": "Las blancas suelen jugar e3, Ad3, Dc2, Cf3 y b4–b5 para crear un peón débil en c6. Las negras contraatacan en el flanco de rey con ...Ce4 o ...Cf8–g6.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Cambia en d5 para fijar la estructura.",
+        "Recaptura con el peón de e, liberando el alfil de c8.",
+        "Clava el caballo y presiona d5."
+      ]
+    },
+    "en": {
+      "name": "QGD: Exchange Variation",
+      "description": "The Carlsbad structure and the famous queenside minority attack.",
+      "idea": "White usually plays e3, Bd3, Qc2, Nf3 and b4–b5 to create a weak c6 pawn. Black counterattacks on the kingside with ...Ne4 or ...Nf8–g6.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Trades on d5 to fix the structure.",
+        "Recaptures with the e-pawn, freeing the c8 bishop.",
+        "Pins the knight and pressures d5."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-tartakower",
+    "eco": "D58",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 h6 7. Bh4 b6",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Defensa Tartakower",
+      "description": "El alfil encerrado sale por b7: una de las defensas más sólidas de la élite.",
+      "idea": "Las negras resuelven su gran problema con ...Ab7 y luego buscan ...c5. A menudo surgen los 'peones colgantes' en c5 y d5, dinámicos pero también objetivos de ataque.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Clava al caballo.",
+        "Rompe la clavada.",
+        "Refuerza d4.",
+        "Enroca.",
+        "Desarrolla.",
+        "Pregunta al alfil y da aire al rey.",
+        "Mantiene la clavada.",
+        "Prepara ...Ab7 para desarrollar el alfil problemático."
+      ]
+    },
+    "en": {
+      "name": "QGD: Tartakower Defense",
+      "description": "The locked bishop escapes via b7: one of the most solid elite defences.",
+      "idea": "Black solves the main problem with ...Bb7 and then aims for ...c5. 'Hanging pawns' on c5 and d5 often arise: dynamic, but also targets.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Pins the knight.",
+        "Breaks the pin.",
+        "Supports d4.",
+        "Castles.",
+        "Develops.",
+        "Questions the bishop and gives the king air.",
+        "Keeps the pin.",
+        "Prepares ...Bb7 to develop the problem bishop."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-lasker",
+    "eco": "D56",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. e3 O-O 6. Nf3 h6 7. Bh4 Ne4",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Defensa Lasker",
+      "description": "Las negras liberan su posición cambiando piezas desde el principio.",
+      "idea": "Tras 8.Axe7 Dxe7 las negras cambian otro par de piezas y preparan ...c6 y ...e5 o ...b6. Es una defensa muy sólida, ideal para neutralizar la iniciativa blanca.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Clava al caballo.",
+        "Rompe la clavada.",
+        "Refuerza d4.",
+        "Enroca.",
+        "Desarrolla.",
+        "Pregunta al alfil.",
+        "Mantiene la clavada.",
+        "Salta a e4 para forzar cambios y aliviar la posición."
+      ]
+    },
+    "en": {
+      "name": "QGD: Lasker Defense",
+      "description": "Black frees the position by trading pieces early.",
+      "idea": "After 8.Bxe7 Qxe7 Black trades another pair of pieces and prepares ...c6 and ...e5 or ...b6. It is a very solid defence, ideal for neutralising White's initiative.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Pins the knight.",
+        "Breaks the pin.",
+        "Supports d4.",
+        "Castles.",
+        "Develops.",
+        "Questions the bishop.",
+        "Keeps the pin.",
+        "Jumps to e4 to force trades and relieve the position."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-cambridge-springs",
+    "eco": "D52",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Nbd7 5. e3 c6 6. Nf3 Qa5",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Cambridge Springs",
+      "description": "La dama aprovecha la ausencia del alfil de c1 para clavar el caballo de c3.",
+      "idea": "Las negras amenazan ...Ce4 y ...dxc4 con presión sobre c3 y g5. Las blancas deben reaccionar con Cd2 o cxd5 para neutralizar la clavada.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Clava el caballo.",
+        "Tiende la trampa del Elefante: si 5.cxd5 exd5 6.Cxd5?? Cxd5! gana una pieza.",
+        "Refuerza d4.",
+        "Refuerza d5 y abre la diagonal de la dama.",
+        "Desarrolla.",
+        "Clava el caballo de c3 y ataca el alfil de g5 de forma indirecta."
+      ]
+    },
+    "en": {
+      "name": "QGD: Cambridge Springs",
+      "description": "The queen exploits the absence of the c1 bishop to pin the c3 knight.",
+      "idea": "Black threatens ...Ne4 and ...dxc4 with pressure on c3 and g5. White must react with Nd2 or cxd5 to neutralise the pin.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Pins the knight.",
+        "Sets the Elephant Trap: 5.cxd5 exd5 6.Nxd5?? Nxd5! wins a piece.",
+        "Supports d4.",
+        "Supports d5 and opens the queen's diagonal.",
+        "Develops.",
+        "Pins the c3 knight and indirectly attacks the g5 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-ragozin",
+    "eco": "D38",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 Bb4",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Defensa Ragozin",
+      "description": "Una idea de la Nimzo-India trasladada al Gambito de Dama.",
+      "idea": "El alfil clava el caballo de c3 y las negras buscan ...h6, ...dxc4 o ...c5 con juego activo. Es más dinámica que la Ortodoxa y muy popular hoy.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Desarrolla y controla e5.",
+        "Clava el caballo de c3, reduciendo la presión sobre d5."
+      ]
+    },
+    "en": {
+      "name": "QGD: Ragozin Defense",
+      "description": "A Nimzo-Indian idea transplanted into the Queen's Gambit.",
+      "idea": "The bishop pins the c3 knight and Black aims for ...h6, ...dxc4 or ...c5 with active play. It is more dynamic than the Orthodox and very popular today.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Develops and controls e5.",
+        "Pins the c3 knight, reducing the pressure on d5."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-harrwitz-attack",
+    "eco": "D37",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 Be7 5. Bf4",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Ataque Harrwitz (5.Af4)",
+      "description": "El alfil sale a f4 en lugar de g5: presión sobre c7 y la casilla e5.",
+      "idea": "Las blancas juegan e3 y a menudo c5 para ganar espacio en el flanco de dama. Las negras responden con ...O-O, ...c5 o ...c6 y ...Cbd7, en posiciones muy técnicas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Desarrolla.",
+        "Prepara el enroque sin permitir clavadas.",
+        "Desarrolla el alfil fuera de la cadena, controlando e5 y c7."
+      ]
+    },
+    "en": {
+      "name": "QGD: Harrwitz Attack (5.Bf4)",
+      "description": "The bishop goes to f4 instead of g5: pressure on c7 and the e5 square.",
+      "idea": "White plays e3 and often c5 to gain queenside space. Black answers ...O-O, ...c5 or ...c6 and ...Nbd7, in very technical positions.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Develops.",
+        "Prepares castling without allowing pins.",
+        "Develops the bishop outside the chain, controlling e5 and c7."
+      ]
+    }
+  },
+  {
+    "slug": "tarrasch-defense",
+    "eco": "D32",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 c5",
+    "es": {
+      "name": "Defensa Tarrasch",
+      "description": "Las negras aceptan un peón aislado en d5 a cambio de piezas muy activas.",
+      "idea": "Tras 4.cxd5 exd5 las negras obtienen un peón aislado pero columnas abiertas y desarrollo libre. Las blancas bloquean d5 y apuntan al peón con Ag2 en el sistema Rubinstein.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Golpea d4 y acepta un posible peón aislado."
+      ]
+    },
+    "en": {
+      "name": "Tarrasch Defense",
+      "description": "Black accepts an isolated d5 pawn in return for very active pieces.",
+      "idea": "After 4.cxd5 exd5 Black gets an isolated pawn but open files and free development. White blockades d5 and targets the pawn with Bg2 in the Rubinstein system.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Hits d4 and accepts a possible isolated pawn."
+      ]
+    }
+  },
+  {
+    "slug": "tarrasch-rubinstein-system",
+    "eco": "D34",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 c5 4. cxd5 exd5 5. Nf3 Nc6 6. g3",
+    "es": {
+      "name": "Tarrasch: Sistema Rubinstein",
+      "description": "El fianchetto blanco apunta directamente al peón aislado de d5.",
+      "idea": "Con Ag2, O-O, dxc5 y Ae3 las blancas presionan d5 y bloquean la casilla d4. Las negras necesitan actividad: ...Ae6, ...Te8 y ataques en el flanco de rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Golpea d4.",
+        "Cambia en d5 para aislar el peón.",
+        "Recaptura manteniendo un peón central.",
+        "Desarrolla y presiona d5.",
+        "Desarrolla presionando d4.",
+        "Prepara Ag2 para atacar el peón de d5."
+      ]
+    },
+    "en": {
+      "name": "Tarrasch: Rubinstein System",
+      "description": "White's fianchetto aims straight at the isolated d5 pawn.",
+      "idea": "With Bg2, O-O, dxc5 and Be3 White pressures d5 and blockades d4. Black needs activity: ...Be6, ...Re8 and kingside attacks.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Hits d4.",
+        "Trades on d5 to isolate the pawn.",
+        "Recaptures, keeping a central pawn.",
+        "Develops and pressures d5.",
+        "Develops, pressuring d4.",
+        "Prepares Bg2 to attack the d5 pawn."
+      ]
+    }
+  },
+  {
+    "slug": "semi-tarrasch",
+    "eco": "D40",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 c5",
+    "es": {
+      "name": "Defensa Semi-Tarrasch",
+      "description": "Como la Tarrasch, pero recapturando en d5 con el caballo para evitar el peón aislado.",
+      "idea": "Tras 5.cxd5 Cxd5 las negras tienen una estructura sana y las blancas pueden levantar el centro con e4. Es una defensa flexible y muy respetada.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Desarrolla.",
+        "Golpea d4 con el caballo listo para recapturar en d5."
+      ]
+    },
+    "en": {
+      "name": "Semi-Tarrasch Defense",
+      "description": "Like the Tarrasch, but recapturing on d5 with the knight to avoid the isolated pawn.",
+      "idea": "After 5.cxd5 Nxd5 Black has a healthy structure and White can build the centre with e4. It is a flexible, highly respected defence.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Develops.",
+        "Hits d4 with the knight ready to recapture on d5."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-alatortsev",
+    "eco": "D31",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Be7",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Variante Alatortsev",
+      "description": "Un orden de jugadas sutil que evita la Variante del Cambio más peligrosa.",
+      "idea": "Con ...Ae7 antes de ...Cf6, las negras desaniman la estructura Carlsbad con Ag5. Las blancas suelen responder con 4.Cf3 o 4.cxd5 exd5 5.Af4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla el alfil antes del caballo para evitar la clavada en g5."
+      ]
+    },
+    "en": {
+      "name": "QGD: Alatortsev Variation",
+      "description": "A subtle move order that avoids the most dangerous Exchange Variation.",
+      "idea": "With ...Be7 before ...Nf6, Black discourages the Carlsbad setup with Bg5. White usually answers 4.Nf3 or 4.cxd5 exd5 5.Bf4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops the bishop before the knight to avoid the pin on g5."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-janowski",
+    "eco": "D31",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 a6",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Variante Janowski",
+      "description": "Las negras preparan ...dxc4 seguido de ...b5 para quedarse con el peón.",
+      "idea": "Si las blancas no reaccionan, ...dxc4 y ...b5 sostienen el peón extra. Las blancas suelen cambiar en d5 o jugar c5 para ganar espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Prepara ...dxc4 y ...b5 para retener el peón."
+      ]
+    },
+    "en": {
+      "name": "QGD: Janowski Variation",
+      "description": "Black prepares ...dxc4 followed by ...b5 to keep the pawn.",
+      "idea": "If White does nothing, ...dxc4 and ...b5 hold the extra pawn. White usually trades on d5 or plays c5 to gain space.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Prepares ...dxc4 and ...b5 to hold the pawn."
+      ]
+    }
+  },
+  {
+    "slug": "queens-gambit-accepted",
+    "eco": "D20",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 dxc4",
+    "es": {
+      "name": "Gambito de Dama Aceptado",
+      "description": "Las negras toman el peón para devolverlo más tarde a cambio de libertad.",
+      "idea": "Las negras no intentan retener c4: buscan desarrollo libre con ...Cf6, ...e6 y ...c5. Las blancas recuperan el peón con Axc4 y juegan con el centro.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Acepta el peón para liberar su juego y atacar d4 después."
+      ]
+    },
+    "en": {
+      "name": "Queen's Gambit Accepted",
+      "description": "Black takes the pawn, planning to return it later in exchange for freedom.",
+      "idea": "Black does not try to keep c4: the aim is free development with ...Nf6, ...e6 and ...c5. White regains the pawn with Bxc4 and plays with the centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Accepts the pawn to free the game and hit d4 later."
+      ]
+    }
+  },
+  {
+    "slug": "qga-classical",
+    "eco": "D27",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 dxc4 3. Nf3 Nf6 4. e3 e6 5. Bxc4 c5",
+    "es": {
+      "name": "Gambito de Dama Aceptado: Defensa Clásica",
+      "description": "Las negras atacan d4 con el desarrollo completo del flanco de rey.",
+      "idea": "Las blancas suelen quedar con un peón aislado en d4 tras cambios en el centro. Las negras juegan ...a6, ...b5 y ...Ab7 para activar el alfil de dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Acepta el peón.",
+        "Desarrolla e impide e4 inmediato.",
+        "Desarrolla y controla e4.",
+        "Prepara Axc4.",
+        "Abre la diagonal del alfil de f8.",
+        "Recupera el peón.",
+        "Golpea d4 para liberar el juego."
+      ]
+    },
+    "en": {
+      "name": "QGA: Classical Defense",
+      "description": "Black attacks d4 with the kingside fully developed.",
+      "idea": "White often ends up with an isolated d4 pawn after central exchanges. Black plays ...a6, ...b5 and ...Bb7 to activate the queen's bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Accepts the pawn.",
+        "Develops and stops an immediate e4.",
+        "Develops and controls e4.",
+        "Prepares Bxc4.",
+        "Opens the f8 bishop's diagonal.",
+        "Regains the pawn.",
+        "Hits d4 to free the game."
+      ]
+    }
+  },
+  {
+    "slug": "qga-central-variation",
+    "eco": "D20",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 dxc4 3. e4",
+    "es": {
+      "name": "Gambito de Dama Aceptado: Variante Central",
+      "description": "Las blancas ocupan el centro con dos peones de inmediato.",
+      "idea": "Las negras deben golpear rápido con ...e5, ...c5 o ...Cf6 antes de que el centro se consolide. Si lo consiguen, el peón de c4 extra puede pesar.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Acepta el peón.",
+        "Levanta un centro de peones completo."
+      ]
+    },
+    "en": {
+      "name": "QGA: Central Variation",
+      "description": "White occupies the centre with two pawns at once.",
+      "idea": "Black must strike quickly with ...e5, ...c5 or ...Nf6 before the centre consolidates. If that works, the extra c4 pawn can matter.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Accepts the pawn.",
+        "Builds a full pawn centre."
+      ]
+    }
+  },
+  {
+    "slug": "qga-3-e3",
+    "eco": "D20",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 dxc4 3. e3",
+    "es": {
+      "name": "Gambito de Dama Aceptado: 3.e3",
+      "description": "La forma más directa de recuperar el peón sin conceder nada.",
+      "idea": "El alfil de f1 recupera c4 enseguida. Las negras suelen jugar 3...e5 o 3...Cf6 con ...e6 y ...c5, llevando a estructuras con peón aislado.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Acepta el peón.",
+        "Abre la diagonal del alfil de f1 para recuperar c4."
+      ]
+    },
+    "en": {
+      "name": "QGA: 3.e3",
+      "description": "The most direct way to regain the pawn without conceding anything.",
+      "idea": "The f1 bishop retakes c4 immediately. Black usually plays 3...e5 or 3...Nf6 with ...e6 and ...c5, leading to isolated-pawn structures.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Accepts the pawn.",
+        "Opens the f1 bishop's diagonal to regain c4."
+      ]
+    }
+  },
+  {
+    "slug": "chigorin-defense",
+    "eco": "D07",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 Nc6",
+    "es": {
+      "name": "Defensa Chigorin",
+      "description": "Las negras apuestan por las piezas en lugar de la estructura: ...Cc6 y ...Ag4.",
+      "idea": "Las negras presionan d4 y a menudo cambian el alfil por el caballo de f3. Obtienen juego activo a cambio de ceder la pareja de alfiles.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Desarrolla presionando d4 en lugar de sostener d5 con peones."
+      ]
+    },
+    "en": {
+      "name": "Chigorin Defense",
+      "description": "Black bets on pieces rather than structure: ...Nc6 and ...Bg4.",
+      "idea": "Black pressures d4 and often trades the bishop for the f3 knight. Black gets active play in exchange for the bishop pair.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Develops, hitting d4 instead of holding d5 with pawns."
+      ]
+    }
+  },
+  {
+    "slug": "albin-countergambit",
+    "eco": "D08",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e5",
+    "es": {
+      "name": "Contragambito Albin",
+      "description": "Un contragolpe inmediato con la famosa trampa de Lasker.",
+      "idea": "Tras 3.dxe5 d4 el peón negro corta el desarrollo blanco. Si 4.e3? Ab4+ 5.Ad2 dxe3! y tras 6.Axb4 exf2+ 7.Re2 fxg1=C+ las negras coronan en caballo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Contraataca d4 sacrificando un peón central."
+      ]
+    },
+    "en": {
+      "name": "Albin Countergambit",
+      "description": "An immediate counter-strike featuring the famous Lasker Trap.",
+      "idea": "After 3.dxe5 d4 Black's pawn cramps White's development. If 4.e3? Bb4+ 5.Bd2 dxe3! and after 6.Bxb4 exf2+ 7.Ke2 fxg1=N+ Black underpromotes to a knight.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Counterattacks d4, sacrificing a central pawn."
+      ]
+    }
+  },
+  {
+    "slug": "baltic-defense",
+    "eco": "D06",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 Bf5",
+    "es": {
+      "name": "Defensa Báltica",
+      "description": "El alfil de dama sale antes de que ...e6 lo encierre.",
+      "idea": "Las negras resuelven el problema del alfil de c8 de inmediato, pero dejan b7 débil. Las blancas suelen responder con 3.cxd5 Axb1 o 3.Db3 contra b7.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Saca el alfil de dama antes de cerrar la cadena con ...e6."
+      ]
+    },
+    "en": {
+      "name": "Baltic Defense",
+      "description": "The queen's bishop comes out before ...e6 blocks it in.",
+      "idea": "Black solves the c8 bishop problem immediately but leaves b7 weak. White usually answers 3.cxd5 Bxb1 or 3.Qb3 against b7.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Develops the queen's bishop before closing the chain with ...e6."
+      ]
+    }
+  },
+  {
+    "slug": "marshall-defense",
+    "eco": "D06",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 Nf6",
+    "es": {
+      "name": "Defensa Marshall",
+      "description": "Las negras desarrollan el caballo y dejan que las blancas capturen en d5.",
+      "idea": "Tras 3.cxd5 Cxd5 4.Cf3 las blancas pueden levantar un gran centro con e4. Se considera ligeramente dudosa, pero evita la teoría habitual.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Desarrolla sin sostener d5, aceptando recapturar con el caballo."
+      ]
+    },
+    "en": {
+      "name": "Marshall Defense",
+      "description": "Black develops the knight and lets White capture on d5.",
+      "idea": "After 3.cxd5 Nxd5 4.Nf3 White can build a big centre with e4. It is considered slightly dubious, but avoids the usual theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Develops without supporting d5, planning to recapture with the knight."
+      ]
+    }
+  },
+  {
+    "slug": "qg-symmetrical",
+    "eco": "D06",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c5",
+    "es": {
+      "name": "Gambito de Dama: Defensa Simétrica",
+      "description": "Las negras copian la ruptura blanca, aunque con un tiempo de retraso.",
+      "idea": "Tras 3.cxd5 Cf6 4.e4 o 3.dxc5 las blancas suelen ganar tiempo en el centro. Es una defensa rara, útil para sorprender.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Responde con la misma ruptura contra d4."
+      ]
+    },
+    "en": {
+      "name": "Queen's Gambit: Symmetrical Defense",
+      "description": "Black copies White's break, but a tempo behind.",
+      "idea": "After 3.cxd5 Nf6 4.e4 or 3.dxc5 White usually gains time in the centre. It is a rare defence, useful as a surprise.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Answers with the same break against d4."
+      ]
+    }
+  },
+  {
+    "slug": "qga-alekhine",
+    "eco": "D22",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 dxc4 3. Nf3 a6",
+    "es": {
+      "name": "Gambito de Dama Aceptado: Defensa Alekhine",
+      "description": "Las negras preparan ...b5 para sostener el peón de c4.",
+      "idea": "Si las blancas no reaccionan, ...b5 y ...Ab7 dan a las negras un buen flanco de dama. La respuesta típica es e3 y Axc4, o a4 para frenar ...b5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Acepta el peón.",
+        "Desarrolla e impide e4.",
+        "Prepara ...b5 para mantener el peón."
+      ]
+    },
+    "en": {
+      "name": "QGA: Alekhine Defense",
+      "description": "Black prepares ...b5 to hold the c4 pawn.",
+      "idea": "If White does nothing, ...b5 and ...Bb7 give Black a good queenside. The typical reply is e3 and Bxc4, or a4 to stop ...b5.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Accepts the pawn.",
+        "Develops and prevents e4.",
+        "Prepares ...b5 to keep the pawn."
+      ]
+    }
+  },
+  {
+    "slug": "qgd-vienna",
+    "eco": "D39",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 Bb4 5. Bg5 dxc4",
+    "es": {
+      "name": "Gambito de Dama Rehusado: Variante Viena",
+      "description": "Ragozin con ...dxc4: las negras aceptan el reto y complican.",
+      "idea": "Tras 6.e4 c5 7.Axc4 cxd4 8.Cxd4 las posiciones son abiertas y muy tácticas. Ambos bandos tienen piezas activas y reyes todavía en el centro.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Defiende d5.",
+        "Desarrolla.",
+        "Clava el caballo de c3.",
+        "Clava el caballo de f6.",
+        "Toma c4 y prepara ...c5 contra el centro."
+      ]
+    },
+    "en": {
+      "name": "QGD: Vienna Variation",
+      "description": "A Ragozin with ...dxc4: Black accepts the challenge and complicates.",
+      "idea": "After 6.e4 c5 7.Bxc4 cxd4 8.Nxd4 the positions are open and very tactical. Both sides have active pieces and kings still in the centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Defends d5.",
+        "Develops.",
+        "Pins the c3 knight.",
+        "Pins the f6 knight.",
+        "Takes c4 and prepares ...c5 against the centre."
+      ]
+    }
+  }
+]

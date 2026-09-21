@@ -1,0 +1,644 @@
+[
+  {
+    "slug": "english-opening",
+    "eco": "A10",
+    "side": "w",
+    "pgn": "1. c4",
+    "es": {
+      "name": "Apertura Inglesa",
+      "description": "Las blancas controlan d5 desde el flanco y mantienen el centro flexible.",
+      "idea": "Las blancas suelen jugar Cc3, g3, Ag2 y Cf3, con presión en la gran diagonal y en el flanco de dama. Puede transponer a muchas aperturas de 1.d4 o mantenerse como un sistema propio.",
+      "moves": [
+        "Controla d5 desde el flanco sin comprometer los peones centrales."
+      ]
+    },
+    "en": {
+      "name": "English Opening",
+      "description": "White controls d5 from the flank and keeps the centre flexible.",
+      "idea": "White usually plays Nc3, g3, Bg2 and Nf3, with pressure on the long diagonal and the queenside. It can transpose to many 1.d4 openings or stay a system of its own.",
+      "moves": [
+        "Controls d5 from the flank without committing the central pawns."
+      ]
+    }
+  },
+  {
+    "slug": "english-reversed-sicilian",
+    "eco": "A20",
+    "side": "b",
+    "pgn": "1. c4 e5",
+    "es": {
+      "name": "Inglesa: Siciliana Invertida",
+      "description": "Las negras ocupan el centro: una Siciliana con colores cambiados.",
+      "idea": "Las blancas juegan como las negras en la Siciliana pero con un tiempo extra. Las negras obtienen buen centro con ...Cc6, ...Cf6 y ...d5 o ...g6.",
+      "moves": [
+        "Controla d5 desde el flanco.",
+        "Ocupa el centro, como una Siciliana invertida."
+      ]
+    },
+    "en": {
+      "name": "English: Reversed Sicilian",
+      "description": "Black occupies the centre: a Sicilian with colours reversed.",
+      "idea": "White plays like Black in the Sicilian with an extra tempo. Black gets a good centre with ...Nc6, ...Nf6 and ...d5 or ...g6.",
+      "moves": [
+        "Controls d5 from the flank.",
+        "Occupies the centre, like a reversed Sicilian."
+      ]
+    }
+  },
+  {
+    "slug": "english-kings-english",
+    "eco": "A20",
+    "side": "w",
+    "pgn": "1. c4 e5 2. Nc3",
+    "es": {
+      "name": "Inglesa: Variante del Rey",
+      "description": "El caballo de dama sale primero para controlar d5 y e4.",
+      "idea": "Las blancas mantienen opciones de g3 y Ag2 o de e3 y d4. Las negras suelen responder con ...Cf6, ...Cc6 o ...Ab4.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla y controla d5 y e4."
+      ]
+    },
+    "en": {
+      "name": "English: King's English",
+      "description": "The queen's knight comes out first to control d5 and e4.",
+      "idea": "White keeps options of g3 and Bg2 or e3 and d4. Black usually replies ...Nf6, ...Nc6 or ...Bb4.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops and controls d5 and e4."
+      ]
+    }
+  },
+  {
+    "slug": "english-kings-fianchetto",
+    "eco": "A20",
+    "side": "w",
+    "pgn": "1. c4 e5 2. g3",
+    "es": {
+      "name": "Inglesa: Fianchetto contra ...e5",
+      "description": "Las blancas preparan Ag2 antes de desarrollar los caballos.",
+      "idea": "El alfil de g2 presiona d5 y b7. Las blancas pueden jugar Cc3, d3 y e4 (sistema Botvinnik) o mantener un esquema flexible con Cf3.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Prepara el fianchetto del alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "English: King's Fianchetto vs ...e5",
+      "description": "White prepares Bg2 before developing the knights.",
+      "idea": "The g2 bishop pressures d5 and b7. White can play Nc3, d3 and e4 (Botvinnik system) or keep a flexible setup with Nf3.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Prepares the king's bishop fianchetto."
+      ]
+    }
+  },
+  {
+    "slug": "english-four-knights",
+    "eco": "A28",
+    "side": "b",
+    "pgn": "1. c4 e5 2. Nc3 Nf6 3. Nf3 Nc6",
+    "es": {
+      "name": "Inglesa: Cuatro Caballos",
+      "description": "Desarrollo simétrico de los cuatro caballos en la Siciliana invertida.",
+      "idea": "Las blancas eligen entre g3 (fianchetto), e3, d4 o e4. Las negras suelen jugar ...Ab4 o ...d5 para luchar por el centro.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Desarrolla y controla e4.",
+        "Desarrolla atacando e5.",
+        "Defiende e5 completando el desarrollo de los caballos."
+      ]
+    },
+    "en": {
+      "name": "English: Four Knights",
+      "description": "Symmetrical development of all four knights in the reversed Sicilian.",
+      "idea": "White chooses between g3 (fianchetto), e3, d4 or e4. Black usually plays ...Bb4 or ...d5 to fight for the centre.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops.",
+        "Develops and controls e4.",
+        "Develops while attacking e5.",
+        "Defends e5, completing the knights' development."
+      ]
+    }
+  },
+  {
+    "slug": "english-four-knights-fianchetto",
+    "eco": "A29",
+    "side": "w",
+    "pgn": "1. c4 e5 2. Nc3 Nf6 3. Nf3 Nc6 4. g3",
+    "es": {
+      "name": "Inglesa Cuatro Caballos: Fianchetto",
+      "description": "La línea principal: el alfil a g2 presiona d5 y la gran diagonal.",
+      "idea": "Tras 4...d5 5.cxd5 Cxd5 6.Ag2 Cb6 se llega a una Siciliana Dragón invertida con un tiempo extra para las blancas. Las negras también pueden jugar 4...Ab4.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Prepara el fianchetto para presionar la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "English Four Knights: Fianchetto",
+      "description": "The main line: the bishop on g2 pressures d5 and the long diagonal.",
+      "idea": "After 4...d5 5.cxd5 Nxd5 6.Bg2 Nb6 a reversed Dragon Sicilian arises with an extra tempo for White. Black may also play 4...Bb4.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops.",
+        "Develops.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Prepares the fianchetto to pressure the long diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "english-bremen",
+    "eco": "A22",
+    "side": "w",
+    "pgn": "1. c4 e5 2. Nc3 Nf6 3. g3",
+    "es": {
+      "name": "Inglesa: Sistema Bremen",
+      "description": "Fianchetto blanco con el caballo en c3 y sin comprometer el de g1.",
+      "idea": "Las blancas mantienen la opción de Ce2 o Cf3 y buscan presión en el flanco de dama. Las negras juegan ...d5, ...Ab4 o ...c6 con ...d5.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto sin decidir el caballo de rey."
+      ]
+    },
+    "en": {
+      "name": "English: Bremen System",
+      "description": "A white fianchetto with the knight on c3, keeping the g1 knight uncommitted.",
+      "idea": "White keeps the option of Ne2 or Nf3 and seeks queenside pressure. Black plays ...d5, ...Bb4 or ...c6 with ...d5.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto without deciding on the king's knight."
+      ]
+    }
+  },
+  {
+    "slug": "english-keres",
+    "eco": "A22",
+    "side": "b",
+    "pgn": "1. c4 e5 2. Nc3 Nf6 3. g3 c6",
+    "es": {
+      "name": "Inglesa: Variante Keres",
+      "description": "Las negras preparan ...d5 con el apoyo del peón de c.",
+      "idea": "Con ...d5 las negras ocupan el centro y neutralizan el alfil de g2. Las blancas responden con Cf3 o d4 para cuestionar el centro negro.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara ...d5 con apoyo."
+      ]
+    },
+    "en": {
+      "name": "English: Keres Variation",
+      "description": "Black prepares ...d5 with the c-pawn's support.",
+      "idea": "With ...d5 Black occupies the centre and blunts the g2 bishop. White answers Nf3 or d4 to question Black's centre.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares a supported ...d5."
+      ]
+    }
+  },
+  {
+    "slug": "english-botvinnik-system",
+    "eco": "A26",
+    "side": "w",
+    "pgn": "1. c4 e5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7 5. e4",
+    "es": {
+      "name": "Inglesa: Sistema Botvinnik",
+      "description": "Las blancas atenazan d5 con c4 y e4, dejando un centro sólido e inmóvil.",
+      "idea": "Con d3, Cge2 y O-O las blancas preparan f4 o la expansión en el flanco de dama con b4. El alfil de g2 queda algo encerrado, pero el control de d5 es total.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Fianchetto simétrico.",
+        "Completa el fianchetto.",
+        "Ocupa la gran diagonal.",
+        "Cierra el control de d5 con dos peones."
+      ]
+    },
+    "en": {
+      "name": "English: Botvinnik System",
+      "description": "White clamps d5 with c4 and e4, leaving a solid, static centre.",
+      "idea": "With d3, Nge2 and O-O White prepares f4 or queenside expansion with b4. The g2 bishop is a bit blocked, but control of d5 is total.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Symmetrical fianchetto.",
+        "Completes the fianchetto.",
+        "Takes the long diagonal.",
+        "Clamps d5 with two pawns."
+      ]
+    }
+  },
+  {
+    "slug": "english-symmetrical",
+    "eco": "A30",
+    "side": "b",
+    "pgn": "1. c4 c5",
+    "es": {
+      "name": "Inglesa: Variante Simétrica",
+      "description": "Las negras copian la jugada blanca y se aseguran su parte de d4.",
+      "idea": "La simetría suele mantenerse varias jugadas con ...Cc6, ...g6 y ...Ag7. El primero que rompa con d4 o ...d5 en buenas condiciones toma la iniciativa.",
+      "moves": [
+        "Controla d5.",
+        "Réplica simétrica que controla d4."
+      ]
+    },
+    "en": {
+      "name": "English: Symmetrical Variation",
+      "description": "Black mirrors White's move and claims a share of d4.",
+      "idea": "Symmetry often lasts several moves with ...Nc6, ...g6 and ...Bg7. Whoever breaks with d4 or ...d5 under good conditions takes the initiative.",
+      "moves": [
+        "Controls d5.",
+        "Symmetrical reply controlling d4."
+      ]
+    }
+  },
+  {
+    "slug": "english-symmetrical-fianchetto",
+    "eco": "A36",
+    "side": "b",
+    "pgn": "1. c4 c5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7",
+    "es": {
+      "name": "Inglesa Simétrica: Doble fianchetto",
+      "description": "Simetría total: dos alfiles enfrentados en la gran diagonal.",
+      "idea": "Las blancas suelen seguir con e3 y Cge2 o con Cf3 y a3–b4. Las negras copian o rompen con ...e5 para ganar espacio.",
+      "moves": [
+        "Controla d5.",
+        "Controla d4.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Fianchetto simétrico.",
+        "Completa el fianchetto.",
+        "Ocupa la gran diagonal enfrentándose al alfil blanco."
+      ]
+    },
+    "en": {
+      "name": "English Symmetrical: Double Fianchetto",
+      "description": "Total symmetry: two bishops facing off on the long diagonal.",
+      "idea": "White usually continues e3 and Nge2 or Nf3 and a3–b4. Black mirrors or breaks with ...e5 to gain space.",
+      "moves": [
+        "Controls d5.",
+        "Controls d4.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Symmetrical fianchetto.",
+        "Completes the fianchetto.",
+        "Takes the long diagonal, facing the white bishop."
+      ]
+    }
+  },
+  {
+    "slug": "english-hedgehog",
+    "eco": "A30",
+    "side": "b",
+    "pgn": "1. c4 c5 2. Nf3 Nf6 3. g3 b6 4. Bg2 Bb7 5. O-O e6 6. Nc3 Be7",
+    "es": {
+      "name": "Inglesa: Sistema Erizo",
+      "description": "Las negras se repliegan en tres filas y esperan el momento de pinchar con ...b5 o ...d5.",
+      "idea": "Con peones en a6, b6, d6 y e6 las negras aceptan menos espacio a cambio de una posición elástica. Las blancas deben presionar sin sobreextenderse; un ...d5 bien preparado lo cambia todo.",
+      "moves": [
+        "Controla d5.",
+        "Controla d4.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara el fianchetto de dama.",
+        "Completa el fianchetto.",
+        "El alfil ocupa la gran diagonal.",
+        "Enroca.",
+        "Controla d5 y abre el alfil de rey.",
+        "Desarrolla y controla d5.",
+        "Desarrollo modesto típico del erizo, preparando el enroque."
+      ]
+    },
+    "en": {
+      "name": "English: Hedgehog System",
+      "description": "Black settles on three ranks and waits to strike with ...b5 or ...d5.",
+      "idea": "With pawns on a6, b6, d6 and e6 Black accepts less space for an elastic position. White must press without overextending; a well-prepared ...d5 changes everything.",
+      "moves": [
+        "Controls d5.",
+        "Controls d4.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares the queenside fianchetto.",
+        "Completes the fianchetto.",
+        "The bishop takes the long diagonal.",
+        "Castles.",
+        "Controls d5 and opens the king's bishop.",
+        "Develops and controls d5.",
+        "Modest Hedgehog development preparing castling."
+      ]
+    }
+  },
+  {
+    "slug": "english-symmetrical-rubinstein",
+    "eco": "A34",
+    "side": "b",
+    "pgn": "1. c4 c5 2. Nc3 Nf6 3. g3 d5 4. cxd5 Nxd5",
+    "es": {
+      "name": "Inglesa Simétrica: Variante Rubinstein",
+      "description": "Las negras abren el centro de inmediato y centralizan el caballo.",
+      "idea": "Tras 5.Ag2 Cc7 las negras buscan ...e5 y un Maroczy invertido que controle d4. Las blancas presionan con el alfil de g2 y la columna c.",
+      "moves": [
+        "Controla d5.",
+        "Controla d4.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Golpea el centro.",
+        "Cambia en d5.",
+        "Recaptura con el caballo centralizado."
+      ]
+    },
+    "en": {
+      "name": "English Symmetrical: Rubinstein Variation",
+      "description": "Black opens the centre at once and centralises the knight.",
+      "idea": "After 5.Bg2 Nc7 Black aims for ...e5 and a reversed Maroczy controlling d4. White pressures with the g2 bishop and the c-file.",
+      "moves": [
+        "Controls d5.",
+        "Controls d4.",
+        "Develops.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Strikes the centre.",
+        "Trades on d5.",
+        "Recaptures with a centralised knight."
+      ]
+    }
+  },
+  {
+    "slug": "anglo-indian-defense",
+    "eco": "A15",
+    "side": "b",
+    "pgn": "1. c4 Nf6",
+    "es": {
+      "name": "Inglesa: Defensa Anglo-India",
+      "description": "Las negras controlan e4 y esperan a ver qué plan eligen las blancas.",
+      "idea": "Según la respuesta blanca, las negras pueden ir a esquemas de India de Rey, Grünfeld, Nimzo-Inglesa o Erizo. Es la respuesta más flexible a 1.c4.",
+      "moves": [
+        "Controla d5.",
+        "Controla e4 y mantiene todas las estructuras disponibles."
+      ]
+    },
+    "en": {
+      "name": "English: Anglo-Indian Defense",
+      "description": "Black controls e4 and waits to see White's plan.",
+      "idea": "Depending on White's reply, Black can head for King's Indian, Grünfeld, Nimzo-English or Hedgehog setups. It is the most flexible answer to 1.c4.",
+      "moves": [
+        "Controls d5.",
+        "Controls e4 and keeps every structure available."
+      ]
+    }
+  },
+  {
+    "slug": "anglo-grunfeld",
+    "eco": "A16",
+    "side": "b",
+    "pgn": "1. c4 Nf6 2. Nc3 d5",
+    "es": {
+      "name": "Inglesa: Anglo-Grünfeld",
+      "description": "Las negras golpean d5 antes de que las blancas jueguen d4.",
+      "idea": "Tras 3.cxd5 Cxd5 4.g3 g6 5.Ag2 Cxc3 o ...Cb6 surgen posiciones de tipo Grünfeld. Las blancas pueden intentar e4 para ganar tiempo sobre el caballo.",
+      "moves": [
+        "Controla d5.",
+        "Controla e4.",
+        "Desarrolla y controla d5.",
+        "Golpea el centro al estilo Grünfeld."
+      ]
+    },
+    "en": {
+      "name": "English: Anglo-Grünfeld",
+      "description": "Black strikes d5 before White has played d4.",
+      "idea": "After 3.cxd5 Nxd5 4.g3 g6 5.Bg2 Nxc3 or ...Nb6 Grünfeld-type positions arise. White may try e4 to gain time on the knight.",
+      "moves": [
+        "Controls d5.",
+        "Controls e4.",
+        "Develops and controls d5.",
+        "Strikes the centre Grünfeld-style."
+      ]
+    }
+  },
+  {
+    "slug": "english-mikenas-attack",
+    "eco": "A18",
+    "side": "w",
+    "pgn": "1. c4 Nf6 2. Nc3 e6 3. e4",
+    "es": {
+      "name": "Inglesa: Ataque Mikenas-Carls",
+      "description": "Las blancas ocupan el centro con e4 antes de jugar d4.",
+      "idea": "Si 3...d5 4.e5 las blancas ganan espacio y persiguen al caballo de f6. Las negras suelen responder 3...c5 o 3...d5 buscando contraatacar el centro.",
+      "moves": [
+        "Controla d5.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara ...d5 o ...Ab4.",
+        "Ocupa el centro con ganancia de espacio."
+      ]
+    },
+    "en": {
+      "name": "English: Mikenas-Carls Attack",
+      "description": "White occupies the centre with e4 before playing d4.",
+      "idea": "After 3...d5 4.e5 White gains space and chases the f6 knight. Black usually answers 3...c5 or 3...d5 to counterattack the centre.",
+      "moves": [
+        "Controls d5.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares ...d5 or ...Bb4.",
+        "Occupies the centre, gaining space."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-english",
+    "eco": "A17",
+    "side": "b",
+    "pgn": "1. c4 Nf6 2. Nc3 e6 3. Nf3 Bb4",
+    "es": {
+      "name": "Inglesa: Nimzo-Inglesa",
+      "description": "La clavada de la Nimzo-India cuando las blancas no han jugado d4.",
+      "idea": "Las negras presionan c3 y e4, dispuestas a cambiar en c3 para doblar peones. Las blancas suelen seguir con Dc2, g3 o a3.",
+      "moves": [
+        "Controla d5.",
+        "Controla e4.",
+        "Desarrolla.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo al estilo Nimzo-India."
+      ]
+    },
+    "en": {
+      "name": "English: Nimzo-English",
+      "description": "The Nimzo-Indian pin when White has not played d4.",
+      "idea": "Black pressures c3 and e4, ready to take on c3 to double pawns. White usually follows with Qc2, g3 or a3.",
+      "moves": [
+        "Controls d5.",
+        "Controls e4.",
+        "Develops.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight Nimzo-Indian style."
+      ]
+    }
+  },
+  {
+    "slug": "english-agincourt",
+    "eco": "A13",
+    "side": "b",
+    "pgn": "1. c4 e6",
+    "es": {
+      "name": "Inglesa: Defensa Agincourt",
+      "description": "Las negras preparan ...d5 con apoyo, como en el Gambito de Dama.",
+      "idea": "Tras 2.Cf3 d5 3.g3 se llega a estructuras de Catalana o Réti. Las negras pueden elegir entre tomar en c4 o mantener un centro sólido con ...c6.",
+      "moves": [
+        "Controla d5.",
+        "Prepara ...d5 con apoyo del peón de e."
+      ]
+    },
+    "en": {
+      "name": "English: Agincourt Defense",
+      "description": "Black prepares a supported ...d5, Queen's Gambit style.",
+      "idea": "After 2.Nf3 d5 3.g3 Catalan or Réti structures arise. Black can choose between taking on c4 or keeping a solid centre with ...c6.",
+      "moves": [
+        "Controls d5.",
+        "Prepares ...d5 with the e-pawn's support."
+      ]
+    }
+  },
+  {
+    "slug": "english-caro-kann-defense",
+    "eco": "A11",
+    "side": "b",
+    "pgn": "1. c4 c6",
+    "es": {
+      "name": "Inglesa: Defensa Caro-Kann",
+      "description": "Las negras preparan ...d5 al estilo Eslava.",
+      "idea": "Las negras buscan ...d5 con el alfil de c8 libre para ir a f5 o g4. Las blancas suelen jugar Cf3, g3 y b3 en un esquema de Réti.",
+      "moves": [
+        "Controla d5.",
+        "Prepara ...d5 sin encerrar el alfil de dama."
+      ]
+    },
+    "en": {
+      "name": "English: Caro-Kann Defense",
+      "description": "Black prepares ...d5 Slav-style.",
+      "idea": "Black aims for ...d5 with the c8 bishop free to reach f5 or g4. White usually plays Nf3, g3 and b3 in a Réti setup.",
+      "moves": [
+        "Controls d5.",
+        "Prepares ...d5 without locking in the queen's bishop."
+      ]
+    }
+  },
+  {
+    "slug": "anglo-dutch-defense",
+    "eco": "A10",
+    "side": "b",
+    "pgn": "1. c4 f5",
+    "es": {
+      "name": "Inglesa: Defensa Anglo-Holandesa",
+      "description": "La Holandesa contra 1.c4: control de e4 y juego en el flanco de rey.",
+      "idea": "Las negras pueden elegir esquemas de Leningrado (...g6) o Stonewall (...e6 y ...d5). Las blancas mantienen la opción de no jugar d4.",
+      "moves": [
+        "Controla d5.",
+        "Controla e4 con el peón de f, al estilo holandés."
+      ]
+    },
+    "en": {
+      "name": "English: Anglo-Dutch Defense",
+      "description": "The Dutch against 1.c4: control of e4 and kingside play.",
+      "idea": "Black can choose Leningrad (...g6) or Stonewall (...e6 and ...d5) setups. White keeps the option of not playing d4.",
+      "moves": [
+        "Controls d5.",
+        "Controls e4 with the f-pawn, Dutch-style."
+      ]
+    }
+  },
+  {
+    "slug": "english-great-snake",
+    "eco": "A10",
+    "side": "b",
+    "pgn": "1. c4 g6",
+    "es": {
+      "name": "Inglesa: Fianchetto de rey negro",
+      "description": "El alfil de g7 primero y la estructura después.",
+      "idea": "Las negras mantienen la opción de ...c5 (Simétrica), ...e5 (Siciliana invertida) o ...Cf6 y ...d6 (India de Rey). Máxima flexibilidad.",
+      "moves": [
+        "Controla d5.",
+        "Prepara el fianchetto sin mostrar aún la estructura."
+      ]
+    },
+    "en": {
+      "name": "English: Black King's Fianchetto",
+      "description": "The g7 bishop first, the structure later.",
+      "idea": "Black keeps the option of ...c5 (Symmetrical), ...e5 (reversed Sicilian) or ...Nf6 and ...d6 (King's Indian). Maximum flexibility.",
+      "moves": [
+        "Controls d5.",
+        "Prepares the fianchetto before revealing a structure."
+      ]
+    }
+  },
+  {
+    "slug": "english-kramnik-shirov",
+    "eco": "A21",
+    "side": "b",
+    "pgn": "1. c4 e5 2. Nc3 Bb4",
+    "es": {
+      "name": "Inglesa: Contraataque Kramnik-Shirov",
+      "description": "El alfil clava el caballo de c3 antes de desarrollar el de g8.",
+      "idea": "Las negras buscan cambiar en c3 y controlar e4 y d4. Las blancas suelen responder con Cd5, g3 o Db3.",
+      "moves": [
+        "Controla d5.",
+        "Ocupa el centro.",
+        "Desarrolla y controla d5.",
+        "Clava el caballo que controla d5 y e4."
+      ]
+    },
+    "en": {
+      "name": "English: Kramnik-Shirov Counterattack",
+      "description": "The bishop pins the c3 knight before the g8 knight develops.",
+      "idea": "Black aims to trade on c3 and control e4 and d4. White usually answers Nd5, g3 or Qb3.",
+      "moves": [
+        "Controls d5.",
+        "Occupies the centre.",
+        "Develops and controls d5.",
+        "Pins the knight that controls d5 and e4."
+      ]
+    }
+  }
+]

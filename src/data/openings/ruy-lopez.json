@@ -1,0 +1,1130 @@
+[
+  {
+    "slug": "ruy-lopez",
+    "eco": "C60",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
+    "es": {
+      "name": "Apertura Española",
+      "description": "La reina de las aperturas abiertas: las blancas presionan al defensor de e5 en vez de a f7.",
+      "idea": "La amenaza no es inmediata (Axc6 y Cxe5 aún no gana un peón), pero la presión sobre c6 acompaña toda la partida. Las blancas suelen enrocar, jugar Te1, c3 y d4 para un centro duradero.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Réplica simétrica en el centro.",
+        "Desarrolla atacando e5.",
+        "Defiende e5 con el caballo.",
+        "Clava a medias el caballo de c6, el defensor de e5."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez",
+      "description": "The king of open games: White pressures the defender of e5 instead of f7.",
+      "idea": "The threat is not immediate (Bxc6 and Nxe5 does not yet win a pawn), but the pressure on c6 lasts all game. White usually castles, plays Re1, c3 and d4 for a lasting centre.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Symmetrical central reply.",
+        "Develops while attacking e5.",
+        "Defends e5 with the knight.",
+        "Puts pressure on the c6 knight, the defender of e5."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-morphy-defense",
+    "eco": "C70",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6",
+    "es": {
+      "name": "Española: Defensa Morphy",
+      "description": "La respuesta más jugada: las negras preguntan al alfil qué intenciones tiene.",
+      "idea": "Si 4.Axc6 dxc6, las negras tienen la pareja de alfiles a cambio de una estructura algo peor. Lo normal es 4.Aa4, y el peón de a6 dará a las negras la opción de ...b5 en el momento que quieran.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona al caballo defensor.",
+        "Pregunta al alfil y gana la opción de ...b5 más adelante."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Morphy Defense",
+      "description": "The most popular reply: Black asks the bishop about its intentions.",
+      "idea": "If 4.Bxc6 dxc6, Black gets the bishop pair in return for a slightly worse structure. Normally White plays 4.Ba4, and the a6 pawn gives Black the option of ...b5 whenever needed.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the defending knight.",
+        "Questions the bishop and keeps ...b5 in reserve."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-closed",
+    "eco": "C84",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7",
+    "es": {
+      "name": "Española Cerrada",
+      "description": "El tronco de la teoría clásica: las negras desarrollan sin tocar el peón de e4.",
+      "idea": "Las negras mantienen el punto fuerte de e5 y enrocan rápido; tras Te1, ...b5, Ab3 y ...d6 surge la estructura típica. Las blancas preparan c3 y d4, y la maniobra Cbd2–f1–g3 hacia el flanco de rey.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo de c6.",
+        "Pregunta al alfil.",
+        "Mantiene la presión retirándose en diagonal.",
+        "Desarrolla atacando e4.",
+        "Enroca: e4 está protegido de forma indirecta.",
+        "Desarrollo tranquilo que prepara el enroque sin capturar en e4."
+      ]
+    },
+    "en": {
+      "name": "Closed Ruy Lopez",
+      "description": "The trunk of classical theory: Black develops without touching the e4 pawn.",
+      "idea": "Black keeps the e5 stronghold and castles quickly; after Re1, ...b5, Bb3 and ...d6 the typical structure appears. White prepares c3 and d4 and the Nbd2–f1–g3 manoeuvre towards the kingside.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the c6 knight.",
+        "Questions the bishop.",
+        "Keeps the pressure by retreating along the diagonal.",
+        "Develops while attacking e4.",
+        "Castles: e4 is protected indirectly.",
+        "Quiet development that prepares castling instead of taking on e4."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-closed-main-line",
+    "eco": "C92",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3",
+    "es": {
+      "name": "Española Cerrada: Línea principal con h3",
+      "description": "La posición base de un siglo de campeonatos del mundo, de Capablanca a Carlsen.",
+      "idea": "Con h3 las blancas evitan ...Ag4 y preparan d4 con el centro bien apoyado. Las negras eligen su sistema: Breyer (...Cb8), Zaitsev (...Ab7) o Chigorin (...Ca5).",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo de c6.",
+        "Pregunta al alfil.",
+        "Se retira manteniendo la diagonal.",
+        "Desarrolla atacando e4.",
+        "Enroca: e4 queda protegido indirectamente.",
+        "Desarrollo sólido hacia el enroque.",
+        "Protege e4 con la torre y amenaza Axc6 seguido de Cxe5.",
+        "Expulsa al alfil y gana espacio en el flanco de dama.",
+        "El alfil sigue apuntando a f7 desde b3.",
+        "Asegura e5 y abre la diagonal del alfil de dama.",
+        "Prepara d4 y deja una casilla de retirada al alfil en c2.",
+        "El rey negro se pone a salvo.",
+        "Quita la casilla g4 al alfil negro antes de jugar d4."
+      ]
+    },
+    "en": {
+      "name": "Closed Ruy Lopez: Main Line with h3",
+      "description": "The base position of a century of world championships, from Capablanca to Carlsen.",
+      "idea": "With h3 White prevents ...Bg4 and prepares a well-supported d4. Black now chooses a system: Breyer (...Nb8), Zaitsev (...Bb7) or Chigorin (...Na5).",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the c6 knight.",
+        "Questions the bishop.",
+        "Retreats while keeping the diagonal.",
+        "Develops while attacking e4.",
+        "Castles: e4 is indirectly protected.",
+        "Solid development towards castling.",
+        "Protects e4 with the rook and threatens Bxc6 followed by Nxe5.",
+        "Kicks the bishop and gains queenside space.",
+        "The bishop keeps eyeing f7 from b3.",
+        "Secures e5 and opens the queen's bishop.",
+        "Prepares d4 and gives the bishop a retreat on c2.",
+        "Black's king goes to safety.",
+        "Takes g4 away from Black's bishop before playing d4."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-marshall-attack",
+    "eco": "C89",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O 8. c3 d5",
+    "es": {
+      "name": "Española: Ataque Marshall",
+      "description": "Un peón entregado para lanzar todas las piezas negras contra el rey blanco.",
+      "idea": "Tras 9.exd5 Cxd5 10.Cxe5 Cxe5 11.Txe5 c6 las negras obtienen un ataque duradero con ...Ad6, ...Dh4 y ...Tae8. Es tan sólido que muchos jugadores de élite evitan la línea con 8.a4.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Defiende e4 y crea la amenaza sobre e5.",
+        "Expulsa al alfil de a4.",
+        "Mantiene el alfil en la diagonal de f7.",
+        "Enroca antes de jugar ...d6, preparando el gambito.",
+        "Prepara d4 y una retirada para el alfil.",
+        "Sacrifica un peón para abrir líneas contra el rey blanco."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Marshall Attack",
+      "description": "A pawn given up to throw every black piece at the white king.",
+      "idea": "After 9.exd5 Nxd5 10.Nxe5 Nxe5 11.Rxe5 c6 Black gets a lasting attack with ...Bd6, ...Qh4 and ...Rae8. It is so sound that many elite players avoid it with 8.a4.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Prepares castling.",
+        "Defends e4 and creates the threat against e5.",
+        "Kicks the a4 bishop.",
+        "Keeps the bishop on the f7 diagonal.",
+        "Castles before ...d6, preparing the gambit.",
+        "Prepares d4 and a retreat for the bishop.",
+        "Sacrifices a pawn to open lines against the white king."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-anti-marshall",
+    "eco": "C88",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O 8. a4",
+    "es": {
+      "name": "Española: Anti-Marshall con a4",
+      "description": "Las blancas esquivan el Ataque Marshall presionando el peón de b5.",
+      "idea": "Con a4 las blancas abren la columna a y fuerzan a las negras a definir su flanco de dama (...b4 o ...Ab7). La partida queda en terreno estratégico, lejos de la teoría forzada del Marshall.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Prepara el enroque.",
+        "Defiende e4 y amenaza e5.",
+        "Expulsa al alfil.",
+        "El alfil se mantiene activo.",
+        "Enroca con la idea del Marshall.",
+        "Ataca b5 y evita el gambito sin conceder tiempo a ...d5."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Anti-Marshall 8.a4",
+      "description": "White sidesteps the Marshall Attack by pressuring the b5 pawn.",
+      "idea": "With a4 White opens the a-file and forces Black to commit on the queenside (...b4 or ...Bb7). The game stays strategic, far from the forcing Marshall theory.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Prepares castling.",
+        "Defends e4 and threatens e5.",
+        "Kicks the bishop.",
+        "The bishop stays active.",
+        "Castles with the Marshall in mind.",
+        "Attacks b5 and avoids the gambit without allowing ...d5."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-breyer",
+    "eco": "C95",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Nb8",
+    "es": {
+      "name": "Española: Variante Breyer",
+      "description": "El caballo vuelve a casa para ir a d7: una de las maniobras más famosas del ajedrez.",
+      "idea": "Desde d7 el caballo refuerza e5 y deja libres el peón de c y el alfil de b7. Las negras obtienen una posición flexible y muy sólida, la favorita de Spassky y Carlsen.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Desarrollo sólido.",
+        "Defiende e4.",
+        "Expulsa al alfil.",
+        "Mantiene la diagonal a2–g8.",
+        "Asegura e5.",
+        "Prepara d4.",
+        "Rey a salvo.",
+        "Evita ...Ag4.",
+        "Reorganiza el caballo hacia d7, liberando el peón de c y el alfil."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Breyer Variation",
+      "description": "The knight goes back home to reach d7: one of chess's most famous manoeuvres.",
+      "idea": "From d7 the knight supports e5 and frees the c-pawn and the b7 bishop. Black gets a flexible, rock-solid setup, favoured by Spassky and Carlsen.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Solid development.",
+        "Defends e4.",
+        "Kicks the bishop.",
+        "Keeps the a2–g8 diagonal.",
+        "Secures e5.",
+        "Prepares d4.",
+        "King to safety.",
+        "Prevents ...Bg4.",
+        "Reroutes the knight to d7, freeing the c-pawn and the bishop."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-zaitsev",
+    "eco": "C92",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Bb7",
+    "es": {
+      "name": "Española: Variante Zaitsev",
+      "description": "El sistema de Kárpov: máxima presión sobre e4 con alfil, caballo y torre.",
+      "idea": "Las negras siguen con ...Te8 y ...Af8 para presionar e4. Las blancas deben evitar la repetición tras Cg5 y suelen jugar d4, Cbd2 y a4 para abrir el flanco de dama.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Desarrollo sólido.",
+        "Defiende e4.",
+        "Expulsa al alfil.",
+        "Mantiene la diagonal.",
+        "Asegura e5.",
+        "Prepara d4.",
+        "Rey a salvo.",
+        "Evita ...Ag4.",
+        "El alfil se une a la presión sobre e4 desde la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Zaitsev Variation",
+      "description": "Karpov's system: maximum pressure on e4 with bishop, knight and rook.",
+      "idea": "Black continues ...Re8 and ...Bf8 to pressure e4. White must avoid a repetition after Ng5 and usually plays d4, Nbd2 and a4 to open the queenside.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Solid development.",
+        "Defends e4.",
+        "Kicks the bishop.",
+        "Keeps the diagonal.",
+        "Secures e5.",
+        "Prepares d4.",
+        "King to safety.",
+        "Prevents ...Bg4.",
+        "The bishop joins the pressure on e4 from the long diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-chigorin",
+    "eco": "C96",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Na5",
+    "es": {
+      "name": "Española: Defensa Chigorin",
+      "description": "La defensa clásica: el caballo ataca al alfil y abre camino al peón de c.",
+      "idea": "Tras 10.Ac2 c5 11.d4 Dc7 las negras presionan d4 y luchan por el flanco de dama. Las blancas buscan el cierre con d5 o la maniobra Cbd2–f1–g3 hacia el rey.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Desarrollo sólido.",
+        "Defiende e4.",
+        "Expulsa al alfil.",
+        "Mantiene la diagonal.",
+        "Asegura e5.",
+        "Prepara d4.",
+        "Rey a salvo.",
+        "Evita ...Ag4.",
+        "Expulsa al alfil de b3 y prepara ...c5 para luchar por d4."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Chigorin Defense",
+      "description": "The classical defence: the knight chases the bishop and clears the c-pawn.",
+      "idea": "After 10.Bc2 c5 11.d4 Qc7 Black pressures d4 and fights on the queenside. White aims to close with d5 or play Nbd2–f1–g3 towards the king.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Solid development.",
+        "Defends e4.",
+        "Kicks the bishop.",
+        "Keeps the diagonal.",
+        "Secures e5.",
+        "Prepares d4.",
+        "King to safety.",
+        "Prevents ...Bg4.",
+        "Chases the b3 bishop and prepares ...c5 to fight for d4."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-open",
+    "eco": "C80",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Nxe4",
+    "es": {
+      "name": "Española Abierta",
+      "description": "Las negras toman el peón de e4 y buscan juego activo de piezas en lugar de solidez.",
+      "idea": "Tras 6.d4 b5 7.Ab3 d5 8.dxe5 Ae6 las negras tienen piezas activas y un caballo fuerte en e4. A cambio, su peón de d5 y la estructura del flanco de dama pueden convertirse en objetivos.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca, ofreciendo e4 de forma temporal.",
+        "Toma el peón y centraliza el caballo."
+      ]
+    },
+    "en": {
+      "name": "Open Ruy Lopez",
+      "description": "Black takes the e4 pawn and chooses active piece play over solidity.",
+      "idea": "After 6.d4 b5 7.Bb3 d5 8.dxe5 Be6 Black has active pieces and a strong knight on e4. In return the d5 pawn and the queenside structure can become targets.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles, offering e4 temporarily.",
+        "Takes the pawn and centralises the knight."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-berlin",
+    "eco": "C65",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6",
+    "es": {
+      "name": "Española: Defensa Berlinesa",
+      "description": "El 'muro de Berlín' de Kramnik: la defensa que desactivó a Kaspárov en 2000.",
+      "idea": "Las negras contraatacan e4 de inmediato. Si las blancas buscan el final tras 4.O-O Cxe4 5.d4, surge una estructura sin damas muy sólida; por eso muchos prefieren el lento 4.d3.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo de c6.",
+        "Contraataca e4 sin perder tiempo con ...a6."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Berlin Defense",
+      "description": "Kramnik's 'Berlin Wall': the defence that neutralised Kasparov in 2000.",
+      "idea": "Black counterattacks e4 immediately. If White heads for the endgame with 4.O-O Nxe4 5.d4, a very solid queenless structure arises; that is why many prefer the slow 4.d3.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the c6 knight.",
+        "Counterattacks e4 without spending time on ...a6."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-berlin-endgame",
+    "eco": "C67",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. d4 Nd6 6. Bxc6 dxc6 7. dxe5 Nf5 8. Qxd8+",
+    "es": {
+      "name": "Española Berlinesa: Final del muro de Berlín",
+      "description": "Las damas se cambian en la jugada 8 y empieza un final con mucha estrategia.",
+      "idea": "Las blancas tienen mayoría de peones en el flanco de rey (e5 contra f7) y las negras la pareja de alfiles, pero su rey ha perdido el enroque. Las negras llevan el rey a c8 o e8 y bloquean con ...h6 y ...Ae6.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Contraataca e4.",
+        "Enroca y ofrece e4.",
+        "Captura el peón central.",
+        "Abre el centro para recuperar el material.",
+        "El caballo se retira atacando al alfil.",
+        "Cambia el alfil para doblar los peones negros.",
+        "Recaptura hacia el centro, abriendo la columna d.",
+        "Gana espacio y ataca el caballo de d6.",
+        "El caballo busca una buena casilla en f5.",
+        "Cambia damas: el rey negro pierde el derecho a enrocar."
+      ]
+    },
+    "en": {
+      "name": "Berlin Defense: Berlin Wall Endgame",
+      "description": "Queens come off on move 8 and a deeply strategic endgame begins.",
+      "idea": "White has a kingside pawn majority (e5 against f7) and Black the bishop pair, but Black's king has lost castling rights. Black brings the king to c8 or e8 and blockades with ...h6 and ...Be6.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Counterattacks e4.",
+        "Castles and offers e4.",
+        "Takes the central pawn.",
+        "Opens the centre to regain material.",
+        "The knight retreats, attacking the bishop.",
+        "Trades the bishop to double Black's pawns.",
+        "Recaptures towards the centre, opening the d-file.",
+        "Gains space and attacks the d6 knight.",
+        "The knight finds a good square on f5.",
+        "Trades queens: the black king loses castling rights."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-exchange",
+    "eco": "C68",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6",
+    "es": {
+      "name": "Española: Variante del Cambio",
+      "description": "El arma de Fischer: las blancas regalan la pareja de alfiles a cambio de una mejor estructura.",
+      "idea": "Tras 4...dxc6 las blancas tienen una mayoría 4 contra 3 en el flanco de rey que puede crear un peón pasado en el final. Las negras compensan con los dos alfiles y juego activo.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Cambia el alfil para dañar la estructura de peones negra."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Exchange Variation",
+      "description": "Fischer's weapon: White gives up the bishop pair for a better structure.",
+      "idea": "After 4...dxc6 White has a 4-vs-3 kingside majority that can create a passed pawn in the endgame. Black compensates with the two bishops and active play.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Trades the bishop to damage Black's pawn structure."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-schliemann",
+    "eco": "C63",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 f5",
+    "es": {
+      "name": "Española: Gambito Schliemann",
+      "description": "Un contraataque inmediato en el flanco de rey, algo así como un Gambito de Rey invertido.",
+      "idea": "Las negras quieren abrir la columna f y eliminar e4. La respuesta más precisa es 4.Cc3, y la posición se vuelve muy táctica para ambos bandos.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Contraataca e4 y abre la columna f."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Schliemann Gambit",
+      "description": "An immediate kingside counterattack, something like a reversed King's Gambit.",
+      "idea": "Black wants to open the f-file and eliminate e4. The most accurate reply is 4.Nc3, and the position becomes very tactical for both sides.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Counterattacks e4 and opens the f-file."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-classical",
+    "eco": "C64",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Bc5",
+    "es": {
+      "name": "Española: Defensa Clásica",
+      "description": "Las negras sacan el alfil a su mejor diagonal antes de defender nada.",
+      "idea": "El alfil de c5 presiona f2 y d4. Las blancas suelen responder con c3 y d4 ganando tiempo sobre él, mientras las negras juegan ...Cf6 y enroque.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Desarrolla el alfil a la diagonal a7–g1, apuntando a f2."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Classical Defense",
+      "description": "Black puts the bishop on its best diagonal before defending anything.",
+      "idea": "The c5 bishop pressures f2 and d4. White usually replies with c3 and d4, gaining time on it, while Black plays ...Nf6 and castles.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Develops the bishop to the a7–g1 diagonal, aiming at f2."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-steinitz-defense",
+    "eco": "C62",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 d6",
+    "es": {
+      "name": "Española: Defensa Steinitz",
+      "description": "Una defensa firme de e5 que cede espacio en el centro.",
+      "idea": "Las negras consolidan e5 pero quedan algo pasivas; tras 4.d4 deben tener cuidado con la clavada en c6. Suelen jugar ...Ad7 y ...exd4 para liberar el juego.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Refuerza e5 con un peón y abre el alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Steinitz Defense",
+      "description": "A firm defence of e5 that concedes central space.",
+      "idea": "Black consolidates e5 but stays somewhat passive; after 4.d4 Black must watch out for the pin on c6. Black usually plays ...Bd7 and ...exd4 to free the game.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Reinforces e5 with a pawn and opens the c8 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-bird",
+    "eco": "C61",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nd4",
+    "es": {
+      "name": "Española: Defensa Bird",
+      "description": "Las negras cambian caballos y dejan un peón extraño en d4 que molesta a las blancas.",
+      "idea": "Tras 4.Cxd4 exd4 el peón de d4 corta el desarrollo natural blanco (Cc3). Las blancas enrocan, juegan d3 y f4, y las negras deben desarrollarse rápido para compensar la estructura.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Propone el cambio de caballos para quitar presión a e5."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Bird Defense",
+      "description": "Black trades knights and leaves an odd pawn on d4 that cramps White.",
+      "idea": "After 4.Nxd4 exd4 the d4 pawn blocks White's natural Nc3 development. White castles, plays d3 and f4, and Black must develop quickly to compensate for the structure.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Offers a knight trade to relieve the pressure on e5."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-cozio",
+    "eco": "C60",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7",
+    "es": {
+      "name": "Española: Defensa Cozio",
+      "description": "El caballo va a e7 para reforzar c6 y quizás saltar a g6.",
+      "idea": "Las negras evitan que Axc6 dañe su estructura y preparan ...g6, ...Ag7 o ...Cg6. Es una posición algo pasiva pero con poca teoría, útil como sorpresa.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Protege c6 con el otro caballo, preparando ...g6 o ...Cg6."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Cozio Defense",
+      "description": "The knight goes to e7 to support c6 and perhaps jump to g6.",
+      "idea": "Black avoids having the structure damaged by Bxc6 and prepares ...g6, ...Bg7 or ...Ng6. It is somewhat passive but low on theory, handy as a surprise.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Supports c6 with the other knight, preparing ...g6 or ...Ng6."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-smyslov",
+    "eco": "C60",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 g6",
+    "es": {
+      "name": "Española: Defensa Smyslov (fianchetto)",
+      "description": "Las negras sacan su alfil de rey a g7 para reforzar e5 desde lejos.",
+      "idea": "El alfil de g7 protege e5 y apoya la gran diagonal. Las blancas suelen responder con c3 y d4 inmediatos, antes de que las negras completen el fianchetto y enroquen.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Prepara el fianchetto del alfil de rey para proteger e5."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Smyslov (Fianchetto) Defense",
+      "description": "Black brings the king's bishop to g7 to support e5 from a distance.",
+      "idea": "The g7 bishop protects e5 and controls the long diagonal. White usually answers with immediate c3 and d4, before Black finishes the fianchetto and castles.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Prepares to fianchetto the king's bishop to protect e5."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-steinitz-deferred",
+    "eco": "C71",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 d6",
+    "es": {
+      "name": "Española: Steinitz Diferida",
+      "description": "La idea de Steinitz, pero con ...a6 ya incluido para romper la clavada con ...b5.",
+      "idea": "Las negras mantienen e5 firme y pueden deshacer la clavada con ...b5 cuando quieran. Una línea típica es 5.c3 Ad7 6.d4 Cge7, con juego sólido y flexible.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Mantiene la presión.",
+        "Refuerza e5 manteniendo la opción de ...b5 para romper la clavada."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Steinitz Deferred",
+      "description": "Steinitz's idea, but with ...a6 already in to break the pin with ...b5.",
+      "idea": "Black keeps e5 firm and can break the pin with ...b5 at any time. A typical line is 5.c3 Bd7 6.d4 Nge7, with solid, flexible play.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Keeps the pressure.",
+        "Reinforces e5 while keeping ...b5 available to break the pin."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-arkhangelsk",
+    "eco": "C78",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O b5 6. Bb3 Bb7",
+    "es": {
+      "name": "Española: Variante Arkhangelsk",
+      "description": "Las negras apuntan su alfil a e4 desde la gran diagonal: agresivo y moderno.",
+      "idea": "El alfil de b7 presiona e4 y el flanco de rey blanco, acompañado a menudo por ...Ac5. Las blancas buscan c3 y d4 o golpear con a4 contra el peón de b5.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Expulsa al alfil antes de desarrollar el de rey.",
+        "El alfil sigue mirando a f7.",
+        "Coloca el alfil en la gran diagonal contra e4 y el enroque blanco."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Arkhangelsk Variation",
+      "description": "Black aims the bishop at e4 from the long diagonal: aggressive and modern.",
+      "idea": "The b7 bishop pressures e4 and White's kingside, often joined by ...Bc5. White aims for c3 and d4 or strikes at b5 with a4.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Kicks the bishop before developing the king's bishop.",
+        "The bishop keeps eyeing f7.",
+        "Places the bishop on the long diagonal against e4 and White's king."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-neo-arkhangelsk",
+    "eco": "C78",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O b5 6. Bb3 Bc5",
+    "es": {
+      "name": "Española: Neo-Arkhangelsk",
+      "description": "El alfil negro se activa en c5 antes que en b7, presionando f2 desde el principio.",
+      "idea": "Las negras juegan con piezas activas y buscan ...d6, ...Ab7 u ...Ag4 según convenga. Las blancas intentan aprovechar el alfil de c5 con c3 y d4, o con el golpe Cxe5.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Expulsa al alfil.",
+        "Mantiene la diagonal a2–g8.",
+        "Activa el alfil contra f2 antes de decidir el resto del desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Neo-Arkhangelsk",
+      "description": "Black's bishop goes to c5 before b7, pressuring f2 from the start.",
+      "idea": "Black plays with active pieces and chooses ...d6, ...Bb7 or ...Bg4 as needed. White tries to exploit the c5 bishop with c3 and d4, or with the Nxe5 trick.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Kicks the bishop.",
+        "Keeps the a2–g8 diagonal.",
+        "Activates the bishop against f2 before deciding the rest of development."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-worrall-attack",
+    "eco": "C86",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Qe2",
+    "es": {
+      "name": "Española: Ataque Worrall",
+      "description": "La dama protege e4 y deja la columna d libre para la torre.",
+      "idea": "Con la dama en e2 las blancas pueden jugar Td1 y preparar d4 con apoyo de la torre. Además evitan el Ataque Marshall, pues ...d5 carece de la misma fuerza.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Desarrollo sólido.",
+        "Defiende e4 con la dama, reservando la torre para la columna d."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Worrall Attack",
+      "description": "The queen protects e4 and leaves the d-file free for the rook.",
+      "idea": "With the queen on e2 White can play Rd1 and prepare a rook-supported d4. It also sidesteps the Marshall Attack, since ...d5 lacks the same punch.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Solid development.",
+        "Defends e4 with the queen, saving the rook for the d-file."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-delayed-exchange",
+    "eco": "C85",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Bxc6",
+    "es": {
+      "name": "Española: Cambio diferido",
+      "description": "Las blancas cambian en c6 cuando el alfil negro ya está en e7 y no puede proteger e5.",
+      "idea": "Tras 6...dxc6 7.d3 las blancas amenazan Cxe5 y juegan contra la estructura doblada de las negras. La ventaja es pequeña pero muy fácil de manejar.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Enroca.",
+        "Desarrollo sólido.",
+        "Cambia el defensor de e5 ahora que el alfil negro está en e7."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Delayed Exchange",
+      "description": "White trades on c6 once Black's bishop is on e7 and cannot help defend e5.",
+      "idea": "After 6...dxc6 7.d3 White threatens Nxe5 and plays against Black's doubled pawns. The edge is small but very easy to handle.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Castles.",
+        "Solid development.",
+        "Removes e5's defender now that Black's bishop sits on e7."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-modern-d3",
+    "eco": "C77",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. d3",
+    "es": {
+      "name": "Española: Variante Anderssen con d3",
+      "description": "Las blancas protegen e4 con un peón y retrasan el enroque para mantener opciones.",
+      "idea": "Con d3 el peón de e4 queda sólido y las blancas pueden elegir entre c3, Cbd2 y un enroque tardío, o incluso un ataque con g4. Es una forma de evitar la teoría principal.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Retirada en diagonal.",
+        "Ataca e4.",
+        "Protege e4 con un peón y mantiene flexible el plan de desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Anderssen Variation (5.d3)",
+      "description": "White protects e4 with a pawn and delays castling to keep options open.",
+      "idea": "With d3 the e4 pawn is solid and White can choose c3, Nbd2 and late castling, or even a g4 attack. It is a way to avoid the main theory.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Retreats along the diagonal.",
+        "Attacks e4.",
+        "Protects e4 with a pawn and keeps the development plan flexible."
+      ]
+    }
+  },
+  {
+    "slug": "schliemann-4-nc3",
+    "eco": "C63",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 f5 4. Nc3",
+    "es": {
+      "name": "Schliemann: 4.Cc3",
+      "description": "La respuesta más fuerte: el caballo protege e4 y prepara exf5.",
+      "idea": "Tras 4...fxe4 5.Cxe4 d5 6.Cxe5 surgen complicaciones enormes. Las blancas buscan aprovechar el rey negro debilitado.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Contraataca e4.",
+        "Defiende e4 con desarrollo y prepara exf5."
+      ]
+    },
+    "en": {
+      "name": "Schliemann: 4.Nc3",
+      "description": "The strongest reply: the knight protects e4 and prepares exf5.",
+      "idea": "After 4...fxe4 5.Nxe4 d5 6.Nxe5 huge complications arise. White tries to exploit Black's weakened king.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Counterattacks e4.",
+        "Defends e4 with development and prepares exf5."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-anti-berlin",
+    "eco": "C65",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3",
+    "es": {
+      "name": "Española: Anti-Berlinesa (4.d3)",
+      "description": "Las blancas protegen e4 y evitan el final del muro de Berlín.",
+      "idea": "Con c3, O-O, Cbd2 y Te1 las blancas mantienen las piezas en el tablero. Es la forma más popular de jugar contra la Berlinesa en la élite actual.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Contraataca e4.",
+        "Protege e4 con un peón y mantiene la partida compleja."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Anti-Berlin (4.d3)",
+      "description": "White protects e4 and avoids the Berlin Wall endgame.",
+      "idea": "With c3, O-O, Nbd2 and Re1 White keeps pieces on the board. It is the most popular way to meet the Berlin at elite level today.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Counterattacks e4.",
+        "Protects e4 with a pawn and keeps the game complex."
+      ]
+    }
+  },
+  {
+    "slug": "ruy-lopez-norwegian",
+    "eco": "C70",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 Na5",
+    "es": {
+      "name": "Española: Variante Noruega",
+      "description": "Las negras persiguen al alfil para cambiarlo por el caballo.",
+      "idea": "Las negras sacrifican a veces el peón de e5 para eliminar el alfil de b3. Es una línea arriesgada y poco común, con trampas como 6.Axf7+.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona el caballo.",
+        "Pregunta al alfil.",
+        "Mantiene la diagonal.",
+        "Expulsa al alfil de inmediato.",
+        "El alfil sigue mirando a f7.",
+        "Ataca al alfil para cambiarlo, dejando e5 sin su defensor."
+      ]
+    },
+    "en": {
+      "name": "Ruy Lopez: Norwegian Variation",
+      "description": "Black chases the bishop in order to trade it for the knight.",
+      "idea": "Black sometimes sacrifices the e5 pawn to eliminate the b3 bishop. It is a risky, rare line with tricks such as 6.Bxf7+.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures the knight.",
+        "Questions the bishop.",
+        "Keeps the diagonal.",
+        "Kicks the bishop at once.",
+        "The bishop keeps eyeing f7.",
+        "Attacks the bishop to trade it, leaving e5 without its defender."
+      ]
+    }
+  }
+]

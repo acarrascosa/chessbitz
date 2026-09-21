@@ -1,0 +1,1042 @@
+[
+  {
+    "slug": "italian-game",
+    "eco": "C50",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
+    "es": {
+      "name": "Apertura Italiana",
+      "description": "Una de las aperturas más antiguas: desarrollo rápido y un alfil que mira directamente a f7.",
+      "idea": "Las blancas buscan enrocar pronto y preparar la ruptura c3–d4 para dominar el centro. La presión sobre f7 obliga a las negras a elegir entre el tranquilo ...Ac5 y el combativo ...Cf6.",
+      "moves": [
+        "Ocupa el centro y abre diagonales para el alfil y la dama.",
+        "Respuesta simétrica: disputa el centro e impide que d4 llegue gratis.",
+        "Desarrolla con tempo atacando el peón de e5.",
+        "Defiende e5 desarrollando el caballo hacia el centro.",
+        "El alfil se sitúa en la diagonal a2–g8 apuntando a f7, el punto débil negro."
+      ]
+    },
+    "en": {
+      "name": "Italian Game",
+      "description": "One of the oldest openings: quick development and a bishop staring straight at f7.",
+      "idea": "White aims to castle quickly and prepare the c3–d4 break to dominate the centre. The pressure on f7 forces Black to choose between the calm ...Bc5 and the combative ...Nf6.",
+      "moves": [
+        "Occupies the centre and opens diagonals for the bishop and queen.",
+        "Symmetrical reply: contests the centre and stops d4 from coming for free.",
+        "Develops with tempo by attacking the e5 pawn.",
+        "Defends e5 while developing the knight towards the centre.",
+        "The bishop takes the a2–g8 diagonal, aiming at f7, Black's weak spot."
+      ]
+    }
+  },
+  {
+    "slug": "giuoco-piano",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5",
+    "es": {
+      "name": "Giuoco Piano",
+      "description": "El 'juego tranquilo': las negras copian el plan blanco y colocan su alfil apuntando a f2.",
+      "idea": "Ambos bandos desarrollan con naturalidad y la lucha gira en torno a la ruptura d4 de las blancas. Las negras deben vigilar f7 y mantener su alfil activo en la diagonal a7–g1.",
+      "moves": [
+        "Toma espacio central y libera al alfil de rey.",
+        "Contesta en el centro y equilibra el control de d4 y f4.",
+        "Ataca e5 mientras desarrolla una pieza menor.",
+        "Protege e5 y lleva el caballo a su mejor casilla.",
+        "El alfil mira a f7 y facilita un enroque rápido.",
+        "Réplica simétrica: el alfil negro apunta a f2 y controla d4."
+      ]
+    },
+    "en": {
+      "name": "Giuoco Piano",
+      "description": "The 'quiet game': Black mirrors White's plan and points the bishop at f2.",
+      "idea": "Both sides develop naturally and the fight revolves around White's d4 break. Black must watch over f7 and keep the bishop active on the a7–g1 diagonal.",
+      "moves": [
+        "Grabs central space and frees the king's bishop.",
+        "Answers in the centre and balances control of d4 and f4.",
+        "Attacks e5 while developing a minor piece.",
+        "Protects e5 and brings the knight to its best square.",
+        "The bishop eyes f7 and prepares quick castling.",
+        "Symmetrical reply: Black's bishop targets f2 and controls d4."
+      ]
+    }
+  },
+  {
+    "slug": "giuoco-piano-main-line",
+    "eco": "C54",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4",
+    "es": {
+      "name": "Giuoco Piano: Línea principal con c3 y d4",
+      "description": "El plan clásico: c3 prepara d4 y las blancas intentan levantar un centro de peones ideal.",
+      "idea": "Si las negras cambian en d4, las blancas recapturan con el peón de c y consiguen el centro e4–d4. Las negras deben golpear ese centro con ...d5 o con el jaque ...Ab4+ para no quedar aplastadas.",
+      "moves": [
+        "Ocupa el centro y abre líneas para las piezas.",
+        "Mantiene el equilibrio central con un peón simétrico.",
+        "Desarrolla y ataca e5.",
+        "Defiende e5 con desarrollo.",
+        "Presión sobre f7 y desarrollo rápido.",
+        "El alfil negro se activa apuntando a f2.",
+        "Prepara d4 para construir un centro de peones sólido.",
+        "Contraataca e4 desarrollando el último caballo.",
+        "Golpe central inmediato: ataca e5 y el alfil de c5 queda expuesto."
+      ]
+    },
+    "en": {
+      "name": "Giuoco Piano: Main Line with c3 and d4",
+      "description": "The classical plan: c3 prepares d4 and White tries to build an ideal pawn centre.",
+      "idea": "If Black exchanges on d4, White recaptures with the c-pawn and gets the e4–d4 centre. Black must hit that centre with ...d5 or the check ...Bb4+ to avoid being squeezed.",
+      "moves": [
+        "Occupies the centre and opens lines for the pieces.",
+        "Keeps central balance with a symmetrical pawn.",
+        "Develops and attacks e5.",
+        "Defends e5 with development.",
+        "Pressure on f7 and fast development.",
+        "Black's bishop becomes active, aiming at f2.",
+        "Prepares d4 to build a solid pawn centre.",
+        "Counterattacks e4 while developing the last knight.",
+        "Immediate central strike: hits e5 and the c5 bishop is exposed."
+      ]
+    }
+  },
+  {
+    "slug": "giuoco-pianissimo",
+    "eco": "C50",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. d3 Nf6 5. c3",
+    "es": {
+      "name": "Giuoco Pianissimo",
+      "description": "La versión moderna y lenta de la Italiana, favorita en la élite actual.",
+      "idea": "Las blancas renuncian a abrir el centro de inmediato: enrocan, llevan el caballo de b1 a g3 vía d2–f1 y preparan a4 o d4 en el momento justo. Es una lucha de maniobras donde gana quien entienda mejor la estructura.",
+      "moves": [
+        "Controla el centro y libera las piezas del flanco de rey.",
+        "Réplica clásica que frena el avance d4.",
+        "Desarrolla atacando e5.",
+        "Defiende e5 con el caballo.",
+        "Coloca el alfil en su diagonal más agresiva.",
+        "El alfil negro busca f2 y controla d4.",
+        "Refuerza e4 con calma y deja la ruptura central para más tarde.",
+        "Desarrolla y presiona e4.",
+        "Controla d4 y b4, preparando b4 o d4 según convenga."
+      ]
+    },
+    "en": {
+      "name": "Giuoco Pianissimo",
+      "description": "The slow, modern version of the Italian, a favourite at elite level today.",
+      "idea": "White declines to open the centre at once: castles, reroutes the b1 knight to g3 via d2–f1 and prepares a4 or d4 at the right moment. It is a manoeuvring battle won by whoever understands the structure better.",
+      "moves": [
+        "Controls the centre and frees the kingside pieces.",
+        "Classical reply that slows down d4.",
+        "Develops while attacking e5.",
+        "Defends e5 with the knight.",
+        "Puts the bishop on its most aggressive diagonal.",
+        "Black's bishop eyes f2 and controls d4.",
+        "Calmly supports e4 and keeps the central break for later.",
+        "Develops and puts pressure on e4.",
+        "Controls d4 and b4, preparing b4 or d4 as needed."
+      ]
+    }
+  },
+  {
+    "slug": "giuoco-piano-moller-attack",
+    "eco": "C54",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4 Bb4+ 7. Nc3 Nxe4 8. O-O Bxc3 9. d5",
+    "es": {
+      "name": "Giuoco Piano: Ataque Møller",
+      "description": "Un sacrificio de peón romántico: las blancas entregan material por un ataque directo.",
+      "idea": "Tras 9.d5 las blancas apuntan al rey negro atrapado en el centro, con Te1 y d6 como amenazas. Las negras deben devolver material con precisión (…Af6, …Ce5) y enrocar cuanto antes.",
+      "moves": [
+        "Ocupa el centro y libera el alfil.",
+        "Respuesta clásica en el centro.",
+        "Desarrolla atacando e5.",
+        "Defiende e5.",
+        "El alfil apunta a f7.",
+        "El alfil negro busca f2.",
+        "Prepara d4 para construir el centro.",
+        "Ataca e4 con desarrollo.",
+        "Rompe en el centro con ritmo.",
+        "Las negras aceptan el cambio central.",
+        "Recaptura y logra el centro ideal e4–d4.",
+        "Jaque que interrumpe el desarrollo blanco.",
+        "Tapa el jaque sacrificando el peón de e4.",
+        "Captura el peón y ataca el caballo de c3.",
+        "Enroca y deja que las negras se coman más material a cambio de tiempo.",
+        "Gana una pieza de momento, pero deja las casillas negras debilitadas.",
+        "Golpe del Møller: gana espacio, ataca el caballo de c6 y abre líneas hacia el rey."
+      ]
+    },
+    "en": {
+      "name": "Giuoco Piano: Møller Attack",
+      "description": "A romantic pawn sacrifice: White gives up material for a direct attack.",
+      "idea": "After 9.d5 White targets the black king stuck in the centre, with Re1 and d6 as threats. Black must return material accurately (...Bf6, ...Ne5) and castle as soon as possible.",
+      "moves": [
+        "Occupies the centre and frees the bishop.",
+        "Classical central reply.",
+        "Develops while attacking e5.",
+        "Defends e5.",
+        "The bishop aims at f7.",
+        "Black's bishop targets f2.",
+        "Prepares d4 to build the centre.",
+        "Hits e4 with development.",
+        "Breaks in the centre with tempo.",
+        "Black accepts the central exchange.",
+        "Recaptures and gets the ideal e4–d4 centre.",
+        "A check that interrupts White's development.",
+        "Blocks the check, sacrificing the e4 pawn.",
+        "Takes the pawn and attacks the c3 knight.",
+        "Castles and lets Black grab more material in exchange for time.",
+        "Wins a piece for now but leaves the dark squares weakened.",
+        "The Møller strike: gains space, hits the c6 knight and opens lines towards the king."
+      ]
+    }
+  },
+  {
+    "slug": "evans-gambit",
+    "eco": "C51",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4",
+    "es": {
+      "name": "Gambito Evans",
+      "description": "El arma favorita de Morphy: un peón de flanco a cambio de tiempo y un centro dominante.",
+      "idea": "Si las negras capturan en b4, las blancas juegan c3 y d4 con ganancia de tiempo sobre el alfil, abriendo líneas contra el rey negro. Si lo rehúsan, las blancas han ganado espacio en el flanco de dama.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Respuesta simétrica en el centro.",
+        "Desarrolla atacando e5.",
+        "Defiende e5 con desarrollo.",
+        "El alfil apunta al débil punto f7.",
+        "El alfil negro se coloca en su casilla más activa.",
+        "Ofrece un peón para desviar el alfil y ganar tiempo con c3 y d4."
+      ]
+    },
+    "en": {
+      "name": "Evans Gambit",
+      "description": "Morphy's favourite weapon: a wing pawn in exchange for time and a dominant centre.",
+      "idea": "If Black takes on b4, White plays c3 and d4 gaining time on the bishop and opening lines against the black king. If Black declines, White has gained queenside space.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Symmetrical central reply.",
+        "Develops while attacking e5.",
+        "Defends e5 with development.",
+        "The bishop aims at the weak f7 point.",
+        "Black's bishop goes to its most active square.",
+        "Offers a pawn to deflect the bishop and gain time with c3 and d4."
+      ]
+    }
+  },
+  {
+    "slug": "evans-gambit-accepted",
+    "eco": "C52",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bxb4 5. c3 Ba5 6. d4",
+    "es": {
+      "name": "Gambito Evans aceptado",
+      "description": "Las blancas cobran el peón en forma de desarrollo y un centro abierto contra el rey negro.",
+      "idea": "Con d4 las blancas abren el centro mientras el rey negro aún no ha enrocado. Siguen O-O, Db3 contra f7 y Aa3 para impedir el enroque; las negras suelen devolver el peón con ...d6 o ...exd4 para consolidar.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica simétrica.",
+        "Desarrolla con amenaza a e5.",
+        "Defiende e5.",
+        "Presiona f7.",
+        "Activa el alfil hacia f2.",
+        "Sacrifica el peón de b para ganar tiempo.",
+        "Las negras aceptan el material.",
+        "Ataca el alfil y prepara d4 con apoyo.",
+        "El alfil se retira manteniendo la clavada potencial en c3.",
+        "Abre el centro con todo el desarrollo blanco apuntando al rey negro."
+      ]
+    },
+    "en": {
+      "name": "Evans Gambit Accepted",
+      "description": "White cashes in the pawn as development and an open centre against the black king.",
+      "idea": "With d4 White opens the centre while the black king has not castled. O-O, Qb3 against f7 and Ba3 to prevent castling follow; Black usually returns the pawn with ...d6 or ...exd4 to consolidate.",
+      "moves": [
+        "Controls the centre.",
+        "Symmetrical reply.",
+        "Develops with a threat on e5.",
+        "Defends e5.",
+        "Puts pressure on f7.",
+        "Activates the bishop towards f2.",
+        "Sacrifices the b-pawn to gain time.",
+        "Black accepts the material.",
+        "Attacks the bishop and prepares a supported d4.",
+        "The bishop retreats, keeping a possible pin on c3.",
+        "Opens the centre with all of White's development aimed at the black king."
+      ]
+    }
+  },
+  {
+    "slug": "evans-gambit-declined",
+    "eco": "C51",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4 Bb6",
+    "es": {
+      "name": "Gambito Evans rehusado",
+      "description": "Las negras no muerden el anzuelo y mantienen su alfil en la gran diagonal.",
+      "idea": "Sin peón que defender, las negras desarrollan con ...d6, ...Cf6 y enroque. Las blancas suelen seguir con a4–a5 para perseguir al alfil, pero el avance b4 también les ha dejado casillas débiles.",
+      "moves": [
+        "Ocupa el centro.",
+        "Respuesta clásica.",
+        "Desarrolla con amenaza.",
+        "Defiende el peón de e5.",
+        "El alfil apunta a f7.",
+        "Activa el alfil contra f2.",
+        "Ofrece el gambito Evans.",
+        "Rehúsa el peón manteniendo el alfil en la diagonal a7–g1."
+      ]
+    },
+    "en": {
+      "name": "Evans Gambit Declined",
+      "description": "Black refuses the bait and keeps the bishop on the long diagonal.",
+      "idea": "With no pawn to defend, Black develops with ...d6, ...Nf6 and castling. White often continues a4–a5 to chase the bishop, but b4 has also left weak squares behind.",
+      "moves": [
+        "Occupies the centre.",
+        "Classical reply.",
+        "Develops with a threat.",
+        "Defends the e5 pawn.",
+        "The bishop aims at f7.",
+        "Activates the bishop against f2.",
+        "Offers the Evans Gambit.",
+        "Declines the pawn and keeps the bishop on the a7–g1 diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-defense",
+    "eco": "C55",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6",
+    "es": {
+      "name": "Defensa de los Dos Caballos",
+      "description": "Las negras contraatacan e4 en lugar de proteger f7: la respuesta más combativa a la Italiana.",
+      "idea": "Las negras invitan a 4.Cg5, aceptando complicaciones a cambio de un desarrollo rápido. Si las blancas juegan tranquilo con d3, se llega a posiciones de maniobra similares al Giuoco Pianissimo.",
+      "moves": [
+        "Controla el centro.",
+        "Responde en el centro.",
+        "Ataca e5 con desarrollo.",
+        "Defiende e5.",
+        "El alfil mira a f7.",
+        "Contraataca e4 en lugar de cubrir f7."
+      ]
+    },
+    "en": {
+      "name": "Two Knights Defense",
+      "description": "Black counterattacks e4 instead of protecting f7: the most combative answer to the Italian.",
+      "idea": "Black invites 4.Ng5, accepting complications in return for rapid development. If White plays quietly with d3, the game reaches manoeuvring positions similar to the Giuoco Pianissimo.",
+      "moves": [
+        "Controls the centre.",
+        "Answers in the centre.",
+        "Attacks e5 with development.",
+        "Defends e5.",
+        "The bishop eyes f7.",
+        "Counterattacks e4 rather than covering f7."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-knight-attack",
+    "eco": "C57",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5",
+    "es": {
+      "name": "Dos Caballos: Ataque con Cg5",
+      "description": "Las blancas atacan f7 con dos piezas: un principiante pierde aquí material a menudo.",
+      "idea": "El doble ataque a f7 obliga a 4...d5, tras lo cual las negras suelen sacrificar un peón por iniciativa (...Ca5). Las blancas ganan material pero retrasan su desarrollo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Duplica el ataque sobre f7 con caballo y alfil."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Knight Attack",
+      "description": "White hits f7 with two pieces: beginners often drop material here.",
+      "idea": "The double attack on f7 forces 4...d5, after which Black usually sacrifices a pawn for the initiative (...Na5). White wins material but delays development.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Doubles the attack on f7 with knight and bishop."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-fried-liver",
+    "eco": "C57",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7",
+    "es": {
+      "name": "Dos Caballos: Ataque Hígado Frito",
+      "description": "El famoso 'Fegatello': un caballo sacrificado en f7 para sacar al rey negro a pasear.",
+      "idea": "Tras 6...Rxf7 7.Df3+ el rey negro debe ir a e6 para defender el caballo clavado de d5. Las blancas atacan con d4 y Cc3; las negras, si sobreviven, quedan con pieza de más.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Doble ataque sobre f7.",
+        "Bloquea la diagonal del alfil con un contragolpe central.",
+        "Captura y amenaza el caballo si recaptura mal.",
+        "Recuperación natural pero imprecisa: deja f7 sin defensa suficiente.",
+        "Sacrifica el caballo para arrastrar al rey negro al centro."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Fried Liver Attack",
+      "description": "The famous 'Fegatello': a knight sacrificed on f7 to drag the black king out.",
+      "idea": "After 6...Kxf7 7.Qf3+ the king must go to e6 to protect the pinned d5 knight. White attacks with d4 and Nc3; if Black survives, they keep an extra piece.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Double attack on f7.",
+        "Blocks the bishop's diagonal with a central counter-strike.",
+        "Captures and prepares to exploit a careless recapture.",
+        "Natural but inaccurate recapture: f7 is left underdefended.",
+        "Sacrifices the knight to pull the black king into the centre."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-traxler",
+    "eco": "C57",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 Bc5",
+    "es": {
+      "name": "Dos Caballos: Contraataque Traxler",
+      "description": "Las negras ignoran la amenaza en f7 y apuntan su alfil contra f2: caos total.",
+      "idea": "Si 5.Cxf7 o 5.Axf7+, las negras responden con ...Axf2+ y un ataque salvaje contra el rey blanco. Es una línea muy teórica en la que ambos reyes quedan expuestos.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Presiona f7.",
+        "Contraataca e4.",
+        "Doble ataque a f7.",
+        "Contraataque: permite el sacrificio en f7 a cambio de atacar f2."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Traxler Counterattack",
+      "description": "Black ignores the threat on f7 and aims the bishop at f2: pure chaos.",
+      "idea": "If 5.Nxf7 or 5.Bxf7+, Black replies ...Bxf2+ with a wild attack on the white king. It is a heavily analysed line where both kings end up exposed.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Pressures f7.",
+        "Counterattacks e4.",
+        "Double attack on f7.",
+        "Counterattack: allows the sacrifice on f7 in order to strike at f2."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-polerio",
+    "eco": "C58",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5",
+    "es": {
+      "name": "Dos Caballos: Defensa Polerio",
+      "description": "La respuesta principal: las negras entregan un peón pero ganan tiempo sobre el alfil.",
+      "idea": "Tras 6.Ab5+ c6 7.dxc6 bxc6 las negras tienen desarrollo rápido y columnas abiertas por el peón. Las blancas conservan el peón extra pero sus piezas quedan descoordinadas.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Doble ataque a f7.",
+        "Cierra la diagonal del alfil con el peón.",
+        "Gana un peón y mantiene la presión sobre f7.",
+        "Ataca el alfil de c4 y sacrifica el peón a cambio de iniciativa."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Polerio Defense",
+      "description": "The main line: Black gives up a pawn but gains time on the bishop.",
+      "idea": "After 6.Bb5+ c6 7.dxc6 bxc6 Black has quick development and open files for the pawn. White keeps the extra pawn but the pieces are poorly coordinated.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Double attack on f7.",
+        "Blocks the bishop's diagonal with the pawn.",
+        "Wins a pawn and keeps the pressure on f7.",
+        "Attacks the c4 bishop, sacrificing the pawn for the initiative."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-fritz",
+    "eco": "C57",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nd4",
+    "es": {
+      "name": "Dos Caballos: Variante Fritz",
+      "description": "Un caballo al centro que amenaza ...b5 y ...Cxd5: menos teoría, mucha trampa.",
+      "idea": "Las negras preparan ...b5 para desviar el alfil y recuperar el peón de d5 con ventaja de desarrollo. Las blancas deben jugar c3 con precisión para expulsar al caballo de d4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Doble ataque a f7.",
+        "Bloquea el alfil con un contragolpe.",
+        "Captura y mantiene la presión.",
+        "Centraliza el caballo y prepara ...b5 para desviar al alfil."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Fritz Variation",
+      "description": "A knight jumps to the centre threatening ...b5 and ...Nxd5: little theory, many traps.",
+      "idea": "Black prepares ...b5 to deflect the bishop and win back the d5 pawn with a lead in development. White must play c3 accurately to kick the d4 knight.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Double attack on f7.",
+        "Blocks the bishop with a counter-strike.",
+        "Captures and keeps the pressure.",
+        "Centralises the knight and prepares ...b5 to deflect the bishop."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-ulvestad",
+    "eco": "C57",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 b5",
+    "es": {
+      "name": "Dos Caballos: Variante Ulvestad",
+      "description": "Un peón de b sacrificado para apartar al alfil de la defensa de d5.",
+      "idea": "Si 6.Axb5, las negras juegan ...Dxd5 y recuperan material con piezas activas. La mejor respuesta blanca es 6.Af1, manteniendo el peón extra aunque con el alfil pasivo.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Doble ataque a f7.",
+        "Contragolpe central que corta la diagonal.",
+        "Gana un peón.",
+        "Ataca el alfil para que deje de proteger el peón de d5."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Ulvestad Variation",
+      "description": "A b-pawn sacrifice to lure the bishop away from defending d5.",
+      "idea": "If 6.Bxb5, Black plays ...Qxd5 and regains material with active pieces. White's best is 6.Bf1, keeping the extra pawn with a passive bishop.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Double attack on f7.",
+        "Central counter-strike that cuts the diagonal.",
+        "Wins a pawn.",
+        "Attacks the bishop so it stops protecting the d5 pawn."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-modern-attack",
+    "eco": "C55",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d4 exd4 5. e5",
+    "es": {
+      "name": "Dos Caballos: Ataque Moderno",
+      "description": "Las blancas abren el centro y expulsan al caballo de f6 con ganancia de espacio.",
+      "idea": "La respuesta correcta es 5...d5, devolviendo tiempo con ataque al alfil. Las blancas buscan jugar con el peón de e5 como cuña y recuperar el peón de d4 más tarde.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Rompe en el centro sin esperar.",
+        "Gana un peón central de momento.",
+        "Ataca el caballo de f6 y gana espacio."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Modern Attack",
+      "description": "White opens the centre and kicks the f6 knight while gaining space.",
+      "idea": "The correct reply is 5...d5, gaining time back by attacking the bishop. White wants to use the e5 pawn as a wedge and recover the d4 pawn later.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Breaks in the centre straight away.",
+        "Wins a central pawn for now.",
+        "Attacks the f6 knight and gains space."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-max-lange",
+    "eco": "C55",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d4 exd4 5. O-O Bc5 6. e5",
+    "es": {
+      "name": "Dos Caballos: Ataque Max Lange",
+      "description": "Una de las posiciones más tácticas de las aperturas abiertas, analizada durante más de un siglo.",
+      "idea": "Tras 6...d5 7.exf6 dxc4 8.Te1+ ambos bandos tienen piezas colgando. Las negras deben conocer la teoría (…Af8) y las blancas buscan el ataque sobre la columna e.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Abre el centro.",
+        "Gana un peón central.",
+        "Enroca y ofrece el peón de e4 a cambio de desarrollo.",
+        "Protege el peón extra de d4 con el alfil.",
+        "Ataca el caballo de f6 y prepara el asalto por la columna e."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Max Lange Attack",
+      "description": "One of the most tactical positions in the open games, analysed for over a century.",
+      "idea": "After 6...d5 7.exf6 dxc4 8.Re1+ both sides have pieces hanging. Black must know the theory (...Bf8) while White goes for the attack on the e-file.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Opens the centre.",
+        "Wins a central pawn.",
+        "Castles and offers the e4 pawn for development.",
+        "Protects the extra d4 pawn with the bishop.",
+        "Hits the f6 knight and prepares the assault along the e-file."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-quiet-d3",
+    "eco": "C55",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d3",
+    "es": {
+      "name": "Dos Caballos: Variante lenta con d3",
+      "description": "Las blancas protegen e4 y evitan la teoría afilada: una elección muy popular hoy.",
+      "idea": "La partida se convierte en una lucha estratégica: c3, O-O, Te1 y Cbd2–f1–g3 para las blancas. Las negras suelen jugar ...Ae7 o ...Ac5, ...d6 y ...a6 para preservar su alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Protege e4 con calma y renuncia a las complicaciones."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Quiet 4.d3",
+      "description": "White protects e4 and avoids sharp theory: a very popular choice today.",
+      "idea": "The game becomes a strategic struggle: c3, O-O, Re1 and Nbd2–f1–g3 for White. Black usually plays ...Be7 or ...Bc5, ...d6 and ...a6 to preserve the bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Calmly protects e4 and sidesteps the complications."
+      ]
+    }
+  },
+  {
+    "slug": "hungarian-defense",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Be7",
+    "es": {
+      "name": "Defensa Húngara",
+      "description": "Una defensa sólida y algo pasiva: las negras evitan cualquier sacrificio en f7.",
+      "idea": "Con el alfil en e7 las negras mantienen su estructura compacta y preparan ...d6 y ...Cf6. Las blancas obtienen más espacio con d4, pero la posición negra es difícil de romper.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Desarrollo modesto que prepara ...Cf6 sin riesgo en f7."
+      ]
+    },
+    "en": {
+      "name": "Hungarian Defense",
+      "description": "A solid, slightly passive defence: Black avoids any sacrifice on f7.",
+      "idea": "With the bishop on e7 Black keeps a compact structure and prepares ...d6 and ...Nf6. White gets more space with d4, but Black's position is hard to crack.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Modest development that prepares ...Nf6 with no risk on f7."
+      ]
+    }
+  },
+  {
+    "slug": "rousseau-gambit",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 f5",
+    "es": {
+      "name": "Gambito Rousseau",
+      "description": "Un contragambito en el flanco de rey: las negras atacan e4 a riesgo de su propio rey.",
+      "idea": "Las negras quieren eliminar el peón de e4 y abrir la columna f. El precio es la diagonal a2–g8 abierta hacia su rey; con 4.d3 las blancas quedan mejor.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Golpea e4 abriendo la columna f, aunque debilita el rey."
+      ]
+    },
+    "en": {
+      "name": "Rousseau Gambit",
+      "description": "A kingside counter-gambit: Black attacks e4 at the risk of their own king.",
+      "idea": "Black wants to remove the e4 pawn and open the f-file. The price is the a2–g8 diagonal opened towards the king; after 4.d3 White is better.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Hits e4 and opens the f-file, but weakens the king."
+      ]
+    }
+  },
+  {
+    "slug": "blackburne-shilling-gambit",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nd4",
+    "es": {
+      "name": "Gambito Blackburne-Shilling",
+      "description": "Una trampa clásica: si las blancas capturan en e5, pueden recibir mate en pocas jugadas.",
+      "idea": "Tras 4.Cxe5? Dg5! las negras atacan g2 y e5 a la vez, y 5.Cxf7 Dxg2 6.Tf1 Dxe4+ 7.Ae2 Cf3# es mate. Contra 4.Cxd4 exd4 5.c3 las blancas simplemente quedan mejor.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Deja e5 aparentemente sin defensa para tender una trampa."
+      ]
+    },
+    "en": {
+      "name": "Blackburne Shilling Gambit",
+      "description": "A classic trap: if White grabs on e5, mate can follow in a few moves.",
+      "idea": "After 4.Nxe5? Qg5! Black hits g2 and e5 at once, and 5.Nxf7 Qxg2 6.Rf1 Qxe4+ 7.Be2 Nf3# is mate. Against 4.Nxd4 exd4 5.c3 White is simply better.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Leaves e5 seemingly undefended to set a trap."
+      ]
+    }
+  },
+  {
+    "slug": "italian-paris-defense",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 d6",
+    "es": {
+      "name": "Italiana: Defensa París",
+      "description": "Las negras protegen e5 con un peón y abren la diagonal de su alfil de dama.",
+      "idea": "Es una estructura tipo Philidor: sólida pero algo pasiva. Las blancas suelen jugar d4 y c3 para ganar espacio, mientras las negras buscan ...Ag4 y ...Cf6.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Refuerza e5 y abre la diagonal del alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "Italian Game: Paris Defense",
+      "description": "Black protects e5 with a pawn and opens the queen's bishop.",
+      "idea": "It is a Philidor-like structure: solid but somewhat passive. White usually plays d4 and c3 to gain space, while Black aims for ...Bg4 and ...Nf6.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Reinforces e5 and opens the c8 bishop's diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "italian-anti-fried-liver",
+    "eco": "C50",
+    "side": "b",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 h6",
+    "es": {
+      "name": "Italiana: Defensa anti-Hígado Frito",
+      "description": "Un movimiento profiláctico que impide Cg5 y cualquier ataque sobre f7.",
+      "idea": "Las negras gastan un tiempo en quitar la casilla g5 a las piezas blancas. Las blancas aprovechan para ocupar el centro con c3 y d4, ganando una cómoda ventaja de espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Controla g5 para evitar Cg5 antes de desarrollar el caballo."
+      ]
+    },
+    "en": {
+      "name": "Italian Game: Anti-Fried Liver Defense",
+      "description": "A prophylactic move that rules out Ng5 and any attack on f7.",
+      "idea": "Black spends a tempo taking g5 away from White's pieces. White uses the time to occupy the centre with c3 and d4, gaining a comfortable space advantage.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Controls g5 to prevent Ng5 before developing the knight."
+      ]
+    }
+  },
+  {
+    "slug": "italian-four-knights",
+    "eco": "C55",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Nc3",
+    "es": {
+      "name": "Italiana: Variante de los Cuatro Caballos",
+      "description": "Las blancas defienden e4 con el caballo y permiten el truco del tenedor en el centro.",
+      "idea": "Las negras pueden jugar 4...Cxe4! 5.Cxe4 d5, recuperando la pieza con un tenedor de peón. Por eso es una elección rara al máximo nivel, aunque lleva a posiciones abiertas y activas.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Protege e4 desarrollando el último caballo."
+      ]
+    },
+    "en": {
+      "name": "Italian Game: Four Knights Variation",
+      "description": "White defends e4 with the knight and allows the central fork trick.",
+      "idea": "Black can play 4...Nxe4! 5.Nxe4 d5, regaining the piece with a pawn fork. That is why it is rare at top level, although it leads to open, active positions.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Protects e4 by developing the last knight."
+      ]
+    }
+  },
+  {
+    "slug": "jerome-gambit",
+    "eco": "C50",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. Bxf7+",
+    "es": {
+      "name": "Gambito Jerome",
+      "description": "Un sacrificio de alfil del siglo XIX, objetivamente malo pero muy peligroso en partidas rápidas.",
+      "idea": "Tras 4...Rxf7 5.Cxe5+ Cxe5 6.d4 las blancas recuperan un peón y juegan contra el rey negro desplazado. Con defensa precisa las negras quedan con pieza de ventaja.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "El alfil negro se activa.",
+        "Sacrifica el alfil para sacar al rey negro de su refugio."
+      ]
+    },
+    "en": {
+      "name": "Jerome Gambit",
+      "description": "A 19th-century bishop sacrifice: objectively bad, but dangerous in fast games.",
+      "idea": "After 4...Kxf7 5.Nxe5+ Nxe5 6.d4 White regains a pawn and plays against the displaced black king. With accurate defence Black ends up a piece ahead.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Black's bishop becomes active.",
+        "Sacrifices the bishop to drag the black king out of shelter."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-open-variation",
+    "eco": "C56",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d4 exd4 5. O-O Nxe4 6. Re1 d5 7. Bxd5",
+    "es": {
+      "name": "Dos Caballos: Variante abierta",
+      "description": "Posición completamente abierta donde las blancas usan la columna e y las clavadas.",
+      "idea": "Tras 7...Dxd5 8.Cc3 las blancas ganan tiempo sobre la dama y el caballo clavado de e4. Las negras deben devolver material con precisión para completar su desarrollo.",
+      "moves": [
+        "Controla el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Abre el centro inmediatamente.",
+        "Gana un peón central.",
+        "Enroca y ofrece e4 para ganar tiempo.",
+        "Acepta el peón y centraliza el caballo.",
+        "Clava el caballo de e4 contra el rey por la columna abierta.",
+        "Protege el caballo y ataca el alfil de c4.",
+        "Captura en d5 para ganar tiempo con Cc3 sobre la dama."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Open Variation",
+      "description": "A fully open position where White uses the e-file and pins.",
+      "idea": "After 7...Qxd5 8.Nc3 White gains time on the queen and the pinned e4 knight. Black must return material accurately to complete development.",
+      "moves": [
+        "Controls the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Opens the centre immediately.",
+        "Wins a central pawn.",
+        "Castles and offers e4 to gain time.",
+        "Takes the pawn and centralises the knight.",
+        "Pins the e4 knight to the king along the open file.",
+        "Protects the knight and attacks the c4 bishop.",
+        "Captures on d5 to gain time with Nc3 against the queen."
+      ]
+    }
+  },
+  {
+    "slug": "giuoco-piano-greco-gambit",
+    "eco": "C54",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. cxd4 Bb4+ 7. Nc3",
+    "es": {
+      "name": "Giuoco Piano: Gambito Greco",
+      "description": "Las blancas sacrifican e4 para ganar tiempo con d5 y abrir líneas.",
+      "idea": "Tras 7...Cxe4 8.O-O las blancas preparan d5 o Te1 con ataque. Es el precursor del Ataque Møller, con más de cuatro siglos de historia.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Desarrolla atacando e5.",
+        "Defiende e5.",
+        "El alfil apunta a f7.",
+        "El alfil negro busca f2.",
+        "Prepara d4.",
+        "Ataca e4.",
+        "Rompe en el centro.",
+        "Acepta el cambio central.",
+        "Consigue el centro ideal.",
+        "Jaque que interrumpe el desarrollo.",
+        "Tapa con el caballo, ofreciendo el peón de e4."
+      ]
+    },
+    "en": {
+      "name": "Giuoco Piano: Greco Gambit",
+      "description": "White sacrifices e4 to gain time with d5 and open lines.",
+      "idea": "After 7...Nxe4 8.O-O White prepares d5 or Re1 with an attack. It is the forerunner of the Møller Attack, with more than four centuries of history.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Develops while attacking e5.",
+        "Defends e5.",
+        "The bishop aims at f7.",
+        "Black's bishop targets f2.",
+        "Prepares d4.",
+        "Attacks e4.",
+        "Breaks in the centre.",
+        "Accepts the central exchange.",
+        "Gets the ideal centre.",
+        "A check that interrupts development.",
+        "Blocks with the knight, offering the e4 pawn."
+      ]
+    }
+  },
+  {
+    "slug": "two-knights-perreux",
+    "eco": "C55",
+    "side": "w",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d4 exd4 5. Ng5",
+    "es": {
+      "name": "Dos Caballos: Variante Perreux",
+      "description": "Las blancas abren el centro y atacan f7 a la vez.",
+      "idea": "La réplica 5...d5 6.exd5 De7+ o 5...Ce5 neutraliza la presión. Es una línea antigua, útil para sorprender a quien espera Cg5 en la jugada 4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica central.",
+        "Ataca e5.",
+        "Defiende e5.",
+        "Apunta a f7.",
+        "Contraataca e4.",
+        "Abre el centro.",
+        "Gana un peón central.",
+        "Ataca f7 con dos piezas sin recuperar el peón."
+      ]
+    },
+    "en": {
+      "name": "Two Knights: Perreux Variation",
+      "description": "White opens the centre and hits f7 at the same time.",
+      "idea": "The reply 5...d5 6.exd5 Qe7+ or 5...Ne5 neutralises the pressure. It is an old line, handy for surprising players who expect Ng5 on move 4.",
+      "moves": [
+        "Occupies the centre.",
+        "Central reply.",
+        "Attacks e5.",
+        "Defends e5.",
+        "Aims at f7.",
+        "Counterattacks e4.",
+        "Opens the centre.",
+        "Wins a central pawn.",
+        "Hits f7 with two pieces without regaining the pawn."
+      ]
+    }
+  }
+]

@@ -4,7 +4,7 @@ import { computeStats, type History } from '../src/lib/progress';
 
 function day(status: ChallengeStatus, mistakes = 0) {
     const state: ChallengeState = { side: 'w', cursor: 0, results: {}, mistakes, hintLevel: 0, stumbled: false, status };
-    return { openingId: 1, state };
+    return { opening: "italian-game", state };
 }
 
 describe('computeStats', () => {

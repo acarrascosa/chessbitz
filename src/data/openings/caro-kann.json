@@ -1,0 +1,580 @@
+[
+  {
+    "slug": "caro-kann-defense",
+    "eco": "B10",
+    "side": "b",
+    "pgn": "1. e4 c6",
+    "es": {
+      "name": "Defensa Caro-Kann",
+      "description": "Como la Francesa, pero sin encerrar al alfil de c8: solidez con buenas piezas.",
+      "idea": "Las negras preparan ...d5 apoyado por el peón de c6, y su alfil de dama podrá salir a f5 o g4 antes de ...e6. Las posiciones son sólidas y con finales favorables.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Prepara ...d5 sin bloquear el alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Defense",
+      "description": "Like the French, but without locking in the c8 bishop: solidity with good pieces.",
+      "idea": "Black prepares ...d5 backed by the c6 pawn, and the queen's bishop can come out to f5 or g4 before ...e6. Positions are solid with favourable endgames.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Prepares ...d5 without blocking the c8 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-advance",
+    "eco": "B12",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5",
+    "es": {
+      "name": "Caro-Kann: Variante del Avance",
+      "description": "Las blancas ganan espacio y el alfil negro sale a f5 antes de cerrar la cadena.",
+      "idea": "Las negras juegan ...Af5, ...e6 y ...c5 para atacar la base de la cadena. Las blancas eligen entre el sólido sistema Short (Cf3, Ae2) o ataques agresivos como el de bayoneta con g4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Avanza, gana espacio y cierra el centro."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Advance Variation",
+      "description": "White gains space and Black's bishop gets out to f5 before closing the chain.",
+      "idea": "Black plays ...Bf5, ...e6 and ...c5 to attack the base of the chain. White chooses between the solid Short system (Nf3, Be2) or aggressive tries like the g4 Bayonet.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Advances, gains space and closes the centre."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-advance-short",
+    "eco": "B12",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5 Bf5 4. Nf3 e6 5. Be2",
+    "es": {
+      "name": "Caro-Kann Avance: Sistema Short",
+      "description": "Desarrollo tranquilo y sólido, popularizado por Nigel Short.",
+      "idea": "Las blancas enrocan, juegan c3 o c4 y mantienen el espacio que da e5. Las negras preparan ...c5 y ...Cc6 contra d4, con el alfil bien situado fuera de la cadena.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "El alfil sale antes de que ...e6 lo encierre.",
+        "Desarrolla y protege d4.",
+        "Cierra la cadena con el alfil ya fuera.",
+        "Desarrollo sencillo que prepara el enroque."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Advance: Short System",
+      "description": "Calm, solid development popularised by Nigel Short.",
+      "idea": "White castles, plays c3 or c4 and keeps the space from e5. Black prepares ...c5 and ...Nc6 against d4, with the bishop well placed outside the chain.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "The bishop gets out before ...e6 blocks it in.",
+        "Develops and protects d4.",
+        "Closes the chain with the bishop already outside.",
+        "Simple development preparing castling."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-bayonet-attack",
+    "eco": "B12",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5 Bf5 4. Nc3 e6 5. g4",
+    "es": {
+      "name": "Caro-Kann Avance: Ataque Bayoneta",
+      "description": "Las blancas persiguen al alfil de f5 con los peones del flanco de rey.",
+      "idea": "Tras 5...Ag6 6.Cge2 las blancas amenazan h4–h5 para atrapar o cambiar el alfil. Las negras contraatacan con ...c5 y ...Cc6, aprovechando el debilitamiento del rey blanco.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "El alfil sale antes de ...e6.",
+        "Desarrolla y prepara g4.",
+        "Cierra la cadena.",
+        "Ataca al alfil con el peón, ganando espacio en el flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Advance: Bayonet Attack",
+      "description": "White chases the f5 bishop with the kingside pawns.",
+      "idea": "After 5...Bg6 6.Nge2 White threatens h4–h5 to trap or trade the bishop. Black strikes back with ...c5 and ...Nc6, exploiting the weakened white king.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "The bishop gets out before ...e6.",
+        "Develops and prepares g4.",
+        "Closes the chain.",
+        "Hits the bishop with a pawn, gaining kingside space."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-botvinnik-carls",
+    "eco": "B12",
+    "side": "b",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5 c5",
+    "es": {
+      "name": "Caro-Kann Avance: Variante Botvinnik-Carls",
+      "description": "Las negras atacan d4 de inmediato, aunque el peón de c haya movido dos veces.",
+      "idea": "Si las blancas mantienen d4, las negras obtienen una Francesa del avance con el alfil libre. Tras 4.dxc5 e6 las negras recuperan el peón y juegan contra el peón de e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "Ataca la base de la cadena en d4 sin esperar."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Advance: Botvinnik-Carls Variation",
+      "description": "Black hits d4 immediately, even though the c-pawn has moved twice.",
+      "idea": "If White holds d4, Black gets an Advance French with a free bishop. After 4.dxc5 e6 Black regains the pawn and plays against e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "Attacks the base of the chain on d4 without delay."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-classical",
+    "eco": "B18",
+    "side": "b",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5",
+    "es": {
+      "name": "Caro-Kann: Variante Clásica",
+      "description": "El alfil ataca al caballo centralizado y sale fuera de la cadena de peones.",
+      "idea": "Tras 5.Cg3 Ag6 6.h4 h6 7.Cf3 Cd7 8.h5 Ah7 las blancas ganan espacio en el flanco de rey. Las negras juegan ...e6, ...Cgf6, ...Dc7 y a menudo enrocan largo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo centralizado.",
+        "Ataca al caballo con el alfil, activándolo fuera de la cadena."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Classical Variation",
+      "description": "The bishop attacks the centralised knight and escapes the pawn chain.",
+      "idea": "After 5.Ng3 Bg6 6.h4 h6 7.Nf3 Nd7 8.h5 Bh7 White gains kingside space. Black plays ...e6, ...Ngf6, ...Qc7 and often castles long.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with a centralised knight.",
+        "Hits the knight with the bishop, activating it outside the chain."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-classical-main-line",
+    "eco": "B19",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5 5. Ng3 Bg6 6. h4 h6 7. Nf3 Nd7 8. h5",
+    "es": {
+      "name": "Caro-Kann Clásica: Línea principal con h4–h5",
+      "description": "Las blancas empujan el peón de h para arrinconar al alfil y ganar espacio.",
+      "idea": "Con el peón en h5 el alfil negro va a h7 y el flanco de rey negro queda fijado. Las blancas enrocan largo con Ad2 y De2; las negras juegan ...e6, ...Cgf6 y ...Dc7.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo.",
+        "Ataca al caballo con el alfil.",
+        "El caballo ataca al alfil de f5.",
+        "El alfil se retira manteniendo la diagonal.",
+        "Amenaza h5 para atrapar al alfil.",
+        "Crea una casilla de retirada en h7.",
+        "Desarrolla y controla e5.",
+        "Prepara ...Cgf6 y controla e5.",
+        "Gana espacio y fija el flanco de rey negro."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Classical: Main Line with h4–h5",
+      "description": "White pushes the h-pawn to corner the bishop and gain space.",
+      "idea": "With the pawn on h5 the bishop goes to h7 and Black's kingside is fixed. White castles long with Bd2 and Qe2; Black plays ...e6, ...Ngf6 and ...Qc7.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with the knight.",
+        "Hits the knight with the bishop.",
+        "The knight attacks the f5 bishop.",
+        "The bishop retreats, keeping the diagonal.",
+        "Threatens h5 to trap the bishop.",
+        "Creates a retreat square on h7.",
+        "Develops and controls e5.",
+        "Prepares ...Ngf6 and controls e5.",
+        "Gains space and fixes Black's kingside."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-karpov",
+    "eco": "B17",
+    "side": "b",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nd7",
+    "es": {
+      "name": "Caro-Kann: Variante Kárpov",
+      "description": "El caballo prepara ...Cgf6 para poder recapturar sin doblar peones.",
+      "idea": "Con ...Cd7 las negras podrán cambiar caballos en f6 manteniendo una estructura sana. Cuidado con el famoso mate 5.De2 Cgf6?? 6.Cd6#; lo normal es 5.Cf3 o 5.Ac4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo.",
+        "Prepara ...Cgf6 para recapturar con caballo y evitar peones doblados."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Karpov Variation",
+      "description": "The knight prepares ...Ngf6 so Black can recapture without doubled pawns.",
+      "idea": "With ...Nd7 Black can trade knights on f6 and keep a healthy structure. Beware the famous 5.Qe2 Ngf6?? 6.Nd6# mate; the usual moves are 5.Nf3 or 5.Bc4.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with the knight.",
+        "Prepares ...Ngf6 to recapture with a knight and avoid doubled pawns."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-bronstein-larsen",
+    "eco": "B16",
+    "side": "b",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nf6 5. Nxf6+ gxf6",
+    "es": {
+      "name": "Caro-Kann: Variante Bronstein-Larsen",
+      "description": "Las negras aceptan peones doblados a cambio de la columna g abierta.",
+      "idea": "La estructura es fea pero dinámica: las negras usan la columna g contra el enroque blanco y controlan e5 con el peón de f6. Es una línea de lucha, muy distinta de la Caro-Kann sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo.",
+        "Ofrece el cambio de caballos.",
+        "Cambia y da jaque.",
+        "Recaptura con el peón de g para abrir la columna g."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Bronstein-Larsen Variation",
+      "description": "Black accepts doubled pawns in exchange for the open g-file.",
+      "idea": "The structure is ugly but dynamic: Black uses the g-file against White's king and controls e5 with the f6 pawn. It is a fighting line, very different from the solid Caro-Kann.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with the knight.",
+        "Offers a knight trade.",
+        "Trades with check.",
+        "Recaptures with the g-pawn to open the g-file."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-tartakower",
+    "eco": "B15",
+    "side": "b",
+    "pgn": "1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nf6 5. Nxf6+ exf6",
+    "es": {
+      "name": "Caro-Kann: Variante Tartakower",
+      "description": "Las negras recapturan con el peón de e para desarrollar rápido sus alfiles.",
+      "idea": "La mayoría blanca en el flanco de dama puede dar ventaja en el final, pero las negras tienen desarrollo fácil y un enroque seguro. Es una línea práctica y poco teórica.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo.",
+        "Ofrece el cambio de caballos.",
+        "Cambia y da jaque.",
+        "Recaptura con el peón de e, abriendo diagonales para los alfiles."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Tartakower Variation",
+      "description": "Black recaptures with the e-pawn to develop the bishops quickly.",
+      "idea": "White's queenside majority can matter in the endgame, but Black has easy development and a safe king. It is a practical, low-theory line.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with the knight.",
+        "Offers a knight trade.",
+        "Trades with check.",
+        "Recaptures with the e-pawn, opening diagonals for the bishops."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-exchange",
+    "eco": "B13",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. Bd3",
+    "es": {
+      "name": "Caro-Kann: Variante del Cambio",
+      "description": "Una estructura de Gambito de Dama con colores invertidos y un tiempo extra.",
+      "idea": "Las blancas juegan c3, Af4, Cf3 y Dc2, con ataque de minorías inverso o juego en el flanco de rey. Las negras desarrollan con ...Cc6, ...Cf6 y ...Ag4 para cambiar su alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Cambia el peón central.",
+        "Recaptura con el peón de c, manteniendo un peón en el centro.",
+        "Controla f5 para impedir ...Af5."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Exchange Variation",
+      "description": "A reversed Queen's Gambit structure with an extra tempo.",
+      "idea": "White plays c3, Bf4, Nf3 and Qc2, with a reversed minority attack or kingside play. Black develops with ...Nc6, ...Nf6 and ...Bg4 to trade the bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Trades the central pawn.",
+        "Recaptures with the c-pawn, keeping a pawn in the centre.",
+        "Controls f5 to prevent ...Bf5."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-panov",
+    "eco": "B14",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4",
+    "es": {
+      "name": "Caro-Kann: Ataque Panov-Botvinnik",
+      "description": "Las blancas atacan d5 y aceptan un peón aislado a cambio de actividad.",
+      "idea": "La estructura suele desembocar en un peón aislado en d4 para las blancas, con piezas activas y ataque. Las negras bloquean en d5 y buscan simplificar hacia un final favorable.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Cambia el peón central.",
+        "Recaptura con el peón de c.",
+        "Ataca d5 y abre el juego al estilo del Gambito de Dama."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Panov-Botvinnik Attack",
+      "description": "White attacks d5 and accepts an isolated pawn in return for activity.",
+      "idea": "The structure usually leads to an isolated d4 pawn for White, with active pieces and attacking chances. Black blockades on d5 and aims to simplify into a favourable endgame.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Trades the central pawn.",
+        "Recaptures with the c-pawn.",
+        "Attacks d5 and opens the game Queen's Gambit style."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-two-knights",
+    "eco": "B11",
+    "side": "w",
+    "pgn": "1. e4 c6 2. Nc3 d5 3. Nf3",
+    "es": {
+      "name": "Caro-Kann: Ataque de los Dos Caballos",
+      "description": "Las blancas desarrollan caballos sin jugar d4 y mantienen la opción de d3.",
+      "idea": "Si 3...Ag4 4.h3 Axf3 5.Dxf3 las blancas obtienen la pareja de alfiles. Fischer lo jugó a menudo; evita la teoría de las líneas con d4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Desarrolla protegiendo e4.",
+        "Desafía e4.",
+        "Desarrolla el otro caballo sin comprometer el peón de d."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Two Knights Attack",
+      "description": "White develops knights without d4, keeping the d3 option.",
+      "idea": "If 3...Bg4 4.h3 Bxf3 5.Qxf3 White gets the bishop pair. Fischer played it often; it avoids the theory of the d4 lines.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Develops while protecting e4.",
+        "Challenges e4.",
+        "Develops the other knight without committing the d-pawn."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-fantasy",
+    "eco": "B12",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. f3",
+    "es": {
+      "name": "Caro-Kann: Variante Fantasía",
+      "description": "Las blancas defienden e4 con el peón de f para mantener un gran centro.",
+      "idea": "Si 3...dxe4 4.fxe4 e5 las blancas tienen centro fuerte y columna f. Las negras suelen responder con 3...e6 o 3...g6, atacando el centro debilitado.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Sostiene e4 con un peón, a costa de debilitar el flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Fantasy Variation",
+      "description": "White defends e4 with the f-pawn to keep a big centre.",
+      "idea": "If 3...dxe4 4.fxe4 e5 White has a strong centre and the f-file. Black usually answers 3...e6 or 3...g6, attacking the weakened centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Holds e4 with a pawn at the cost of weakening the kingside."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-accelerated-panov",
+    "eco": "B10",
+    "side": "w",
+    "pgn": "1. e4 c6 2. c4",
+    "es": {
+      "name": "Caro-Kann: Panov Acelerado",
+      "description": "Las blancas atacan d5 antes de que exista, evitando las líneas principales.",
+      "idea": "Si 2...d5 3.exd5 cxd5 4.cxd5 Cf6 las negras recuperan el peón con juego activo. Las blancas obtienen posiciones de tipo Panov o Inglesa con más flexibilidad.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Controla d5 antes de que las negras lo ocupen."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Accelerated Panov",
+      "description": "White attacks d5 before it even exists, avoiding the main lines.",
+      "idea": "If 2...d5 3.exd5 cxd5 4.cxd5 Nf6 Black regains the pawn with active play. White gets Panov or English-type positions with more flexibility.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Controls d5 before Black can occupy it."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-hillbilly",
+    "eco": "B10",
+    "side": "w",
+    "pgn": "1. e4 c6 2. Bc4",
+    "es": {
+      "name": "Caro-Kann: Ataque Hillbilly",
+      "description": "El alfil se adelanta para disuadir ...d5.",
+      "idea": "Si 2...d5 3.exd5 cxd5 4.Ab5+ las blancas cambian piezas y juegan contra el peón de d5. Es un sistema provocador y poco teórico.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "El alfil apunta a f7 y desanima ...d5."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann: Hillbilly Attack",
+      "description": "The bishop comes out early to discourage ...d5.",
+      "idea": "After 2...d5 3.exd5 cxd5 4.Bb5+ White trades pieces and plays against the d5 pawn. It is a provocative, low-theory system.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "The bishop aims at f7 and discourages ...d5."
+      ]
+    }
+  },
+  {
+    "slug": "caro-kann-advance-tal",
+    "eco": "B12",
+    "side": "w",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5 Bf5 4. h4",
+    "es": {
+      "name": "Caro-Kann Avance: Variante Tal",
+      "description": "El peón de h persigue al alfil de f5 de inmediato.",
+      "idea": "Las blancas amenazan g4 para atrapar al alfil; las negras responden con ...h5 o ...h6. Es agresiva y debilita el flanco de rey de ambos bandos.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "El alfil sale antes de ...e6.",
+        "Prepara g4 para cazar el alfil."
+      ]
+    },
+    "en": {
+      "name": "Caro-Kann Advance: Tal Variation",
+      "description": "The h-pawn chases the f5 bishop immediately.",
+      "idea": "White threatens g4 to trap the bishop; Black answers ...h5 or ...h6. It is aggressive and weakens both kingsides.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "The bishop gets out before ...e6.",
+        "Prepares g4 to hunt the bishop."
+      ]
+    }
+  }
+]

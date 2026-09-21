@@ -1,0 +1,778 @@
+[
+  {
+    "slug": "indian-defense",
+    "eco": "A45",
+    "side": "b",
+    "pgn": "1. d4 Nf6",
+    "es": {
+      "name": "Defensa India",
+      "description": "La puerta a todas las defensas indias: control de e4 sin comprometer peones.",
+      "idea": "Las negras impiden e4 con el caballo y deciden después su estructura: Nimzo-India, India de Rey, Grünfeld, Benoni... Las blancas suelen responder con c4 para ganar espacio.",
+      "moves": [
+        "Ocupa el centro y abre la diagonal del alfil de dama.",
+        "Controla e4 y mantiene flexibles los peones centrales."
+      ]
+    },
+    "en": {
+      "name": "Indian Defense",
+      "description": "The gateway to every Indian defence: control e4 without committing pawns.",
+      "idea": "Black stops e4 with the knight and decides on a structure later: Nimzo-Indian, King's Indian, Grünfeld, Benoni... White usually answers with c4 to gain space.",
+      "moves": [
+        "Occupies the centre and opens the queen's bishop.",
+        "Controls e4 and keeps the central pawns flexible."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-indian-defense",
+    "eco": "E20",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+    "es": {
+      "name": "Defensa Nimzo-India",
+      "description": "La clavada de Nimzowitsch: una de las defensas más respetadas del ajedrez.",
+      "idea": "Las negras luchan por e4 clavando al caballo de c3 y están dispuestas a dar la pareja de alfiles a cambio de doblar los peones blancos. Es flexible, sólida y rica en estrategia.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio y presiona d5.",
+        "Prepara ...d5 o ...Ab4 y abre el alfil de rey.",
+        "Desarrolla y prepara e4.",
+        "Clava al caballo que apoya e4."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian Defense",
+      "description": "Nimzowitsch's pin: one of the most respected defences in chess.",
+      "idea": "Black fights for e4 by pinning the c3 knight and is willing to give up the bishop pair to double White's pawns. It is flexible, solid and strategically rich.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space and pressures d5.",
+        "Prepares ...d5 or ...Bb4 and opens the king's bishop.",
+        "Develops and prepares e4.",
+        "Pins the knight that supports e4."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-rubinstein",
+    "eco": "E40",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3",
+    "es": {
+      "name": "Nimzo-India: Variante Rubinstein",
+      "description": "El sistema más clásico: e3, Ad3 y Cf3 o Ce2 con desarrollo sólido.",
+      "idea": "Las blancas refuerzan d4 y preparan un desarrollo armónico; si las negras cambian en c3, recapturan con el peón y ganan control central. Es la línea más jugada contra la Nimzo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Refuerza d4 y abre el alfil de f1."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Rubinstein Variation",
+      "description": "The most classical system: e3, Bd3 and Nf3 or Ne2 with solid development.",
+      "idea": "White reinforces d4 and prepares harmonious development; if Black takes on c3, White recaptures with the pawn and gains central control. It is the most played line against the Nimzo.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Supports d4 and opens the f1 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-rubinstein-main-line",
+    "eco": "E53",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 O-O 5. Bd3 d5 6. Nf3 c5",
+    "es": {
+      "name": "Nimzo-India Rubinstein: Línea principal",
+      "description": "Las negras golpean el centro con los dos peones: d5 y c5.",
+      "idea": "Tras 7.O-O surgen estructuras con peón aislado o peones colgantes, según cómo se cambie en el centro. Las negras suelen seguir con ...Cc6 y ...dxc4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Refuerza d4.",
+        "El rey se pone a salvo antes de decidir la estructura.",
+        "Desarrolla apuntando al flanco de rey.",
+        "Ocupa el centro.",
+        "Desarrolla.",
+        "Presiona d4 desde el flanco."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian Rubinstein: Main Line",
+      "description": "Black strikes the centre with both pawns: d5 and c5.",
+      "idea": "After 7.O-O isolated-pawn or hanging-pawn structures arise depending on how the centre is exchanged. Black usually follows with ...Nc6 and ...dxc4.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Supports d4.",
+        "The king goes to safety before choosing a structure.",
+        "Develops, aiming at the kingside.",
+        "Occupies the centre.",
+        "Develops.",
+        "Pressures d4 from the flank."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-hubner",
+    "eco": "E41",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 c5 5. Bd3 Nc6 6. Nf3 Bxc3+ 7. bxc3 d6",
+    "es": {
+      "name": "Nimzo-India: Variante Hübner",
+      "description": "Las negras cierran el centro para jugar contra los peones doblados de c.",
+      "idea": "Con ...e5 las negras bloquean la posición, dejando malos a los alfiles blancos. El caballo es mejor que el alfil en estructuras cerradas: esa es la apuesta de Fischer en esta línea.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Refuerza d4.",
+        "Presiona d4.",
+        "Desarrolla.",
+        "Desarrolla y añade presión a d4.",
+        "Desarrolla.",
+        "Cambia el alfil para doblar los peones blancos.",
+        "Recaptura hacia el centro.",
+        "Prepara ...e5 para cerrar el centro y limitar a los alfiles."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Hübner Variation",
+      "description": "Black closes the centre to play against the doubled c-pawns.",
+      "idea": "With ...e5 Black locks the position, making White's bishops poor. Knights beat bishops in closed structures: that is Fischer's bet in this line.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Supports d4.",
+        "Pressures d4.",
+        "Develops.",
+        "Develops and adds pressure on d4.",
+        "Develops.",
+        "Trades the bishop to double White's pawns.",
+        "Recaptures towards the centre.",
+        "Prepares ...e5 to close the centre and limit the bishops."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-classical",
+    "eco": "E32",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2",
+    "es": {
+      "name": "Nimzo-India: Variante Clásica (4.Dc2)",
+      "description": "La dama protege c3 para evitar los peones doblados.",
+      "idea": "Si las negras cambian en c3, las blancas recapturan con la dama y conservan la pareja de alfiles intacta. A cambio pierden algo de tiempo; las negras responden con ...O-O, ...d5 o ...c5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Protege c3 para recapturar con la dama y evitar peones doblados."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Classical Variation (4.Qc2)",
+      "description": "The queen protects c3 to avoid doubled pawns.",
+      "idea": "If Black trades on c3, White recaptures with the queen and keeps the bishop pair with an intact structure. White loses a bit of time; Black answers ...O-O, ...d5 or ...c5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Protects c3 to recapture with the queen and avoid doubled pawns."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-samisch",
+    "eco": "E24",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ 5. bxc3",
+    "es": {
+      "name": "Nimzo-India: Variante Sämisch",
+      "description": "Las blancas fuerzan el cambio y aceptan peones doblados por la pareja de alfiles.",
+      "idea": "Las blancas quieren f3 y e4 para un gran centro y ataque en el flanco de rey. Las negras presionan c4, el punto débil, con ...c5, ...Cc6, ...b6 y ...Aa6.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Pregunta al alfil de inmediato.",
+        "Cambia y dobla los peones blancos.",
+        "Recaptura: pareja de alfiles a cambio de una estructura dañada."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Sämisch Variation",
+      "description": "White forces the trade and accepts doubled pawns for the bishop pair.",
+      "idea": "White wants f3 and e4 for a big centre and a kingside attack. Black pressures c4, the weak point, with ...c5, ...Nc6, ...b6 and ...Ba6.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Questions the bishop at once.",
+        "Trades and doubles White's pawns.",
+        "Recaptures: bishop pair in exchange for a damaged structure."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-kasparov",
+    "eco": "E20",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3",
+    "es": {
+      "name": "Nimzo-India: Variante Kaspárov",
+      "description": "Desarrollo natural con la idea de g3 y Ag2, o Ag5.",
+      "idea": "Las blancas desarrollan sin gastar tiempos en evitar el cambio en c3. A menudo siguen con g3 y Ag2, en estructuras parecidas a la Catalana.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Desarrolla el caballo de rey y mantiene la opción de g3."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Kasparov Variation",
+      "description": "Natural development with the idea of g3 and Bg2, or Bg5.",
+      "idea": "White develops without spending time avoiding the trade on c3. White often follows with g3 and Bg2, in Catalan-like structures.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Develops the king's knight, keeping the g3 option."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-leningrad",
+    "eco": "E30",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5",
+    "es": {
+      "name": "Nimzo-India: Variante Leningrado",
+      "description": "Las blancas contestan a la clavada con otra clavada sobre f6.",
+      "idea": "Las blancas preparan e3 y Ad3 con presión en el flanco de rey. Las negras suelen jugar ...h6 y ...c5, con estructuras de Benoni si las blancas avanzan d5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Contraclava el caballo de f6."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Leningrad Variation",
+      "description": "White answers the pin with a counter-pin on f6.",
+      "idea": "White prepares e3 and Bd3 with kingside pressure. Black usually plays ...h6 and ...c5, reaching Benoni-type structures if White pushes d5.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Counter-pins the f6 knight."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-kmoch",
+    "eco": "E20",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. f3",
+    "es": {
+      "name": "Nimzo-India: Variante Kmoch (4.f3)",
+      "description": "Las blancas preparan e4 de inmediato, sin miedo a debilitar su rey.",
+      "idea": "Si las negras no reaccionan, e4 da a las blancas un centro enorme. Las negras golpean con ...d5 o ...c5 y ...d5 para abrir líneas antes de que las blancas se desarrollen.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Prepara e4 con un peón, ganando control del centro."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Kmoch Variation (4.f3)",
+      "description": "White prepares e4 at once, unafraid of weakening the king.",
+      "idea": "If Black does not react, e4 gives White a huge centre. Black strikes with ...d5 or ...c5 and ...d5 to open lines before White develops.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Prepares e4 with a pawn, taking control of the centre."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-spielmann",
+    "eco": "E22",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qb3",
+    "es": {
+      "name": "Nimzo-India: Variante Spielmann (4.Db3)",
+      "description": "La dama ataca al alfil y protege c3 al mismo tiempo.",
+      "idea": "Las blancas evitan los peones doblados y presionan b4. Las negras suelen responder con ...c5, ...Cc6 o ...a5 para mantener la actividad del alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Clava el caballo.",
+        "Ataca el alfil y cubre c3 con la dama."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Indian: Spielmann Variation (4.Qb3)",
+      "description": "The queen attacks the bishop and protects c3 at the same time.",
+      "idea": "White avoids doubled pawns and pressures b4. Black usually answers ...c5, ...Nc6 or ...a5 to keep the bishop active.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Pins the knight.",
+        "Attacks the bishop and covers c3 with the queen."
+      ]
+    }
+  },
+  {
+    "slug": "queens-indian-defense",
+    "eco": "E12",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6",
+    "es": {
+      "name": "Defensa India de Dama",
+      "description": "Si las blancas evitan la Nimzo con Cf3, las negras controlan e4 desde b7.",
+      "idea": "El alfil de dama se desarrolla en la gran diagonal para dominar e4. Es una defensa muy sólida; las blancas suelen responder con g3 (fianchetto) o a3 (Petrosian).",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5 o ...Ab4.",
+        "Desarrolla evitando la clavada Nimzo-India.",
+        "Prepara ...Ab7 o ...Aa6 para controlar e4."
+      ]
+    },
+    "en": {
+      "name": "Queen's Indian Defense",
+      "description": "If White avoids the Nimzo with Nf3, Black controls e4 from b7.",
+      "idea": "The queen's bishop develops on the long diagonal to dominate e4. It is a very solid defence; White usually answers g3 (fianchetto) or a3 (Petrosian).",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5 or ...Bb4.",
+        "Develops, avoiding the Nimzo-Indian pin.",
+        "Prepares ...Bb7 or ...Ba6 to control e4."
+      ]
+    }
+  },
+  {
+    "slug": "queens-indian-petrosian",
+    "eco": "E12",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6 4. a3",
+    "es": {
+      "name": "India de Dama: Sistema Petrosian",
+      "description": "Las blancas impiden ...Ab4 para poder jugar Cc3 y d5 con libertad.",
+      "idea": "Con a3 las blancas preparan Cc3 sin clavadas y, a veces, el golpe d5 para cortar el alfil de b7. Kaspárov lo usó para ganar muchas partidas en los 80.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5 o ...Ab4.",
+        "Desarrolla.",
+        "Prepara el fianchetto de dama.",
+        "Quita la casilla b4 al alfil para jugar Cc3 sin clavada."
+      ]
+    },
+    "en": {
+      "name": "Queen's Indian: Petrosian System",
+      "description": "White rules out ...Bb4 so Nc3 and d5 can follow freely.",
+      "idea": "With a3 White prepares Nc3 without pins and sometimes the d5 thrust to blunt the b7 bishop. Kasparov won many games with it in the 1980s.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5 or ...Bb4.",
+        "Develops.",
+        "Prepares the queenside fianchetto.",
+        "Takes b4 away from the bishop so Nc3 comes without a pin."
+      ]
+    }
+  },
+  {
+    "slug": "queens-indian-fianchetto",
+    "eco": "E15",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6 4. g3 Bb7",
+    "es": {
+      "name": "India de Dama: Fianchetto con ...Ab7",
+      "description": "Dos alfiles enfrentados en la gran diagonal: la lucha por e4.",
+      "idea": "Tras 5.Ag2 Ae7 6.O-O O-O 7.Cc3 las blancas preparan d5 o Dc2 y e4. Las negras controlan e4 con ...Ce4 y su alfil, y mantienen una posición muy sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...b6.",
+        "Desarrolla.",
+        "Prepara el fianchetto de dama.",
+        "Prepara Ag2 para neutralizar la gran diagonal.",
+        "El alfil ocupa la gran diagonal para dominar e4."
+      ]
+    },
+    "en": {
+      "name": "Queen's Indian: Fianchetto with ...Bb7",
+      "description": "Two bishops face off on the long diagonal: the fight for e4.",
+      "idea": "After 5.Bg2 Be7 6.O-O O-O 7.Nc3 White prepares d5 or Qc2 and e4. Black controls e4 with ...Ne4 and the bishop, keeping a very solid position.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...b6.",
+        "Develops.",
+        "Prepares the queenside fianchetto.",
+        "Prepares Bg2 to contest the long diagonal.",
+        "The bishop takes the long diagonal to dominate e4."
+      ]
+    }
+  },
+  {
+    "slug": "queens-indian-nimzowitsch",
+    "eco": "E15",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6 4. g3 Ba6",
+    "es": {
+      "name": "India de Dama: Variante Nimzowitsch (...Aa6)",
+      "description": "El alfil ataca c4 en lugar de disputar la gran diagonal.",
+      "idea": "La presión sobre c4 obliga a las blancas a defenderlo con b3 o Db3, debilitando casillas. Las negras siguen con ...Ab4+ y ...c6 o ...d5 para aprovechar esas debilidades.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...b6.",
+        "Desarrolla.",
+        "Prepara el fianchetto.",
+        "Prepara Ag2.",
+        "Ataca el peón de c4 para provocar debilidades."
+      ]
+    },
+    "en": {
+      "name": "Queen's Indian: Nimzowitsch Variation (...Ba6)",
+      "description": "The bishop attacks c4 instead of contesting the long diagonal.",
+      "idea": "The pressure on c4 forces White to defend it with b3 or Qb3, weakening squares. Black follows with ...Bb4+ and ...c6 or ...d5 to exploit those weaknesses.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...b6.",
+        "Develops.",
+        "Prepares the fianchetto.",
+        "Prepares Bg2.",
+        "Attacks the c4 pawn to provoke weaknesses."
+      ]
+    }
+  },
+  {
+    "slug": "bogo-indian-defense",
+    "eco": "E11",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+",
+    "es": {
+      "name": "Defensa Bogo-India",
+      "description": "Un jaque de alfil que busca cambiar piezas y desarrollar con rapidez.",
+      "idea": "Las blancas deben tapar con Ad2 o Cbd2. Las negras suelen cambiar el alfil y jugar con ...d6 y ...e5 o con estructuras sólidas de ...d5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla evitando la Nimzo-India.",
+        "Da jaque para obligar a las blancas a definir su desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Bogo-Indian Defense",
+      "description": "A bishop check aiming to trade pieces and develop quickly.",
+      "idea": "White must block with Bd2 or Nbd2. Black often trades the bishop and plays ...d6 and ...e5 or solid ...d5 structures.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops, avoiding the Nimzo-Indian.",
+        "Checks to force White to commit to a development scheme."
+      ]
+    }
+  },
+  {
+    "slug": "bogo-indian-nimzowitsch",
+    "eco": "E11",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+ 4. Bd2 Qe7",
+    "es": {
+      "name": "Bogo-India: Variante Nimzowitsch (...De7)",
+      "description": "La dama protege el alfil y prepara ...e5 o ...d6.",
+      "idea": "Las negras mantienen la tensión en b4 y buscan un centro con ...d6 y ...e5. Las blancas suelen jugar g3, Ag2 y Cc3 para mantener una pequeña ventaja de espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Da jaque.",
+        "Tapa con desarrollo y ataca al alfil.",
+        "Protege el alfil y prepara ...e5 con la dama."
+      ]
+    },
+    "en": {
+      "name": "Bogo-Indian: Nimzowitsch Variation (...Qe7)",
+      "description": "The queen protects the bishop and prepares ...e5 or ...d6.",
+      "idea": "Black keeps the tension on b4 and aims for a ...d6 and ...e5 centre. White usually plays g3, Bg2 and Nc3 to keep a small space advantage.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Gives check.",
+        "Blocks with development and attacks the bishop.",
+        "Protects the bishop and prepares ...e5 with the queen."
+      ]
+    }
+  },
+  {
+    "slug": "catalan-opening",
+    "eco": "E00",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. g3",
+    "es": {
+      "name": "Apertura Catalana",
+      "description": "Gambito de Dama más fianchetto: el alfil de g2 presiona todo el flanco de dama.",
+      "idea": "El alfil de g2 apunta a b7 y d5, y las blancas suelen sacrificar temporalmente c4 a cambio de presión duradera. Es la apertura favorita de Kramnik y muy popular en la élite.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5.",
+        "Prepara el fianchetto del alfil de rey para presionar la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "Catalan Opening",
+      "description": "Queen's Gambit plus fianchetto: the g2 bishop pressures the whole queenside.",
+      "idea": "The g2 bishop aims at b7 and d5, and White often gives up c4 temporarily for lasting pressure. It is Kramnik's favourite and very popular at elite level.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5.",
+        "Prepares the king's bishop fianchetto to pressure the long diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "open-catalan",
+    "eco": "E04",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 dxc4",
+    "es": {
+      "name": "Catalana Abierta",
+      "description": "Las negras toman el peón de c4 y obligan a las blancas a demostrar su compensación.",
+      "idea": "Las negras intentan retener el peón con ...a6 y ...b5 o devolverlo a cambio de desarrollo. Las blancas recuperan con Da4+ o Ce5 y presionan el flanco de dama con el alfil de g2.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5.",
+        "Prepara el fianchetto.",
+        "Ocupa el centro.",
+        "El alfil presiona d5 y b7 desde la gran diagonal.",
+        "Captura c4, abriendo la diagonal del alfil blanco a cambio de un peón."
+      ]
+    },
+    "en": {
+      "name": "Open Catalan",
+      "description": "Black takes the c4 pawn and asks White to prove the compensation.",
+      "idea": "Black tries to hold the pawn with ...a6 and ...b5 or returns it for development. White regains it with Qa4+ or Ne5 and presses on the queenside with the g2 bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5.",
+        "Prepares the fianchetto.",
+        "Occupies the centre.",
+        "The bishop pressures d5 and b7 from the long diagonal.",
+        "Takes c4, opening the white bishop's diagonal in exchange for a pawn."
+      ]
+    }
+  },
+  {
+    "slug": "closed-catalan",
+    "eco": "E06",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 Be7 5. Nf3 O-O 6. O-O c6",
+    "es": {
+      "name": "Catalana Cerrada",
+      "description": "Las negras mantienen d5 con ...c6 y juegan una posición sólida y paciente.",
+      "idea": "Las negras preparan ...Cbd7, ...b6 y ...Ab7 para liberar su alfil de dama. Las blancas juegan Dc2, Cbd2 y e4 en el momento justo para ganar espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5.",
+        "Prepara el fianchetto.",
+        "Ocupa el centro.",
+        "Completa el fianchetto.",
+        "Desarrolla sin tomar en c4.",
+        "Desarrolla.",
+        "Enroca.",
+        "Enroca.",
+        "Refuerza d5 y cierra la gran diagonal al alfil de g2."
+      ]
+    },
+    "en": {
+      "name": "Closed Catalan",
+      "description": "Black holds d5 with ...c6 and plays a solid, patient position.",
+      "idea": "Black prepares ...Nbd7, ...b6 and ...Bb7 to free the queen's bishop. White plays Qc2, Nbd2 and e4 at the right moment to gain space.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5.",
+        "Prepares the fianchetto.",
+        "Occupies the centre.",
+        "Completes the fianchetto.",
+        "Develops without taking on c4.",
+        "Develops.",
+        "Castles.",
+        "Castles.",
+        "Supports d5 and blunts the g2 bishop's diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "blumenfeld-countergambit",
+    "eco": "E10",
+    "side": "b",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 c5 4. d5 b5",
+    "es": {
+      "name": "Contragambito Blumenfeld",
+      "description": "Un peón de b sacrificado para dominar el centro con ...e6xd5 y ...d5.",
+      "idea": "Si las blancas aceptan, las negras eliminan el peón de d5 y construyen un centro fuerte con los alfiles apuntando al flanco de rey. Alekhine lo sufrió con blancas en 1923.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...d5 o ...c5.",
+        "Desarrolla.",
+        "Presiona d4 desde el flanco.",
+        "Avanza y gana espacio, evitando el cambio.",
+        "Ofrece el peón de b para socavar el centro blanco."
+      ]
+    },
+    "en": {
+      "name": "Blumenfeld Countergambit",
+      "description": "A b-pawn sacrifice to dominate the centre with ...exd5 and ...d5.",
+      "idea": "If White accepts, Black removes the d5 pawn and builds a strong centre with bishops aimed at the kingside. Alekhine suffered against it with White in 1923.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...d5 or ...c5.",
+        "Develops.",
+        "Pressures d4 from the flank.",
+        "Advances to gain space and avoid the exchange.",
+        "Offers the b-pawn to undermine White's centre."
+      ]
+    }
+  },
+  {
+    "slug": "bogo-indian-nbd2",
+    "eco": "E11",
+    "side": "w",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+ 4. Nbd2",
+    "es": {
+      "name": "Bogo-India: 4.Cbd2",
+      "description": "Las blancas tapan con el caballo para conservar la pareja de alfiles.",
+      "idea": "Las blancas amenazan a3 para ganar la pareja de alfiles. Las negras suelen jugar ...b6 o ...d5 y ...O-O con posición sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Controla e4.",
+        "Gana espacio.",
+        "Prepara ...Ab4.",
+        "Desarrolla.",
+        "Da jaque.",
+        "Tapa con el caballo, amenazando a3 para ganar la pareja de alfiles."
+      ]
+    },
+    "en": {
+      "name": "Bogo-Indian: 4.Nbd2",
+      "description": "White blocks with the knight to keep the bishop pair.",
+      "idea": "White threatens a3 to win the bishop pair. Black usually plays ...b6 or ...d5 and ...O-O with a solid position.",
+      "moves": [
+        "Occupies the centre.",
+        "Controls e4.",
+        "Gains space.",
+        "Prepares ...Bb4.",
+        "Develops.",
+        "Gives check.",
+        "Blocks with the knight, threatening a3 to win the bishop pair."
+      ]
+    }
+  }
+]

@@ -1,0 +1,1602 @@
+[
+  {
+    "slug": "sicilian-defense",
+    "eco": "B20",
+    "side": "b",
+    "pgn": "1. e4 c5",
+    "es": {
+      "name": "Defensa Siciliana",
+      "description": "La respuesta más ambiciosa a 1.e4: las negras luchan por d4 desde el flanco.",
+      "idea": "Al cambiar su peón de c por el de d blanco, las negras obtienen mayoría central y la columna c semiabierta. Las posiciones son desequilibradas: ataques en flancos opuestos y mucha teoría.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Controla d4 desde el flanco y crea un desequilibrio desde la primera jugada."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Defense",
+      "description": "The most ambitious answer to 1.e4: Black fights for d4 from the wing.",
+      "idea": "By trading the c-pawn for White's d-pawn, Black gets a central majority and the half-open c-file. Positions are unbalanced: opposite-wing attacks and lots of theory.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Controls d4 from the flank, creating imbalance from move one."
+      ]
+    }
+  },
+  {
+    "slug": "open-sicilian",
+    "eco": "B53",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4",
+    "es": {
+      "name": "Siciliana Abierta",
+      "description": "Las blancas abren el centro y aceptan el cambio de peón central por peón de flanco.",
+      "idea": "Tras 3...cxd4 4.Cxd4 las blancas ganan desarrollo y espacio, y las negras la mayoría central y la columna c. Es el camino hacia la Najdorf, el Dragón o la Scheveningen.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4 desde el flanco.",
+        "Desarrolla y prepara d4.",
+        "Controla e5 y prepara ...Cf6.",
+        "Abre el centro para aprovechar la ventaja de desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Open Sicilian",
+      "description": "White opens the centre and accepts trading a central pawn for a wing pawn.",
+      "idea": "After 3...cxd4 4.Nxd4 White gains development and space, Black the central majority and the c-file. It is the road to the Najdorf, the Dragon or the Scheveningen.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4 from the flank.",
+        "Develops and prepares d4.",
+        "Controls e5 and prepares ...Nf6.",
+        "Opens the centre to exploit the lead in development."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-najdorf",
+    "eco": "B90",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6",
+    "es": {
+      "name": "Siciliana Najdorf",
+      "description": "La apertura de Fischer y Kaspárov: la más estudiada de toda la teoría.",
+      "idea": "El modesto ...a6 controla b5 y prepara ...e5 o ...e6 según la respuesta blanca, además de ...b5 en el flanco de dama. Máxima flexibilidad para las negras a cambio de un tiempo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4 desde el flanco.",
+        "Desarrolla y prepara d4.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia el peón de flanco por el central.",
+        "Recupera con un caballo centralizado.",
+        "Ataca e4 con desarrollo.",
+        "Protege e4 desarrollando.",
+        "Controla b5 y prepara ...e5 o ...b5 sin comprometerse."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Najdorf",
+      "description": "The opening of Fischer and Kasparov: the most studied line in all of theory.",
+      "idea": "The modest ...a6 controls b5 and prepares ...e5 or ...e6 depending on White's setup, plus ...b5 on the queenside. Maximum flexibility for Black at the cost of a tempo.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4 from the flank.",
+        "Develops and prepares d4.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades the wing pawn for a central one.",
+        "Recaptures with a centralised knight.",
+        "Attacks e4 with development.",
+        "Protects e4 while developing.",
+        "Controls b5 and prepares ...e5 or ...b5 without committing."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-english-attack",
+    "eco": "B90",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3",
+    "es": {
+      "name": "Najdorf: Ataque Inglés",
+      "description": "Las blancas preparan el enroque largo y una avalancha de peones en el flanco de rey.",
+      "idea": "Siguen Dd2, O-O-O y g4–g5 contra el caballo de f6, mientras las negras atacan con ...b5–b4 en el otro flanco. Es una carrera de ataques donde cada tiempo cuenta.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Desarrolla el alfil a e3, típico del Ataque Inglés.",
+        "Gana espacio y expulsa al caballo de d4, aceptando un agujero en d5.",
+        "El caballo se retira manteniendo control sobre d4 y a5.",
+        "El alfil controla d5 y se prepara para ...b5.",
+        "Refuerza e4 y prepara g4 con Dd2 y enroque largo."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: English Attack",
+      "description": "White prepares long castling and a kingside pawn avalanche.",
+      "idea": "Qd2, O-O-O and g4–g5 against the f6 knight follow, while Black attacks with ...b5–b4 on the other wing. It is a race of attacks where every tempo matters.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Develops the bishop to e3, typical of the English Attack.",
+        "Gains space and kicks the d4 knight, accepting a hole on d5.",
+        "The knight retreats while keeping an eye on d4 and a5.",
+        "The bishop covers d5 and prepares ...b5.",
+        "Supports e4 and prepares g4 with Qd2 and long castling."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-6-bg5",
+    "eco": "B94",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5",
+    "es": {
+      "name": "Najdorf: 6.Ag5",
+      "description": "El ataque más directo contra la Najdorf: clavada del caballo y f4 a continuación.",
+      "idea": "Las blancas quieren f4, Df3 y enroque largo con un ataque rápido. Las negras responden con ...e6 y deben elegir entre la línea principal, el peón envenenado (...Db6) o sistemas con ...Cbd7.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Clava el caballo de f6, preparando f4 y un ataque veloz."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: 6.Bg5",
+      "description": "The most direct attack on the Najdorf: pin the knight and follow with f4.",
+      "idea": "White wants f4, Qf3 and long castling with a fast attack. Black answers ...e6 and chooses between the main line, the Poisoned Pawn (...Qb6) or ...Nbd7 systems.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Pins the f6 knight, preparing f4 and a fast attack."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-poisoned-pawn",
+    "eco": "B97",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 Qb6",
+    "es": {
+      "name": "Najdorf: Peón Envenenado",
+      "description": "La dama negra ataca b2 y se arriesga a quedar atrapada: teoría forzada durante 20 jugadas.",
+      "idea": "Tras 8.Dd2 Dxb2 9.Tb1 Da3 las negras tienen un peón extra y las blancas un enorme adelanto de desarrollo. Fue el arma de Fischer y sigue siendo sólida con ordenador.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Clava el caballo de f6.",
+        "Refuerza el centro y prepara ...Ae7.",
+        "Amenaza e5 y prepara el ataque.",
+        "Ataca b2 y el caballo de d4 aprovechando que el alfil de c1 salió."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: Poisoned Pawn",
+      "description": "Black's queen attacks b2 and risks being trapped: forcing theory for 20 moves.",
+      "idea": "After 8.Qd2 Qxb2 9.Rb1 Qa3 Black is a pawn up and White has a huge lead in development. It was Fischer's weapon and remains sound under computer scrutiny.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Pins the f6 knight.",
+        "Reinforces the centre and prepares ...Be7.",
+        "Threatens e5 and prepares the attack.",
+        "Attacks b2 and the d4 knight, exploiting the absence of the c1 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-6-be2",
+    "eco": "B92",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2",
+    "es": {
+      "name": "Najdorf: Variante Opocensky (6.Ae2)",
+      "description": "La respuesta posicional: desarrollo clásico y enroque corto.",
+      "idea": "Tras 6...e5 7.Cb3 Ae7 8.O-O las blancas juegan con la casilla d5 y el control del centro. Es una lucha estratégica, lejos de los ataques con peones de otras variantes.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Desarrollo tranquilo que prepara el enroque corto."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: Opocensky Variation (6.Be2)",
+      "description": "The positional reply: classical development and short castling.",
+      "idea": "After 6...e5 7.Nb3 Be7 8.O-O White plays around the d5 square and central control. It is a strategic battle, far from the pawn storms of other lines.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Quiet development preparing short castling."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-adams-attack",
+    "eco": "B90",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. h3",
+    "es": {
+      "name": "Najdorf: Ataque Adams (6.h3)",
+      "description": "Un movimiento humilde con idea agresiva: preparar g4 cuanto antes.",
+      "idea": "Las blancas quieren g4–g5 para expulsar el caballo de f6 y ganar el control de d5. Popularizado de nuevo en la élite, evita la teoría principal del Ataque Inglés.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Prepara g4 para atacar el caballo de f6 sin comprometer el alfil."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: Adams Attack (6.h3)",
+      "description": "A humble move with an aggressive idea: prepare g4 as soon as possible.",
+      "idea": "White wants g4–g5 to kick the f6 knight and gain control of d5. Revived at elite level, it avoids the main theory of the English Attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Prepares g4 to hit the f6 knight without committing the bishop."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-fischer-sozin",
+    "eco": "B86",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bc4",
+    "es": {
+      "name": "Najdorf: Ataque Fischer-Sozin",
+      "description": "El alfil apunta a e6 y f7, preparando sacrificios en el centro.",
+      "idea": "Las blancas suelen seguir con Ab3, O-O y f4–f5 para presionar e6. Las negras responden con ...e6, ...b5 y ...Cbd7–c5 para cambiar el alfil peligroso.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "El alfil apunta a e6 y f7, clave para futuros sacrificios."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: Fischer-Sozin Attack",
+      "description": "The bishop aims at e6 and f7, preparing central sacrifices.",
+      "idea": "White usually continues Bb3, O-O and f4–f5 to pressure e6. Black answers ...e6, ...b5 and ...Nbd7–c5 to trade off the dangerous bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "The bishop aims at e6 and f7, key for future sacrifices."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-dragon",
+    "eco": "B70",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6",
+    "es": {
+      "name": "Siciliana Dragón",
+      "description": "El alfil en g7 escupe fuego por la gran diagonal: una de las defensas más afiladas.",
+      "idea": "La estructura de peones recuerda a la constelación del dragón. El alfil de g7 presiona d4 y b2, y las negras atacan por la columna c mientras las blancas lanzan sus peones contra el enroque.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Prepara el fianchetto del alfil en la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Dragon",
+      "description": "The g7 bishop breathes fire down the long diagonal: one of the sharpest defences.",
+      "idea": "The pawn structure resembles the Draco constellation. The g7 bishop pressures d4 and b2, and Black attacks down the c-file while White throws pawns at the king.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Prepares to fianchetto the bishop on the long diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "dragon-yugoslav-attack",
+    "eco": "B77",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be3 Bg7 7. f3 O-O 8. Qd2 Nc6 9. Bc4",
+    "es": {
+      "name": "Dragón: Ataque Yugoslavo",
+      "description": "Enroques opuestos y un ataque brutal: Ah6, h4–h5 y abrir la columna h.",
+      "idea": "Las blancas enrocan largo y buscan cambiar el alfil de g7 con Ah6 y abrir la columna h. Las negras responden con ...Tc8, ...Ce5–c4 y el sacrificio de calidad en c3.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Prepara el fianchetto.",
+        "Desarrolla el alfil a e3, preparando Dd2 y Ah6.",
+        "El dragón ocupa la gran diagonal.",
+        "Refuerza e4 e impide ...Cg4 contra el alfil de e3.",
+        "Enroca con el rey bien protegido por el alfil.",
+        "Conecta el ataque: Ah6 y enroque largo están listos.",
+        "Desarrolla y presiona d4.",
+        "El alfil controla d5 y apunta al rey negro desde c4."
+      ]
+    },
+    "en": {
+      "name": "Dragon: Yugoslav Attack",
+      "description": "Opposite castling and a brutal attack: Bh6, h4–h5 and open the h-file.",
+      "idea": "White castles long and aims to trade the g7 bishop with Bh6 and open the h-file. Black replies ...Rc8, ...Ne5–c4 and the exchange sacrifice on c3.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Prepares the fianchetto.",
+        "Develops the bishop to e3, preparing Qd2 and Bh6.",
+        "The dragon bishop takes the long diagonal.",
+        "Supports e4 and stops ...Ng4 against the e3 bishop.",
+        "Castles with the king well protected by the bishop.",
+        "Connects the attack: Bh6 and long castling are ready.",
+        "Develops and pressures d4.",
+        "The bishop controls d5 and aims at the black king from c4."
+      ]
+    }
+  },
+  {
+    "slug": "dragon-classical",
+    "eco": "B70",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. Be2",
+    "es": {
+      "name": "Dragón: Variante Clásica",
+      "description": "Las blancas renuncian al ataque directo y enrocan corto con desarrollo sólido.",
+      "idea": "Con Ae2, O-O y Ae3 las blancas juegan posicionalmente, a menudo con f4 o Cb3. Las negras tienen un juego cómodo y el alfil de g7 sigue siendo su mejor pieza.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Prepara el fianchetto.",
+        "Desarrollo sobrio que prepara el enroque corto."
+      ]
+    },
+    "en": {
+      "name": "Dragon: Classical Variation",
+      "description": "White forgoes the direct attack and castles short with solid development.",
+      "idea": "With Be2, O-O and Be3 White plays positionally, often with f4 or Nb3. Black gets comfortable play and the g7 bishop remains the best piece.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Prepares the fianchetto.",
+        "Sober development preparing short castling."
+      ]
+    }
+  },
+  {
+    "slug": "accelerated-dragon",
+    "eco": "B34",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6",
+    "es": {
+      "name": "Siciliana: Dragón Acelerado",
+      "description": "El fianchetto llega antes de ...d6, para poder romper con ...d5 en un solo tiempo.",
+      "idea": "Sin el peón en d6, las negras pueden jugar ...d5 de golpe y evitan el Ataque Yugoslavo. A cambio, las blancas pueden establecer el Bind de Maroczy con c4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Desarrolla y presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Prepara el fianchetto sin haber jugado ...d6."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Accelerated Dragon",
+      "description": "The fianchetto comes before ...d6, so Black can break with ...d5 in one go.",
+      "idea": "Without a pawn on d6, Black can play ...d5 in one move and avoids the Yugoslav Attack. In return White can set up the Maroczy Bind with c4.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Develops and pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Prepares the fianchetto without playing ...d6."
+      ]
+    }
+  },
+  {
+    "slug": "maroczy-bind",
+    "eco": "B36",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. c4",
+    "es": {
+      "name": "Dragón Acelerado: Bind de Maroczy",
+      "description": "Las blancas atenazan d5 con dos peones y asfixian el juego negro.",
+      "idea": "Con peones en c4 y e4 las negras no pueden romper con ...d5 ni ...b5 fácilmente. Las blancas juegan Ae3, Cc3, Ae2 y buscan aprovechar la ventaja de espacio; las negras maniobran con paciencia.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Prepara el fianchetto.",
+        "Aprieta la casilla d5 para impedir la liberación ...d5."
+      ]
+    },
+    "en": {
+      "name": "Accelerated Dragon: Maroczy Bind",
+      "description": "White clamps d5 with two pawns and squeezes Black's position.",
+      "idea": "With pawns on c4 and e4, Black cannot easily break with ...d5 or ...b5. White plays Be3, Nc3, Be2 and exploits the space advantage; Black manoeuvres patiently.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Prepares the fianchetto.",
+        "Clamps the d5 square to prevent the freeing ...d5."
+      ]
+    }
+  },
+  {
+    "slug": "hyperaccelerated-dragon",
+    "eco": "B27",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 g6",
+    "es": {
+      "name": "Siciliana: Dragón Hiperacelerado",
+      "description": "El fianchetto en la segunda jugada, dejando muchas opciones abiertas.",
+      "idea": "Las negras mantienen flexibles sus caballos y el peón de d. Tras 3.d4 cxd4 4.Dxd4 Cf6 las negras amenazan ...Cc6 con ganancia de tiempo; 3.c3 con d4 es una respuesta sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Prepara el fianchetto de inmediato, sin decidir aún los caballos."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Hyperaccelerated Dragon",
+      "description": "The fianchetto on move two, keeping many options open.",
+      "idea": "Black keeps the knights and d-pawn flexible. After 3.d4 cxd4 4.Qxd4 Nf6 Black threatens ...Nc6 with tempo; 3.c3 followed by d4 is a solid reply.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Prepares the fianchetto at once, without deciding on the knights yet."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-scheveningen",
+    "eco": "B80",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6",
+    "es": {
+      "name": "Siciliana Scheveningen",
+      "description": "El 'pequeño centro' negro con peones en d6 y e6: sólido y elástico.",
+      "idea": "Las negras controlan d5, e5 y f5 y preparan ...a6, ...Dc7 y ...b5. La estructura aguanta bien ataques de peones, pero el peón de d6 puede ser un objetivo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Forma el pequeño centro d6–e6 controlando d5 y f5."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Scheveningen",
+      "description": "Black's 'small centre' with pawns on d6 and e6: solid and elastic.",
+      "idea": "Black controls d5, e5 and f5 and prepares ...a6, ...Qc7 and ...b5. The structure withstands pawn storms well, but the d6 pawn can become a target.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Builds the small d6–e6 centre, covering d5 and f5."
+      ]
+    }
+  },
+  {
+    "slug": "scheveningen-keres-attack",
+    "eco": "B81",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6 6. g4",
+    "es": {
+      "name": "Scheveningen: Ataque Keres",
+      "description": "Un peón de g lanzado al ataque en la jugada 6: la refutación práctica de la Scheveningen.",
+      "idea": "Las blancas amenazan g5 para expulsar al caballo y controlar el centro. Kárpov dejó de jugar la Scheveningen con ...Cf6 temprano por este ataque; las negras responden con ...h6 o ...Cc6.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Forma el pequeño centro.",
+        "Amenaza g5 para expulsar al defensor del flanco de rey."
+      ]
+    },
+    "en": {
+      "name": "Scheveningen: Keres Attack",
+      "description": "A g-pawn thrown forward on move 6: the practical refutation of the Scheveningen.",
+      "idea": "White threatens g5 to kick the knight and control the centre. Karpov stopped allowing the Scheveningen with an early ...Nf6 because of this attack; Black replies ...h6 or ...Nc6.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Builds the small centre.",
+        "Threatens g5 to kick the kingside defender."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-classical",
+    "eco": "B56",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6",
+    "es": {
+      "name": "Siciliana Clásica",
+      "description": "Desarrollo natural de los dos caballos antes de decidir la estructura.",
+      "idea": "Las negras presionan d4 y mantienen abiertas opciones como ...e5, ...g6 o ...e6. Las blancas eligen entre el Richter-Rauzer (6.Ag5) y el Sozin (6.Ac4).",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Desarrolla presionando el caballo de d4."
+      ]
+    },
+    "en": {
+      "name": "Classical Sicilian",
+      "description": "Natural development of both knights before deciding on the structure.",
+      "idea": "Black pressures d4 and keeps options like ...e5, ...g6 or ...e6 open. White chooses between the Richter-Rauzer (6.Bg5) and the Sozin (6.Bc4).",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Develops, pressuring the d4 knight."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-richter-rauzer",
+    "eco": "B60",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bg5",
+    "es": {
+      "name": "Siciliana: Ataque Richter-Rauzer",
+      "description": "La clavada sobre f6 impide el Dragón y prepara el enroque largo.",
+      "idea": "Las blancas siguen con Dd2 y O-O-O, amenazando Axf6 para doblar los peones negros. Las negras responden con ...e6, ...a6 y ...Ad7, con contraataque en el flanco de dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Presiona d4.",
+        "Clava el caballo y evita ...g6, preparando Dd2 y enroque largo."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Richter-Rauzer Attack",
+      "description": "The pin on f6 rules out the Dragon and prepares long castling.",
+      "idea": "White follows with Qd2 and O-O-O, threatening Bxf6 to double Black's pawns. Black answers ...e6, ...a6 and ...Bd7, with queenside counterplay.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Pressures d4.",
+        "Pins the knight and prevents ...g6, preparing Qd2 and long castling."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-sozin",
+    "eco": "B57",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bc4",
+    "es": {
+      "name": "Siciliana: Ataque Sozin",
+      "description": "El alfil se coloca en la diagonal a2–g8, apuntando a f7 y e6.",
+      "idea": "Las blancas preparan Ab3, f4–f5 o el Ataque Velimirović con De2 y O-O-O. Las negras suelen jugar ...e6, ...Ae7 y ...a6 para neutralizar el alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Presiona d4.",
+        "Coloca el alfil en su diagonal más agresiva contra e6 y f7."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Sozin Attack",
+      "description": "The bishop takes the a2–g8 diagonal, aiming at f7 and e6.",
+      "idea": "White prepares Bb3, f4–f5 or the Velimirović Attack with Qe2 and O-O-O. Black usually plays ...e6, ...Be7 and ...a6 to neutralise the bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Pressures d4.",
+        "Puts the bishop on its most aggressive diagonal against e6 and f7."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-velimirovic-attack",
+    "eco": "B89",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bc4 e6 7. Be3 Be7 8. Qe2",
+    "es": {
+      "name": "Siciliana: Ataque Velimirović",
+      "description": "Enroque largo y sacrificios en d5 o f5: uno de los ataques más temidos de la Siciliana.",
+      "idea": "Las blancas siguen con O-O-O, Td1 y g4–g5, con sacrificios de pieza en d5 o f5. Las negras deben contraatacar rápido con ...a6, ...Dc7 y ...Ca5 para cambiar el alfil de b3.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Presiona d4.",
+        "El alfil apunta a e6.",
+        "Cierra la diagonal del alfil con un pequeño centro.",
+        "Desarrolla y prepara el enroque largo.",
+        "Prepara el enroque corto.",
+        "La dama deja d1 libre para la torre y apoya g4 y el enroque largo."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Velimirović Attack",
+      "description": "Long castling and sacrifices on d5 or f5: one of the most feared Sicilian attacks.",
+      "idea": "White follows with O-O-O, Rd1 and g4–g5, with piece sacrifices on d5 or f5. Black must counter quickly with ...a6, ...Qc7 and ...Na5 to trade the b3 bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Pressures d4.",
+        "The bishop aims at e6.",
+        "Blunts the bishop with a small centre.",
+        "Develops and prepares long castling.",
+        "Prepares short castling.",
+        "The queen frees d1 for the rook and supports g4 and long castling."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-sveshnikov",
+    "eco": "B33",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e5",
+    "es": {
+      "name": "Siciliana Sveshnikov",
+      "description": "Las negras aceptan un agujero en d5 a cambio de actividad y tiempo: la favorita de Carlsen.",
+      "idea": "Tras 6.Cdb5 d6 7.Ag5 a6 8.Ca3 b5 las negras obtienen la pareja de alfiles y juego dinámico. La lucha gira en torno a la casilla d5 y la ruptura ...f5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Desarrolla y presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Expulsa al caballo con ganancia de tiempo, aceptando la debilidad de d5."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Sveshnikov",
+      "description": "Black accepts a hole on d5 in exchange for activity and time: Carlsen's favourite.",
+      "idea": "After 6.Ndb5 d6 7.Bg5 a6 8.Na3 b5 Black gets the bishop pair and dynamic play. The fight revolves around the d5 square and the ...f5 break.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Develops and pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Kicks the knight with tempo, accepting the weakness on d5."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-kalashnikov",
+    "eco": "B32",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 d6",
+    "es": {
+      "name": "Siciliana Kalashnikov",
+      "description": "La hermana pequeña de la Sveshnikov: ...e5 antes de desarrollar el caballo de g8.",
+      "idea": "Las negras cubren d6 y mantienen flexible el caballo de g8, que puede ir a e7 o f6. Las blancas suelen jugar c4 o Cd5 para explotar el agujero de d5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Expulsa al caballo con ganancia de tiempo.",
+        "El caballo amenaza la casilla d6.",
+        "Cubre d6 y abre la diagonal del alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Kalashnikov",
+      "description": "The Sveshnikov's little sister: ...e5 before developing the g8 knight.",
+      "idea": "Black covers d6 and keeps the g8 knight flexible, heading for e7 or f6. White usually plays c4 or N1c3–d5 to exploit the d5 hole.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Kicks the knight with tempo.",
+        "The knight eyes the d6 square.",
+        "Covers d6 and opens the c8 bishop's diagonal."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-lowenthal",
+    "eco": "B32",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 a6",
+    "es": {
+      "name": "Siciliana Löwenthal",
+      "description": "Las negras expulsan al caballo de b5 de inmediato y ceden d6 temporalmente.",
+      "idea": "Tras 6.Cd6+ Axd6 7.Dxd6 Df6 las negras cambian su alfil bueno pero ganan desarrollo y amenazas contra la dama. Es una línea antigua con ideas muy concretas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Expulsa al caballo.",
+        "El caballo amenaza d6.",
+        "Expulsa al caballo permitiendo el jaque en d6 a cambio de desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Löwenthal",
+      "description": "Black kicks the b5 knight immediately and gives up d6 for now.",
+      "idea": "After 6.Nd6+ Bxd6 7.Qxd6 Qf6 Black trades the good bishop but gains development and threats against the queen. It is an old line with very concrete ideas.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Kicks the knight.",
+        "The knight eyes d6.",
+        "Kicks the knight, allowing the check on d6 in return for development."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-four-knights",
+    "eco": "B45",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6",
+    "es": {
+      "name": "Siciliana de los Cuatro Caballos",
+      "description": "Desarrollo rápido y la amenaza táctica ...Ab4 contra e4.",
+      "idea": "Las negras buscan ...Ab4 para presionar e4 y, tras 6.Cxc6 bxc6 7.e5 Cd5, obtienen un centro de peones compacto. Es menos teórica que la Najdorf y muy sólida.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Prepara ...d5 y deja libre el alfil de f8.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Desarrolla el último caballo presionando d4."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Four Knights",
+      "description": "Quick development and the tactical threat ...Bb4 against e4.",
+      "idea": "Black aims for ...Bb4 to pressure e4 and, after 6.Nxc6 bxc6 7.e5 Nd5, gets a compact pawn centre. Less theoretical than the Najdorf and very solid.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Prepares ...d5 and frees the f8 bishop.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Develops the last knight, pressuring d4."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-taimanov",
+    "eco": "B44",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6",
+    "es": {
+      "name": "Siciliana Taimanov",
+      "description": "Flexible y llena de matices: el caballo presiona d4 y el resto espera su momento.",
+      "idea": "Las negras siguen con ...Dc7, ...a6 y el caballo de g8 a f6 o e7. La estructura con e6 y el caballo en c6 permite golpes como ...Ab4 o ...d5 en el momento justo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla d5 y abre el alfil de f8.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Presiona el caballo de d4 manteniendo todas las opciones."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Taimanov",
+      "description": "Flexible and full of nuance: the knight hits d4 while the rest waits.",
+      "idea": "Black follows with ...Qc7, ...a6 and the g8 knight to f6 or e7. The e6 structure with the knight on c6 allows strikes like ...Bb4 or ...d5 at the right moment.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls d5 and frees the f8 bishop.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Pressures the d4 knight while keeping every option open."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-kan",
+    "eco": "B41",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6",
+    "es": {
+      "name": "Siciliana Kan (Paulsen)",
+      "description": "La variante más flexible: ...a6 antes de desarrollar cualquier caballo.",
+      "idea": "Las negras controlan b5 y preparan ...Dc7, ...Cf6 y ...b5. Contra el Bind de Maroczy (5.c4) juegan con ...Cf6 y ...Ab4, buscando presión sobre e4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla d5 y abre el alfil de f8.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Controla b5 y deja los caballos sin comprometer."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Kan (Paulsen)",
+      "description": "The most flexible variation: ...a6 before developing any knight.",
+      "idea": "Black controls b5 and prepares ...Qc7, ...Nf6 and ...b5. Against the Maroczy Bind (5.c4) Black plays ...Nf6 and ...Bb4, aiming at e4.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls d5 and frees the f8 bishop.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Controls b5 and keeps the knights uncommitted."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-pin-variation",
+    "eco": "B40",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Bb4",
+    "es": {
+      "name": "Siciliana: Variante de la Clavada",
+      "description": "El alfil clava el caballo de c3 y ataca indirectamente e4.",
+      "idea": "Si 6.e5, las negras juegan ...Ce4 con complicaciones tácticas. Es una línea poco común y muy concreta, útil como arma sorpresa.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla d5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Clava al defensor de e4 contra el rey."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Pin Variation",
+      "description": "The bishop pins the c3 knight and indirectly attacks e4.",
+      "idea": "If 6.e5, Black plays ...Ne4 with tactical complications. It is an uncommon, very concrete line, useful as a surprise weapon.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls d5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Pins e4's defender to the king."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-alapin",
+    "eco": "B22",
+    "side": "w",
+    "pgn": "1. e4 c5 2. c3",
+    "es": {
+      "name": "Siciliana Alapin",
+      "description": "Las blancas preparan d4 con un peón para recapturar con peón y evitar la teoría abierta.",
+      "idea": "Si las negras permiten d4, las blancas obtienen un centro clásico. Las respuestas principales son 2...d5 y 2...Cf6, atacando e4 de inmediato.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Prepara d4 para mantener un centro de peones completo."
+      ]
+    },
+    "en": {
+      "name": "Alapin Sicilian",
+      "description": "White prepares d4 with a pawn, to recapture with a pawn and avoid Open Sicilian theory.",
+      "idea": "If Black allows d4, White gets a classical centre. The main replies are 2...d5 and 2...Nf6, attacking e4 at once.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Prepares d4 to keep a full pawn centre."
+      ]
+    }
+  },
+  {
+    "slug": "smith-morra-gambit",
+    "eco": "B21",
+    "side": "w",
+    "pgn": "1. e4 c5 2. d4 cxd4 3. c3",
+    "es": {
+      "name": "Gambito Smith-Morra",
+      "description": "Un peón a cambio de desarrollo rápido y columnas abiertas contra la Siciliana.",
+      "idea": "Tras 3...dxc3 4.Cxc3 las blancas desarrollan con Cf3, Ac4, O-O, De2 y Td1, presionando d6 y f7. Las negras deben devolver el peón en el momento justo o consolidar con cuidado.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Golpea el centro de inmediato.",
+        "Captura el peón central.",
+        "Ofrece un peón para abrir líneas y desarrollar rápido."
+      ]
+    },
+    "en": {
+      "name": "Smith-Morra Gambit",
+      "description": "A pawn for quick development and open files against the Sicilian.",
+      "idea": "After 3...dxc3 4.Nxc3 White develops with Nf3, Bc4, O-O, Qe2 and Rd1, pressuring d6 and f7. Black must return the pawn at the right moment or consolidate carefully.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Strikes in the centre at once.",
+        "Takes the central pawn.",
+        "Offers a pawn to open lines and develop quickly."
+      ]
+    }
+  },
+  {
+    "slug": "closed-sicilian",
+    "eco": "B24",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nc3 Nc6 3. g3",
+    "es": {
+      "name": "Siciliana Cerrada",
+      "description": "Las blancas no abren el centro y preparan un ataque lento en el flanco de rey.",
+      "idea": "Con Ag2, d3, Ae3, Dd2 y f4–f5 las blancas atacan el enroque negro. Fue el arma de Spassky; las negras reciben con ...g6, ...Ag7, ...d6 y juego en el flanco de dama con ...Tb8 y ...b5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla y controla d5 sin abrir el centro.",
+        "Desarrolla y controla d4.",
+        "Prepara el fianchetto del alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "Closed Sicilian",
+      "description": "White keeps the centre closed and prepares a slow kingside attack.",
+      "idea": "With Bg2, d3, Be3, Qd2 and f4–f5 White attacks Black's king. It was Spassky's weapon; Black answers ...g6, ...Bg7, ...d6 and queenside play with ...Rb8 and ...b5.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops and controls d5 without opening the centre.",
+        "Develops and controls d4.",
+        "Prepares to fianchetto the king's bishop."
+      ]
+    }
+  },
+  {
+    "slug": "grand-prix-attack",
+    "eco": "B23",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nc3 Nc6 3. f4",
+    "es": {
+      "name": "Siciliana: Ataque Grand Prix",
+      "description": "Un ataque directo al rey con f4–f5, muy popular en torneos abiertos.",
+      "idea": "Las blancas siguen con Cf3, Ab5 o Ac4, O-O, De1–h4 y f5. Las negras deben golpear pronto en el centro con ...d5 o ...e6 y ...d5 para no ser arrolladas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla sin abrir el centro.",
+        "Desarrolla y controla d4.",
+        "Gana espacio en el flanco de rey preparando f5."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Grand Prix Attack",
+      "description": "A direct attack on the king with f4–f5, very popular in open tournaments.",
+      "idea": "White follows with Nf3, Bb5 or Bc4, O-O, Qe1–h4 and f5. Black must strike early in the centre with ...d5 or ...e6 and ...d5 to avoid being overrun.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops without opening the centre.",
+        "Develops and controls d4.",
+        "Gains kingside space, preparing f5."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-rossolimo",
+    "eco": "B30",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. Bb5",
+    "es": {
+      "name": "Siciliana Rossolimo",
+      "description": "La clavada estilo Española, preparando Axc6 para dañar la estructura negra.",
+      "idea": "Las blancas enrocan, juegan Te1 y a menudo cambian en c6 para jugar contra los peones doblados. Evita la Sveshnikov y es una de las anti-sicilianas favoritas de la élite.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Desarrolla y presiona d4.",
+        "Clava el caballo y prepara Axc6 para doblar los peones negros."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Rossolimo",
+      "description": "A Spanish-style pin, preparing Bxc6 to damage Black's structure.",
+      "idea": "White castles, plays Re1 and often trades on c6 to play against the doubled pawns. It avoids the Sveshnikov and is an elite favourite among anti-Sicilians.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Develops and pressures d4.",
+        "Pins the knight and prepares Bxc6 to double Black's pawns."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-moscow",
+    "eco": "B51",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. Bb5+",
+    "es": {
+      "name": "Siciliana: Variante Moscú",
+      "description": "Un jaque que simplifica la posición y evita las Najdorf y los Dragones.",
+      "idea": "Tras 3...Ad7 4.Axd7+ Dxd7 las blancas cambian su alfil malo y juegan c4 y d4 con un Maroczy cómodo. Es una forma sólida de evitar la teoría principal.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5 y abre el alfil de c8.",
+        "Da jaque para cambiar piezas y evitar la teoría principal."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Moscow Variation",
+      "description": "A check that simplifies the position and sidesteps the Najdorf and Dragon.",
+      "idea": "After 3...Bd7 4.Bxd7+ Qxd7 White trades the bishop and plays c4 and d4 with a comfortable Maroczy setup. It is a solid way to avoid main-line theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5 and opens the c8 bishop.",
+        "Checks to trade pieces and avoid the main theory."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-nimzowitsch",
+    "eco": "B29",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nf6",
+    "es": {
+      "name": "Siciliana Nimzowitsch",
+      "description": "Las negras provocan e5 para atacar después el peón avanzado.",
+      "idea": "Tras 3.e5 Cd5 4.Cc3 e6 5.Cxd5 exd5 surgen posiciones inusuales con el peón de d. Es una línea provocativa donde las blancas obtienen espacio y las negras juego con piezas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Invita a e5 para atacar ese peón adelantado más tarde."
+      ]
+    },
+    "en": {
+      "name": "Sicilian Nimzowitsch",
+      "description": "Black provokes e5 in order to attack the advanced pawn later.",
+      "idea": "After 3.e5 Nd5 4.Nc3 e6 5.Nxd5 exd5 unusual positions arise around the d-pawn. It is a provocative line where White gains space and Black gets piece play.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Invites e5 so the advanced pawn can be attacked later."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-okelly",
+    "eco": "B28",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 a6",
+    "es": {
+      "name": "Siciliana O'Kelly",
+      "description": "Un movimiento de espera que confunde los planes habituales de las blancas.",
+      "idea": "Si 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 e5 las negras ganan tiempo sobre el caballo. La respuesta más sólida es 3.c3, llegando a posiciones de Alapin con ...a6 algo inútil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Espera y controla b5 antes de mostrar su plan."
+      ]
+    },
+    "en": {
+      "name": "Sicilian O'Kelly",
+      "description": "A waiting move that confuses White's usual plans.",
+      "idea": "If 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e5 Black gains time on the knight. The most solid reply is 3.c3, reaching Alapin positions where ...a6 is somewhat useless.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Waits and controls b5 before revealing a plan."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-wing-gambit",
+    "eco": "B20",
+    "side": "w",
+    "pgn": "1. e4 c5 2. b4",
+    "es": {
+      "name": "Siciliana: Gambito del Ala",
+      "description": "Las blancas desvían el peón de c5 para dominar el centro con d4.",
+      "idea": "Tras 2...cxb4 las blancas quieren a3 y d4 con un centro fuerte. Las negras suelen devolver el peón con ...d5 y quedan cómodas si juegan con precisión.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Ofrece el peón de b para desviar c5 y ocupar d4."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Wing Gambit",
+      "description": "White deflects the c5 pawn to dominate the centre with d4.",
+      "idea": "After 2...cxb4 White wants a3 and d4 with a strong centre. Black usually returns the pawn with ...d5 and is comfortable with accurate play.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Offers the b-pawn to deflect c5 and occupy d4."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-mcdonnell-attack",
+    "eco": "B21",
+    "side": "w",
+    "pgn": "1. e4 c5 2. f4",
+    "es": {
+      "name": "Siciliana: Ataque McDonnell",
+      "description": "Un Grand Prix sin Cc3: las blancas ganan espacio en el flanco de rey de inmediato.",
+      "idea": "Las blancas preparan Cf3 y un ataque con f5. La réplica 2...d5 3.exd5 Cf6 (Gambito Tal) es la más enérgica para las negras.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Gana espacio en el flanco de rey antes de desarrollar."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: McDonnell Attack",
+      "description": "A Grand Prix without Nc3: White grabs kingside space at once.",
+      "idea": "White prepares Nf3 and an attack with f5. The reply 2...d5 3.exd5 Nf6 (Tal Gambit) is Black's most energetic answer.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Gains kingside space before developing."
+      ]
+    }
+  },
+  {
+    "slug": "dragon-levenfish",
+    "eco": "B71",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6 6. f4",
+    "es": {
+      "name": "Dragón: Ataque Levenfish",
+      "description": "Las blancas amenazan e5 de inmediato, antes de que el dragón esté listo.",
+      "idea": "Con f4 las blancas preparan e5 para expulsar al caballo de f6. Las negras deben responder con precisión (6...Cbd7 o 6...Cc6) para no quedar aplastadas en el centro.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Prepara el fianchetto.",
+        "Amenaza e5 para expulsar al caballo antes del enroque negro."
+      ]
+    },
+    "en": {
+      "name": "Dragon: Levenfish Attack",
+      "description": "White threatens e5 at once, before the dragon is ready.",
+      "idea": "With f4 White prepares e5 to kick the f6 knight. Black must answer accurately (6...Nbd7 or 6...Nc6) to avoid being crushed in the centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Prepares the fianchetto.",
+        "Threatens e5 to kick the knight before Black castles."
+      ]
+    }
+  },
+  {
+    "slug": "sveshnikov-main-line",
+    "eco": "B33",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e5 6. Ndb5 d6 7. Bg5 a6 8. Na3 b5",
+    "es": {
+      "name": "Sveshnikov: Línea principal",
+      "description": "El caballo de a3 queda fuera de juego y las negras ganan espacio en el flanco de dama.",
+      "idea": "Tras 9.Axf6 gxf6 10.Cd5 las negras tienen la pareja de alfiles y la ruptura ...f5, mientras las blancas dominan d5. Es una de las posiciones más estudiadas de la teoría moderna.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Presiona d4.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Expulsa al caballo aceptando el agujero en d5.",
+        "El caballo amenaza d6.",
+        "Cubre d6.",
+        "Clava el caballo que controla d5.",
+        "Expulsa al caballo de b5.",
+        "El caballo se retira al borde.",
+        "Gana espacio y deja al caballo de a3 sin casillas."
+      ]
+    },
+    "en": {
+      "name": "Sveshnikov: Main Line",
+      "description": "The a3 knight is offside and Black gains queenside space.",
+      "idea": "After 9.Bxf6 gxf6 10.Nd5 Black has the bishop pair and the ...f5 break, while White dominates d5. It is one of the most studied positions of modern theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Pressures d4.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Kicks the knight, accepting the hole on d5.",
+        "The knight eyes d6.",
+        "Covers d6.",
+        "Pins the knight that controls d5.",
+        "Kicks the b5 knight.",
+        "The knight retreats to the rim.",
+        "Gains space and leaves the a3 knight without squares."
+      ]
+    }
+  },
+  {
+    "slug": "najdorf-amsterdam",
+    "eco": "B93",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. f4",
+    "es": {
+      "name": "Najdorf: Variante Ámsterdam (6.f4)",
+      "description": "Las blancas ganan espacio en el flanco de rey y preparan e5.",
+      "idea": "Las negras suelen responder con 6...e5 o 6...Dc7 para controlar e5. Las blancas buscan Df3, Ad3 y un ataque directo sobre el rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla e5.",
+        "Abre el centro.",
+        "Cambia en d4.",
+        "Recupera con el caballo.",
+        "Ataca e4.",
+        "Protege e4.",
+        "Controla b5.",
+        "Controla e5 y prepara e5 o un ataque con Df3."
+      ]
+    },
+    "en": {
+      "name": "Najdorf: Amsterdam Variation (6.f4)",
+      "description": "White gains kingside space and prepares e5.",
+      "idea": "Black usually answers 6...e5 or 6...Qc7 to control e5. White aims for Qf3, Bd3 and a direct attack on the king.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls e5.",
+        "Opens the centre.",
+        "Trades on d4.",
+        "Recaptures with the knight.",
+        "Attacks e4.",
+        "Protects e4.",
+        "Controls b5.",
+        "Controls e5 and prepares e5 or an attack with Qf3."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-bowdler-attack",
+    "eco": "B20",
+    "side": "w",
+    "pgn": "1. e4 c5 2. Bc4",
+    "es": {
+      "name": "Siciliana: Ataque Bowdler",
+      "description": "Las blancas apuntan a f7 como en la Italiana.",
+      "idea": "Contra ...e6 y ...d5 el alfil queda expuesto, por lo que la línea es poco ambiciosa. Aun así, lleva a posiciones sin teoría y con ideas de f4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "El alfil apunta a f7 antes de desarrollar los caballos."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: Bowdler Attack",
+      "description": "White aims at f7 as in the Italian.",
+      "idea": "Against ...e6 and ...d5 the bishop is exposed, so the line is not very ambitious. Still, it avoids theory and allows f4 ideas.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "The bishop aims at f7 before the knights develop."
+      ]
+    }
+  },
+  {
+    "slug": "sicilian-french-variation",
+    "eco": "B40",
+    "side": "b",
+    "pgn": "1. e4 c5 2. Nf3 e6",
+    "es": {
+      "name": "Siciliana: Variante Francesa (2...e6)",
+      "description": "Las negras preparan ...d5 y se reservan Kan, Taimanov o Cuatro Caballos.",
+      "idea": "Con ...e6 las negras controlan d5 y abren el alfil de f8. Es la base de sistemas flexibles y sólidos que evitan la teoría de la Najdorf.",
+      "moves": [
+        "Ocupa el centro.",
+        "Lucha por d4.",
+        "Desarrolla.",
+        "Controla d5 y abre la diagonal del alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "Sicilian: French Variation (2...e6)",
+      "description": "Black prepares ...d5 and keeps the Kan, Taimanov or Four Knights in reserve.",
+      "idea": "With ...e6 Black controls d5 and opens the f8 bishop. It is the basis of flexible, solid systems that avoid Najdorf theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Fights for d4.",
+        "Develops.",
+        "Controls d5 and opens the king's bishop."
+      ]
+    }
+  }
+]

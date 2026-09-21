@@ -1,0 +1,672 @@
+[
+  {
+    "slug": "french-defense",
+    "eco": "C00",
+    "side": "b",
+    "pgn": "1. e4 e6",
+    "es": {
+      "name": "Defensa Francesa",
+      "description": "Las negras preparan ...d5 con apoyo: sólida, estratégica y llena de cadenas de peones.",
+      "idea": "Tras 2.d4 d5 las negras desafían e4 y aceptan un alfil de c8 encerrado a cambio de una estructura robusta. Los planes típicos son ...c5 y ...f6 para atacar la cadena blanca.",
+      "moves": [
+        "Ocupa el centro y abre diagonales.",
+        "Prepara ...d5 con apoyo, aunque encierra al alfil de c8."
+      ]
+    },
+    "en": {
+      "name": "French Defense",
+      "description": "Black prepares a supported ...d5: solid, strategic and full of pawn chains.",
+      "idea": "After 2.d4 d5 Black challenges e4 and accepts a locked-in c8 bishop in return for a sturdy structure. Typical plans are ...c5 and ...f6 to hit White's chain.",
+      "moves": [
+        "Occupies the centre and opens diagonals.",
+        "Prepares a supported ...d5, at the cost of blocking the c8 bishop."
+      ]
+    }
+  },
+  {
+    "slug": "french-advance",
+    "eco": "C02",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. e5",
+    "es": {
+      "name": "Francesa: Variante del Avance",
+      "description": "Las blancas cierran el centro y ganan espacio con una cadena de peones d4–e5.",
+      "idea": "Las negras atacan la base de la cadena con ...c5, ...Cc6 y ...Db6 contra d4. Las blancas defienden con c3 y Cf3, y buscan ataque en el flanco de rey gracias al espacio.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro ideal.",
+        "Desafía e4 de inmediato.",
+        "Avanza, gana espacio y cierra el centro."
+      ]
+    },
+    "en": {
+      "name": "French: Advance Variation",
+      "description": "White closes the centre and gains space with a d4–e5 pawn chain.",
+      "idea": "Black attacks the base of the chain with ...c5, ...Nc6 and ...Qb6 against d4. White defends with c3 and Nf3 and uses the space for a kingside attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the ideal centre.",
+        "Challenges e4 at once.",
+        "Advances, gains space and closes the centre."
+      ]
+    }
+  },
+  {
+    "slug": "french-advance-milner-barry",
+    "eco": "C02",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6 6. Bd3",
+    "es": {
+      "name": "Francesa Avance: Gambito Milner-Barry",
+      "description": "Las blancas abandonan d4 para ganar desarrollo y atacar al rey negro.",
+      "idea": "Tras 6...cxd4 7.cxd4 Ad7 8.O-O Cxd4 9.Cxd4 Dxd4 10.Cc3 las blancas tienen gran ventaja de desarrollo por el peón. Las negras deben tener cuidado con la trampa ...Dxd4?? y Ab5+.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "Ataca la base de la cadena en d4.",
+        "Refuerza d4.",
+        "Añade presión sobre d4.",
+        "Desarrolla y defiende d4 otra vez.",
+        "Triple presión: d4 y b2 a la vez.",
+        "Desarrolla ofreciendo el peón de d4 a cambio de iniciativa."
+      ]
+    },
+    "en": {
+      "name": "French Advance: Milner-Barry Gambit",
+      "description": "White gives up d4 to gain development and attack the black king.",
+      "idea": "After 6...cxd4 7.cxd4 Bd7 8.O-O Nxd4 9.Nxd4 Qxd4 10.Nc3 White has a big lead in development for the pawn. Black must beware the ...Qxd4?? Bb5+ trap.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "Attacks the base of the chain on d4.",
+        "Supports d4.",
+        "Adds pressure on d4.",
+        "Develops and defends d4 again.",
+        "Triple pressure: d4 and b2 at the same time.",
+        "Develops, offering the d4 pawn for the initiative."
+      ]
+    }
+  },
+  {
+    "slug": "french-exchange",
+    "eco": "C01",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. exd5",
+    "es": {
+      "name": "Francesa: Variante del Cambio",
+      "description": "Las blancas simplifican y liberan el alfil malo negro: posiciones simétricas.",
+      "idea": "Tras 3...exd5 la estructura es simétrica y el alfil de c8 negro queda libre. El juego es tranquilo; quien active mejor sus piezas y ocupe la columna e tendrá ventaja.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Cambia en d5 y abre la posición de forma simétrica."
+      ]
+    },
+    "en": {
+      "name": "French: Exchange Variation",
+      "description": "White simplifies and frees Black's bad bishop: symmetrical positions.",
+      "idea": "After 3...exd5 the structure is symmetrical and Black's c8 bishop is free. Play is calm; whoever activates the pieces and takes the e-file better gains the edge.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Trades on d5, opening the position symmetrically."
+      ]
+    }
+  },
+  {
+    "slug": "french-tarrasch",
+    "eco": "C03",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nd2",
+    "es": {
+      "name": "Francesa: Variante Tarrasch",
+      "description": "El caballo protege e4 desde d2 para evitar la clavada de la Winawer.",
+      "idea": "Con el caballo en d2 las blancas evitan ...Ab4 y mantienen c3 libre para su peón. Las negras responden con ...c5 (peón aislado) o ...Cf6 (estructura cerrada tras e5).",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Protege e4 sin permitir la clavada ...Ab4."
+      ]
+    },
+    "en": {
+      "name": "French: Tarrasch Variation",
+      "description": "The knight protects e4 from d2 to avoid the Winawer pin.",
+      "idea": "With the knight on d2 White avoids ...Bb4 and keeps c3 free for the pawn. Black answers ...c5 (isolated pawn positions) or ...Nf6 (closed structure after e5).",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Protects e4 without allowing the ...Bb4 pin."
+      ]
+    }
+  },
+  {
+    "slug": "french-tarrasch-open",
+    "eco": "C07",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nd2 c5",
+    "es": {
+      "name": "Francesa Tarrasch: Variante abierta con ...c5",
+      "description": "Las negras golpean d4 de inmediato y aceptan un posible peón aislado.",
+      "idea": "Tras 4.exd5 exd5 o 4...Dxd5 la partida gira en torno al peón aislado de d5 o a la actividad de la dama. Las negras obtienen juego libre de piezas a cambio de debilidades estructurales.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Protege e4 evitando la clavada.",
+        "Ataca d4 de inmediato para abrir el juego."
+      ]
+    },
+    "en": {
+      "name": "French Tarrasch: Open Variation with ...c5",
+      "description": "Black hits d4 immediately and accepts a possible isolated pawn.",
+      "idea": "After 4.exd5 exd5 or 4...Qxd5 the game revolves around the isolated d5 pawn or the active queen. Black gets free piece play in exchange for structural weaknesses.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Protects e4 while avoiding the pin.",
+        "Attacks d4 at once to open the game."
+      ]
+    }
+  },
+  {
+    "slug": "french-tarrasch-guimard",
+    "eco": "C03",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nd2 Nc6",
+    "es": {
+      "name": "Francesa Tarrasch: Variante Guimard",
+      "description": "El caballo presiona d4 y prepara ...e5, rompiendo con los esquemas habituales.",
+      "idea": "Si 4.Cgf3 Cf6 5.e5 Cd7 las negras buscan ...f6 y ...e5. Es una línea poco común que evita la teoría principal de la Tarrasch.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Protege e4.",
+        "Presiona d4 y prepara la ruptura ...e5."
+      ]
+    },
+    "en": {
+      "name": "French Tarrasch: Guimard Variation",
+      "description": "The knight pressures d4 and prepares ...e5, breaking the usual patterns.",
+      "idea": "After 4.Ngf3 Nf6 5.e5 Nd7 Black aims for ...f6 and ...e5. It is an uncommon line that avoids the main Tarrasch theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Protects e4.",
+        "Pressures d4 and prepares the ...e5 break."
+      ]
+    }
+  },
+  {
+    "slug": "french-winawer",
+    "eco": "C15",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4",
+    "es": {
+      "name": "Francesa: Variante Winawer",
+      "description": "La clavada sobre c3 lleva a las posiciones más desequilibradas de la Francesa.",
+      "idea": "Tras 4.e5 c5 5.a3 Axc3+ 6.bxc3 las blancas tienen la pareja de alfiles y ataque en el flanco de rey; las negras, una estructura mejor y juego contra los peones doblados de c.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4 con el caballo.",
+        "Clava al defensor de e4 contra el rey."
+      ]
+    },
+    "en": {
+      "name": "French: Winawer Variation",
+      "description": "The pin on c3 leads to the most unbalanced positions in the French.",
+      "idea": "After 4.e5 c5 5.a3 Bxc3+ 6.bxc3 White has the bishop pair and a kingside attack; Black has the better structure and play against the doubled c-pawns.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4 with the knight.",
+        "Pins e4's defender to the king."
+      ]
+    }
+  },
+  {
+    "slug": "winawer-poisoned-pawn",
+    "eco": "C18",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. e5 c5 5. a3 Bxc3+ 6. bxc3 Ne7 7. Qg4",
+    "es": {
+      "name": "Winawer: Peón Envenenado",
+      "description": "La dama blanca ataca g7 sin su defensor natural: complicaciones máximas.",
+      "idea": "Tras 7...Dc7 8.Dxg7 Tg8 9.Dxh7 cxd4 las negras sacrifican el flanco de rey a cambio de destruir el centro blanco. Ambos reyes quedan inseguros y cada tiempo es vital.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Clava el caballo.",
+        "Gana espacio y cierra el centro.",
+        "Ataca la base de la cadena en d4.",
+        "Pregunta al alfil.",
+        "Cambia y dobla los peones blancos.",
+        "Recaptura hacia el centro.",
+        "Desarrolla el caballo protegiendo f5 y c6.",
+        "Ataca g7, desprotegido tras el cambio del alfil de f8."
+      ]
+    },
+    "en": {
+      "name": "Winawer: Poisoned Pawn",
+      "description": "White's queen hits g7, which has lost its natural defender: maximum complications.",
+      "idea": "After 7...Qc7 8.Qxg7 Rg8 9.Qxh7 cxd4 Black sacrifices the kingside to destroy White's centre. Both kings are unsafe and every tempo is vital.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Pins the knight.",
+        "Gains space and closes the centre.",
+        "Attacks the base of the chain on d4.",
+        "Questions the bishop.",
+        "Trades, doubling White's pawns.",
+        "Recaptures towards the centre.",
+        "Develops the knight, covering f5 and c6.",
+        "Attacks g7, left weak after the f8 bishop was traded."
+      ]
+    }
+  },
+  {
+    "slug": "french-classical",
+    "eco": "C11",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6",
+    "es": {
+      "name": "Francesa: Variante Clásica",
+      "description": "Las negras presionan e4 con el caballo en lugar de clavar.",
+      "idea": "Las blancas eligen entre 4.e5 (Steinitz) y 4.Ag5 (clavada). En ambos casos las negras preparan ...c5 y ...Cc6 contra d4, la base de la cadena blanca.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Añade presión sobre e4 con desarrollo."
+      ]
+    },
+    "en": {
+      "name": "French: Classical Variation",
+      "description": "Black pressures e4 with the knight instead of pinning.",
+      "idea": "White chooses between 4.e5 (Steinitz) and 4.Bg5 (pin). In both cases Black prepares ...c5 and ...Nc6 against d4, the base of White's chain.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Adds pressure on e4 with development."
+      ]
+    }
+  },
+  {
+    "slug": "french-steinitz",
+    "eco": "C11",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. e5",
+    "es": {
+      "name": "Francesa: Variante Steinitz",
+      "description": "Las blancas expulsan al caballo y construyen la cadena d4–e5 con f4 de refuerzo.",
+      "idea": "Tras 4...Cfd7 5.f4 c5 6.Cf3 Cc6 7.Ae3 las blancas mantienen un centro enorme. Las negras presionan d4 con ...Db6 y ...cxd4, y a veces rompen con ...f6.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Presiona e4.",
+        "Expulsa al caballo y gana espacio."
+      ]
+    },
+    "en": {
+      "name": "French: Steinitz Variation",
+      "description": "White kicks the knight and builds the d4–e5 chain, reinforced by f4.",
+      "idea": "After 4...Nfd7 5.f4 c5 6.Nf3 Nc6 7.Be3 White keeps a huge centre. Black pressures d4 with ...Qb6 and ...cxd4, sometimes breaking with ...f6.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Pressures e4.",
+        "Kicks the knight and gains space."
+      ]
+    }
+  },
+  {
+    "slug": "french-mccutcheon",
+    "eco": "C12",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Bb4",
+    "es": {
+      "name": "Francesa: Variante McCutcheon",
+      "description": "Las negras contestan a la clavada con otra clavada: posición muy táctica.",
+      "idea": "Tras 5.e5 h6 6.Ad2 Axc3 7.bxc3 Ce4 ambos bandos tienen amenazas inmediatas. Las negras sacrifican solidez a cambio de juego activo contra el centro blanco.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Presiona e4.",
+        "Clava el caballo de f6.",
+        "Responde con una contraclavada sobre c3."
+      ]
+    },
+    "en": {
+      "name": "French: McCutcheon Variation",
+      "description": "Black answers the pin with a counter-pin: a very tactical position.",
+      "idea": "After 5.e5 h6 6.Bd2 Bxc3 7.bxc3 Ne4 both sides have immediate threats. Black trades solidity for active play against White's centre.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Pressures e4.",
+        "Pins the f6 knight.",
+        "Replies with a counter-pin on c3."
+      ]
+    }
+  },
+  {
+    "slug": "french-burn",
+    "eco": "C11",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 dxe4",
+    "es": {
+      "name": "Francesa: Variante Burn",
+      "description": "Las negras liberan la tensión central y buscan la pareja de alfiles.",
+      "idea": "Tras 5.Cxe4 Ae7 6.Axf6 Axf6 las negras tienen dos alfiles y una estructura sólida, aunque ceden el centro. Es una forma fiable de evitar las complicaciones de 4...Ae7 5.e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Presiona e4.",
+        "Clava el caballo.",
+        "Libera la tensión central capturando en e4."
+      ]
+    },
+    "en": {
+      "name": "French: Burn Variation",
+      "description": "Black releases the central tension and aims for the bishop pair.",
+      "idea": "After 5.Nxe4 Be7 6.Bxf6 Bxf6 Black has two bishops and a solid structure, while conceding the centre. It is a reliable way to avoid the complications of 4...Be7 5.e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Pressures e4.",
+        "Pins the knight.",
+        "Releases the central tension by capturing on e4."
+      ]
+    }
+  },
+  {
+    "slug": "french-alekhine-chatard",
+    "eco": "C13",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 Be7 5. e5 Nfd7 6. h4",
+    "es": {
+      "name": "Francesa: Ataque Alekhine-Chatard",
+      "description": "Un peón de h ofrecido para abrir la columna h si las negras capturan en g5.",
+      "idea": "Si 6...Axg5 7.hxg5 Dxg5 8.Ch3 las blancas tienen la columna h abierta y ventaja de desarrollo. Las negras suelen declinar con 6...a6 o 6...c5 para contraatacar.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Presiona e4.",
+        "Clava el caballo.",
+        "Rompe la clavada.",
+        "Gana espacio y expulsa al caballo.",
+        "Retirada que prepara ...c5 y ...f6.",
+        "Ofrece el alfil a cambio de abrir la columna h."
+      ]
+    },
+    "en": {
+      "name": "French: Alekhine-Chatard Attack",
+      "description": "An h-pawn offered to open the h-file if Black captures on g5.",
+      "idea": "If 6...Bxg5 7.hxg5 Qxg5 8.Nh3 White has the open h-file and a lead in development. Black usually declines with 6...a6 or 6...c5 to counterattack.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Pressures e4.",
+        "Pins the knight.",
+        "Breaks the pin.",
+        "Gains space and kicks the knight.",
+        "Retreat preparing ...c5 and ...f6.",
+        "Offers the bishop in exchange for opening the h-file."
+      ]
+    }
+  },
+  {
+    "slug": "french-rubinstein",
+    "eco": "C10",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 dxe4",
+    "es": {
+      "name": "Francesa: Variante Rubinstein",
+      "description": "Las negras cambian en e4 y renuncian a la tensión a cambio de solidez total.",
+      "idea": "Tras 4.Cxe4 Cd7 5.Cf3 Cgf6 las negras buscan cambiar piezas y liberar su juego con ...c5. Las blancas tienen algo más de espacio, pero la posición negra es difícil de romper.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4 para eliminar la tensión central."
+      ]
+    },
+    "en": {
+      "name": "French: Rubinstein Variation",
+      "description": "Black trades on e4 and gives up the tension for total solidity.",
+      "idea": "After 4.Nxe4 Nd7 5.Nf3 Ngf6 Black aims to trade pieces and free the game with ...c5. White has a bit more space, but Black's position is hard to break.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4 to remove the central tension."
+      ]
+    }
+  },
+  {
+    "slug": "french-fort-knox",
+    "eco": "C10",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bd7",
+    "es": {
+      "name": "Francesa: Variante Fort Knox",
+      "description": "El alfil malo de la Francesa va a c6 para cambiarse por un caballo blanco.",
+      "idea": "Con ...Ac6 las negras activan su pieza problemática y buscan cambiarla por el caballo de e4. Es una fortaleza muy sólida, ideal para buscar tablas con negras.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Defiende e4.",
+        "Captura en e4.",
+        "Recupera con el caballo centralizado.",
+        "Prepara ...Ac6 para activar el alfil problemático."
+      ]
+    },
+    "en": {
+      "name": "French: Fort Knox Variation",
+      "description": "The French's bad bishop heads to c6 to trade itself for a white knight.",
+      "idea": "With ...Bc6 Black activates the problem piece and aims to trade it for the e4 knight. It is a rock-solid fortress, ideal when Black is happy with a draw.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Defends e4.",
+        "Captures on e4.",
+        "Recaptures with a centralised knight.",
+        "Prepares ...Bc6 to activate the problem bishop."
+      ]
+    }
+  },
+  {
+    "slug": "french-kings-indian-attack",
+    "eco": "C00",
+    "side": "w",
+    "pgn": "1. e4 e6 2. d3",
+    "es": {
+      "name": "Francesa: Ataque Indio de Rey",
+      "description": "Las blancas evitan la teoría de la Francesa con un esquema cerrado y flexible.",
+      "idea": "Las blancas siguen con Cd2, Cgf3, g3, Ag2 y O-O, a menudo con e5 y un ataque en el flanco de rey. Fischer lo usó con éxito; las negras suelen jugar ...d5, ...c5 y expandirse en el flanco de dama.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Refuerza e4 y prepara un esquema de Indio de Rey con colores invertidos."
+      ]
+    },
+    "en": {
+      "name": "French: King's Indian Attack",
+      "description": "White sidesteps French theory with a closed, flexible setup.",
+      "idea": "White follows with Nd2, Ngf3, g3, Bg2 and O-O, often playing e5 and attacking on the kingside. Fischer used it successfully; Black usually plays ...d5, ...c5 and expands on the queenside.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Supports e4 and prepares a reversed King's Indian setup."
+      ]
+    }
+  },
+  {
+    "slug": "french-chigorin",
+    "eco": "C00",
+    "side": "w",
+    "pgn": "1. e4 e6 2. Qe2",
+    "es": {
+      "name": "Francesa: Variante Chigorin",
+      "description": "La dama impide ...d5 de forma incómoda al clavar el peón contra e4.",
+      "idea": "Si 2...d5 3.exd5 la dama está en la columna e y la recaptura ...exd5 deja el rey expuesto. Las blancas suelen seguir con f4 o g3 en un esquema cerrado.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "La dama apoya e4 y desanima ...d5 por la presión en la columna e."
+      ]
+    },
+    "en": {
+      "name": "French: Chigorin Variation",
+      "description": "The queen makes ...d5 awkward by eyeing the e-file.",
+      "idea": "If 2...d5 3.exd5 the queen stands on the e-file and ...exd5 leaves the king exposed. White usually follows with f4 or g3 in a closed setup.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "The queen supports e4 and discourages ...d5 through e-file pressure."
+      ]
+    }
+  },
+  {
+    "slug": "french-advance-main-line",
+    "eco": "C02",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3 Qb6",
+    "es": {
+      "name": "Francesa Avance: Línea principal con ...Db6",
+      "description": "Triple presión sobre d4: peón de c, caballo y dama.",
+      "idea": "Las blancas defienden con Ae2, a3 o Ad3 (Milner-Barry). Las negras siguen con ...Ad7, ...Cge7–f5 y buscan ganar el peón de d4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Gana espacio.",
+        "Ataca la base de la cadena.",
+        "Refuerza d4.",
+        "Presiona d4.",
+        "Defiende d4.",
+        "Añade la dama a la presión sobre d4 y b2."
+      ]
+    },
+    "en": {
+      "name": "French Advance: Main Line with ...Qb6",
+      "description": "Triple pressure on d4: c-pawn, knight and queen.",
+      "idea": "White defends with Be2, a3 or Bd3 (Milner-Barry). Black follows with ...Bd7, ...Nge7–f5 and tries to win the d4 pawn.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Gains space.",
+        "Attacks the base of the chain.",
+        "Supports d4.",
+        "Pressures d4.",
+        "Defends d4.",
+        "Adds the queen to the pressure on d4 and b2."
+      ]
+    }
+  },
+  {
+    "slug": "french-tarrasch-closed",
+    "eco": "C05",
+    "side": "b",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nd2 Nf6",
+    "es": {
+      "name": "Francesa Tarrasch: Variante cerrada",
+      "description": "Las negras invitan a e5 para atacar la cadena con ...c5 y ...f6.",
+      "idea": "Tras 4.e5 Cfd7 5.Ad3 c5 6.c3 Cc6 7.Ce2 la estructura es típica de la Francesa. Las negras presionan d4; las blancas preparan Cf3 y un ataque en el flanco de rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Prepara ...d5.",
+        "Levanta el centro.",
+        "Desafía e4.",
+        "Protege e4 evitando la clavada.",
+        "Ataca e4 invitando a las blancas a cerrar el centro."
+      ]
+    },
+    "en": {
+      "name": "French Tarrasch: Closed Variation",
+      "description": "Black invites e5 to attack the chain with ...c5 and ...f6.",
+      "idea": "After 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2 a typical French structure arises. Black pressures d4; White prepares Nf3 and a kingside attack.",
+      "moves": [
+        "Occupies the centre.",
+        "Prepares ...d5.",
+        "Builds the centre.",
+        "Challenges e4.",
+        "Protects e4 while avoiding the pin.",
+        "Attacks e4, inviting White to close the centre."
+      ]
+    }
+  }
+]

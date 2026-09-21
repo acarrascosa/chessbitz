@@ -68,7 +68,10 @@ export const ui = {
         shareResult: 'Compartir resultado',
         resultCopied: '¡Resultado copiado!',
         studyLine: 'Estudiar la línea',
-        loading: 'Cargando…'
+        studyLocked: 'Termina el reto de hoy para estudiar la línea',
+        loading: 'Cargando…',
+        planTitle: 'Ideas y planes',
+        loadError: 'No se pudo cargar la apertura de hoy. Revisa tu conexión y recarga la página.'
     },
     en: {
         start: 'Start',
@@ -139,7 +142,10 @@ export const ui = {
         shareResult: 'Share result',
         resultCopied: 'Result copied!',
         studyLine: 'Study the line',
-        loading: 'Loading…'
+        studyLocked: "Finish today's challenge to study the line",
+        loading: 'Loading…',
+        planTitle: 'Ideas & plans',
+        loadError: "Today's opening could not be loaded. Check your connection and reload the page."
     }
 };
 

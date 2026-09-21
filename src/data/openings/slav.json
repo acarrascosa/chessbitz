@@ -1,0 +1,680 @@
+[
+  {
+    "slug": "slav-defense",
+    "eco": "D10",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6",
+    "es": {
+      "name": "Defensa Eslava",
+      "description": "Sostiene d5 sin encerrar al alfil de c8: la respuesta favorita de muchos campeones.",
+      "idea": "Las negras mantienen el centro y pueden sacar el alfil a f5 o g4 antes de ...e6. A menudo toman en c4 para jugar ...b5 o ...Af5 con juego activo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5 con un peón, manteniendo libre el alfil de dama."
+      ]
+    },
+    "en": {
+      "name": "Slav Defense",
+      "description": "Holds d5 without locking in the c8 bishop: a favourite of many champions.",
+      "idea": "Black keeps the centre and can bring the bishop to f5 or g4 before ...e6. Black often takes on c4 to play ...b5 or ...Bf5 with active play.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5 with a pawn, keeping the queen's bishop free."
+      ]
+    }
+  },
+  {
+    "slug": "slav-main-line",
+    "eco": "D15",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4",
+    "es": {
+      "name": "Eslava: Línea principal con ...dxc4",
+      "description": "Las negras capturan en c4 cuando las blancas ya no pueden recuperarlo con e3 fácilmente.",
+      "idea": "Las blancas suelen jugar 5.a4 para impedir ...b5 y recuperar el peón. Las negras aprovechan el tiempo para sacar el alfil a f5 o g4 con desarrollo cómodo.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla y controla e5.",
+        "Desarrolla.",
+        "Presiona d5.",
+        "Captura en c4 amenazando sostener el peón con ...b5."
+      ]
+    },
+    "en": {
+      "name": "Slav: Main Line with ...dxc4",
+      "description": "Black takes on c4 once White can no longer easily regain it with e3.",
+      "idea": "White usually plays 5.a4 to prevent ...b5 and regain the pawn. Black uses the time to develop the bishop to f5 or g4 comfortably.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops and controls e5.",
+        "Develops.",
+        "Pressures d5.",
+        "Takes on c4, threatening to hold the pawn with ...b5."
+      ]
+    }
+  },
+  {
+    "slug": "slav-czech",
+    "eco": "D17",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 5. a4 Bf5",
+    "es": {
+      "name": "Eslava: Variante Checa",
+      "description": "El alfil sale a f5 aprovechando que a4 debilitó b4.",
+      "idea": "Las negras siguen con ...e6, ...Ab4 y ...O-O, con juego sólido. Las blancas buscan e4 con Ce5 y f3, o recuperar el peón con e3 y Axc4.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Presiona d5.",
+        "Captura en c4.",
+        "Impide ...b5 para recuperar el peón.",
+        "Saca el alfil antes de ...e6 y controla e4."
+      ]
+    },
+    "en": {
+      "name": "Slav: Czech Variation",
+      "description": "The bishop comes to f5, taking advantage of a4 weakening b4.",
+      "idea": "Black follows with ...e6, ...Bb4 and ...O-O, with solid play. White aims for e4 via Ne5 and f3, or regains the pawn with e3 and Bxc4.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops.",
+        "Develops.",
+        "Pressures d5.",
+        "Takes on c4.",
+        "Prevents ...b5 in order to regain the pawn.",
+        "Develops the bishop before ...e6 and controls e4."
+      ]
+    }
+  },
+  {
+    "slug": "slav-exchange",
+    "eco": "D10",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. cxd5 cxd5",
+    "es": {
+      "name": "Eslava: Variante del Cambio",
+      "description": "Estructura simétrica con la columna c abierta: pocas complicaciones.",
+      "idea": "Las blancas buscan presión en la columna c con Cc3, Af4 y Tc1. Las negras deben copiar con precisión; quien controle antes la columna c suele tener ventaja.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Cambia en d5 y abre la columna c.",
+        "Recaptura manteniendo la simetría."
+      ]
+    },
+    "en": {
+      "name": "Slav: Exchange Variation",
+      "description": "A symmetrical structure with the open c-file: few complications.",
+      "idea": "White seeks pressure on the c-file with Nc3, Bf4 and Rc1. Black must mirror accurately; whoever controls the c-file first usually gets the edge.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Trades on d5 and opens the c-file.",
+        "Recaptures, keeping the symmetry."
+      ]
+    }
+  },
+  {
+    "slug": "slav-chebanenko",
+    "eco": "D15",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 a6",
+    "es": {
+      "name": "Eslava: Variante Chebanenko (...a6)",
+      "description": "Un movimiento modesto que prepara ...b5 y deja abiertas muchas opciones.",
+      "idea": "Las negras pueden jugar ...b5 para ganar espacio o ...dxc4 seguido de ...b5. Las blancas suelen responder con c5, e3 o Af4 para impedir el plan.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Presiona d5.",
+        "Prepara ...b5 para ganar espacio en el flanco de dama."
+      ]
+    },
+    "en": {
+      "name": "Slav: Chebanenko Variation (...a6)",
+      "description": "A modest move that prepares ...b5 and keeps many options open.",
+      "idea": "Black may play ...b5 to gain space or ...dxc4 followed by ...b5. White usually answers with c5, e3 or Bf4 to stop the plan.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops.",
+        "Develops.",
+        "Pressures d5.",
+        "Prepares ...b5 to gain queenside space."
+      ]
+    }
+  },
+  {
+    "slug": "slav-quiet-bf5",
+    "eco": "D12",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. e3 Bf5",
+    "es": {
+      "name": "Eslava: Variante lenta con ...Af5",
+      "description": "Contra 4.e3 las negras sacan el alfil y consiguen una posición cómoda.",
+      "idea": "Las negras completan con ...e6, ...Cbd7 y ...Ad6. Las blancas intentan aprovechar b7 con Db3 o jugar Ch4 para cazar el alfil.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d4 y abre el alfil de f1, pero encierra el de c1.",
+        "Saca el alfil fuera de la cadena antes de ...e6."
+      ]
+    },
+    "en": {
+      "name": "Slav: Quiet Line with ...Bf5",
+      "description": "Against 4.e3 Black develops the bishop and gets a comfortable game.",
+      "idea": "Black completes with ...e6, ...Nbd7 and ...Bd6. White tries to exploit b7 with Qb3 or plays Nh4 to hunt the bishop.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d4 and opens the f1 bishop, but shuts in the c1 bishop.",
+        "Gets the bishop outside the chain before ...e6."
+      ]
+    }
+  },
+  {
+    "slug": "slav-schlechter",
+    "eco": "D94",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. e3 g6",
+    "es": {
+      "name": "Eslava: Variante Schlechter",
+      "description": "Un híbrido entre la Eslava y la Grünfeld con el alfil en g7.",
+      "idea": "Las negras combinan la solidez de d5–c6 con el fianchetto. Es una posición tranquila con mucho juego de maniobras.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d4.",
+        "Prepara el fianchetto del alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "Slav: Schlechter Variation",
+      "description": "A Slav–Grünfeld hybrid with the bishop on g7.",
+      "idea": "Black combines the solidity of d5–c6 with the fianchetto. It is a calm position with lots of manoeuvring.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d4.",
+        "Prepares the king's bishop fianchetto."
+      ]
+    }
+  },
+  {
+    "slug": "slav-geller-gambit",
+    "eco": "D15",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 dxc4 5. e4",
+    "es": {
+      "name": "Eslava: Gambito Geller",
+      "description": "Las blancas dejan el peón de c4 y ocupan el centro con e4.",
+      "idea": "Tras 5...b5 6.e5 Cd5 7.a4 las blancas atacan la cadena de peones negra y obtienen espacio. Las negras conservan material pero deben defenderse con precisión.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Presiona d5.",
+        "Captura en c4.",
+        "Ocupa el centro con dos peones a cambio del peón de c."
+      ]
+    },
+    "en": {
+      "name": "Slav: Geller Gambit",
+      "description": "White leaves the c4 pawn and occupies the centre with e4.",
+      "idea": "After 5...b5 6.e5 Nd5 7.a4 White attacks Black's pawn chain and gains space. Black keeps material but must defend accurately.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Develops.",
+        "Develops.",
+        "Pressures d5.",
+        "Takes on c4.",
+        "Occupies the centre with two pawns in return for the c-pawn."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-defense",
+    "eco": "D43",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6",
+    "es": {
+      "name": "Defensa Semieslava",
+      "description": "Eslava más ...e6: una fortaleza que esconde un contraataque feroz.",
+      "idea": "Las negras amenazan ...dxc4 seguido de ...b5 para quedarse con el peón. Las blancas eligen entre el tranquilo 5.e3 (Merano) y el explosivo 5.Ag5 (Botvinnik y Moscú).",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5 una vez más, preparando ...dxc4 y ...b5."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav Defense",
+      "description": "Slav plus ...e6: a fortress hiding a ferocious counterattack.",
+      "idea": "Black threatens ...dxc4 followed by ...b5 to keep the pawn. White chooses between the calm 5.e3 (Meran) and the explosive 5.Bg5 (Botvinnik and Moscow).",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5 once more, preparing ...dxc4 and ...b5."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-meran",
+    "eco": "D47",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. e3 Nbd7 6. Bd3 dxc4 7. Bxc4 b5",
+    "es": {
+      "name": "Semieslava: Variante Merano",
+      "description": "Las negras ganan tiempo sobre el alfil y expanden el flanco de dama.",
+      "idea": "Tras 8.Ad3 Ab7 las negras preparan ...a6 y ...c5 para liberar su juego. Las blancas buscan e4–e5 con ataque en el centro y el flanco de rey.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Refuerza d4 y prepara Ad3.",
+        "Prepara ...e5 o ...c5.",
+        "Desarrolla el alfil apuntando al flanco de rey.",
+        "Captura en c4 ganando un tiempo sobre el alfil.",
+        "Recupera el peón.",
+        "Expulsa al alfil y gana espacio para ...Ab7 y ...c5."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Meran Variation",
+      "description": "Black gains time on the bishop and expands on the queenside.",
+      "idea": "After 8.Bd3 Bb7 Black prepares ...a6 and ...c5 to free the game. White aims for e4–e5 with play in the centre and on the kingside.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Supports d4 and prepares Bd3.",
+        "Prepares ...e5 or ...c5.",
+        "Develops the bishop, aiming at the kingside.",
+        "Takes on c4, gaining a tempo on the bishop.",
+        "Regains the pawn.",
+        "Kicks the bishop and gains space for ...Bb7 and ...c5."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-botvinnik",
+    "eco": "D44",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. Bg5 dxc4",
+    "es": {
+      "name": "Semieslava: Variante Botvinnik",
+      "description": "Una de las líneas más complicadas de toda la teoría: sacrificios en ambos flancos.",
+      "idea": "Tras 6.e4 b5 7.e5 h6 8.Ah4 g5 9.Cxg5 hxg5 10.Axg5 las piezas cuelgan por todas partes. Es pura teoría forzada donde la preparación con ordenador decide.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Clava el caballo de f6.",
+        "Toma c4 y prepara ...b5 para retener el peón."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Botvinnik Variation",
+      "description": "One of the most complicated lines in all of theory: sacrifices on both wings.",
+      "idea": "After 6.e4 b5 7.e5 h6 8.Bh4 g5 9.Nxg5 hxg5 10.Bxg5 pieces are hanging everywhere. It is pure forcing theory where computer preparation decides.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Pins the f6 knight.",
+        "Takes c4 and prepares ...b5 to keep the pawn."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-moscow",
+    "eco": "D43",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. Bg5 h6",
+    "es": {
+      "name": "Semieslava: Variante Moscú",
+      "description": "Las negras preguntan al alfil antes de tomar en c4, buscando la pareja de alfiles.",
+      "idea": "Tras 6.Axf6 Dxf6 las negras tienen la pareja de alfiles y una estructura sólida. Las blancas pueden evitarlo con el Gambito anti-Moscú (6.Ah4).",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Clava el caballo.",
+        "Pregunta al alfil antes de cualquier otra decisión."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Moscow Variation",
+      "description": "Black questions the bishop before taking on c4, aiming for the bishop pair.",
+      "idea": "After 6.Bxf6 Qxf6 Black has the bishop pair and a solid structure. White can avoid it with the Anti-Moscow Gambit (6.Bh4).",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Pins the knight.",
+        "Questions the bishop before anything else."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-anti-moscow",
+    "eco": "D43",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. Bg5 h6 6. Bh4",
+    "es": {
+      "name": "Semieslava: Gambito anti-Moscú",
+      "description": "Las blancas mantienen la clavada y ofrecen el peón de c4.",
+      "idea": "Tras 6...dxc4 7.e4 g5 8.Ag3 b5 las blancas tienen un centro fuerte y compensación por el peón. Posiciones muy agudas con enroques inciertos.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Clava el caballo.",
+        "Pregunta al alfil.",
+        "Mantiene la clavada y deja que las negras tomen en c4."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Anti-Moscow Gambit",
+      "description": "White keeps the pin and offers the c4 pawn.",
+      "idea": "After 6...dxc4 7.e4 g5 8.Bg3 b5 White has a strong centre and compensation for the pawn. Very sharp positions with uncertain king safety.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Pins the knight.",
+        "Questions the bishop.",
+        "Keeps the pin and lets Black take on c4."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-shabalov",
+    "eco": "D45",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. e3 Nbd7 6. Qc2 Bd6 7. g4",
+    "es": {
+      "name": "Semieslava: Ataque Shabalov-Shirov",
+      "description": "Un peón de g lanzado en la jugada 7 para expulsar al caballo defensor.",
+      "idea": "Si 7...Cxg4 las blancas abren la columna g con Tg1; si no, g5 expulsa al caballo y gana e4. Una idea moderna que transformó la teoría de la Semieslava.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Refuerza d4.",
+        "Prepara ...e5.",
+        "Controla e4 y prepara el avance g4.",
+        "Apunta el alfil al flanco de rey y prepara ...e5.",
+        "Ataca al caballo defensor de e4 con un peón."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Shabalov-Shirov Attack",
+      "description": "A g-pawn thrown forward on move 7 to kick the defending knight.",
+      "idea": "If 7...Nxg4 White opens the g-file with Rg1; otherwise g5 kicks the knight and wins e4. A modern idea that transformed Semi-Slav theory.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Supports d4.",
+        "Prepares ...e5.",
+        "Controls e4 and prepares the g4 advance.",
+        "Aims the bishop at the kingside and prepares ...e5.",
+        "Attacks e4's defending knight with a pawn."
+      ]
+    }
+  },
+  {
+    "slug": "slav-marshall-gambit",
+    "eco": "D31",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 e6 4. e4",
+    "es": {
+      "name": "Semieslava: Gambito Marshall",
+      "description": "Las blancas golpean el centro contra la Semieslava triangular.",
+      "idea": "Tras 4...dxe4 5.Cxe4 Ab4+ 6.Ad2 Dxd4 7.Axb4 Dxe4+ las blancas sacrifican un peón a cambio de casillas negras y desarrollo. Muy concreto y peligroso.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Forma el triángulo c6–d5–e6.",
+        "Ocupa el centro con un peón más, ofreciendo gambito."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Marshall Gambit",
+      "description": "White strikes at the centre against the triangle Semi-Slav.",
+      "idea": "After 4...dxe4 5.Nxe4 Bb4+ 6.Bd2 Qxd4 7.Bxb4 Qxe4+ White sacrifices a pawn for dark squares and development. Very concrete and dangerous.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Forms the c6–d5–e6 triangle.",
+        "Occupies the centre with another pawn, offering a gambit."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-noteboom",
+    "eco": "D31",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 e6 4. Nf3 dxc4",
+    "es": {
+      "name": "Semieslava: Variante Noteboom",
+      "description": "Las negras toman en c4 y sostienen el peón con ...b5 a toda costa.",
+      "idea": "Tras 5.a4 Ab4 6.e3 b5 7.Ad2 a5 las negras tienen dos peones pasados en el flanco de dama, y las blancas un fuerte centro y ataque. Posiciones muy desequilibradas.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Forma el triángulo.",
+        "Desarrolla.",
+        "Toma c4 para sostenerlo con ...b5."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Noteboom Variation",
+      "description": "Black takes on c4 and holds the pawn with ...b5 at all costs.",
+      "idea": "After 5.a4 Bb4 6.e3 b5 7.Bd2 a5 Black has two queenside passed pawns and White a strong centre and attack. Very unbalanced positions.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Forms the triangle.",
+        "Develops.",
+        "Takes c4 to hold it with ...b5."
+      ]
+    }
+  },
+  {
+    "slug": "slav-winawer-countergambit",
+    "eco": "D10",
+    "side": "b",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 e5",
+    "es": {
+      "name": "Eslava: Contragambito Winawer",
+      "description": "Las negras sacrifican el peón de e para golpear d4 de inmediato.",
+      "idea": "Tras 4.dxe5 d4 5.Ce4 las negras ganan espacio y tiempo contra el caballo. Es una sorpresa arriesgada con ideas parecidas al Contragambito Albin.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Contraataca d4 con un peón sacrificado."
+      ]
+    },
+    "en": {
+      "name": "Slav: Winawer Countergambit",
+      "description": "Black sacrifices the e-pawn to hit d4 at once.",
+      "idea": "After 4.dxe5 d4 5.Ne4 Black gains space and time against the knight. It is a risky surprise with ideas similar to the Albin Countergambit.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Counterattacks d4 with a sacrificed pawn."
+      ]
+    }
+  },
+  {
+    "slug": "semi-slav-anti-meran",
+    "eco": "D45",
+    "side": "w",
+    "pgn": "1. d4 d5 2. c4 c6 3. Nc3 Nf6 4. Nf3 e6 5. e3 Nbd7 6. Qc2",
+    "es": {
+      "name": "Semieslava: Anti-Merano (6.Dc2)",
+      "description": "La dama controla e4 y evita la Variante Merano.",
+      "idea": "Las blancas preparan Ad3 o b3 y e4. Las negras suelen jugar ...Ad6 y ...O-O, con la ruptura ...e5 o ...dxc4 seguido de ...e5.",
+      "moves": [
+        "Ocupa el centro.",
+        "Réplica simétrica.",
+        "Ataca d5.",
+        "Refuerza d5.",
+        "Presiona d5.",
+        "Desarrolla.",
+        "Desarrolla.",
+        "Refuerza d5.",
+        "Refuerza d4.",
+        "Prepara ...e5 o ...b5.",
+        "Controla e4 sin permitir el esquema del Merano."
+      ]
+    },
+    "en": {
+      "name": "Semi-Slav: Anti-Meran (6.Qc2)",
+      "description": "The queen controls e4 and avoids the Meran.",
+      "idea": "White prepares Bd3 or b3 and e4. Black usually plays ...Bd6 and ...O-O, with the ...e5 break or ...dxc4 followed by ...e5.",
+      "moves": [
+        "Occupies the centre.",
+        "Symmetrical reply.",
+        "Attacks d5.",
+        "Supports d5.",
+        "Pressures d5.",
+        "Develops.",
+        "Develops.",
+        "Supports d5.",
+        "Supports d4.",
+        "Prepares ...e5 or ...b5.",
+        "Controls e4 without allowing the Meran setup."
+      ]
+    }
+  }
+]

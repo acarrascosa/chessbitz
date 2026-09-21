@@ -1,0 +1,378 @@
+[
+  {
+    "slug": "zukertort-opening",
+    "eco": "A04",
+    "side": "w",
+    "pgn": "1. Nf3",
+    "es": {
+      "name": "Apertura Zukertort",
+      "description": "El caballo primero: controla e5 y d4 sin revelar el plan.",
+      "idea": "Las blancas pueden transponer a la Réti, la Inglesa, el Gambito de Dama o el Ataque Indio de Rey. Es una forma de evitar defensas concretas como la Holandesa con ...e5.",
+      "moves": [
+        "Desarrolla, controla e5 y d4 y mantiene todas las opciones."
+      ]
+    },
+    "en": {
+      "name": "Zukertort Opening",
+      "description": "Knight first: controls e5 and d4 without revealing the plan.",
+      "idea": "White can transpose to the Réti, the English, the Queen's Gambit or the King's Indian Attack. It avoids certain defences, such as a Dutch-style ...e5.",
+      "moves": [
+        "Develops, controls e5 and d4 and keeps every option open."
+      ]
+    }
+  },
+  {
+    "slug": "reti-opening",
+    "eco": "A09",
+    "side": "w",
+    "pgn": "1. Nf3 d5 2. c4",
+    "es": {
+      "name": "Apertura Réti",
+      "description": "Hipermodernismo puro: atacar el centro negro desde los flancos.",
+      "idea": "Las blancas combinan c4 con g3, Ag2 y a veces b3 y Ab2 para presionar d5 y e4. Réti la usó para vencer a Capablanca en 1924.",
+      "moves": [
+        "Desarrolla y controla e5.",
+        "Ocupa el centro.",
+        "Ataca d5 desde el flanco sin ocupar el centro con peones."
+      ]
+    },
+    "en": {
+      "name": "Réti Opening",
+      "description": "Pure hypermodernism: attack Black's centre from the flanks.",
+      "idea": "White combines c4 with g3, Bg2 and sometimes b3 and Bb2 to pressure d5 and e4. Réti used it to beat Capablanca in 1924.",
+      "moves": [
+        "Develops and controls e5.",
+        "Occupies the centre.",
+        "Attacks d5 from the flank without occupying the centre with pawns."
+      ]
+    }
+  },
+  {
+    "slug": "reti-gambit-accepted",
+    "eco": "A09",
+    "side": "b",
+    "pgn": "1. Nf3 d5 2. c4 dxc4",
+    "es": {
+      "name": "Réti: Gambito aceptado",
+      "description": "Las negras toman el peón de c4 como en el Gambito de Dama Aceptado.",
+      "idea": "Las blancas recuperan con e3 y Axc4 o con Da4+. Las negras obtienen desarrollo libre, aunque las blancas no han comprometido su peón de d.",
+      "moves": [
+        "Desarrolla.",
+        "Ocupa el centro.",
+        "Ataca d5.",
+        "Acepta el peón a cambio de un desarrollo libre."
+      ]
+    },
+    "en": {
+      "name": "Réti: Gambit Accepted",
+      "description": "Black takes the c4 pawn, as in the Queen's Gambit Accepted.",
+      "idea": "White regains it with e3 and Bxc4 or with Qa4+. Black gets free development, though White has not committed the d-pawn.",
+      "moves": [
+        "Develops.",
+        "Occupies the centre.",
+        "Attacks d5.",
+        "Accepts the pawn for free development."
+      ]
+    }
+  },
+  {
+    "slug": "reti-advance",
+    "eco": "A09",
+    "side": "b",
+    "pgn": "1. Nf3 d5 2. c4 d4",
+    "es": {
+      "name": "Réti: Variante del avance",
+      "description": "Las negras ganan espacio con el peón en d4: una Benoni invertida.",
+      "idea": "Las blancas atacan el peón avanzado con e3, b4 o g3 y Ag2. Las negras lo sostienen con ...c5, ...Cc6 y ...e5.",
+      "moves": [
+        "Desarrolla.",
+        "Ocupa el centro.",
+        "Ataca d5.",
+        "Avanza y gana espacio en lugar de cambiar."
+      ]
+    },
+    "en": {
+      "name": "Réti: Advance Variation",
+      "description": "Black gains space with the pawn on d4: a reversed Benoni.",
+      "idea": "White attacks the advanced pawn with e3, b4 or g3 and Bg2. Black supports it with ...c5, ...Nc6 and ...e5.",
+      "moves": [
+        "Develops.",
+        "Occupies the centre.",
+        "Attacks d5.",
+        "Advances and gains space instead of exchanging."
+      ]
+    }
+  },
+  {
+    "slug": "kings-indian-attack",
+    "eco": "A07",
+    "side": "w",
+    "pgn": "1. Nf3 d5 2. g3 Nf6 3. Bg2 e6 4. O-O Be7 5. d3",
+    "es": {
+      "name": "Ataque Indio de Rey",
+      "description": "La India de Rey con blancas: el mismo esquema contra casi todo.",
+      "idea": "Las blancas juegan Cbd2, e4 y a menudo e5 con ataque en el flanco de rey (Ch2, f4, h4). Fischer lo usó durante años; las negras atacan en el flanco de dama.",
+      "moves": [
+        "Desarrolla y controla e5.",
+        "Ocupa el centro.",
+        "Prepara el fianchetto.",
+        "Desarrolla.",
+        "Completa el fianchetto.",
+        "Prepara ...Ae7 y refuerza d5.",
+        "Enroca.",
+        "Desarrolla y prepara el enroque.",
+        "Prepara e4 con apoyo del caballo de d2."
+      ]
+    },
+    "en": {
+      "name": "King's Indian Attack",
+      "description": "The King's Indian with White: the same setup against almost anything.",
+      "idea": "White plays Nbd2, e4 and often e5 with a kingside attack (Nh2, f4, h4). Fischer used it for years; Black attacks on the queenside.",
+      "moves": [
+        "Develops and controls e5.",
+        "Occupies the centre.",
+        "Prepares the fianchetto.",
+        "Develops.",
+        "Completes the fianchetto.",
+        "Prepares ...Be7 and supports d5.",
+        "Castles.",
+        "Develops and prepares castling.",
+        "Prepares e4 with the d2 knight's support."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-larsen-attack",
+    "eco": "A01",
+    "side": "w",
+    "pgn": "1. b3",
+    "es": {
+      "name": "Ataque Nimzo-Larsen",
+      "description": "Fianchetto de dama desde la primera jugada: el alfil de b2 mira a e5 y g7.",
+      "idea": "Las blancas controlan e5 desde lejos y juegan Ab2, e3, Cf3 y c4 o f4. Larsen la usó con éxito contra la élite en los años 60 y 70.",
+      "moves": [
+        "Prepara Ab2 para controlar la gran diagonal desde el primer momento."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Larsen Attack",
+      "description": "A queenside fianchetto from move one: the b2 bishop eyes e5 and g7.",
+      "idea": "White controls e5 from afar and plays Bb2, e3, Nf3 and c4 or f4. Larsen used it successfully against the elite in the 1960s and 70s.",
+      "moves": [
+        "Prepares Bb2 to control the long diagonal from the start."
+      ]
+    }
+  },
+  {
+    "slug": "nimzo-larsen-classical",
+    "eco": "A01",
+    "side": "b",
+    "pgn": "1. b3 e5 2. Bb2 Nc6",
+    "es": {
+      "name": "Nimzo-Larsen: Defensa Clásica",
+      "description": "Las negras ocupan el centro y protegen e5 contra el alfil de b2.",
+      "idea": "Las negras siguen con ...Cf6, ...d5 y ...Ad6, construyendo un centro fuerte. Las blancas presionan con e3, Ab5 y f4 para desafiar e5.",
+      "moves": [
+        "Prepara el fianchetto de dama.",
+        "Ocupa el centro, en la diagonal del futuro alfil.",
+        "El alfil ataca e5.",
+        "Defiende e5 con desarrollo."
+      ]
+    },
+    "en": {
+      "name": "Nimzo-Larsen: Classical Defense",
+      "description": "Black occupies the centre and protects e5 against the b2 bishop.",
+      "idea": "Black follows with ...Nf6, ...d5 and ...Bd6, building a strong centre. White pressures with e3, Bb5 and f4 to challenge e5.",
+      "moves": [
+        "Prepares the queenside fianchetto.",
+        "Occupies the centre, on the future bishop's diagonal.",
+        "The bishop attacks e5.",
+        "Defends e5 with development."
+      ]
+    }
+  },
+  {
+    "slug": "birds-opening",
+    "eco": "A02",
+    "side": "w",
+    "pgn": "1. f4",
+    "es": {
+      "name": "Apertura Bird",
+      "description": "Una Holandesa con blancas: control de e5 y ataque en el flanco de rey.",
+      "idea": "Las blancas juegan Cf3, e3, Ae2 o b3 y Ab2, con planes de Ce5 y De1–h4. Es rara al máximo nivel, pero lleva a posiciones originales.",
+      "moves": [
+        "Controla e5 con el peón de f, al estilo de la Holandesa."
+      ]
+    },
+    "en": {
+      "name": "Bird's Opening",
+      "description": "A Dutch with White: control of e5 and kingside play.",
+      "idea": "White plays Nf3, e3, Be2 or b3 and Bb2, with plans of Ne5 and Qe1–h4. Rare at top level, but it leads to original positions.",
+      "moves": [
+        "Controls e5 with the f-pawn, Dutch-style."
+      ]
+    }
+  },
+  {
+    "slug": "from-gambit",
+    "eco": "A02",
+    "side": "b",
+    "pgn": "1. f4 e5",
+    "es": {
+      "name": "Gambito From",
+      "description": "Las negras golpean el peón de f4 para abrir líneas contra el rey blanco.",
+      "idea": "Tras 2.fxe5 d6 3.exd6 Axd6 las negras amenazan ...Dh4+ y tienen desarrollo muy rápido. Las blancas deben jugar 4.Cf3: si 4.Cc3?? Dh4+ 5.g3 Dxg3+ 6.hxg3 Axg3# es mate.",
+      "moves": [
+        "Controla e5.",
+        "Ofrece un peón para abrir la diagonal hacia el rey blanco."
+      ]
+    },
+    "en": {
+      "name": "From's Gambit",
+      "description": "Black hits the f4 pawn to open lines against White's king.",
+      "idea": "After 2.fxe5 d6 3.exd6 Bxd6 Black threatens ...Qh4+ with very fast development. White must play 4.Nf3: after 4.Nc3?? Qh4+ 5.g3 Qxg3+ 6.hxg3 Bxg3# it is mate.",
+      "moves": [
+        "Controls e5.",
+        "Offers a pawn to open the diagonal towards the white king."
+      ]
+    }
+  },
+  {
+    "slug": "sokolsky-opening",
+    "eco": "A00",
+    "side": "w",
+    "pgn": "1. b4",
+    "es": {
+      "name": "Apertura Polaca (Sokolsky)",
+      "description": "El peón de b gana espacio y prepara Ab2 contra e5.",
+      "idea": "Las blancas combinan b4, Ab2 y a3 con presión en la gran diagonal. Las negras suelen responder con ...e5 atacando el peón con el alfil de f8.",
+      "moves": [
+        "Gana espacio en el flanco de dama y prepara Ab2."
+      ]
+    },
+    "en": {
+      "name": "Polish (Sokolsky) Opening",
+      "description": "The b-pawn gains space and prepares Bb2 against e5.",
+      "idea": "White combines b4, Bb2 and a3 with pressure on the long diagonal. Black usually answers ...e5, attacking the pawn with the f8 bishop.",
+      "moves": [
+        "Gains queenside space and prepares Bb2."
+      ]
+    }
+  },
+  {
+    "slug": "grob-opening",
+    "eco": "A00",
+    "side": "w",
+    "pgn": "1. g4",
+    "es": {
+      "name": "Apertura Grob",
+      "description": "Un avance extravagante que debilita el rey pero abre la diagonal del alfil.",
+      "idea": "Las blancas buscan Ag2 contra b7 y d5, con ideas de g5. Las negras responden con ...d5 y ...Axg4 o con ...e5 aprovechando la debilidad de f3 y h3.",
+      "moves": [
+        "Gana espacio en el flanco de rey y prepara Ag2, a costa de debilitar el rey."
+      ]
+    },
+    "en": {
+      "name": "Grob Opening",
+      "description": "An eccentric advance that weakens the king but opens the bishop's diagonal.",
+      "idea": "White aims for Bg2 against b7 and d5, with g5 ideas. Black answers ...d5 and ...Bxg4 or ...e5, exploiting the weaknesses on f3 and h3.",
+      "moves": [
+        "Gains kingside space and prepares Bg2, at the cost of weakening the king."
+      ]
+    }
+  },
+  {
+    "slug": "van-geet-opening",
+    "eco": "A00",
+    "side": "w",
+    "pgn": "1. Nc3",
+    "es": {
+      "name": "Apertura Van Geet (Dunst)",
+      "description": "El caballo de dama primero: controla e4 y d5 y puede transponer a la Vienesa.",
+      "idea": "Las blancas pueden seguir con e4 (Vienesa), d4 (Veresov) o f4. Es flexible y lleva a menudo a posiciones poco estudiadas.",
+      "moves": [
+        "Desarrolla y controla e4 y d5 sin comprometer peones."
+      ]
+    },
+    "en": {
+      "name": "Van Geet (Dunst) Opening",
+      "description": "Queen's knight first: controls e4 and d5 and can transpose to the Vienna.",
+      "idea": "White can follow with e4 (Vienna), d4 (Veresov) or f4. It is flexible and often leads to little-studied positions.",
+      "moves": [
+        "Develops and controls e4 and d5 without committing pawns."
+      ]
+    }
+  },
+  {
+    "slug": "benko-opening",
+    "eco": "A00",
+    "side": "w",
+    "pgn": "1. g3",
+    "es": {
+      "name": "Apertura Benko (1.g3)",
+      "description": "Fianchetto de rey inmediato, con transposiciones a la Réti o la Inglesa.",
+      "idea": "Las blancas juegan Ag2, Cf3 y c4 o d3–e4. El orden de jugadas permite evitar algunas defensas concretas del rival.",
+      "moves": [
+        "Prepara el fianchetto del alfil de rey."
+      ]
+    },
+    "en": {
+      "name": "Benko Opening (1.g3)",
+      "description": "An immediate king's fianchetto, transposing to Réti or English lines.",
+      "idea": "White plays Bg2, Nf3 and c4 or d3–e4. The move order lets White avoid some specific defences.",
+      "moves": [
+        "Prepares the king's bishop fianchetto."
+      ]
+    }
+  },
+  {
+    "slug": "bird-dutch-variation",
+    "eco": "A03",
+    "side": "b",
+    "pgn": "1. f4 d5",
+    "es": {
+      "name": "Bird: Variante Holandesa",
+      "description": "Las negras ocupan d5 y controlan e4 frente al peón de f4.",
+      "idea": "La posición se parece a una Holandesa invertida: las blancas buscan Cf3, e3, b3 y Ab2; las negras ...Cf6, ...g6 o ...Ag4 con juego cómodo.",
+      "moves": [
+        "Controla e5.",
+        "Ocupa el centro y controla e4."
+      ]
+    },
+    "en": {
+      "name": "Bird: Dutch Variation",
+      "description": "Black occupies d5 and controls e4 against the f4 pawn.",
+      "idea": "It looks like a reversed Dutch: White aims for Nf3, e3, b3 and Bb2; Black for ...Nf6, ...g6 or ...Bg4 with comfortable play.",
+      "moves": [
+        "Controls e5.",
+        "Occupies the centre and controls e4."
+      ]
+    }
+  },
+  {
+    "slug": "reti-nimzo-larsen",
+    "eco": "A06",
+    "side": "w",
+    "pgn": "1. Nf3 d5 2. b3",
+    "es": {
+      "name": "Réti: Nimzo-Larsen",
+      "description": "Fianchetto de dama con el caballo ya en f3: control total de e5.",
+      "idea": "Las blancas juegan Ab2, e3, c4 y a veces Ce5 o d3 con e4. El alfil de b2 es la pieza clave de todo el sistema.",
+      "moves": [
+        "Desarrolla y controla e5.",
+        "Ocupa el centro.",
+        "Prepara Ab2 para dominar la gran diagonal."
+      ]
+    },
+    "en": {
+      "name": "Réti: Nimzo-Larsen",
+      "description": "A queenside fianchetto with the knight already on f3: total control of e5.",
+      "idea": "White plays Bb2, e3, c4 and sometimes Ne5 or d3 with e4. The b2 bishop is the key piece of the whole system.",
+      "moves": [
+        "Develops and controls e5.",
+        "Occupies the centre.",
+        "Prepares Bb2 to dominate the long diagonal."
+      ]
+    }
+  }
+]

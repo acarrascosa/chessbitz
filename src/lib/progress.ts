@@ -1,7 +1,8 @@
 import { MAX_MISTAKES, type ChallengeState } from './challenge';
 
 export interface DayRecord {
-    openingId: number;
+    /** Slug of the opening played that day. */
+    opening: string;
     state: ChallengeState;
 }
 
