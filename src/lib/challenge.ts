@@ -129,3 +129,8 @@ export function resultGrid(state: ChallengeState, plies: Ply[]): string {
         .map(p => (state.results[p.index] ? EMOJI[state.results[p.index]] : '⬜'))
         .join('');
 }
+
+/** Bucket reported to global stats: mistakes for a completed line, MAX_MISTAKES when lost. */
+export function resultBucket(state: ChallengeState): number {
+    return state.status === 'lost' ? MAX_MISTAKES : state.mistakes;
+}

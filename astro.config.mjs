@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: page => !page.includes('/data/'),
+      filter: page => !page.includes('/data/') && !page.includes('/404'),
       i18n: { defaultLocale: 'es', locales: { es: 'es-ES', en: 'en-US' } },
     }),
   ],

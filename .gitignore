@@ -27,3 +27,6 @@ scripts/legacy/
 
 # local tooling
 .claude/
+
+# wrangler local state
+.wrangler/

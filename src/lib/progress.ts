@@ -4,6 +4,8 @@ export interface DayRecord {
     /** Slug of the opening played that day. */
     opening: string;
     state: ChallengeState;
+    /** The finished result was already reported to the global stats. */
+    submitted?: boolean;
 }
 
 /** Day number → the player's challenge for that day. */

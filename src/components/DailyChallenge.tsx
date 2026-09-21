@@ -4,10 +4,12 @@ import confetti from 'canvas-confetti';
 import ChallengeMode from './ChallengeMode';
 import StudyMode from './StudyMode';
 import ResultCard from './ResultCard';
+import GlobalStatsPanel from './GlobalStatsPanel';
 import type { Opening } from '../lib/openings';
 import { parseLine, type Ply } from '../lib/line';
-import { challengeReducer, createChallenge } from '../lib/challenge';
+import { challengeReducer, createChallenge, resultBucket } from '../lib/challenge';
 import { computeStats, loadHistory, saveDay } from '../lib/progress';
+import { fetchGlobalStats, submitResult, type GlobalStats } from '../lib/stats-api';
 import { ui, defaultLang, type Lang } from '../i18n/ui';
 
 interface DailyChallengeProps {
@@ -45,17 +47,35 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
     const plies = useMemo(() => safeParse(opening.pgn), [opening.pgn]);
     const reducer = useMemo(() => challengeReducer(plies), [plies]);
 
-    const [state, dispatch] = useReducer(reducer, undefined, () => {
-        const saved = loadHistory()[day];
-        return saved?.opening === opening.slug ? saved.state : createChallenge(plies, side);
-    });
+    const saved = useMemo(() => {
+        const record = loadHistory()[day];
+        return record?.opening === opening.slug ? record : undefined;
+    }, [day, opening.slug]);
+    const [state, dispatch] = useReducer(reducer, undefined, () => saved?.state ?? createChallenge(plies, side));
+    const [submitted, setSubmitted] = useState(saved?.submitted ?? false);
     const [history, setHistory] = useState(loadHistory);
+    const [global, setGlobal] = useState<GlobalStats | null>(null);
     const [mode, setMode] = useState<Mode>('challenge');
     const finished = state.status !== 'playing';
 
     useEffect(() => {
-        setHistory(saveDay(day, { opening: opening.slug, state }));
-    }, [day, opening.slug, state]);
+        setHistory(saveDay(day, { opening: opening.slug, state, submitted }));
+    }, [day, opening.slug, state, submitted]);
+
+    // Report the finished result once, then show how everyone else did today.
+    useEffect(() => {
+        if (!finished) return;
+        let cancelled = false;
+        (async () => {
+            if (!submitted && (await submitResult(day, resultBucket(state))) && !cancelled) setSubmitted(true);
+            const stats = await fetchGlobalStats(day);
+            if (!cancelled) setGlobal(stats);
+        })();
+        return () => {
+            cancelled = true;
+        };
+        // Only when the challenge finishes (or on load of a finished day).
+    }, [finished, day]);
 
     // Celebrate a win only when it happens, not when revisiting a finished day.
     const wasFinished = useRef(finished);
@@ -118,6 +138,7 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
                             openingName={content.name}
                             lang={lang}
                             onStudy={() => setMode('study')}
+                            global={global && <GlobalStatsPanel stats={global} bucket={resultBucket(state)} lang={lang} />}
                         />
                     ) : undefined}
                 />

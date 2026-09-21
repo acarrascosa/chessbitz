@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404">
+    <section class="card max-w-xl mx-auto p-8 md:p-12 text-center space-y-4">
+        <p class="eyebrow">404</p>
+        <h1 class="font-display text-3xl md:text-4xl font-semibold">Esta casilla está vacía</h1>
+        <p class="text-ink-muted">La página que buscas no existe. <span lang="en">This page does not exist.</span></p>
+        <div class="flex justify-center gap-3 pt-2">
+            <a href="/" class="btn btn-primary px-5 py-2.5">Volver al reto</a>
+            <a href="/en/" class="btn btn-quiet px-5 py-2.5" lang="en">English</a>
+        </div>
+    </section>
+</Layout>

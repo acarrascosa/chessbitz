@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/og.mjs",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "astro check && tsc -p worker/tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "astro": "astro"
+    "astro": "astro",
+    "build:site": "astro build"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -33,11 +34,18 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^5.20260921.1",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/three": "^0.182.0",
+    "satori": "^0.33.4",
+    "sharp": "^0.35.4",
     "typescript": "^6.0.3",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.1",
+    "wrangler": "^4.136.1"
   }
 }
