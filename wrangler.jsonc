@@ -17,8 +17,7 @@
     {
       "binding": "DB",
       "database_name": "chessbitz",
-      // Run `npx wrangler d1 create chessbitz` and paste the id here (see DEPLOY.md).
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "80ba391a-a519-4cc3-86ea-49c8421f4490",
       "migrations_dir": "migrations"
     }
   ],
@@ -29,9 +28,8 @@
       "simple": { "limit": 10, "period": 60 }
     }
   ],
-  "routes": [
-    { "pattern": "chessbitz.com", "custom_domain": true },
-    { "pattern": "www.chessbitz.com", "custom_domain": true }
-  ],
+  // www.chessbitz.com is redirected to the apex by a Cloudflare Redirect Rule
+  // (see DEPLOY.md), so it never reaches the Worker.
+  "routes": [{ "pattern": "chessbitz.com", "custom_domain": true }],
   "observability": { "enabled": true }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
-import { Swords, BookOpen, Lock, Lightbulb } from 'lucide-react';
+import { Swords, BookOpen, Lock } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import ChallengeMode from './ChallengeMode';
 import StudyMode from './StudyMode';
@@ -92,21 +92,18 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
             ? 'bg-surface text-ink shadow-sm'
             : 'text-ink-muted hover:text-ink'}`;
 
-    return (
-        <div className="w-full flex flex-col items-center">
-            <header className="text-center space-y-3 mb-8 animate-rise">
-                <p className="eyebrow">
-                    {t.challengeNumber.replace('{n}', String(day + 1))} · {opening.eco}
-                </p>
-                <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-balance">
-                    {content.name}
-                </h1>
-                <p className="font-display italic text-lg md:text-xl text-ink-muted max-w-2xl mx-auto text-balance">
-                    {content.description}
-                </p>
-            </header>
-
-            <div role="tablist" className="inline-flex gap-1 p-1 mb-8 rounded-full bg-surface-2 border border-line">
+    const intro = (
+        <header className="text-center lg:text-left space-y-2 animate-rise">
+            <p className="eyebrow">
+                {t.challengeNumber.replace('{n}', String(day + 1))} · {opening.eco}
+            </p>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[clamp(1.75rem,4.5svh,2.6rem)] leading-[1.05] font-semibold tracking-tight text-balance">
+                {content.name}
+            </h1>
+            <p className="font-display italic text-lg lg:text-base text-ink-muted text-balance">
+                {content.description}
+            </p>
+            <div role="tablist" className="inline-flex gap-1 p-1 mt-2 rounded-full bg-surface-2 border border-line">
                 <button role="tab" aria-selected={mode === 'challenge'} onClick={() => setMode('challenge')} className={tabClass(mode === 'challenge')}>
                     <Swords size={16} aria-hidden="true" /> {t.modeChallenge}
                 </button>
@@ -121,46 +118,45 @@ const DailyChallenge: React.FC<DailyChallengeProps> = ({ day, opening, lang = de
                     {finished ? <BookOpen size={16} aria-hidden="true" /> : <Lock size={16} aria-hidden="true" />} {t.modeStudy}
                 </button>
             </div>
+        </header>
+    );
 
-            {mode === 'challenge' || !finished ? (
-                <ChallengeMode
-                    plies={plies}
+    if (mode === 'study' && finished) {
+        return (
+            <StudyMode
+                plies={plies}
+                orientation={orientation}
+                explanations={content.moves}
+                lang={lang}
+                initialPly={plies.length - 1}
+                intro={intro}
+                idea={content.idea}
+            />
+        );
+    }
+
+    return (
+        <ChallengeMode
+            plies={plies}
+            state={state}
+            dispatch={dispatch}
+            explanations={content.moves}
+            lang={lang}
+            intro={intro}
+            result={finished ? (
+                <ResultCard
                     state={state}
-                    dispatch={dispatch}
-                    explanations={content.moves}
-                    lang={lang}
-                    result={finished ? (
-                        <ResultCard
-                            state={state}
-                            plies={plies}
-                            stats={stats}
-                            challengeNumber={day + 1}
-                            openingName={content.name}
-                            lang={lang}
-                            onStudy={() => setMode('study')}
-                            global={global && <GlobalStatsPanel stats={global} bucket={resultBucket(state)} lang={lang} />}
-                        />
-                    ) : undefined}
-                />
-            ) : (
-                <StudyMode
                     plies={plies}
-                    orientation={orientation}
-                    explanations={content.moves}
+                    stats={stats}
+                    challengeNumber={day + 1}
+                    openingName={content.name}
                     lang={lang}
-                    initialPly={plies.length - 1}
+                    onStudy={() => setMode('study')}
+                    global={global && <GlobalStatsPanel stats={global} bucket={resultBucket(state)} lang={lang} />}
+                    idea={content.idea}
                 />
-            )}
-
-            {finished && (
-                <section className="card w-full max-w-[480px] lg:max-w-[calc(480px+22rem+2.5rem)] mt-8 p-6 animate-rise">
-                    <h2 className="flex items-center gap-2 eyebrow mb-3">
-                        <Lightbulb size={14} aria-hidden="true" /> {t.planTitle}
-                    </h2>
-                    <p className="font-display text-lg leading-relaxed">{content.idea}</p>
-                </section>
-            )}
-        </div>
+            ) : undefined}
+        />
     );
 };
 

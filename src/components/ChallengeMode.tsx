@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Chess, type Square } from 'chess.js';
 import { Info, Lightbulb } from 'lucide-react';
 import Board, { type SquareStyles } from './Board';
+import Stage from './Stage';
 import { fenAt, moveLabel, pairMoves, type Ply } from '../lib/line';
 import {
     MAX_HINT_LEVEL, MAX_MISTAKES, isPlayerTurn, judgeAttempt,
@@ -15,6 +16,8 @@ interface ChallengeModeProps {
     dispatch: React.Dispatch<ChallengeAction>;
     explanations: string[];
     lang: Lang;
+    /** Title and tabs shown above the panel. */
+    intro: React.ReactNode;
     /** Rendered in place of the side panel once the challenge is over. */
     result?: React.ReactNode;
 }
@@ -46,7 +49,7 @@ function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
     return 'NBRQK'.includes(letter) ? (letter.toLowerCase() as 'n' | 'b' | 'r' | 'q' | 'k') : 'p';
 }
 
-const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, explanations, lang, result }) => {
+const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, explanations, lang, intro, result }) => {
     const t = ui[lang];
     const [selected, setSelected] = useState<Square | null>(null);
     const [feedback, setFeedback] = useState<Feedback | null>(null);
@@ -127,77 +130,79 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
         );
     };
 
-    return (
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start justify-center w-full">
-            <div className={`board-frame w-full max-w-[480px] lg:w-[480px] shrink-0 ${feedback?.kind === 'wrong' ? 'animate-[shake_0.3s_ease-in-out]' : ''}`}>
-                <div className="aspect-square">
-                    <Board
-                        id="challenge"
-                        fen={fen}
-                        orientation={state.side === 'w' ? 'white' : 'black'}
-                        lastMove={lastPly}
-                        squareStyles={squareStyles}
-                        arrows={arrows}
-                        onMove={attempt}
-                        canDragPiece={square => playerTurn && ownsPiece(square)}
-                        onSquareClick={handleSquareClick}
-                        lang={lang}
-                    />
-                </div>
+    const panel = (
+        <div className="card overflow-hidden flex flex-col animate-rise">
+            <div className="px-5 py-3.5 bg-surface-2 border-b border-line flex items-center justify-between gap-2">
+                <span className="eyebrow">
+                    {t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
+                </span>
+                <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
+                    {Array.from({ length: MAX_MISTAKES }, (_, i) => (
+                        <span key={i} className={`w-2.5 h-2.5 rounded-full transition-colors ${i < state.mistakes ? 'bg-bad' : 'bg-line'}`} />
+                    ))}
+                </span>
             </div>
 
-            <div className="w-full max-w-[480px] lg:w-[22rem] flex flex-col">
-                {result ?? (
-                    <div className="card overflow-hidden flex flex-col lg:min-h-[496px] animate-rise">
-                        <div className="px-5 py-4 bg-surface-2 border-b border-line flex items-center justify-between gap-2">
-                            <span className="eyebrow">
-                                {t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
-                            </span>
-                            <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
-                                {Array.from({ length: MAX_MISTAKES }, (_, i) => (
-                                    <span key={i} className={`w-2.5 h-2.5 rounded-full transition-colors ${i < state.mistakes ? 'bg-bad' : 'bg-line'}`} />
-                                ))}
-                            </span>
-                        </div>
+            <div className="p-5 border-b border-line space-y-3">
+                <p aria-live="polite" className={`font-semibold ${statusColor}`}>{statusText}</p>
+                <button
+                    onClick={() => dispatch({ type: 'hint' })}
+                    disabled={!playerTurn || state.hintLevel >= MAX_HINT_LEVEL}
+                    className="btn btn-quiet w-full py-2 text-sm"
+                >
+                    <Lightbulb size={16} aria-hidden="true" />
+                    {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
+                </button>
+                <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
+                    {hintLines.map(line => <li key={line}>{line}</li>)}
+                </ul>
+            </div>
 
-                        <div className="p-5 border-b border-line space-y-3">
-                            <p aria-live="polite" className={`font-semibold ${statusColor}`}>{statusText}</p>
-                            <button
-                                onClick={() => dispatch({ type: 'hint' })}
-                                disabled={!playerTurn || state.hintLevel >= MAX_HINT_LEVEL}
-                                className="btn btn-quiet w-full py-2 text-sm"
-                            >
-                                <Lightbulb size={16} aria-hidden="true" />
-                                {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
-                            </button>
-                            <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
-                                {hintLines.map(line => <li key={line}>{line}</li>)}
-                            </ul>
-                        </div>
+            <ol className="flex-grow min-h-0 overflow-y-auto px-3 py-2 text-sm max-h-64 lg:max-h-none" aria-label={t.progress}>
+                {moveList.map(pair => (
+                    <li key={pair.number} className="grid grid-cols-[2.25rem_1fr_1fr] items-center gap-1 py-0.5">
+                        <span className="px-2 text-ink-muted tabular-nums">{pair.number}.</span>
+                        {renderPly(pair.white)}
+                        {renderPly(pair.black)}
+                    </li>
+                ))}
+            </ol>
 
-                        <ol className="flex-grow overflow-y-auto px-3 py-2 text-sm max-h-64 lg:max-h-none" aria-label={t.progress}>
-                            {moveList.map(pair => (
-                                <li key={pair.number} className="grid grid-cols-[2.25rem_1fr_1fr] items-center gap-1 py-0.5">
-                                    <span className="px-2 text-ink-muted tabular-nums">{pair.number}.</span>
-                                    {renderPly(pair.white)}
-                                    {renderPly(pair.black)}
-                                </li>
-                            ))}
-                        </ol>
-
-                        <div className="bg-surface-2 border-t border-line p-5">
-                            <div className="flex items-center gap-2 mb-2 eyebrow">
-                                <Info size={14} aria-hidden="true" />
-                                {t.analysis}{lastPly && <span className="normal-case tracking-normal"> · {moveLabel(lastPly)}</span>}
-                            </div>
-                            <p className="text-sm text-ink leading-relaxed min-h-[2.5rem]">
-                                {lastPly ? explanations[lastPly.index] : '—'}
-                            </p>
-                        </div>
-                    </div>
-                )}
+            <div className="bg-surface-2 border-t border-line p-5">
+                <div className="flex items-center gap-2 mb-2 eyebrow">
+                    <Info size={14} aria-hidden="true" />
+                    {t.analysis}{lastPly && <span className="normal-case tracking-normal"> · {moveLabel(lastPly)}</span>}
+                </div>
+                <p className="text-sm text-ink leading-relaxed min-h-[2.5rem]">
+                    {lastPly ? explanations[lastPly.index] : '—'}
+                </p>
             </div>
         </div>
+    );
+
+    return (
+        <Stage
+            intro={intro}
+            board={
+                <div className={`board-frame ${feedback?.kind === 'wrong' ? 'animate-[shake_0.3s_ease-in-out]' : ''}`}>
+                    <div className="aspect-square">
+                        <Board
+                            id="challenge"
+                            fen={fen}
+                            orientation={state.side === 'w' ? 'white' : 'black'}
+                            lastMove={lastPly}
+                            squareStyles={squareStyles}
+                            arrows={arrows}
+                            onMove={attempt}
+                            canDragPiece={square => playerTurn && ownsPiece(square)}
+                            onSquareClick={handleSquareClick}
+                            lang={lang}
+                        />
+                    </div>
+                </div>
+            }
+            side={result ?? panel}
+        />
     );
 };
 

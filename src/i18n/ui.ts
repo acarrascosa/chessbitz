@@ -59,12 +59,13 @@ export const ui = {
         wonDesc: 'Has jugado la apertura con {mistakes} de {max} errores.',
         lostDesc: 'Repasa la línea en el modo estudio y vuelve mañana.',
         played: 'Jugados',
-        winRate: '% completados',
+        winRate: 'Completados',
         streak: 'Racha',
         maxStreak: 'Mejor racha',
-        distribution: 'Tus errores por reto',
+        distribution: 'Tus errores',
         globalStats: 'Hoy en Chessbitz',
-        globalPlayers: '{n} jugadores',
+        globalPlayersOne: '{n} jugador',
+        globalPlayersOther: '{n} jugadores',
         globalFirstTry: '{p}% sin errores',
         nextIn: 'Siguiente apertura en',
         shareResult: 'Compartir resultado',
@@ -144,12 +145,13 @@ export const ui = {
         wonDesc: 'You played the opening with {mistakes} of {max} mistakes.',
         lostDesc: 'Review the line in study mode and come back tomorrow.',
         played: 'Played',
-        winRate: '% completed',
+        winRate: 'Completed',
         streak: 'Streak',
         maxStreak: 'Best streak',
-        distribution: 'Your mistakes per challenge',
+        distribution: 'Your mistakes',
         globalStats: 'Today on Chessbitz',
-        globalPlayers: '{n} players',
+        globalPlayersOne: '{n} player',
+        globalPlayersOther: '{n} players',
         globalFirstTry: '{p}% flawless',
         nextIn: 'Next opening in',
         shareResult: 'Share result',
@@ -178,3 +180,9 @@ export const languages: Lang[] = ['es', 'en'];
 /** Home path of each language: Spanish at the root, English under /en/. */
 export const homePath = (lang: Lang) => (lang === 'es' ? '/' : '/en/');
 export const legalPath = (lang: Lang) => (lang === 'es' ? '/legal/' : '/en/legal/');
+
+/** Picks the singular or plural template for `n` and fills in {n}. */
+export function plural(lang: Lang, n: number, one: string, other: string): string {
+    const template = new Intl.PluralRules(lang).select(n) === 'one' ? one : other;
+    return template.replace('{n}', n.toLocaleString(lang));
+}

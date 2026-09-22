@@ -50,6 +50,17 @@ No hay "transferencia" entre Pages y Workers: se libera el dominio en Pages y el
 
 La web solo está sin servicio los minutos que pasan entre el paso 1 y el 3.
 
+### Redirigir `www` al dominio raíz
+
+`www.chessbitz.com` no se sirve desde el Worker: una Redirect Rule de Cloudflare lo manda a `https://chessbitz.com` antes de que la petición llegue a ningún origen.
+
+1. **DNS → Records**: `www` debe existir y estar **proxied** (nube naranja). Vale el `CNAME www → chessbitz.com` o un `AAAA www → 100::`; el destino da igual porque nunca se contacta.
+2. **Rules → Redirect Rules → Create rule** (o la plantilla *Redirect from WWW to root*):
+   - *If incoming requests match*: `Hostname` `equals` `www.chessbitz.com`
+   - *Then*: `Dynamic`, expresión `concat("https://chessbitz.com", http.request.uri.path)`
+   - *Status code*: `301`, marcando *Preserve query string*
+3. Comprueba: `curl -I https://www.chessbitz.com/en/` debe responder `301` con `location: https://chessbitz.com/en/`.
+
 ## 4. Comprobar
 
 ```bash

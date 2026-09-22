@@ -72,10 +72,9 @@ const waitTurn = page => page.getByText(/Tu turno/).waitFor();
 
 // 4. Animated WebP of a full line, cropped to the board and panel.
 {
-    const { context, page } = await open({ viewport: { width: 1100, height: 760 } });
-    await page.locator('.board-frame').scrollIntoViewIfNeeded();
-    const board = await page.locator('.board-frame').boundingBox();
-    const clip = { x: board.x - 16, y: board.y - 16, width: 480 + 40 + 352 + 32, height: board.height + 32 };
+    const { context, page } = await open({ viewport: { width: 1280, height: 800 } });
+    const stage = await page.locator('.stage').boundingBox();
+    const clip = { x: stage.x - 16, y: stage.y - 16, width: stage.width + 32, height: stage.height + 32 };
     const frames = [];
     const snap = async (repeat = 1) => {
         const frame = await page.screenshot({ clip });

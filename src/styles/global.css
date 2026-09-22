@@ -162,6 +162,64 @@
         color: var(--accent);
     }
 
+    /* Page layout shared by every mode (see Stage.tsx). */
+    .stage {
+        display: grid;
+        width: 100%;
+        gap: 1.5rem;
+        justify-items: center;
+    }
+
+    .stage-intro,
+    .stage-board,
+    .stage-side {
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    @media (min-width: 1024px) {
+        .stage {
+            /* Largest board that fits beside a 26rem panel and between header and footer. */
+            --board-size: clamp(24rem, min(100svh - 10.5rem, 100vw - 32.5rem), 48rem);
+            grid-template-columns: var(--board-size) minmax(20rem, 26rem);
+            grid-template-rows: auto minmax(0, 1fr);
+            height: var(--board-size);
+            column-gap: 2.5rem;
+            row-gap: 1.25rem;
+            justify-content: center;
+            justify-items: stretch;
+        }
+
+        .stage-intro,
+        .stage-board,
+        .stage-side {
+            max-width: none;
+        }
+
+        .stage-board {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .stage-intro {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .stage-side {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .stage-side > * {
+            flex: 1;
+            min-height: 0;
+        }
+    }
+
     /* Wooden frame around the board. */
     .board-frame {
         padding: 0.55rem;

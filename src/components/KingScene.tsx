@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Environment, Float, Lightformer, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 const BRASS = '#d9b170';
-const REST_X = 3.05;
+/** Distance (world units) from the right edge of the view to the king's axis. */
+const EDGE_OFFSET = 0.95;
 
 function usePrefersReducedMotion() {
     const [reduced, setReduced] = useState(false);
@@ -21,6 +22,8 @@ function usePrefersReducedMotion() {
 const KingModel = ({ animate }: { animate: boolean }) => {
     const groupRef = useRef<THREE.Group>(null);
     const { scene } = useGLTF('/king.glb');
+    // Anchor to the right edge of the viewport so it sits in the page margin.
+    const restX = useThree(state => state.viewport.width / 2 - EDGE_OFFSET);
 
     const king = useMemo(() => {
         const clone = scene.clone();
@@ -42,13 +45,13 @@ const KingModel = ({ animate }: { animate: boolean }) => {
         const targetRotX = pointer.y * 0.25;
         group.rotation.y += (targetRotY - group.rotation.y) * 0.05;
         group.rotation.x += (targetRotX - group.rotation.x) * 0.05;
-        group.position.x += (REST_X + pointer.x * 0.25 - group.position.x) * 0.05;
+        group.position.x += (restX + pointer.x * 0.25 - group.position.x) * 0.05;
         group.position.y += (-1.1 + pointer.y * 0.15 - group.position.y) * 0.05;
     });
 
     return (
         <Float speed={animate ? 1.6 : 0} rotationIntensity={0.15} floatIntensity={0.4} floatingRange={[-0.3, 0.3]}>
-            <group ref={groupRef} scale={2} position={[REST_X, -1.1, 0]} rotation={[0, -0.6, 0]}>
+            <group ref={groupRef} scale={2} position={[restX, -1.1, 0]} rotation={[0, -0.6, 0]}>
                 <primitive object={king} />
             </group>
         </Float>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BookOpen, Check, Share2 } from 'lucide-react';
+import { BookOpen, Check, Lightbulb, Share2 } from 'lucide-react';
+import MiniBars from './MiniBars';
 import { MAX_MISTAKES, resultGrid, type ChallengeState } from '../lib/challenge';
 import { buildShareText } from '../lib/share';
 import type { Ply } from '../lib/line';
@@ -16,6 +17,8 @@ interface ResultCardProps {
     onStudy: () => void;
     /** Optional block with today's global statistics. */
     global?: React.ReactNode;
+    /** Strategic ideas of the opening, revealed once the challenge is over. */
+    idea?: string;
 }
 
 function msUntilLocalMidnight(now = new Date()) {
@@ -42,12 +45,11 @@ function useCountdown() {
     return formatDuration(remaining);
 }
 
-const ResultCard: React.FC<ResultCardProps> = ({ state, plies, stats, challengeNumber, openingName, lang, onStudy, global }) => {
+const ResultCard: React.FC<ResultCardProps> = ({ state, plies, stats, challengeNumber, openingName, lang, onStudy, global, idea }) => {
     const t = ui[lang];
     const countdown = useCountdown();
     const [copied, setCopied] = useState(false);
     const won = state.status === 'won';
-    const maxWins = Math.max(1, ...stats.distribution);
     const winRate = stats.played ? Math.round((stats.won / stats.played) * 100) : 0;
 
     const share = async () => {
@@ -67,8 +69,10 @@ const ResultCard: React.FC<ResultCardProps> = ({ state, plies, stats, challengeN
     };
 
     return (
-        <section aria-labelledby="result-title" className="card p-6 flex flex-col gap-6 lg:min-h-[496px] animate-rise">
-            <div className="text-center space-y-2">
+        <section aria-labelledby="result-title" className="card flex flex-col overflow-hidden animate-rise">
+            {/* Only the details scroll on short screens; the actions below always stay visible. */}
+            <div className="flex-1 min-h-0 overflow-y-auto p-5 flex flex-col gap-4">
+            <div className="text-center space-y-1">
                 <h2 id="result-title" className="font-display text-2xl font-semibold">{won ? t.won : t.lost}</h2>
                 <p className="text-sm text-ink-muted">
                     {won ? t.wonDesc.replace('{mistakes}', String(state.mistakes)).replace('{max}', String(MAX_MISTAKES)) : t.lostDesc}
@@ -78,46 +82,50 @@ const ResultCard: React.FC<ResultCardProps> = ({ state, plies, stats, challengeN
 
             <dl className="grid grid-cols-4 gap-2 text-center">
                 {[
-                    [t.played, stats.played],
-                    [t.winRate, winRate],
-                    [t.streak, stats.currentStreak],
-                    [t.maxStreak, stats.maxStreak],
+                    [t.played, String(stats.played)],
+                    [t.winRate, `${winRate}%`],
+                    [t.streak, String(stats.currentStreak)],
+                    [t.maxStreak, String(stats.maxStreak)],
                 ].map(([label, value]) => (
-                    <div key={label} className="flex flex-col-reverse gap-1">
+                    <div key={label} className="flex flex-col-reverse gap-0.5">
                         <dt className="text-[0.65rem] leading-tight text-ink-muted">{label}</dt>
-                        <dd className="font-display text-3xl font-semibold tabular-nums">{value}</dd>
+                        <dd className="font-display text-2xl font-semibold tabular-nums">{value}</dd>
                     </div>
                 ))}
             </dl>
 
-            <div>
-                <h3 className="eyebrow mb-3">{t.distribution}</h3>
-                <ol className="space-y-1.5">
-                    {stats.distribution.map((count, mistakes) => (
-                        <li key={mistakes} className="flex items-center gap-2 text-xs">
-                            <span className="w-3 text-ink-muted tabular-nums">{mistakes}</span>
-                            <span
-                                className={`h-5 rounded flex items-center justify-end px-1.5 font-semibold min-w-[1.5rem] transition-[width] duration-700 ${won && mistakes === state.mistakes ? 'bg-brand text-brand-ink' : 'bg-surface-2 text-ink-muted'}`}
-                                style={{ width: `${(count / maxWins) * 100}%` }}
-                            >
-                                {count}
-                            </span>
-                        </li>
-                    ))}
-                </ol>
+            <div className={`grid gap-3 ${global ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                <MiniBars
+                    title={t.distribution}
+                    values={stats.distribution}
+                    labels={stats.distribution.map((_, i) => String(i))}
+                    highlight={won ? state.mistakes : undefined}
+                />
+                {global}
             </div>
 
-            {global}
+            {idea && (
+                <div className="rounded-xl border border-line p-4">
+                    <h3 className="flex items-center gap-2 eyebrow mb-1.5">
+                        <Lightbulb size={14} aria-hidden="true" /> {t.planTitle}
+                    </h3>
+                    <p className="text-sm leading-relaxed">{idea}</p>
+                </div>
+            )}
 
-            <div className="mt-auto space-y-3">
-                <button onClick={share} className={`btn w-full py-3 ${copied ? 'bg-good text-white' : 'btn-primary'}`}>
-                    {copied ? <Check size={18} aria-hidden="true" /> : <Share2 size={18} aria-hidden="true" />}
-                    {copied ? t.resultCopied : t.shareResult}
-                </button>
-                <button onClick={onStudy} className="btn btn-quiet w-full py-2.5">
-                    <BookOpen size={18} aria-hidden="true" />
-                    {t.studyLine}
-                </button>
+            </div>
+
+            <div className="shrink-0 space-y-2 p-4 border-t border-line bg-surface-2">
+                <div className="grid grid-cols-2 gap-2">
+                    <button onClick={share} className={`btn py-2.5 text-sm ${copied ? 'bg-good text-white' : 'btn-primary'}`}>
+                        {copied ? <Check size={16} aria-hidden="true" /> : <Share2 size={16} aria-hidden="true" />}
+                        {copied ? t.resultCopied : t.shareResult}
+                    </button>
+                    <button onClick={onStudy} className="btn btn-quiet py-2.5 text-sm">
+                        <BookOpen size={16} aria-hidden="true" />
+                        {t.studyLine}
+                    </button>
+                </div>
                 <p className="text-center text-xs text-ink-muted">
                     {t.nextIn} <span className="font-semibold text-ink tabular-nums">{countdown}</span>
                 </p>

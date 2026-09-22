@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import DailyChallenge from './DailyChallenge';
+import Stage from './Stage';
 import { dailyDataUrl, getDailySlot, type Opening } from '../lib/openings';
 import { ui, defaultLang, type Lang } from '../i18n/ui';
 
@@ -53,10 +54,19 @@ const DailyManager: React.FC<DailyManagerProps> = ({ count, lang = defaultLang }
     }
     if (load.status === 'loading') {
         return (
-            <div className="w-full flex flex-col items-center gap-6 py-6 animate-pulse" aria-busy="true" aria-label={t.loading}>
-                <div className="h-4 w-40 rounded bg-surface-2" />
-                <div className="h-10 w-2/3 max-w-md rounded bg-surface-2" />
-                <div className="w-full max-w-[450px] aspect-square rounded bg-surface-2" />
+            <div className="w-full animate-pulse" aria-busy="true" aria-label={t.loading}>
+                <Stage
+                    intro={
+                        <div className="flex flex-col items-center lg:items-start gap-3">
+                            <div className="h-3 w-32 rounded bg-surface-2" />
+                            <div className="h-10 w-3/4 rounded bg-surface-2" />
+                            <div className="h-5 w-2/3 rounded bg-surface-2" />
+                            <div className="h-11 w-48 rounded-full bg-surface-2 mt-2" />
+                        </div>
+                    }
+                    board={<div className="aspect-square rounded-xl bg-surface-2" />}
+                    side={<div className="card min-h-72" />}
+                />
             </div>
         );
     }
