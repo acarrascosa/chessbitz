@@ -38,11 +38,19 @@ export interface Stats {
     averageHints: number | null;
 }
 
+/** v2: the calendar restarted at the public launch, so day numbers from v1 no longer match. */
 const KEYS = {
-    history: 'chessbitz:history:v1',
-    archive: 'chessbitz:archive:v1',
-    tactics: 'chessbitz:tactics:v1',
+    history: 'chessbitz:history:v2',
+    archive: 'chessbitz:archive:v2',
+    tactics: 'chessbitz:tactics:v2',
 } as const;
+
+// Pre-launch progress used the old calendar; drop it once.
+try {
+    for (const key of ['chessbitz:history:v1', 'chessbitz:archive:v1', 'chessbitz:tactics:v1']) localStorage.removeItem(key);
+} catch {
+    // No storage (SSR, private mode): nothing to clean.
+}
 
 /** Storage can be unavailable (private mode, blocked cookies): progress is best-effort. */
 function read<T extends object>(key: string): T {

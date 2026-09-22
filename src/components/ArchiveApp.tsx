@@ -150,7 +150,8 @@ function ArchiveList({ count, lang, today }: { count: number; lang: Lang; today:
                 <p className="eyebrow">{fill(t.archiveCount, { n: today + 1 })}</p>
                 <h1 id="archive-title" className="font-display text-4xl md:text-5xl font-semibold tracking-tight">{t.archiveTitle}</h1>
                 <p className="text-ink-muted max-w-xl mx-auto text-balance">{t.archiveDesc}</p>
-                <div className="flex flex-wrap justify-center gap-2 pt-1">
+                {today === 0 && <p className="text-sm font-semibold text-accent">{t.archiveFirstDay}</p>}
+                <div className={`flex flex-wrap justify-center gap-2 pt-1 ${today === 0 ? 'hidden' : ''}`}>
                     <a href={`${archivePath(lang)}?random`} className="btn btn-primary px-4 py-2.5 text-sm">
                         <Shuffle size={16} aria-hidden="true" /> {t.archiveRandom}
                     </a>

@@ -6,7 +6,7 @@ import ExpertMode from './ExpertMode';
 import StudyMode from './StudyMode';
 import TacticMode from './TacticMode';
 import ResultCard, { type NextItem } from './ResultCard';
-import { notifyProgress, useElapsed } from './hooks';
+import { notifyGameFinished, notifyProgress, useElapsed } from './hooks';
 import type { Opening } from '../lib/openings';
 import { parseLine, type Ply } from '../lib/line';
 import {
@@ -22,6 +22,12 @@ import { archivePath, fill, plural, ui, type Lang } from '../i18n/ui';
 export type Variant = 'daily' | 'archive';
 export type PlayMode = 'normal' | 'expert';
 type Tab = 'challenge' | 'study' | 'tactic';
+
+export interface IntroText {
+    eyebrow?: React.ReactNode;
+    title?: React.ReactNode;
+    description?: React.ReactNode;
+}
 
 interface OpeningGameProps {
     day: number;
@@ -142,12 +148,15 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
     }, [normalDone, daily, day]);
 
     // Celebrate a win only when it happens, not when revisiting a finished day.
-    const wasWon = useRef({ normal: state.status === 'won', expert: expert.status === 'won' });
+    const was = useRef({ normal: state.status, expert: expert.status });
     useEffect(() => {
-        const now = { normal: state.status === 'won', expert: expert.status === 'won' };
-        if ((now.normal && !wasWon.current.normal) || (now.expert && !wasWon.current.expert)) celebrate();
-        wasWon.current = now;
-    }, [state.status, expert.status]);
+        const before = was.current;
+        const wonNow = (state.status === 'won' && before.normal !== 'won') || (expert.status === 'won' && before.expert !== 'won');
+        const endedNow = (normalDone && before.normal === 'playing') || (expertDone && before.expert === 'playing');
+        if (wonNow) celebrate();
+        if (endedNow) notifyGameFinished();
+        was.current = { normal: state.status, expert: expert.status };
+    }, [state.status, expert.status, normalDone, expertDone]);
 
     const stats = useMemo(() => computeStats(history, day), [history, day]);
     const orientation = side === 'w' ? 'white' : 'black';
@@ -189,17 +198,18 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
         plural(lang, playerMoves, t.movesToFindOne, t.movesToFindOther),
     ].join(' · ');
 
-    const intro = (
+    /** The header above the panel; the tactic tab replaces the title with its own. */
+    const renderIntro = ({ eyebrow = meta, title = content.name, description = content.description }: IntroText = {}) => (
         <header className="text-center lg:text-left space-y-2 animate-rise">
             {!daily && (
                 <a href={archivePath(lang)} className="inline-flex text-sm font-semibold text-accent hover:underline underline-offset-4">{t.archiveBack}</a>
             )}
-            <p className="eyebrow">{meta}</p>
+            <p className="eyebrow">{eyebrow}</p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-[clamp(1.75rem,4.5svh,2.6rem)] leading-[1.05] font-semibold tracking-tight text-balance">
-                {content.name}
+                {title}
             </h1>
             <p className="font-display italic text-lg lg:text-base text-ink-muted text-balance">
-                {content.description}
+                {description}
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mt-2">
                 <div role="tablist" className="inline-flex gap-1 p-1 rounded-full bg-surface-2 border border-line">
@@ -231,6 +241,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
             </div>
         </header>
     );
+    const intro = renderIntro();
 
     if (tab === 'study' && unlocked) {
         return (
@@ -247,19 +258,26 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
     }
 
     if (tab === 'tactic' && unlocked && puzzles.length) {
-        return <TacticMode puzzles={puzzles} lang={lang} intro={intro} />;
+        return <TacticMode puzzles={puzzles} lang={lang} openingName={content.name} renderIntro={renderIntro} />;
     }
 
+    // The archive only has past days, so on launch day there is nothing to link to yet.
+    const hasArchive = day > 0;
     const next: NextItem[] = [
         ...(puzzles.length ? [{ icon: <Target size={18} />, label: t.tileTactic, description: t.tileTacticDesc, onClick: () => setTab('tactic') }] : []),
-        daily
-            ? { icon: <CalendarDays size={18} />, label: t.tileArchive, description: t.tileArchiveDesc, href: archivePath(lang) }
-            : { icon: <Shuffle size={18} />, label: t.archiveRandom, description: t.tileArchiveDesc, href: `${archivePath(lang)}?random` },
-        daily
-            ? { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, href: `${archivePath(lang)}?random&mode=expert` }
-            : mode === 'normal'
-                ? { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, onClick: () => setMode('expert') }
-                : { icon: <Swords size={18} />, label: t.modeNormal, description: t.modeChallenge, onClick: () => setMode('normal') },
+        ...(!daily
+            ? [
+                { icon: <Shuffle size={18} />, label: t.archiveRandom, description: t.tileArchiveDesc, href: `${archivePath(lang)}?random` },
+                mode === 'normal'
+                    ? { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, onClick: () => setMode('expert') }
+                    : { icon: <Swords size={18} />, label: t.modeNormal, description: t.modeChallenge, onClick: () => setMode('normal') },
+            ]
+            : hasArchive
+                ? [
+                    { icon: <CalendarDays size={18} />, label: t.tileArchive, description: t.tileArchiveDesc, href: archivePath(lang) },
+                    { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, href: `${archivePath(lang)}?random&mode=expert` },
+                ]
+                : []),
     ];
 
     if (mode === 'expert') {

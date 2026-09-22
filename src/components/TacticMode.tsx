@@ -1,18 +1,21 @@
-import React, { useEffect, useMemo, useReducer, useState } from 'react';
+import React, { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { ArrowRight, ExternalLink, RotateCcw, Target } from 'lucide-react';
 import { useStore } from '@nanostores/react';
 import ChallengeMode from './ChallengeMode';
-import { notifyProgress } from './hooks';
+import { notifyGameFinished, notifyProgress } from './hooks';
 import { MAX_MISTAKES, challengeReducer, createChallenge, hintsUsed, resultGrid } from '../lib/challenge';
 import { lichessPuzzleUrl, puzzleGoal, puzzleMotifs, puzzlePlies, puzzleSide, type Puzzle } from '../lib/puzzle';
 import { loadTactics, saveTactic } from '../lib/progress';
 import { contrastStore } from '../store/theme';
+import type { IntroText } from './OpeningGame';
 import { fill, ui, type Lang } from '../i18n/ui';
 
 interface TacticModeProps {
     puzzles: Puzzle[];
     lang: Lang;
-    intro: React.ReactNode;
+    /** The opening the tactic comes from, named in the header so it's clear why it's here. */
+    openingName: string;
+    renderIntro: (text: IntroText) => React.ReactNode;
 }
 
 /** First puzzle not solved yet, so coming back continues where the player left off. */
@@ -22,7 +25,7 @@ function firstOpen(puzzles: Puzzle[]): number {
     return index === -1 ? 0 : index;
 }
 
-const TacticMode: React.FC<TacticModeProps> = ({ puzzles, lang, intro }) => {
+const TacticMode: React.FC<TacticModeProps> = ({ puzzles, lang, openingName, renderIntro }) => {
     const [index, setIndex] = useState(() => firstOpen(puzzles));
     const [round, setRound] = useState(0);
     const puzzle = puzzles[index];
@@ -34,7 +37,8 @@ const TacticMode: React.FC<TacticModeProps> = ({ puzzles, lang, intro }) => {
             position={index}
             total={puzzles.length}
             lang={lang}
-            intro={intro}
+            openingName={openingName}
+            renderIntro={renderIntro}
             onNext={() => setIndex(i => (i + 1) % puzzles.length)}
             onRetry={() => {
                 saveTactic(puzzle.id, createChallenge(puzzlePlies(puzzle), puzzleSide(puzzlePlies(puzzle))));
@@ -49,12 +53,13 @@ interface TacticBoardProps {
     position: number;
     total: number;
     lang: Lang;
-    intro: React.ReactNode;
+    openingName: string;
+    renderIntro: (text: IntroText) => React.ReactNode;
     onNext: () => void;
     onRetry: () => void;
 }
 
-function TacticBoard({ puzzle, position, total, lang, intro, onNext, onRetry }: TacticBoardProps) {
+function TacticBoard({ puzzle, position, total, lang, openingName, renderIntro, onNext, onRetry }: TacticBoardProps) {
     const t = ui[lang];
     const plies = useMemo(() => puzzlePlies(puzzle), [puzzle]);
     const side = puzzleSide(plies);
@@ -69,7 +74,18 @@ function TacticBoard({ puzzle, position, total, lang, intro, onNext, onRetry }: 
         notifyProgress();
     }, [puzzle.id, state]);
 
-    const label = `${goal} · ${t.playingAs.replace('{side}', side === 'w' ? t.white : t.black)}`;
+    const wasPlaying = useRef(!finished);
+    useEffect(() => {
+        if (finished && wasPlaying.current) notifyGameFinished();
+        wasPlaying.current = !finished;
+    }, [finished]);
+
+    const label = t.playingAs.replace('{side}', side === 'w' ? t.white : t.black);
+    const intro = renderIntro({
+        eyebrow: `${fill(t.tacticOf, { i: position + 1, n: total })} · Elo ${puzzle.rating}`,
+        title: goal,
+        description: fill(t.tacticContext, { name: openingName }),
+    });
     const won = state.status === 'won';
 
     const result = finished ? (
@@ -99,7 +115,6 @@ function TacticBoard({ puzzle, position, total, lang, intro, onNext, onRetry }: 
                         ))}
                     </ul>
                 )}
-                <p className="text-sm text-ink-muted">{t.tacticIntro}</p>
                 <a href={lichessPuzzleUrl(puzzle.id)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-accent hover:underline underline-offset-4">
                     {t.viewOnLichess} <ExternalLink size={14} aria-hidden="true" />
                 </a>

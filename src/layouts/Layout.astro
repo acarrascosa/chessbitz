@@ -4,6 +4,7 @@ import "@fontsource-variable/inter";
 import "../styles/global.css";
 import Background3D from "../components/Background3D";
 import HeaderActions from "../components/HeaderActions";
+import SupportPrompt from "../components/SupportPrompt";
 import Logo from "../components/Logo.astro";
 import frauncesLatin from "@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url";
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
@@ -91,6 +92,8 @@ const navLink = "h-10 px-3 inline-flex items-center gap-2 rounded-full border bo
     </head>
     <body class="text-ink font-sans min-h-screen antialiased">
         <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] btn btn-primary px-4 py-2 text-sm">{t.skipToGame}</a>
+
+        <SupportPrompt client:idle lang={lang} idlePage={page !== "home"} />
 
         <!-- The 3D king is decorative and heavy: only load it where there is room to see it. -->
         <Background3D client:media="(min-width: 1280px)" />

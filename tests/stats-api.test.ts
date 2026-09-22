@@ -3,7 +3,7 @@ import { LOST, MAX_SECONDS, isPlayableDay, parseDay, parseSubmission, toDailySta
 import { getDayNumber } from '../src/lib/daily';
 import { averageMistakes, flawlessShare } from '../src/lib/stats-api';
 
-const now = new Date(2026, 8, 21, 12);
+const now = new Date(2026, 11, 21, 12);
 const today = getDayNumber(now);
 
 describe('parseSubmission', () => {

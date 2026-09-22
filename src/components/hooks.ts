@@ -103,6 +103,10 @@ export function usePanelRequests(onOpen: (panel: Panel) => void) {
     }, []);
 }
 
+/** A game (daily, archive, expert or tactic) just ended; the support note counts these. */
+export const GAME_FINISHED_EVENT = 'chessbitz:game-finished';
+export const notifyGameFinished = () => window.dispatchEvent(new Event(GAME_FINISHED_EVENT));
+
 /** Notifies listeners (the stats panel) that saved progress changed. */
 const PROGRESS_EVENT = 'chessbitz:progress';
 export const notifyProgress = () => window.dispatchEvent(new Event(PROGRESS_EVENT));

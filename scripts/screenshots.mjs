@@ -6,8 +6,8 @@ import sharp from 'sharp';
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:4323';
 const OUT = 'docs';
-const DAY_0 = new Date('2026-01-25T12:00:00'); // Modern Benoni, player has black
-const DAY_2 = new Date('2026-01-27T12:00:00'); // English Opening, player has white
+const DAY_0 = new Date('2026-09-22T12:00:00'); // Modern Benoni, player has black
+const DAY_2 = new Date('2026-09-24T12:00:00'); // English Opening, player has white
 const BENONI = [['g8', 'f6'], ['c7', 'c5'], ['e7', 'e6'], ['e6', 'd5'], ['d7', 'd6']];
 
 mkdirSync(OUT, { recursive: true });
@@ -72,7 +72,7 @@ const waitTurn = page => page.getByText(/Tu turno/).waitFor();
 
 // 4. Expert mode on an archive day: one graded attempt and the next one under way.
 {
-    const { context, page } = await open({ date: new Date('2026-09-22T12:00:00'), path: '/archivo/?day=0&mode=expert', ready: /Tu jugada/ });
+    const { context, page } = await open({ date: new Date('2026-10-20T12:00:00'), path: '/archivo/?day=0&mode=expert', ready: /Tu jugada/ });
     await page.mouse.move(700, 300);
     const attempt = [['g8', 'f6'], ['e7', 'e6'], ['c7', 'c5'], ['e6', 'd5'], ['d7', 'd6']];
     for (const [from, to] of attempt) {
@@ -93,7 +93,7 @@ const waitTurn = page => page.getByText(/Tu turno/).waitFor();
 
 // 5. Archive list, dark.
 {
-    const { context, page } = await open({ theme: 'dark', date: new Date('2026-09-22T12:00:00'), path: '/archivo/', ready: /Benoni Moderna/ });
+    const { context, page } = await open({ theme: 'dark', date: new Date('2026-10-20T12:00:00'), path: '/archivo/', ready: /Benoni Moderna/ });
     await page.waitForTimeout(800);
     await save(page, 'archive-dark');
     await context.close();
@@ -107,7 +107,7 @@ const waitTurn = page => page.getByText(/Tu turno/).waitFor();
     await page.getByRole('heading', { name: '¡Línea completada!' }).waitFor();
     await page.getByRole('tab', { name: 'Táctica' }).click();
     await page.getByText(/encuentra la mejor jugada/).waitFor();
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(4000);
     await save(page, 'tactic-light');
     await context.close();
 }

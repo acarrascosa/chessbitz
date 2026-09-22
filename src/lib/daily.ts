@@ -1,7 +1,7 @@
 const MS_PER_DAY = 86_400_000;
 
-/** Day #0 of the daily rotation (Jan 25, 2026). */
-export const LAUNCH_DAY_UTC = Date.UTC(2026, 0, 25);
+/** Day #0 of the daily rotation: public launch, Sep 22, 2026. */
+export const LAUNCH_DAY_UTC = Date.UTC(2026, 8, 22);
 
 /**
  * Number of calendar days between the launch and `date`, using the viewer's

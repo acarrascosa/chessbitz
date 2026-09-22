@@ -10,7 +10,7 @@ test('loads the decorative 3D king only after the first interaction on desktop',
 });
 
 test('names board pieces for screen readers', async ({ page }) => {
-    await page.clock.setFixedTime(new Date('2026-01-25T12:00:00'));
+    await page.clock.setFixedTime(new Date('2026-09-22T12:00:00'));
     await page.addInitScript(() => localStorage.setItem('chessbitz-onboarded', 'true'));
     await page.goto('/');
     await expect(page.getByRole('button', { name: 'caballo negro, g8' })).toBeVisible();

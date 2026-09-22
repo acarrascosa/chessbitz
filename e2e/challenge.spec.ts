@@ -2,8 +2,8 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 
 // Pin the calendar: day 0 of the schedule is the Modern Benoni (the player has black),
 // day 2 is the English Opening (a single white move).
-const DAY_0 = new Date('2026-01-25T12:00:00');
-const DAY_2 = new Date('2026-01-27T12:00:00');
+const DAY_0 = new Date('2026-09-22T12:00:00');
+const DAY_2 = new Date('2026-09-24T12:00:00');
 const BENONI = [['g8', 'f6'], ['c7', 'c5'], ['e7', 'e6'], ['e6', 'd5'], ['d7', 'd6']] as const;
 
 async function center(page: Page, square: string) {

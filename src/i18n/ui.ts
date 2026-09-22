@@ -9,6 +9,9 @@ const es = {
     developedBy: 'Hecho con ♥ por',
     legal: 'Aviso legal',
     buyMeCoffee: 'Invítame a un café',
+    supportTitle: '¿Te está gustando Chessbitz?',
+    supportText: 'Lo hago en mi tiempo libre y es gratis, sin anuncios ni cuentas. Si te apetece, puedes invitarme a un café: me da energía para seguir añadiendo aperturas y mejoras.',
+    supportLater: 'Ahora no',
     close: 'Cerrar',
     // Header
     navToday: 'Reto de hoy',
@@ -154,7 +157,7 @@ const es = {
     legendAssisted: 'Con pista o tras un error',
     legendRevealed: 'Revelada',
     // Tactic
-    tacticIntro: 'Posición de una partida real de Lichess en esta apertura.',
+    tacticContext: 'Posición de una partida real de Lichess jugada con esta apertura: {name}.',
     tacticYourTurn: 'Tu turno: encuentra la mejor jugada',
     tacticWrong: 'Hay algo mejor.',
     goals: {
@@ -208,6 +211,7 @@ const es = {
     modeExpert: 'Experto',
     archiveCount: '{n} retos',
     archiveFamily: 'Familia',
+    archiveFirstDay: 'Hoy empieza Chessbitz: el archivo se irá llenando día a día.',
     archiveAllFamilies: 'Todas las familias',
     archiveMeta: 'Todos los retos diarios anteriores de Chessbitz: juega cualquier apertura del archivo en modo normal o experto.',
     guideTitle: 'Cómo se juega',
@@ -242,6 +246,9 @@ const en: Strings = {
     developedBy: 'Made with ♥ by',
     legal: 'Legal notice',
     buyMeCoffee: 'Buy me a coffee',
+    supportTitle: 'Enjoying Chessbitz?',
+    supportText: "I build it in my spare time, and it's free, with no ads or accounts. If you feel like it, you can buy me a coffee: it keeps me going with new openings and features.",
+    supportLater: 'Not now',
     close: 'Close',
     // Header
     navToday: "Today's challenge",
@@ -387,7 +394,7 @@ const en: Strings = {
     legendAssisted: 'With a hint or after a mistake',
     legendRevealed: 'Revealed',
     // Tactic
-    tacticIntro: 'A position from a real Lichess game in this opening.',
+    tacticContext: 'A position from a real Lichess game played with this opening: {name}.',
     tacticYourTurn: 'Your turn: find the best move',
     tacticWrong: "There's something better.",
     goals: {
@@ -441,6 +448,7 @@ const en: Strings = {
     modeExpert: 'Expert',
     archiveCount: '{n} challenges',
     archiveFamily: 'Family',
+    archiveFirstDay: 'Chessbitz starts today: the archive fills up day by day.',
     archiveAllFamilies: 'All families',
     archiveMeta: 'Every past Chessbitz daily challenge: play any opening from the archive in normal or expert mode.',
     guideTitle: 'How to play',

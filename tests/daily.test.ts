@@ -3,22 +3,22 @@ import { getDayNumber, getRotationIndex } from '../src/lib/daily';
 
 describe('getDayNumber', () => {
     it('is 0 on launch day, at any local time', () => {
-        expect(getDayNumber(new Date(2026, 0, 25, 0, 0))).toBe(0);
-        expect(getDayNumber(new Date(2026, 0, 25, 23, 59))).toBe(0);
+        expect(getDayNumber(new Date(2026, 8, 22, 0, 0))).toBe(0);
+        expect(getDayNumber(new Date(2026, 8, 22, 23, 59))).toBe(0);
     });
 
     it('advances exactly at local midnight', () => {
-        expect(getDayNumber(new Date(2026, 0, 26, 0, 0))).toBe(1);
+        expect(getDayNumber(new Date(2026, 8, 23, 0, 0))).toBe(1);
     });
 
     it('counts calendar days across DST changes and leap years', () => {
-        expect(getDayNumber(new Date(2026, 2, 29, 12))).toBe(63); // EU DST starts Mar 29
-        expect(getDayNumber(new Date(2026, 9, 25, 12))).toBe(273); // EU DST ends Oct 25
-        expect(getDayNumber(new Date(2028, 2, 1))).toBe(766); // spans Feb 29, 2028
+        expect(getDayNumber(new Date(2026, 9, 25, 12))).toBe(33); // EU DST ends Oct 25
+        expect(getDayNumber(new Date(2027, 2, 28, 12))).toBe(187); // EU DST starts Mar 28
+        expect(getDayNumber(new Date(2028, 2, 1))).toBe(526); // spans Feb 29, 2028
     });
 
     it('clamps dates before launch to day 0', () => {
-        expect(getDayNumber(new Date(2025, 11, 31))).toBe(0);
+        expect(getDayNumber(new Date(2026, 0, 25))).toBe(0);
     });
 });
 

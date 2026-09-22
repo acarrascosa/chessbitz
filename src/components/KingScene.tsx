@@ -37,16 +37,10 @@ const KingModel = ({ animate }: { animate: boolean }) => {
     useFrame(state => {
         const group = groupRef.current;
         if (!group || !animate) return;
-        const t = state.clock.getElapsedTime();
-        const { pointer } = state;
-
-        // Slow turntable plus a gentle parallax that follows the pointer.
-        const targetRotY = t * 0.12 + pointer.x * 0.5;
-        const targetRotX = pointer.y * 0.25;
-        group.rotation.y += (targetRotY - group.rotation.y) * 0.05;
-        group.rotation.x += (targetRotX - group.rotation.x) * 0.05;
-        group.position.x += (restX + pointer.x * 0.25 - group.position.x) * 0.05;
-        group.position.y += (-1.1 + pointer.y * 0.15 - group.position.y) * 0.05;
+        // A slow turntable; <Float> adds the bobbing. It ignores the pointer on
+        // purpose, so it never pulls the eye away from the board.
+        group.rotation.y = -0.6 + state.clock.getElapsedTime() * 0.12;
+        group.position.x = restX;
     });
 
     return (
@@ -73,8 +67,6 @@ const KingScene = () => {
                 dpr={[1, 1.5]}
                 gl={{ alpha: true, antialias: true }}
                 frameloop={reducedMotion ? 'demand' : 'always'}
-                eventSource={document.body}
-                eventPrefix="client"
             >
                 <ambientLight intensity={0.9} />
                 <spotLight position={[6, 8, 6]} angle={0.5} penumbra={1} intensity={90} color="#ffe2b0" />

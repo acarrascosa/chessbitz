@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const DAY_3 = new Date('2026-01-28T12:00:00');
+const DAY_3 = new Date('2026-09-25T12:00:00');
 
 test.beforeEach(async ({ page }) => {
     await page.clock.setFixedTime(DAY_3);
@@ -69,4 +69,26 @@ test('serves the guide with FAQ structured data in both languages', async ({ pag
     expect(schema['@type']).toBe('FAQPage');
     await page.goto('/en/how-to-play/');
     await expect(page.getByRole('heading', { level: 1, name: 'How to play Chessbitz' })).toBeVisible();
+});
+
+test('suggests a coffee after a few finished games, once', async ({ page }) => {
+    await page.addInitScript(() => {
+        if (!sessionStorage.getItem('seeded')) {
+            localStorage.setItem('chessbitz:support:v1', JSON.stringify({ views: 0, games: 2 }));
+            sessionStorage.setItem('seeded', '1');
+        }
+    });
+    // Day 2 of the calendar (Sep 24) is the English Opening: one move, 1. c4.
+    await page.clock.setFixedTime(new Date('2026-09-24T12:00:00'));
+    await page.goto('/');
+    await page.locator('#challenge-square-c2').click();
+    await page.locator('#challenge-square-c4').click();
+    const note = page.getByRole('complementary', { name: '¿Te está gustando Chessbitz?' });
+    await expect(note).toBeVisible({ timeout: 8000 });
+    await expect(note.getByRole('link', { name: 'Invítame a un café' })).toHaveAttribute('href', 'https://buymeacoffee.com/acarrascosa');
+    await note.getByRole('button', { name: 'Ahora no' }).click();
+    await expect(note).toBeHidden();
+    await page.reload();
+    await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
+    await expect(page.getByRole('complementary', { name: '¿Te está gustando Chessbitz?' })).toHaveCount(0);
 });
