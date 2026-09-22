@@ -98,4 +98,4 @@ Adding or editing openings: see [`src/data/openings/README.md`](src/data/opening
 
 ## Credits
 
-3D model: "chess king" by [Amresh08_x_y_z](https://skfb.ly/pqzuU), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Chess pieces from react-chessboard. Built by [Álvaro Carrascosa](https://www.linkedin.com/in/acarrascosa/).
+3D model: "chess king" by [Amresh08_x_y_z](https://skfb.ly/pqzuU), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Chess pieces from react-chessboard. Built by [acarrascosa](https://acarrascosa.com).
