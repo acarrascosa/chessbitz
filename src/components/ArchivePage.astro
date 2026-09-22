@@ -1,0 +1,20 @@
+---
+import ArchiveApp from './ArchiveApp';
+import Layout from '../layouts/Layout.astro';
+import { scheduledOpenings } from '../lib/catalog';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+---
+
+<Layout lang={lang} page="archive" title={t.archiveTitle} description={t.archiveMeta}>
+    <ArchiveApp client:only="react" count={scheduledOpenings.length} lang={lang}>
+        <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
+        <div slot="fallback" class="min-h-[85svh]" aria-hidden="true"></div>
+    </ArchiveApp>
+</Layout>

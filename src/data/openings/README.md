@@ -33,3 +33,14 @@ node scripts/check-openings.mjs   # legality, canonical PGN, ply/explanation cou
 node scripts/schedule.mjs         # append new openings to the daily schedule (never reorders)
 npm test                          # includes the same catalog checks
 ```
+
+## Tactics
+
+`puzzles.json` holds three Lichess puzzles per opening. Regenerate it after adding openings
+(the Lichess files are large and are not committed):
+
+```bash
+curl -O https://database.lichess.org/lichess_db_puzzle.csv.zst
+for f in a b c d e; do curl -O https://raw.githubusercontent.com/lichess-org/chess-openings/master/$f.tsv; done
+node scripts/puzzles.mjs lichess_db_puzzle.csv.zst .
+```

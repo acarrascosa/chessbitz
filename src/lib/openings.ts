@@ -1,6 +1,7 @@
 import type { Color } from 'chess.js';
 import { getDayNumber, getRotationIndex } from './daily';
 import type { Lang } from '../i18n/ui';
+import type { Puzzle } from './puzzle';
 
 export interface OpeningText {
     name: string;
@@ -26,6 +27,20 @@ export interface OpeningEntry {
 export interface Opening extends OpeningEntry {
     /** Source file name, e.g. `sicilian`. */
     family: string;
+    /** Lichess tactics from games in this opening, easiest first. */
+    puzzles?: Puzzle[];
+}
+
+/** One row of `/data/index.json`, the light catalog used by the archive. */
+export interface IndexEntry {
+    slug: string;
+    eco: string;
+    side: Color;
+    family: string;
+    /** Moves the player has to find. */
+    moves: number;
+    es: string;
+    en: string;
 }
 
 export interface DailySlot {
@@ -40,6 +55,13 @@ export function getDailySlot(count: number, date: Date = new Date()): DailySlot 
 }
 
 export const dailyDataUrl = (index: number) => `/data/daily/${index}.json`;
+export const INDEX_URL = '/data/index.json';
+
+export async function fetchOpening(index: number): Promise<Opening> {
+    const response = await fetch(dailyDataUrl(index));
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json() as Promise<Opening>;
+}
 
 export function textFor(opening: Opening, lang: Lang): OpeningText {
     return opening[lang];

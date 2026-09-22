@@ -16,7 +16,10 @@ export interface ChallengeState {
     /** Keyed by ply index, only for the player's plies that are settled. */
     results: Record<number, PlyResult>;
     mistakes: number;
+    /** Hint level of the current ply. */
     hintLevel: number;
+    /** Hints used in the whole challenge (absent in results saved before it existed). */
+    hints?: number;
     /** A wrong attempt was made on the current ply. */
     stumbled: boolean;
     status: ChallengeStatus;
@@ -31,7 +34,7 @@ export type ChallengeAction =
 export type AttemptVerdict = 'correct' | 'wrong' | 'illegal';
 
 export function createChallenge(plies: Ply[], side: Color): ChallengeState {
-    return { side, cursor: 0, results: {}, mistakes: 0, hintLevel: 0, stumbled: false, status: plies.length ? 'playing' : 'won' };
+    return { side, cursor: 0, results: {}, mistakes: 0, hintLevel: 0, hints: 0, stumbled: false, status: plies.length ? 'playing' : 'won' };
 }
 
 export function isPlayerTurn(state: ChallengeState, plies: Ply[]): boolean {
@@ -61,13 +64,19 @@ export function judgeAttempt(state: ChallengeState, plies: Ply[], from: Square, 
     const ply = plies[state.cursor];
     if (!ply || !isPlayerTurn(state, plies)) return 'illegal';
     if (matchesPly(ply, from, to)) return 'correct';
+    const game = new Chess(fenAt(plies, state.cursor - 1));
     try {
-        new Chess(fenAt(plies, state.cursor - 1)).move({ from, to, promotion: 'q' });
-        return 'wrong';
+        game.move({ from, to, promotion: 'q' });
     } catch {
         return 'illegal';
     }
+    // Puzzles accept any mate on the final move, as Lichess does.
+    const isLast = state.cursor === plies.length - 1;
+    return isLast && ply.san.endsWith('#') && game.isCheckmate() ? 'correct' : 'wrong';
 }
+
+/** Hints used so far; results saved before hints were counted report 0. */
+export const hintsUsed = (state: ChallengeState) => state.hints ?? 0;
 
 function settle(state: ChallengeState, plies: Ply[], result: PlyResult): ChallengeState {
     const cursor = state.cursor + 1;
@@ -102,8 +111,8 @@ export function challengeReducer(plies: Ply[]) {
             }
             case 'hint': {
                 if (!isPlayerTurn(state, plies)) return state;
-                const hintLevel = Math.min(MAX_HINT_LEVEL, state.hintLevel + 1);
-                return { ...state, hintLevel };
+                if (state.hintLevel >= MAX_HINT_LEVEL) return state;
+                return { ...state, hintLevel: state.hintLevel + 1, hints: hintsUsed(state) + 1 };
             }
             case 'attempt': {
                 const verdict = judgeAttempt(state, plies, action.from, action.to);
@@ -123,10 +132,13 @@ export function challengeReducer(plies: Ply[]) {
 }
 
 const EMOJI: Record<PlyResult, string> = { perfect: '🟩', assisted: '🟨', revealed: '🟥' };
+/** High-contrast palette for colour-blind players. */
+const CONTRAST_EMOJI: Record<PlyResult, string> = { perfect: '🟦', assisted: '🟧', revealed: '⬛' };
 
-export function resultGrid(state: ChallengeState, plies: Ply[]): string {
+export function resultGrid(state: ChallengeState, plies: Ply[], contrast = false): string {
+    const emoji = contrast ? CONTRAST_EMOJI : EMOJI;
     return playerPlies(plies, state.side)
-        .map(p => (state.results[p.index] ? EMOJI[state.results[p.index]] : '⬜'))
+        .map(p => (state.results[p.index] ? emoji[state.results[p.index]] : '⬜'))
         .join('');
 }
 

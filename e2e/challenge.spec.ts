@@ -63,6 +63,8 @@ test('plays a full line, unlocks study mode and remembers the result', async ({ 
     await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
     await expect(page.getByText('🟩🟩🟩🟩🟩')).toBeVisible();
     await expect(page.getByText('Ideas y planes')).toBeVisible();
+    // Your game: mistakes, hints and time.
+    await expect(page.getByRole('region', { name: 'Tu partida' })).toContainText('0/5');
 
     await clickAfterDrag(page.getByRole('tab', { name: 'Estudiar' }), () =>
         expect(page.getByRole('button', { name: 'd6', exact: true })).toHaveAttribute('aria-current', 'step', { timeout: 1000 }));
@@ -107,6 +109,30 @@ test('ignores illegal moves and loses after five mistakes', async ({ page }) => 
     await expect(page.getByText('🟥🟥🟥🟥🟥')).toBeVisible();
 });
 
+test('records hints in the result and the statistics panel', async ({ page }) => {
+    await openDay(page, DAY_2);
+    await expect(page.getByText('Juegas con blancas')).toBeVisible();
+    await page.getByRole('button', { name: /Pista/ }).click();
+    await move(page, 'c2', 'c4');
+    await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
+    await expect(page.getByText('🟨')).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Tu partida' }).getByText('Pistas')).toBeVisible();
+
+    await clickAfterDrag(page.getByRole('button', { name: 'Tus estadísticas' }), () =>
+        expect(page.getByRole('dialog', { name: 'Tus estadísticas' })).toBeVisible({ timeout: 1000 }));
+    await expect(page.getByRole('dialog')).toContainText('Pistas por reto: 1');
+});
+
+test('unlocks a real tactic from the opening', async ({ page }) => {
+    await openDay(page, DAY_2);
+    await expect(page.getByRole('tab', { name: 'Táctica' })).toBeDisabled();
+    await move(page, 'c2', 'c4');
+    await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
+    await clickAfterDrag(page.getByRole('tab', { name: 'Táctica' }), () =>
+        expect(page.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible({ timeout: 2000 }));
+    await expect(page.locator('#tactic-square-a1')).toBeAttached();
+});
+
 test('serves the English version at /en/', async ({ page }) => {
     await openDay(page, DAY_0, '/en/');
     await expect(page.getByRole('heading', { level: 1, name: 'Modern Benoni' })).toBeVisible();
@@ -122,8 +148,8 @@ test('copies a spoiler-free result to share', async ({ page, context }, testInfo
     await expect(page.getByText('Juegas con blancas')).toBeVisible();
     await move(page, 'c2', 'c4');
     await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
-    await clickAfterDrag(page.getByRole('button', { name: 'Compartir resultado' }), () =>
-        expect(page.getByText('¡Resultado copiado!')).toBeVisible({ timeout: 1000 }));
+    await clickAfterDrag(page.getByRole('button', { name: 'Compartir' }), () =>
+        expect(page.getByText('¡Copiado!')).toBeVisible({ timeout: 1000 }));
 
     const text = await page.evaluate(() => navigator.clipboard.readText());
     expect(text).toBe('Chessbitz #3 · Apertura Inglesa\n🟩 0/5\nhttps://chessbitz.com');

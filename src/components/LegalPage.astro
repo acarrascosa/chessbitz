@@ -40,6 +40,10 @@ const t = ui[lang];
                     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="underline hover:text-accent">CC BY 4.0</a>.
                 </p>
             </div>
+            <div class="bg-surface-2 p-4 rounded-lg border-l-4 border-accent">
+                <h3 class="eyebrow mb-2">{t.legalPuzzlesTitle}</h3>
+                <p class="text-sm" set:html={t.legalPuzzlesText} />
+            </div>
         </section>
 
         <a href={homePath(lang)} class="inline-flex font-semibold text-accent hover:underline">{t.legalBackHome}</a>

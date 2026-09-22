@@ -13,7 +13,7 @@ const BENONI = [['g8', 'f6'], ['c7', 'c5'], ['e7', 'e6'], ['e6', 'd5'], ['d7', '
 mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch();
 
-async function open({ theme = 'light', date = DAY_0, viewport = { width: 1440, height: 900 }, device } = {}) {
+async function open({ theme = 'light', date = DAY_0, viewport = { width: 1440, height: 900 }, device, path = '/', ready = /Tu turno/ } = {}) {
     const context = await browser.newContext({ ...(device ?? { viewport }), deviceScaleFactor: 2, colorScheme: theme });
     const page = await context.newPage();
     await page.clock.setFixedTime(date);
@@ -21,8 +21,8 @@ async function open({ theme = 'light', date = DAY_0, viewport = { width: 1440, h
         localStorage.setItem('chessbitz-onboarded', 'true');
         localStorage.setItem('theme', t);
     }, theme);
-    await page.goto(BASE);
-    await page.getByText(/Tu turno/).waitFor();
+    await page.goto(BASE + path);
+    await page.getByText(ready).first().waitFor();
     return { context, page };
 }
 
@@ -70,7 +70,49 @@ const waitTurn = page => page.getByText(/Tu turno/).waitFor();
     await context.close();
 }
 
-// 4. Animated WebP of a full line, cropped to the board and panel.
+// 4. Expert mode on an archive day: one graded attempt and the next one under way.
+{
+    const { context, page } = await open({ date: new Date('2026-09-22T12:00:00'), path: '/archivo/?day=0&mode=expert', ready: /Tu jugada/ });
+    await page.mouse.move(700, 300);
+    const attempt = [['g8', 'f6'], ['e7', 'e6'], ['c7', 'c5'], ['e6', 'd5'], ['d7', 'd6']];
+    for (const [from, to] of attempt) {
+        await page.getByText(/Tu jugada/).waitFor();
+        await page.locator(`#expert-square-${from}`).click();
+        await page.locator(`#expert-square-${to}`).click();
+    }
+    await page.getByRole('button', { name: 'Enviar' }).click();
+    for (const [from, to] of BENONI.slice(0, 2)) {
+        await page.getByText(/Tu jugada/).waitFor();
+        await page.locator(`#expert-square-${from}`).click();
+        await page.locator(`#expert-square-${to}`).click();
+    }
+    await page.waitForTimeout(2500);
+    await save(page, 'expert-light');
+    await context.close();
+}
+
+// 5. Archive list, dark.
+{
+    const { context, page } = await open({ theme: 'dark', date: new Date('2026-09-22T12:00:00'), path: '/archivo/', ready: /Benoni Moderna/ });
+    await page.waitForTimeout(800);
+    await save(page, 'archive-dark');
+    await context.close();
+}
+
+// 6. The tactic unlocked after finishing the English Opening.
+{
+    const { context, page } = await open({ date: DAY_2 });
+    await page.mouse.move(700, 300);
+    await play(page, 'c2', 'c4');
+    await page.getByRole('heading', { name: '¡Línea completada!' }).waitFor();
+    await page.getByRole('tab', { name: 'Táctica' }).click();
+    await page.getByText(/encuentra la mejor jugada/).waitFor();
+    await page.waitForTimeout(2500);
+    await save(page, 'tactic-light');
+    await context.close();
+}
+
+// 7. Animated WebP of a full line, cropped to the board and panel.
 {
     const { context, page } = await open({ viewport: { width: 1280, height: 800 } });
     const stage = await page.locator('.stage').boundingBox();

@@ -1,4 +1,5 @@
-import { MAX_MISTAKES, type ChallengeState } from './challenge';
+import { MAX_MISTAKES, hintsUsed, type ChallengeState } from './challenge';
+import type { ExpertState } from './expert';
 
 export interface DayRecord {
     /** Slug of the opening played that day. */
@@ -6,10 +7,23 @@ export interface DayRecord {
     state: ChallengeState;
     /** The finished result was already reported to the global stats. */
     submitted?: boolean;
+    /** Time spent playing with the page visible. */
+    elapsedMs?: number;
 }
 
-/** Day number → the player's challenge for that day. */
+/** Day number → the player's daily challenge for that day. */
 export type History = Record<number, DayRecord>;
+
+/** Past days replayed from the archive; kept apart so they never touch streaks. */
+export interface ArchiveRecord {
+    opening: string;
+    normal?: { state: ChallengeState; elapsedMs?: number };
+    expert?: { state: ExpertState; elapsedMs?: number };
+}
+export type Archive = Record<number, ArchiveRecord>;
+
+/** Lichess puzzle id → the player's attempt. */
+export type Tactics = Record<string, { state: ChallengeState }>;
 
 export interface Stats {
     played: number;
@@ -18,28 +32,56 @@ export interface Stats {
     maxStreak: number;
     /** Wins by number of mistakes (index 0..MAX_MISTAKES-1). */
     distribution: number[];
+    /** Lost challenges (all mistakes spent). */
+    lost: number;
+    /** Average hints per finished challenge, counting only results that recorded hints. */
+    averageHints: number | null;
 }
 
-const STORAGE_KEY = 'chessbitz:history:v1';
+const KEYS = {
+    history: 'chessbitz:history:v1',
+    archive: 'chessbitz:archive:v1',
+    tactics: 'chessbitz:tactics:v1',
+} as const;
 
 /** Storage can be unavailable (private mode, blocked cookies): progress is best-effort. */
-export function loadHistory(): History {
+function read<T extends object>(key: string): T {
     try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? (JSON.parse(raw) as History) : {};
+        const raw = localStorage.getItem(key);
+        return raw ? (JSON.parse(raw) as T) : ({} as T);
     } catch {
-        return {};
+        return {} as T;
     }
 }
 
-export function saveDay(day: number, record: DayRecord): History {
-    const history = { ...loadHistory(), [day]: record };
+function write(key: string, value: object) {
     try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+        localStorage.setItem(key, JSON.stringify(value));
     } catch {
         // Keep playing without persistence.
     }
+}
+
+export const loadHistory = () => read<History>(KEYS.history);
+export const loadArchive = () => read<Archive>(KEYS.archive);
+export const loadTactics = () => read<Tactics>(KEYS.tactics);
+
+export function saveDay(day: number, record: DayRecord): History {
+    const history = { ...loadHistory(), [day]: record };
+    write(KEYS.history, history);
     return history;
+}
+
+export function saveArchiveDay(day: number, record: ArchiveRecord): Archive {
+    const archive = { ...loadArchive(), [day]: record };
+    write(KEYS.archive, archive);
+    return archive;
+}
+
+export function saveTactic(id: string, state: ChallengeState): Tactics {
+    const tactics = { ...loadTactics(), [id]: { state } };
+    write(KEYS.tactics, tactics);
+    return tactics;
 }
 
 const isWon = (record?: DayRecord) => record?.state.status === 'won';
@@ -69,11 +111,85 @@ export function computeStats(history: History, today: number): Stats {
     let currentStreak = 0;
     for (let day = isWon(history[today]) ? today : today - 1; isWon(history[day]); day--) currentStreak++;
 
+    const withHints = finished.filter(({ record }) => record.state.hints !== undefined);
+    const won = finished.filter(({ record }) => isWon(record)).length;
     return {
         played: finished.length,
-        won: finished.filter(({ record }) => isWon(record)).length,
+        won,
         currentStreak,
         maxStreak,
         distribution,
+        lost: finished.length - won,
+        averageHints: withHints.length
+            ? withHints.reduce((sum, { record }) => sum + hintsUsed(record.state), 0) / withHints.length
+            : null,
     };
+}
+
+// --- Moving progress between devices (no accounts: a file or a pasted code) ---
+
+interface ProgressExport {
+    app: 'chessbitz';
+    version: 1;
+    history: History;
+    archive: Archive;
+    tactics: Tactics;
+}
+
+export function exportProgress(): string {
+    const data: ProgressExport = { app: 'chessbitz', version: 1, history: loadHistory(), archive: loadArchive(), tactics: loadTactics() };
+    return JSON.stringify(data);
+}
+
+const STATUSES = new Set(['playing', 'won', 'lost']);
+const isState = (value: unknown): value is { status: string } =>
+    typeof value === 'object' && value !== null && STATUSES.has((value as { status?: string }).status ?? '');
+const isFinished = (state?: { status: string }) => Boolean(state && state.status !== 'playing');
+
+/** Keeps local results that are already finished; otherwise takes the imported one. */
+function prefer<T>(local: T | undefined, incoming: T, finished: (value: T) => boolean): T {
+    return local !== undefined && finished(local) ? local : incoming;
+}
+
+export type ImportResult = { ok: true; days: number } | { ok: false };
+
+/** Merges an export into this device. Finished local results always win. */
+export function importProgress(text: string): ImportResult {
+    let data: Partial<ProgressExport>;
+    try {
+        data = JSON.parse(text.trim());
+    } catch {
+        return { ok: false };
+    }
+    if (data?.app !== 'chessbitz' || data.version !== 1) return { ok: false };
+
+    const history = loadHistory();
+    let days = 0;
+    for (const [day, record] of Object.entries(data.history ?? {})) {
+        if (typeof record?.opening !== 'string' || !isState(record.state)) continue;
+        history[Number(day)] = prefer(history[Number(day)], record, r => isFinished(r.state));
+        days++;
+    }
+
+    const archive = loadArchive();
+    for (const [day, record] of Object.entries(data.archive ?? {})) {
+        if (typeof record?.opening !== 'string') continue;
+        const local = archive[Number(day)];
+        archive[Number(day)] = {
+            opening: record.opening,
+            normal: record.normal && isState(record.normal.state) ? prefer(local?.normal, record.normal, r => isFinished(r.state)) : local?.normal,
+            expert: record.expert && isState(record.expert.state) ? prefer(local?.expert, record.expert, r => isFinished(r.state)) : local?.expert,
+        };
+    }
+
+    const tactics = loadTactics();
+    for (const [id, record] of Object.entries(data.tactics ?? {})) {
+        if (!isState(record?.state)) continue;
+        tactics[id] = prefer(tactics[id], record, r => isFinished(r.state));
+    }
+
+    write(KEYS.history, history);
+    write(KEYS.archive, archive);
+    write(KEYS.tactics, tactics);
+    return { ok: true, days };
 }

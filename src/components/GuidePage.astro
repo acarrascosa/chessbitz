@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SummaryStats from './SummaryStats';
+import { scheduledOpenings } from '../lib/catalog';
+import { guide } from '../i18n/guide';
+import { homePath, languages, ui, type Lang } from '../i18n/ui';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const g = guide[lang];
+
+const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: lang,
+    mainEntity: g.faq.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+const card = 'rounded-2xl border border-line bg-surface p-5';
+const h2 = 'font-display text-2xl md:text-3xl font-semibold tracking-tight';
+---
+
+<Layout lang={lang} page="guide" title={t.guideTitle} description={t.guideMeta}>
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+    <article class="card max-w-4xl mx-auto p-6 md:p-10 space-y-12 leading-relaxed">
+        <header class="space-y-4 text-center">
+            <p class="eyebrow">{t.guideTitle}</p>
+            <h1 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-balance">{g.title}</h1>
+            <p class="text-lg text-ink-muted max-w-2xl mx-auto text-balance">{g.lead}</p>
+            <a href={homePath(lang)} class="btn btn-primary px-5 py-3 mt-2">{g.cta} →</a>
+        </header>
+
+        <section class="space-y-5" aria-labelledby="steps">
+            <h2 id="steps" class={h2}>{g.stepsTitle}</h2>
+            <ol class="grid md:grid-cols-2 gap-3">
+                {g.steps.map((step, i) => (
+                    <li class={`${card} flex gap-4`}>
+                        <span class="font-display text-3xl font-semibold text-accent leading-none tabular-nums">{i + 1}</span>
+                        <div>
+                            <h3 class="font-semibold">{step.title}</h3>
+                            <p class="text-sm text-ink-muted mt-1">{step.text}</p>
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </section>
+
+        <section class="space-y-5" aria-labelledby="colours">
+            <h2 id="colours" class={h2}>{g.coloursTitle}</h2>
+            <ul class="grid sm:grid-cols-3 gap-3">
+                {g.colours.map(colour => (
+                    <li class={card}>
+                        <span class="text-3xl" aria-hidden="true">{colour.emoji}</span>
+                        <h3 class="font-semibold mt-2">{colour.title}</h3>
+                        <p class="text-sm text-ink-muted mt-1">{colour.text}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
+
+        <section class="space-y-5" aria-labelledby="modes">
+            <h2 id="modes" class={h2}>{g.modesTitle}</h2>
+            <div class="grid md:grid-cols-3 gap-3">
+                {g.modes.map(mode => (
+                    <div class={card}>
+                        <h3 class="font-semibold">{mode.title}</h3>
+                        <p class="text-sm text-ink-muted mt-1">{mode.text}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <section class="space-y-5" aria-labelledby="tips">
+            <h2 id="tips" class={h2}>{g.tipsTitle}</h2>
+            <ol class="space-y-3">
+                {g.tips.map((tip, i) => (
+                    <li class="flex gap-4">
+                        <span class="shrink-0 w-8 h-8 rounded-full bg-accent-soft text-ink font-bold flex items-center justify-center tabular-nums">{i + 1}</span>
+                        <div>
+                            <h3 class="font-semibold">{tip.title}</h3>
+                            <p class="text-sm text-ink-muted mt-0.5">{tip.text}</p>
+                        </div>
+                    </li>
+                ))}
+            </ol>
+        </section>
+
+        <section class="space-y-5" aria-labelledby="faq">
+            <h2 id="faq" class={h2}>{g.faqTitle}</h2>
+            <div class="divide-y divide-line border-y border-line">
+                {g.faq.map(({ q, a }) => (
+                    <details class="group py-4">
+                        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold">
+                            {q}
+                            <span class="text-accent transition-transform group-open:rotate-45 text-xl leading-none" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="text-ink-muted mt-2">{a}</p>
+                    </details>
+                ))}
+            </div>
+        </section>
+
+        <section class="space-y-5" aria-labelledby="numbers">
+            <h2 id="numbers" class={h2}>{g.numbersTitle}</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="rounded-xl border border-line bg-surface p-4 text-center flex flex-col-reverse gap-1">
+                    <p class="text-xs uppercase tracking-[0.14em] font-bold text-ink-muted">{g.numbers.openings}</p>
+                    <p class="font-display text-3xl font-semibold tabular-nums">{scheduledOpenings.length}</p>
+                </div>
+                <div class="rounded-xl border border-line bg-surface p-4 text-center flex flex-col-reverse gap-1">
+                    <p class="text-xs uppercase tracking-[0.14em] font-bold text-ink-muted">{g.numbers.languages}</p>
+                    <p class="font-display text-3xl font-semibold tabular-nums">{languages.length}</p>
+                </div>
+                <SummaryStats client:visible lang={lang} labels={{ plays: g.numbers.plays, days: g.numbers.days }} />
+            </div>
+        </section>
+    </article>
+</Layout>

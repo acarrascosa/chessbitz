@@ -46,6 +46,12 @@ describe('challenge', () => {
         expect(state.results).toEqual({ 0: 'assisted', 2: 'revealed' });
     });
 
+    it('counts every hint used across the line', () => {
+        const state = play(RUY, 'w', [hint, hint, move('e2', 'e4'), opponent, hint, move('g1', 'f3'), opponent, hint, hint, hint, hint]);
+        expect(state.hints).toBe(6);
+        expect(state.hintLevel).toBe(3);
+    });
+
     it('accepts castling as king-to-square or king-onto-rook', () => {
         const before = [move('e2', 'e4'), opponent, move('g1', 'f3'), opponent, move('f1', 'c4'), opponent];
         expect(play(CASTLE, 'w', [...before, move('e1', 'g1')]).status).toBe('won');

@@ -22,3 +22,23 @@ export default function Stage({ intro, board, side }: StageProps) {
         </div>
     );
 }
+
+/** Placeholder with the final layout, so nothing jumps when the game loads. */
+export function GameSkeleton({ label }: { label: string }) {
+    return (
+        <div className="w-full animate-pulse" aria-busy="true" aria-label={label}>
+            <Stage
+                intro={
+                    <div className="flex flex-col items-center lg:items-start gap-3">
+                        <div className="h-3 w-32 rounded bg-surface-2" />
+                        <div className="h-10 w-3/4 rounded bg-surface-2" />
+                        <div className="h-5 w-2/3 rounded bg-surface-2" />
+                        <div className="h-11 w-48 rounded-full bg-surface-2 mt-2" />
+                    </div>
+                }
+                board={<div className="aspect-square rounded-xl bg-surface-2" />}
+                side={<div className="card min-h-72" />}
+            />
+        </div>
+    );
+}

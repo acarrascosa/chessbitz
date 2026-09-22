@@ -2,16 +2,33 @@
 import DailyManager from './DailyManager';
 import Layout from '../layouts/Layout.astro';
 import { scheduledOpenings } from '../lib/catalog';
-import type { Lang } from '../i18n/ui';
+import { homePath, ui, type Lang } from '../i18n/ui';
 
 interface Props {
     lang: Lang;
 }
 
 const { lang } = Astro.props;
+const t = ui[lang];
+
+const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Chessbitz',
+    url: new URL(homePath(lang), Astro.site).toString(),
+    description: t.metaDescription,
+    applicationCategory: 'GameApplication',
+    genre: 'Chess',
+    operatingSystem: 'Any',
+    inLanguage: lang,
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    author: { '@type': 'Person', name: 'Álvaro Carrascosa', url: 'https://acarrascosa.com' },
+};
 ---
 
 <Layout lang={lang} page="home">
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify(appSchema)} />
     <script is:inline slot="head" define:vars={{ count: scheduledOpenings.length }}>
         // Start downloading today's opening before the app hydrates.
         // Mirrors getDayNumber/getRotationIndex in src/lib/daily.ts.

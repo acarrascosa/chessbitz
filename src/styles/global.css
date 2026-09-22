@@ -22,6 +22,7 @@
     --warn: #b7862c;
     --bad: #b3432f;
     --hint: #2f6f8f;
+    --grade-square: #8a6a45;
     --logo-from: #8a6630;
     --logo-to: #1f4435;
     --board-light: #ecdfc7;
@@ -45,9 +46,25 @@
     --warn: #e0b45c;
     --bad: #e0735c;
     --hint: #6fb2d1;
+    --grade-square: #a88460;
     --logo-from: #d4b37a;
     --logo-to: #efe6d0;
     color-scheme: dark;
+}
+
+/* High contrast: a blue/orange palette that stays distinct for colour-blind players. */
+.contrast {
+    --good: #1f63c4;
+    --warn: #d4690f;
+    --bad: #5b3d8f;
+    --grade-square: #7a4fb0;
+}
+
+.dark.contrast {
+    --good: #6aa9f4;
+    --warn: #f4a04a;
+    --bad: #b594e6;
+    --grade-square: #c29cf0;
 }
 
 @theme inline {
@@ -66,6 +83,7 @@
     --color-warn: var(--warn);
     --color-bad: var(--bad);
     --color-hint: var(--hint);
+    --color-grade-square: var(--grade-square);
     --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
     --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }

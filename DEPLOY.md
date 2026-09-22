@@ -29,6 +29,14 @@ npx wrangler d1 migrations apply chessbitz --remote
 
 Haz commit del `wrangler.jsonc` con el id real.
 
+Cada migración nueva de `migrations/` (por ejemplo `0002_hints_and_time.sql`, que añade las sumas de pistas y tiempo) se aplica igual, **antes** de desplegar el código que la usa:
+
+```bash
+npx wrangler d1 migrations apply chessbitz --remote
+```
+
+Las migraciones son aditivas: los resultados enviados antes siguen contando como jugadores, pero no entran en las medias de pistas y tiempo.
+
 ## 2. Ajustes de Workers Builds
 
 El Worker `chessbitz` ya está conectado al repositorio. En **Workers & Pages → chessbitz → Settings → Build**:
@@ -66,6 +74,7 @@ La web solo está sin servicio los minutos que pasan entre el paso 1 y el 3.
 ```bash
 curl -I https://chessbitz.com/
 curl https://chessbitz.com/api/stats/0
+curl https://chessbitz.com/api/summary
 curl -s https://chessbitz.com/ | grep 'og:image'
 ```
 

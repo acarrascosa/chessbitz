@@ -14,12 +14,19 @@ interface ChallengeModeProps {
     plies: Ply[];
     state: ChallengeState;
     dispatch: React.Dispatch<ChallengeAction>;
-    explanations: string[];
+    /** One explanation per ply; the analysis box is hidden without them (tactics). */
+    explanations?: string[];
     lang: Lang;
     /** Title and tabs shown above the panel. */
     intro: React.ReactNode;
     /** Rendered in place of the side panel once the challenge is over. */
     result?: React.ReactNode;
+    /** Board id, also the prefix of square ids (`#challenge-square-e4`). */
+    boardId?: string;
+    /** Replaces "You play black" in the panel header. */
+    label?: React.ReactNode;
+    /** Texts for tactics, which have a best move rather than a book move. */
+    texts?: { yourTurn: string; wrong: string };
 }
 
 type Feedback = { kind: 'correct' | 'wrong'; square: Square };
@@ -29,13 +36,16 @@ const FEEDBACK_MS = 700;
 
 /** Square highlights are drawn as overlays so the wood colour stays visible underneath. */
 const overlay = (color: string): React.CSSProperties => ({ boxShadow: `inset 0 0 0 100vmax ${color}` });
-const STYLE = {
+export const STYLE = {
     selected: overlay('rgba(214, 170, 60, 0.55)'),
     target: { backgroundImage: 'radial-gradient(circle, rgba(31, 40, 35, 0.38) 21%, transparent 23%)' },
-    hint: { outline: '4px solid rgba(47, 111, 143, 0.9)', outlineOffset: '-4px' },
-    correct: overlay('rgba(47, 125, 79, 0.55)'),
-    wrong: overlay('rgba(179, 67, 47, 0.6)'),
+    hint: { outline: '4px solid color-mix(in srgb, var(--hint) 90%, transparent)', outlineOffset: '-4px' },
+    // Theme colours, so the high-contrast palette applies on the board too.
+    correct: overlay('color-mix(in srgb, var(--good) 55%, transparent)'),
+    wrong: overlay('color-mix(in srgb, var(--bad) 60%, transparent)'),
 } satisfies Record<string, React.CSSProperties>;
+
+const HINT_ARROW = 'rgba(47, 111, 143, 0.9)';
 
 const RESULT_DOT: Record<PlyResult, string> = {
     perfect: 'bg-good',
@@ -49,8 +59,12 @@ function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
     return 'NBRQK'.includes(letter) ? (letter.toLowerCase() as 'n' | 'b' | 'r' | 'q' | 'k') : 'p';
 }
 
-const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, explanations, lang, intro, result }) => {
+const ChallengeMode: React.FC<ChallengeModeProps> = ({
+    plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts,
+}) => {
     const t = ui[lang];
+    const yourTurnText = texts?.yourTurn ?? t.yourTurn;
+    const wrongText = texts?.wrong ?? t.wrongMove;
     const [selected, setSelected] = useState<Square | null>(null);
     const [feedback, setFeedback] = useState<Feedback | null>(null);
 
@@ -103,7 +117,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
     if (feedback) squareStyles[feedback.square] = STYLE[feedback.kind];
 
     const arrows = playerTurn && target && state.hintLevel >= MAX_HINT_LEVEL
-        ? [{ startSquare: target.from, endSquare: target.to, color: 'rgba(47, 111, 143, 0.9)' }]
+        ? [{ startSquare: target.from, endSquare: target.to, color: HINT_ARROW }]
         : [];
 
     const hintLines = target ? [
@@ -112,9 +126,9 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
         t.hintMove.replace('{san}', target.san),
     ].slice(0, state.hintLevel) : [];
 
-    const statusText = feedback?.kind === 'wrong' ? t.wrongMove
+    const statusText = feedback?.kind === 'wrong' ? wrongText
         : feedback?.kind === 'correct' ? t.correctMove
-            : playerTurn ? t.yourTurn : t.opponentTurn;
+            : playerTurn ? yourTurnText : t.opponentTurn;
     const statusColor = feedback?.kind === 'wrong' ? 'text-bad' : feedback?.kind === 'correct' ? 'text-good' : 'text-ink';
 
     const renderPly = (ply?: Ply) => {
@@ -134,7 +148,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
         <div className="card overflow-hidden flex flex-col animate-rise">
             <div className="px-5 py-3.5 bg-surface-2 border-b border-line flex items-center justify-between gap-2">
                 <span className="eyebrow">
-                    {t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
+                    {label ?? t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
                 </span>
                 <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
                     {Array.from({ length: MAX_MISTAKES }, (_, i) => (
@@ -168,15 +182,17 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
                 ))}
             </ol>
 
-            <div className="bg-surface-2 border-t border-line p-5">
-                <div className="flex items-center gap-2 mb-2 eyebrow">
-                    <Info size={14} aria-hidden="true" />
-                    {t.analysis}{lastPly && <span className="normal-case tracking-normal"> · {moveLabel(lastPly)}</span>}
+            {explanations.length > 0 && (
+                <div className="bg-surface-2 border-t border-line p-5">
+                    <div className="flex items-center gap-2 mb-2 eyebrow">
+                        <Info size={14} aria-hidden="true" />
+                        {t.analysis}{lastPly && <span className="normal-case tracking-normal"> · {moveLabel(lastPly)}</span>}
+                    </div>
+                    <p className="text-sm text-ink leading-relaxed min-h-[2.5rem]">
+                        {lastPly ? explanations[lastPly.index] : '—'}
+                    </p>
                 </div>
-                <p className="text-sm text-ink leading-relaxed min-h-[2.5rem]">
-                    {lastPly ? explanations[lastPly.index] : '—'}
-                </p>
-            </div>
+            )}
         </div>
     );
 
@@ -187,7 +203,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({ plies, state, dispatch, e
                 <div className={`board-frame ${feedback?.kind === 'wrong' ? 'animate-[shake_0.3s_ease-in-out]' : ''}`}>
                     <div className="aspect-square">
                         <Board
-                            id="challenge"
+                            id={boardId}
                             fen={fen}
                             orientation={state.side === 'w' ? 'white' : 'black'}
                             lastMove={lastPly}
