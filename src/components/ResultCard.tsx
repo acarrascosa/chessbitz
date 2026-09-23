@@ -62,7 +62,7 @@ export function NextTiles({ title, items }: { title: string; items: NextItem[] }
     return (
         <nav aria-label={title}>
             <h3 className="eyebrow text-center mb-2">{title}</h3>
-            <ul className={`grid gap-2 ${items.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+            <ul className={`grid gap-2 ${items.length === 3 || items.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {items.map(item => {
                     const content = (
                         <>

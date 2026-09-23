@@ -14,22 +14,24 @@ const t = ui[lang];
     <article class="card max-w-3xl mx-auto p-6 md:p-10 space-y-8 leading-relaxed">
         <h1 class="font-display text-3xl md:text-4xl font-semibold">{t.legalPageTitle}</h1>
 
-        <section class="space-y-3">
+        <!-- Stable anchors: the Discord app links its terms and privacy policy here. -->
+        <section id="about" class="space-y-3 scroll-mt-6">
             <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalAboutTitle}</h2>
             <p set:html={t.legalAboutText1} />
             <p>{t.legalAboutText2}</p>
         </section>
 
-        <section class="space-y-3">
+        <section id="privacy" class="space-y-3 scroll-mt-6">
             <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalPrivacyTitle}</h2>
             <p set:html={t.legalPrivacyText} />
             <ul class="list-disc pl-5 space-y-2">
                 <li set:html={t.legalLocalStorage} />
                 <li set:html={t.legalAnonymousStats} />
+                <li set:html={t.legalBattle} />
             </ul>
         </section>
 
-        <section class="space-y-3">
+        <section id="credits" class="space-y-3 scroll-mt-6">
             <h2 class="font-display text-xl font-semibold border-b border-line pb-2">{t.legalCreditsTitle}</h2>
             <p>{t.legalCreditsText}</p>
             <div class="bg-surface-2 p-4 rounded-lg border-l-4 border-accent">

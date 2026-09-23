@@ -17,7 +17,7 @@ import { createExpert, type ExpertState } from '../lib/expert';
 import { lineDifficulty } from '../lib/puzzle';
 import { computeStats, loadArchive, loadHistory, saveArchiveDay, saveDay } from '../lib/progress';
 import { fetchGlobalStats, submitResult, type GlobalStats } from '../lib/stats-api';
-import { archivePath, fill, plural, ui, type Lang } from '../i18n/ui';
+import { archivePath, battlePath, fill, plural, ui, type Lang } from '../i18n/ui';
 
 export type Variant = 'daily' | 'archive';
 export type PlayMode = 'normal' | 'expert';
@@ -272,12 +272,15 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
                     ? { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, onClick: () => setMode('expert') }
                     : { icon: <Swords size={18} />, label: t.modeNormal, description: t.modeChallenge, onClick: () => setMode('normal') },
             ]
-            : hasArchive
-                ? [
-                    { icon: <CalendarDays size={18} />, label: t.tileArchive, description: t.tileArchiveDesc, href: archivePath(lang) },
-                    { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, href: `${archivePath(lang)}?random&mode=expert` },
-                ]
-                : []),
+            : [
+                ...(hasArchive
+                    ? [
+                        { icon: <CalendarDays size={18} />, label: t.tileArchive, description: t.tileArchiveDesc, href: archivePath(lang) },
+                        { icon: <Brain size={18} />, label: t.tileExpert, description: t.tileExpertDesc, href: `${archivePath(lang)}?random&mode=expert` },
+                    ]
+                    : []),
+                { icon: <Swords size={18} />, label: t.tileBattle, description: t.tileBattleDesc, href: battlePath(lang) },
+            ]),
     ];
 
     if (mode === 'expert') {

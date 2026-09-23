@@ -17,6 +17,7 @@ scripts/legacy/
 
 # environment variables
 .env
+.dev.vars
 .env.production
 
 # macOS-specific files

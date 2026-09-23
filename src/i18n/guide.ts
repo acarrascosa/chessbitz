@@ -42,6 +42,7 @@ export const guide: Record<Lang, Guide> = {
             { title: 'Archivo', text: 'Todos los retos anteriores están en el archivo. Puedes buscarlos por nombre o código ECO, filtrarlos por color y familia, o pedir uno al azar. No cuentan para tu racha.' },
             { title: 'Modo experto', text: 'Inspirado en Wordle: juegas todas tus jugadas sin ayuda y las envías juntas. Cada jugada recibe un color: verde si es exacta, amarillo si la pieza es correcta pero no la jugada, marrón si la casilla es correcta con otra pieza y gris si no acierta nada. Tienes 6 intentos. Si te sales de la línea, tu rival responde con un pequeño motor de ajedrez.' },
             { title: 'Tácticas', text: 'Cada apertura trae tres problemas tácticos de partidas reales jugadas en ella, sacados de la base de datos abierta de Lichess. Son la mejor forma de ver para qué sirven las ideas que acabas de aprender.' },
+            { title: 'Batalla', text: 'Crea una mesa, comparte el enlace y jugad de 2 a 4 amigos los mismos problemas de Lichess a la vez. Elige partida corta (≈2 min, fáciles), normal (hasta 4 min, fáciles y difíciles) o larga (≈10 min, exigentes): cada tablero tiene un reloj según su dificultad y 5 errores, sin pistas. Resolver da 100 puntos, hasta 50 más por rapidez y −15 por cada error.' },
         ],
         tipsTitle: 'Consejos',
         tips: [
@@ -55,6 +56,7 @@ export const guide: Record<Lang, Guide> = {
         faq: [
             { q: '¿Qué es Chessbitz?', a: 'Un juego diario de ajedrez en el que juegas los movimientos de una apertura clásica. Hay 366 aperturas, una por día durante un año, cada una con nombre, descripción, ideas estratégicas y una explicación para cada jugada.' },
             { q: '¿Necesito una cuenta?', a: 'No. Es gratis, sin registro y sin publicidad. Tu progreso se guarda en tu navegador y puedes llevarlo a otro dispositivo desde Ajustes con un archivo o un código.' },
+            { q: '¿Puedo jugar contra mis amigos?', a: 'Sí, en Batalla: crea una mesa, comparte el enlace o el código de cuatro letras y, cuando todos estén listos, el anfitrión empieza. Todos jugáis los mismos tableros y gana quien más puntos sume. No hace falta cuenta.' },
             { q: '¿A qué hora cambia la apertura?', a: 'A medianoche en tu hora local. Todo el mundo juega la misma apertura en su día del calendario.' },
             { q: '¿Qué cuenta como error?', a: 'Una jugada legal que no es la de la línea. Las jugadas ilegales no cuentan. Con 5 errores el reto termina y se revela el resto de la línea.' },
             { q: '¿Cómo funcionan las estadísticas globales?', a: 'Al terminar el reto diario se envían de forma anónima tus errores, pistas y tiempo. Con eso se muestra cuántas personas han jugado, la distribución de errores y las medias del día.' },
@@ -88,6 +90,7 @@ export const guide: Record<Lang, Guide> = {
             { title: 'Archive', text: "Every past challenge lives in the archive. Search by name or ECO code, filter by colour and family, or ask for a random one. They don't count towards your streak." },
             { title: 'Expert mode', text: "Inspired by Wordle: you play all your moves without help and submit them together. Every move gets a colour: green if exact, yellow if the piece is right but not the move, brown if the square is right with another piece and grey if neither. You have 6 attempts. If you leave the line, your opponent answers with a small chess engine." },
             { title: 'Tactics', text: "Every opening comes with three tactical puzzles from real games played in it, taken from the Lichess open database. They're the best way to see what the ideas you just learned are for." },
+            { title: 'Battle', text: 'Create a table, share the link and race 1 to 3 friends through the same Lichess puzzles. Pick a short (≈2 min, easy), normal (up to 4 min, easy and hard) or long match (≈10 min, tough): each board has a clock that depends on its difficulty and 5 mistakes, no hints. Solving scores 100 points, up to 50 more for speed and −15 per mistake.' },
         ],
         tipsTitle: 'Tips',
         tips: [
@@ -101,6 +104,7 @@ export const guide: Record<Lang, Guide> = {
         faq: [
             { q: 'What is Chessbitz?', a: 'A daily chess game where you play the moves of a classic opening. There are 366 openings, one per day for a year, each with a name, description, strategic ideas and an explanation for every move.' },
             { q: 'Do I need an account?', a: "No. It's free, with no sign-up and no ads. Your progress is stored in your browser, and you can move it to another device from Settings with a file or a code." },
+            { q: 'Can I play against my friends?', a: "Yes, in Battle: create a table, share the link or the four-letter code and, once everyone's ready, the host starts. You all play the same boards and whoever scores the most wins. No account needed." },
             { q: 'When does the opening change?', a: 'At midnight in your local time. Everyone plays the same opening on their calendar day.' },
             { q: 'What counts as a mistake?', a: "A legal move that isn't the move from the line. Illegal moves don't count. After 5 mistakes the challenge ends and the rest of the line is revealed." },
             { q: 'How do the global statistics work?', a: "When you finish the daily challenge, your mistakes, hints and time are sent anonymously. That's how the site shows how many people played, the mistake distribution and the day's averages." },

@@ -10,19 +10,22 @@ interface HeaderActionsProps {
     lang: Lang;
     /** The current page in the other language, for the settings panel. */
     alternateHref: string;
+    /** Open the daily-challenge guide on the first visit (not on pages where it doesn't apply). */
+    autoGuide?: boolean;
 }
 
 /** Kept from the first version so returning players don't see the guide again. */
 const ONBOARDED_KEY = 'chessbitz-onboarded';
 
 /** Statistics, how-to-play and settings buttons with their panels. */
-const HeaderActions: React.FC<HeaderActionsProps> = ({ lang, alternateHref }) => {
+const HeaderActions: React.FC<HeaderActionsProps> = ({ lang, alternateHref, autoGuide = true }) => {
     const t = ui[lang];
     const [panel, setPanel] = useState<Panel | null>(null);
     usePanelRequests(setPanel);
 
     // First visit: open the guide once the page has settled.
     useEffect(() => {
+        if (!autoGuide) return;
         let seen = true;
         try {
             seen = localStorage.getItem(ONBOARDED_KEY) !== null;
@@ -32,7 +35,7 @@ const HeaderActions: React.FC<HeaderActionsProps> = ({ lang, alternateHref }) =>
         if (seen) return;
         const timer = setTimeout(() => setPanel(current => current ?? 'help'), 900);
         return () => clearTimeout(timer);
-    }, []);
+    }, [autoGuide]);
 
     const close = () => {
         if (panel === 'help') {

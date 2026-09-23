@@ -21,11 +21,30 @@
       "migrations_dir": "migrations"
     }
   ],
+  // Tactic battles: one Durable Object per table (see worker/battle.ts).
+  "durable_objects": {
+    "bindings": [{ "name": "BATTLE", "class_name": "BattleRoom" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["BattleRoom"] }],
+  // Discord Activity (see DEPLOY.md). Public values here; DISCORD_CLIENT_SECRET and
+  // DISCORD_BOT_TOKEN are secrets (`wrangler secret put`); without them /api/discord answers 503.
+  "vars": {
+    "DISCORD_CLIENT_ID": "1552269812141391913",
+    "DISCORD_PUBLIC_KEY": "0d2f104fe680e92a9b740d8b21b80fc9144fed796eb2177eae617f9f5935ad1f"
+  },
+  // Reminder in the Discord channels that played a battle the day before (17:00 UTC).
+  "triggers": { "crons": ["0 17 * * *"] },
   "ratelimits": [
     {
       "name": "RESULTS_LIMITER",
       "namespace_id": "1001",
       "simple": { "limit": 10, "period": 60 }
+    },
+    {
+      // Joining or reconnecting to a battle table.
+      "name": "BATTLE_LIMITER",
+      "namespace_id": "1002",
+      "simple": { "limit": 30, "period": 60 }
     }
   ],
   // www.chessbitz.com is redirected to the apex by a Cloudflare Redirect Rule

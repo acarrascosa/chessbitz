@@ -1,11 +1,12 @@
 import { parseDay, parseSubmission, toDailyStats, type ResultRow } from './stats';
 import { injectDailyPreview } from './preview';
+import { handleDiscord, sendReminders } from './discord';
+import type { Env } from './env';
+import { isRoomCode } from '../src/lib/battle';
+import { isDiscordLaunch } from '../src/lib/discord';
 
-export interface Env {
-    ASSETS: Fetcher;
-    DB: D1Database;
-    RESULTS_LIMITER?: RateLimit;
-}
+export { BattleRoom } from './battle';
+export type { Env } from './env';
 
 const json = (body: unknown, init: ResponseInit = {}) =>
     new Response(JSON.stringify(body), {
@@ -48,6 +49,18 @@ async function getStats(dayParam: string | undefined, env: Env): Promise<Respons
     return json(toDailyStats(day, results), { headers: { 'Cache-Control': 'public, max-age=60' } });
 }
 
+/** Tactic battles: each table code is a Durable Object that the players' WebSockets connect to. */
+async function connectBattle(request: Request, code: string, env: Env): Promise<Response> {
+    if (request.headers.get('Upgrade') !== 'websocket') return json({ error: 'Expected a WebSocket' }, { status: 426 });
+    if (!isRoomCode(code)) return json({ error: 'Invalid table' }, { status: 404 });
+    const key = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+    if (env.BATTLE_LIMITER && !(await env.BATTLE_LIMITER.limit({ key })).success) {
+        return json({ error: 'Too many requests' }, { status: 429 });
+    }
+    // A fresh request, so no client header can pose as the Worker's (see worker/discord.ts).
+    return env.BATTLE.get(env.BATTLE.idFromName(code)).fetch(new Request(request.url, { headers: { Upgrade: 'websocket' } }));
+}
+
 /** All-time totals for the "how to play" page. */
 async function getSummary(env: Env): Promise<Response> {
     const row = await env.DB.prepare('SELECT COALESCE(SUM(plays), 0) AS plays, COUNT(DISTINCT day) AS days FROM daily_results')
@@ -65,6 +78,12 @@ export default {
         if (url.pathname === '/api/summary' && request.method === 'GET') {
             return getSummary(env);
         }
+        if (url.pathname.startsWith('/api/discord/')) {
+            return handleDiscord(request, url, env);
+        }
+        if (url.pathname.startsWith('/api/battle/') && request.method === 'GET') {
+            return connectBattle(request, url.pathname.split('/')[3] ?? '', env);
+        }
         if (url.pathname.startsWith('/api/stats/') && request.method === 'GET') {
             return getStats(url.pathname.split('/')[3], env);
         }
@@ -72,7 +91,17 @@ export default {
             return json({ error: 'Not found' }, { status: 404 });
         }
 
+        // Discord opens the Activity at the root with ?frame_id=…&instance_id=…: serve only the battle.
+        if (url.pathname === '/' && isDiscordLaunch(url.search)) {
+            return env.ASSETS.fetch(new Request(new URL(`/discord/${url.search}`, url), request));
+        }
+
         const response = await env.ASSETS.fetch(request);
         return injectDailyPreview(url, response, env);
+    },
+
+    /** Daily reminder in the Discord channels that played a battle yesterday. */
+    async scheduled(controller, env, ctx) {
+        ctx.waitUntil(sendReminders(env, controller.scheduledTime));
     },
 } satisfies ExportedHandler<Env>;

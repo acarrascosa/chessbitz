@@ -166,13 +166,20 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
         border-radius: 9999px;
         border: 1px solid var(--line);
         background: var(--surface);
         color: var(--ink);
         transition: background-color 150ms, color 150ms;
+    }
+
+    @media (min-width: 640px) {
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
     }
 
     .icon-btn:hover {

@@ -1,0 +1,28 @@
+---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
+import "../../styles/global.css";
+import DiscordApp from "../../components/DiscordApp";
+---
+
+<!--
+    The Discord Activity. Discord loads it inside its iframe from
+    https://<client_id>.discordsays.com/?frame_id=…&instance_id=…, which the Worker
+    maps to this page. Only the battle: no navigation, footer, service worker or
+    third-party links (the iframe's CSP only allows requests through Discord's proxy).
+-->
+<!doctype html>
+<html lang="es" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <title>Chessbitz · Discord</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    </head>
+    <body class="text-ink font-sans min-h-screen antialiased">
+        <main class="w-full max-w-7xl mx-auto px-3 sm:px-6 py-4 min-h-[100svh] lg:flex lg:flex-col lg:justify-center">
+            <DiscordApp client:only="react" />
+        </main>
+    </body>
+</html>

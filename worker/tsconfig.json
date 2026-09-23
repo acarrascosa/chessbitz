@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["./**/*.ts", "../src/lib/daily.ts", "../src/lib/challenge.ts"]
+  "include": ["./**/*.ts", "../src/lib/daily.ts", "../src/lib/challenge.ts", "../src/lib/battle.ts", "../src/lib/discord.ts"]
 }

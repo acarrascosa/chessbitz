@@ -27,6 +27,10 @@ interface ChallengeModeProps {
     label?: React.ReactNode;
     /** Texts for tactics, which have a best move rather than a book move. */
     texts?: { yourTurn: string; wrong: string };
+    /** Battles are played without hints. */
+    hints?: boolean;
+    /** Shown in the panel under the status line (the battle standings). */
+    aside?: React.ReactNode;
 }
 
 type Feedback = { kind: 'correct' | 'wrong'; square: Square };
@@ -60,7 +64,7 @@ function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
 }
 
 const ChallengeMode: React.FC<ChallengeModeProps> = ({
-    plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts,
+    plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts, hints = true, aside,
 }) => {
     const t = ui[lang];
     const yourTurnText = texts?.yourTurn ?? t.yourTurn;
@@ -159,18 +163,24 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
 
             <div className="p-5 border-b border-line space-y-3">
                 <p aria-live="polite" className={`font-semibold ${statusColor}`}>{statusText}</p>
-                <button
-                    onClick={() => dispatch({ type: 'hint' })}
-                    disabled={!playerTurn || state.hintLevel >= MAX_HINT_LEVEL}
-                    className="btn btn-quiet w-full py-2 text-sm"
-                >
-                    <Lightbulb size={16} aria-hidden="true" />
-                    {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
-                </button>
-                <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
-                    {hintLines.map(line => <li key={line}>{line}</li>)}
-                </ul>
+                {hints && (
+                    <>
+                        <button
+                            onClick={() => dispatch({ type: 'hint' })}
+                            disabled={!playerTurn || state.hintLevel >= MAX_HINT_LEVEL}
+                            className="btn btn-quiet w-full py-2 text-sm"
+                        >
+                            <Lightbulb size={16} aria-hidden="true" />
+                            {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
+                        </button>
+                        <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
+                            {hintLines.map(line => <li key={line}>{line}</li>)}
+                        </ul>
+                    </>
+                )}
             </div>
+
+            {aside && <div className="p-4 border-b border-line">{aside}</div>}
 
             <ol className="flex-grow min-h-0 overflow-y-auto px-3 py-2 text-sm max-h-64 lg:max-h-none" aria-label={t.progress}>
                 {moveList.map(pair => (

@@ -1,0 +1,19 @@
+---
+import BattleApp from './BattleApp';
+import Layout from '../layouts/Layout.astro';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang].battle;
+---
+
+<Layout lang={lang} page="battle" title={t.title} description={t.meta}>
+    <BattleApp client:only="react" lang={lang}>
+        <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
+        <div slot="fallback" class="min-h-[85svh]" aria-hidden="true"></div>
+    </BattleApp>
+</Layout>
