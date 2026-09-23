@@ -17,7 +17,23 @@ interface Connected {
     locale: string | null;
 }
 
-type Phase = { kind: 'loading' } | { kind: 'outside' } | { kind: 'error' } | ({ kind: 'ready' } & Connected);
+type Phase = { kind: 'loading' } | { kind: 'outside' } | { kind: 'error'; detail: string } | ({ kind: 'ready' } & Connected);
+
+/** Which step of the handshake failed and why, shown small under the error so players can report it. */
+class HandshakeError extends Error {
+    constructor(step: string, cause: unknown) {
+        const reason = cause instanceof Error ? cause.message : typeof cause === 'object' ? JSON.stringify(cause) : String(cause);
+        super(`${step}: ${reason}`);
+    }
+}
+
+async function step<T>(name: string, run: () => Promise<T>): Promise<T> {
+    try {
+        return await run();
+    } catch (error) {
+        throw new HandshakeError(name, error);
+    }
+}
 
 /**
  * Local testing without Discord (DISCORD_MOCK=1 in .dev.vars): the SDK's mock
@@ -39,27 +55,32 @@ function mockSdk(clientId: string): DiscordSDKMock {
 
 /** Discord's handshake: ready → authorize (code) → our Worker swaps it for a token → authenticate. */
 async function connectToDiscord(): Promise<Connected | 'outside'> {
-    const config = await fetch('/api/discord/config').then(r => (r.ok ? r.json() as Promise<{ clientId: string; mock: boolean }> : null));
-    if (!config) throw new Error('Discord is not configured');
+    const config = await step('config', async () => {
+        const response = await fetch('/api/discord/config');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<{ clientId: string; mock: boolean }>;
+    });
     if (!config.mock && !isDiscordLaunch(location.search)) return 'outside';
 
     const sdk = config.mock ? mockSdk(config.clientId) : new DiscordSDK(config.clientId);
-    await sdk.ready();
-    const { code } = await sdk.commands.authorize({
+    await step('ready', () => sdk.ready());
+    const { code } = await step('authorize', () => sdk.commands.authorize({
         client_id: config.clientId,
         response_type: 'code',
         state: '',
         prompt: 'none',
         scope: ['identify'],
+    }));
+    const { access_token, session, locale } = await step('token', async () => {
+        const response = await fetch('/api/discord/token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code }),
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status} ${await response.text()}`);
+        return response.json() as Promise<{ access_token: string; session: string; locale?: string | null }>;
     });
-    const response = await fetch('/api/discord/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code }),
-    });
-    if (!response.ok) throw new Error(`Token exchange failed: ${response.status}`);
-    const { access_token, session, locale } = await response.json() as { access_token: string; session: string; locale?: string | null };
-    await sdk.commands.authenticate({ access_token });
+    await step('authenticate', () => sdk.commands.authenticate({ access_token }));
     return { sdk, session, locale: locale ?? null };
 }
 
@@ -81,7 +102,7 @@ export default function DiscordApp() {
             .then(result => !cancelled && setPhase(result === 'outside' ? { kind: 'outside' } : { kind: 'ready', ...result }))
             .catch(error => {
                 console.error(error);
-                if (!cancelled) setPhase({ kind: 'error' });
+                if (!cancelled) setPhase({ kind: 'error', detail: error instanceof Error ? error.message : String(error) });
             });
         return () => {
             cancelled = true;
@@ -89,7 +110,13 @@ export default function DiscordApp() {
     }, []);
 
     if (phase.kind === 'loading') return <p role="status" className="py-24 text-center text-ink-muted animate-pulse">{t.discord.loading}</p>;
-    if (phase.kind === 'error') return <Notice text={t.discord.error} />;
+    if (phase.kind === 'error') {
+        return (
+            <Notice text={t.discord.error}>
+                <p className="text-xs text-ink-muted font-mono break-words" data-testid="discord-error-detail">{phase.detail}</p>
+            </Notice>
+        );
+    }
     if (phase.kind === 'outside') {
         return (
             <Notice text={t.discord.outside}>

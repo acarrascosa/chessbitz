@@ -70,6 +70,11 @@ export class FakeTable {
         if (outcome.ok) this.commit(outcome.room);
     }
 
+    /** Replaces the room (built with the real room functions) and tells everyone. */
+    load(room: Room) {
+        this.commit(room);
+    }
+
     private commit(room: Room) {
         this.room = room;
         for (const [ws, you] of this.sockets) {

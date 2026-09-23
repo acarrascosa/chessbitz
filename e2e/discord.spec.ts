@@ -70,6 +70,14 @@ test('speaks the language set in Discord, not the system one', async ({ page }) 
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
+test('says which handshake step failed', async ({ page }) => {
+    await page.route('**/api/discord/config', route => route.fulfill({ json: { clientId: '1', mock: true } }));
+    await page.route('**/api/discord/token', route => route.fulfill({ status: 401, json: { error: 'Discord refused the code' } }));
+    await page.goto('/discord/?mock_user=Ana');
+    await expect(page.getByText('No se pudo conectar con Discord', { exact: false })).toBeVisible();
+    await expect(page.getByTestId('discord-error-detail')).toHaveText('token: HTTP 401 {"error":"Discord refused the code"}');
+});
+
 test('outside Discord it points to the web version', async ({ page }) => {
     await page.route('**/api/discord/config', route => route.fulfill({ json: { clientId: '1', mock: false } }));
     await page.goto('/discord/');

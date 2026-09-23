@@ -1,4 +1,4 @@
-// Renders the Discord app's artwork into docs/discord/ (uploaded by hand in the Developer Portal):
+// Renders the Discord app's artwork into public/media/discord/ (uploaded by hand in the Developer Portal):
 //   app-icon.png  1024×1024, the knight on the dark club green (Discord crops it to a circle)
 //   banner.png    680×240 bot profile banner (the avatar covers its bottom-left corner)
 //
@@ -11,7 +11,7 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
 
-const OUT = 'docs/discord';
+const OUT = 'public/media/discord';
 const COLORS = { night: '#0e1815', club: '#1f3a30', brass: '#d4b37a', ivory: '#efe6d0', muted: '#a2aca4', light: '#ecdfc7', dark: '#a47e56', mate: '#d0765c' };
 
 const font = (pkg, file) => readFileSync(`node_modules/@fontsource/${pkg}/files/${file}`);

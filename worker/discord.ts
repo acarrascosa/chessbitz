@@ -125,13 +125,18 @@ async function exchangeCode(env: Env, code: string): Promise<string | null> {
             code,
         }),
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+        // e.g. invalid_grant, or invalid_client when the secret doesn't match the app.
+        console.error(`Discord OAuth2 token exchange failed: ${response.status} ${await response.text()}`);
+        return null;
+    }
     const { access_token } = await response.json<{ access_token?: string }>();
     return access_token ?? null;
 }
 
 async function fetchUser(accessToken: string): Promise<DiscordUser | null> {
     const response = await fetch(`${API}/users/@me`, { headers: { Authorization: `Bearer ${accessToken}` } });
+    if (!response.ok) console.error(`Discord /users/@me failed: ${response.status} ${await response.text()}`);
     return response.ok ? response.json<DiscordUser>() : null;
 }
 
@@ -139,6 +144,7 @@ async function fetchUser(accessToken: string): Promise<DiscordUser | null> {
 async function fetchInstance(env: Env, instanceId: string, mock: boolean, uid: string): Promise<ActivityInstance | null> {
     if (mock) return { location: { channel_id: '100000000000000001', guild_id: '100000000000000002' }, users: [uid] };
     const response = await fetch(`${API}/applications/${env.DISCORD_CLIENT_ID}/activity-instances/${instanceId}`, { headers: bot(env) });
+    if (!response.ok) console.error(`Discord activity instance ${instanceId} lookup failed: ${response.status} ${await response.text()}`);
     return response.ok ? response.json<ActivityInstance>() : null;
 }
 
@@ -173,7 +179,8 @@ async function token(request: Request, url: URL, env: Env): Promise<Response> {
         accessToken = (await exchangeCode(env, code)) ?? '';
         user = accessToken ? await fetchUser(accessToken) : null;
     }
-    if (!user) return json({ error: 'Discord refused the code' }, { status: 401 });
+    // The detail is shown to the player so a failure can be reported; it holds no secrets.
+    if (!user) return json({ error: accessToken ? 'Discord refused the user lookup' : 'Discord refused the code' }, { status: 401 });
 
     const session = await signSession(
         { uid: user.id, name: user.global_name || user.username, exp: Date.now() + SESSION_TTL_MS },

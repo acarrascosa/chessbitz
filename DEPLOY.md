@@ -109,10 +109,11 @@ Sin configurar, `/api/discord/*` responde 503 y el resto de la web funciona igua
 
 En <https://discord.com/developers/applications> → **New Application** (Chessbitz):
 
-1. **General Information**: copia el **Application ID** y la **Public Key**. Icono de la app: [`docs/discord/app-icon.png`](docs/discord/app-icon.png) (1024×1024); cartel del bot (pestaña **Bot**): [`docs/discord/banner.png`](docs/discord/banner.png) (680×240). Se regeneran con `node scripts/discord-assets.mjs`. Condiciones del servicio: `https://chessbitz.com/legal/`; política de privacidad: `https://chessbitz.com/legal/#privacy`.
-2. **OAuth2**: pulsa **Reset Secret** y copia el **Client Secret**. No hace falta ninguna *redirect URI* para actividades.
+1. **General Information**: copia el **Application ID** y la **Public Key**. Icono de la app: [`public/media/discord/app-icon.png`](public/media/discord/app-icon.png) (1024×1024); cartel del bot (pestaña **Bot**): [`public/media/discord/banner.png`](public/media/discord/banner.png) (680×240). Se regeneran con `node scripts/discord-assets.mjs`. Condiciones del servicio: `https://chessbitz.com/legal/`; política de privacidad: `https://chessbitz.com/legal/#privacy`.
+2. **OAuth2**: pulsa **Reset Secret** y copia el **Client Secret**. En **Redirects** añade `https://127.0.0.1` y guarda: Discord exige al menos una *redirect URI* para que funcione `authorize` del SDK, aunque en una actividad nunca se use (el SDK hace la redirección).
+   Sin ella, la actividad muestra «No se pudo conectar con Discord» con el detalle `authorize: …`.
 3. **Bot**: **Reset Token** y copia el token. No necesita *privileged intents*.
-4. **Installation**: en *Guild Install* añade los scopes `applications.commands` y `bot` con los permisos **View Channels** y **Send Messages**. Usa el enlace de instalación para añadir la app a tu servidor de pruebas.
+4. **Installation**: en **Installation Contexts** marca **User Install** y **Guild Install**. *User Install* permite que cualquiera añada la app a su cuenta y la abra en cualquier servidor o MD sin que un administrador la instale. En *Guild Install* añade los scopes `applications.commands` y `bot` con los permisos **View Channels** y **Send Messages**. Usa el enlace de instalación para añadir la app a tu servidor de pruebas.
 5. **Activities → Settings**: marca **Enable Activities**. Discord crea solo el comando de entrada *Launch* (lo gestiona Discord).
 6. **Activities → URL Mappings**: `/` → `chessbitz.com` (sin `https://`). No hacen falta más mapeos: todas las peticiones de la actividad (páginas, `/_astro`, `/api` y el WebSocket de la mesa) van al mismo dominio. Ya no se necesita el prefijo `/.proxy/`.
 7. **General Information → Interactions Endpoint URL**: `https://chessbitz.com/api/discord/interactions`. Discord lo verifica al guardar, así que hazlo **después** de desplegar con la Public Key configurada. Es lo que hace que los botones *Jugar* / *Revancha* de los mensajes abran la actividad.
@@ -195,7 +196,17 @@ El cron (`triggers.crons` en `wrangler.jsonc`) se registra solo al desplegar.
 
 **Sin Discord:** con `DISCORD_MOCK=1` en `.dev.vars` (y nada más), `http://localhost:8787/?frame_id=x&instance_id=y&mock_user=Ana` simula el cliente con el mock del SDK. Los mensajes al canal se imprimen en la consola de `wrangler dev`. Abre un segundo jugador en `http://127.0.0.1:8787/…&mock_user=Bea`: otro origen, otra identidad. El mock solo se acepta en `localhost`.
 
-### 5.5 Limitaciones
+### 5.5 Que aparezca para todo el mundo (App Directory)
+
+Sin publicar, la app solo la ven su equipo y quien la instala. Para que salga en el **App Directory** y en la búsqueda del **App Launcher** (el cohete) de cualquier usuario:
+
+1. **User Install** activado (5.1), para que se pueda usar sin permisos de administrador.
+2. **App Verification** (menú del portal): el propietario verifica su identidad (Stripe Identity) y la app. Hace falta 2FA en la cuenta, condiciones y política de privacidad públicas (`https://chessbitz.com/legal/` y `…/legal/#privacy`) y contenido apto para mayores de 13 años.
+3. **Discovery → Discovery Settings**: descripción, al menos 1 etiqueta (hasta 5), icono, capturas y categoría. Las capturas (1920×1080) están en `public/media/discord/media-*.png`, así que se publican en `https://chessbitz.com/media/discord/…` (Discovery pide enlaces), y se regeneran con `npx playwright test -c scripts/discord-media.config.ts`. Después, **Enable Discovery**. Tarda hasta 24 h en aparecer.
+
+Juegos como Wordle salen sin buscarlos porque son actividades de Discord o de socios que Discord destaca (colecciones, *staff picks*). Eso no se solicita: depende del uso y de que Discord la elija.
+
+### 5.6 Limitaciones
 
 - El bot solo puede escribir donde está instalado: en canales de servidores. Si la actividad se abre en un MD o grupo, se juega igual pero no hay podio ni recordatorio en el chat.
 - Cada canal guarda solo su última batalla (IDs de canal y de jugadores, ganador y puntos) y se olvida tras 30 días sin jugar.
