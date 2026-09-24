@@ -40,9 +40,14 @@ test('everyone in the Activity sits at the same table and the podium goes to the
     await expect(page.getByRole('button', { name: 'Salir de la mesa' })).toHaveCount(0);
     await expect(page.getByTestId('table-code')).toHaveCount(0);
 
+    // Rich Presence: the table with its party (throttled, so give it a few seconds).
+    const presence = () => page.evaluate(() => (window as unknown as { chessbitzPresence?: { details: string; state: string; party?: { size: number[] } } }).chessbitzPresence);
+    await expect.poll(presence, { timeout: 8_000 }).toMatchObject({ details: 'Batalla · Normal', state: 'En la mesa', party: { size: [2, 4] } });
+
     await bea.getByRole('button', { name: 'Estoy listo' }).click();
     await page.getByRole('button', { name: 'Comenzar' }).click();
     await expect(page.getByText('Tablero 1 de 2 · Elo 1100')).toBeVisible({ timeout: 6_000 });
+    await expect.poll(presence, { timeout: 8_000 }).toMatchObject({ details: 'Tablero 1 de 2', state: '1.º · 0 pts' });
 
     bea.on('dialog', dialog => dialog.accept());
     await bea.getByRole('button', { name: 'Abandonar la partida' }).click();

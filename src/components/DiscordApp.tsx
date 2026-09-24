@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { DiscordSDK, DiscordSDKMock } from '@discord/embedded-app-sdk';
 import { LogIn, Swords } from 'lucide-react';
 import { BattleScreens } from './BattleApp';
 import { BattleHostContext, type BattleHost } from './battleHost';
 import { useBattle, type BattleProblem } from './useBattle';
 import { discordLang, isDiscordLaunch } from '../lib/discord';
+import { battlePresence, type PresenceActivity } from '../lib/presence';
+import type { PublicRoom } from '../lib/battle';
 import { battlePath, ui, type Lang } from '../i18n/ui';
 
 type Sdk = DiscordSDK | DiscordSDKMock;
@@ -49,7 +51,14 @@ function mockSdk(clientId: string): DiscordSDKMock {
         id = String(Math.floor(1e16 + Math.random() * 9e16));
     }
     const name = new URLSearchParams(location.search).get('mock_user') || 'Tester';
-    sdk._updateCommandMocks({ authorize: async () => ({ code: `mock:${id}:${name}` }) });
+    sdk._updateCommandMocks({
+        authorize: async () => ({ code: `mock:${id}:${name}` }),
+        // Exposed so tests (and a curious developer) can see what the profile would show.
+        setActivity: async ({ activity }) => {
+            (window as unknown as { chessbitzPresence?: unknown }).chessbitzPresence = activity;
+            return activity as never;
+        },
+    });
     return sdk;
 }
 
@@ -69,7 +78,8 @@ async function connectToDiscord(): Promise<Connected | 'outside'> {
         response_type: 'code',
         state: '',
         prompt: 'none',
-        scope: ['identify'],
+        // rpc.activities.write: the player's profile shows the battle (Rich Presence).
+        scope: ['identify', 'rpc.activities.write'],
     }));
     const { access_token, session, locale } = await step('token', async () => {
         const response = await fetch('/api/discord/token', {
@@ -161,13 +171,53 @@ function DiscordTable({ sdk, session, lang }: Omit<Connected, 'locale'> & { lang
     }
     return (
         <BattleHostContext.Provider value={host}>
-            <InstanceTable key={round} instanceId={sdk.instanceId} session={session} lang={lang} onAway={reason => setAway(reason ?? 'left')} />
+            <InstanceTable key={round} sdk={sdk} session={session} lang={lang} onAway={reason => setAway(reason ?? 'left')} />
         </BattleHostContext.Provider>
     );
 }
 
-function InstanceTable({ instanceId, session, lang, onAway }: { instanceId: string; session: string; lang: Lang; onAway: (reason: BattleProblem | null) => void }) {
+function InstanceTable({ sdk, session, lang, onAway }: { sdk: Sdk; session: string; lang: Lang; onAway: (reason: BattleProblem | null) => void }) {
+    const { instanceId } = sdk;
     const params = new URLSearchParams({ session, lang }).toString();
     const battle = useBattle(instanceId, () => `/api/discord/battle/${encodeURIComponent(instanceId)}?${params}`);
+    usePresence(sdk, battle.room, battle.you, lang);
     return <BattleScreens battle={battle} lang={lang} onLeave={onAway} />;
+}
+
+/** Discord accepts a few presence updates per 20 s: send the latest at most this often. */
+const PRESENCE_INTERVAL_MS = 5_000;
+
+/**
+ * Keeps the player's Rich Presence in step with the table: sent only when what it
+ * says changes (phase, board, place), throttled, and dropped for good if the player
+ * didn't grant rpc.activities.write (the battle works the same without it).
+ */
+function usePresence(sdk: Sdk, room: PublicRoom | null, you: string, lang: Lang) {
+    const activity = useMemo(() => (room && you ? battlePresence(room, you, lang) : null), [room, you, lang]);
+    const key = activity ? JSON.stringify(activity) : '';
+    const state = useRef({ sent: '', lastAt: 0, disabled: false, timer: undefined as ReturnType<typeof setTimeout> | undefined, latest: null as PresenceActivity | null });
+
+    useEffect(() => {
+        const s = state.current;
+        s.latest = activity;
+        if (!activity || s.disabled || key === s.sent) return;
+        const send = () => {
+            s.timer = undefined;
+            const latest = s.latest;
+            const latestKey = latest ? JSON.stringify(latest) : '';
+            if (!latest || s.disabled || latestKey === s.sent) return;
+            s.sent = latestKey;
+            s.lastAt = Date.now();
+            sdk.commands.setActivity({ activity: latest }).catch(error => {
+                console.warn('Rich Presence unavailable', error);
+                s.disabled = true;
+            });
+        };
+        if (s.timer) return;
+        const wait = s.lastAt + PRESENCE_INTERVAL_MS - Date.now();
+        if (wait <= 0) send();
+        else s.timer = setTimeout(send, wait);
+    }, [key, activity, sdk]);
+
+    useEffect(() => () => clearTimeout(state.current.timer), []);
 }

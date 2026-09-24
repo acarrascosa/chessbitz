@@ -118,6 +118,8 @@ En <https://discord.com/developers/applications> → **New Application** (Chessb
 6. **Activities → URL Mappings**: `/` → `chessbitz.com` (sin `https://`). No hacen falta más mapeos: todas las peticiones de la actividad (páginas, `/_astro`, `/api` y el WebSocket de la mesa) van al mismo dominio. Ya no se necesita el prefijo `/.proxy/`.
 7. **General Information → Interactions Endpoint URL**: `https://chessbitz.com/api/discord/interactions`. Discord lo verifica al guardar, así que hazlo **después** de desplegar con la Public Key configurada. Es lo que hace que los botones *Jugar* / *Revancha* de los mensajes abran la actividad.
 
+8. **Rich Presence → Art Assets**: sube las imágenes de `public/media/discord/presence/` (1024×1024) con el nombre del archivo como clave: `battle`, `rank-1` … `rank-4`, `lobby`, `winner`. Las usa el perfil de cada jugador mientras juega (`src/lib/presence.ts`); la actividad pide para ello el permiso `rpc.activities.write` y, si alguien no lo concede, la partida funciona igual.
+
 ### 5.2 Configurar el Worker
 
 Valores públicos en `wrangler.jsonc` (`vars`), ya configurados con la app de Chessbitz:
