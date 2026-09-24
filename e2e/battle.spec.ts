@@ -70,8 +70,21 @@ test('two players race through the same boards and see the podium', async ({ pag
     await expect(bea.getByRole('heading', { name: '¡Gana Ana!' })).toBeVisible();
     await expect(bea.getByTestId('results-table').locator('tbody tr').first()).toContainText('Ana');
 
-    // Rematch: back at the table, Bea has to confirm again.
+    // Only the host decides what's next; Bea is told.
+    await expect(bea.getByText('El anfitrión puede empezar la revancha o volver a la mesa.')).toBeVisible();
+    await expect(bea.getByRole('button', { name: 'Revancha' })).toHaveCount(0);
+
+    // Rematch: the same match again straight away, nobody has to confirm.
     await page.getByRole('button', { name: 'Revancha' }).click();
+    await expect(bea.getByText('Preparados…')).toBeVisible();
+    await expect(bea.getByText('Tablero 1 de 2 · Elo 1100')).toBeVisible({ timeout: 6_000 });
+    for (const p of [page, bea]) {
+        for (let board = 0; board < 2; board++) await solveBoard(p);
+    }
+    await expect(page.getByTestId('results-table')).toBeVisible();
+
+    // Back to the table: here the host can change the match or wait for others; Bea confirms again.
+    await page.getByRole('button', { name: 'Volver a la mesa' }).click();
     await expect(bea.getByRole('button', { name: 'Estoy listo' })).toBeVisible();
     await other.close();
 });

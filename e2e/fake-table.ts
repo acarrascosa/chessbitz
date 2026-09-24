@@ -1,6 +1,6 @@
 import type { WebSocketRoute } from '@playwright/test';
 import {
-    backToLobby, createRoom, joinRoom, leaveRoom, parseClientMessage, playMove, publicRoom, setFormat, setReady, startMatch, takeHint, tick,
+    backToLobby, createRoom, joinRoom, leaveRoom, parseClientMessage, playMove, publicRoom, rematch, setFormat, setReady, startMatch, takeHint, tick,
     type BattleBoard, type Outcome, type Room, type ServerMessage,
 } from '../src/lib/battle';
 
@@ -63,6 +63,7 @@ export class FakeTable {
                 case 'move': return playMove(room, id, message.board, message.from, message.to, now);
                 case 'hint': return takeHint(room, id, message.board, now);
                 case 'lobby': return backToLobby(room, id, now);
+                case 'rematch': return rematch(room, id, [MATE, { ...MATE, id: 'mate-2' }], now);
                 case 'leave': return { ok: true, room: leaveRoom(room, id, now) };
                 default: return { ok: false, error: 'invalid' };
             }

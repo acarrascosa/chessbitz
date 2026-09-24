@@ -1,6 +1,7 @@
 // Renders the Discord app's artwork into public/media/discord/ (uploaded by hand in the Developer Portal):
 //   app-icon.png  1024×1024, the knight on the dark club green (Discord crops it to a circle)
 //   banner.png    680×240 bot profile banner (the avatar covers its bottom-left corner)
+//   cover.png     1024×576 16:9 banner (Activity cover art)
 //   presence/*.png 1024×1024 Rich Presence art (Portal → Rich Presence → Art Assets; the file
 //                 name is the asset key): the large image shared by the table and small ones per player
 //
@@ -89,6 +90,38 @@ await render(
         ),
     ),
     680, 240, 3, 'banner.png',
+);
+
+// Cover: the 16:9 banner (1024×576). The pitch on the left, the game on the right: the same
+// scholar's mate and a live standings card like the Activity's (the players of media-*.png).
+const STANDINGS = [['Leo', '#2e7563', 380], ['Ana', '#b5842f', 258], ['Maya', '#4a6aa3', 233], ['Sam', '#9c4a66', 176]];
+const DOTS = { clean: '#5fbf7a', slow: '#e0b64a', next: COLORS.ivory, todo: '#2a3a34' };
+const progress = [['clean', 'clean', 'slow', 'clean', 'next'], ['clean', 'clean', 'next', 'todo', 'todo'], ['slow', 'clean', 'next', 'todo', 'todo'], ['slow', 'next', 'todo', 'todo', 'todo']];
+const chip = text => h('div', { alignItems: 'center', padding: '7px 13px', borderRadius: 999, border: '1px solid rgba(212,179,122,0.35)', background: 'rgba(31,58,48,0.6)', fontFamily: 'Inter', fontWeight: 700, fontSize: 13, color: COLORS.ivory }, text);
+await render(
+    h('div', { width: 1024, height: 576, background: `radial-gradient(ellipse at 62% 45%, ${COLORS.club} 0%, #13221d 50%, ${COLORS.night} 100%)`, position: 'relative', overflow: 'hidden' },
+        h('div', { position: 'absolute', left: 612, top: 70, transform: 'rotate(6deg)' }, board(MATE_FEN, 330, ['f7'])),
+        h('div', { position: 'absolute', left: 540, top: 326, width: 270, flexDirection: 'column', padding: '14px 16px', gap: 9, borderRadius: 14, border: '1px solid #2c4038', background: '#16231e', boxShadow: '0 20px 44px rgba(0,0,0,0.55)', transform: 'rotate(-3deg)' },
+            h('div', { fontFamily: 'Inter', fontWeight: 700, fontSize: 10, letterSpacing: 2, color: COLORS.brass, marginBottom: 2 }, 'LIVE STANDINGS'),
+            STANDINGS.map(([name, color, points], i) => h('div', { alignItems: 'center', gap: 9, fontFamily: 'Inter', fontSize: 14, color: COLORS.ivory },
+                h('div', { width: 12, fontWeight: 400, fontSize: 12, color: COLORS.muted }, String(i + 1)),
+                h('div', { width: 24, height: 24, borderRadius: 12, background: color, alignItems: 'center', justifyContent: 'center', fontFamily: 'Fraunces', fontWeight: 600, fontSize: 12 }, name[0]),
+                h('div', { flexGrow: 1, fontWeight: i === 1 ? 700 : 400 }, name),
+                h('div', { gap: 3 }, progress[i].map(state => h('div', { width: 6, height: 12, borderRadius: 3, background: DOTS[state] }))),
+                h('div', { width: 62, justifyContent: 'flex-end', alignItems: 'baseline', gap: 3, fontWeight: 700 }, String(points), h('span', { fontWeight: 400, fontSize: 11, color: COLORS.muted }, 'pts')),
+            )),
+        ),
+        h('div', { position: 'absolute', left: 72, top: 0, height: 576, width: 440, flexDirection: 'column', justifyContent: 'center', gap: 14 },
+            h('div', { alignItems: 'center', gap: 11 },
+                { type: 'img', props: { src: knight(COLORS.brass, COLORS.ivory), width: 21, height: 30 } },
+                h('div', { fontFamily: 'Inter', fontWeight: 700, fontSize: 14, letterSpacing: 3.2, color: COLORS.brass }, 'CHESSBITZ · CHESS'),
+            ),
+            h('div', { flexDirection: 'column', fontFamily: 'Fraunces', fontWeight: 600, fontSize: 78, lineHeight: 0.98, color: COLORS.ivory, letterSpacing: -1 }, h('div', {}, 'Tactics'), h('div', {}, 'battle')),
+            h('div', { fontFamily: 'Inter', fontWeight: 400, fontSize: 20, lineHeight: 1.45, color: '#b8c1b9', marginTop: 4 }, 'Race your friends through real chess puzzles, right in the voice channel.'),
+            h('div', { gap: 8, marginTop: 10, flexWrap: 'wrap' }, chip('2–4 players'), chip('Lichess puzzles'), chip('Live podium')),
+        ),
+    ),
+    1024, 576, 2, 'cover.png',
 );
 
 // Rich Presence art. Shown small on profiles, so bold shapes and little detail.

@@ -1,4 +1,6 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
+import puzzles from '../src/data/puzzles.json' with { type: 'json' };
+import { puzzlePlies, type Puzzle } from '../src/lib/puzzle';
 
 // Pin the calendar: day 0 of the schedule is the Modern Benoni (the player has black),
 // day 2 is the English Opening (a single white move).
@@ -131,14 +133,37 @@ test('records hints in the result and the statistics panel', async ({ page }) =>
     await expect(page.getByRole('dialog')).toContainText('Pistas por reto: 1');
 });
 
-test('unlocks a real tactic from the opening', async ({ page }) => {
+test('plays the three tactics of the opening and closes the day', async ({ page }) => {
     await openDay(page, DAY_2);
-    await expect(page.getByRole('tab', { name: 'Táctica' })).toBeDisabled();
+    await expect(page.getByRole('tab', { name: 'Tácticas' })).toBeDisabled();
     await move(page, 'c2', 'c4');
     await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
-    await clickAfterDrag(page.getByRole('tab', { name: 'Táctica' }), () =>
+    await clickAfterDrag(page.getByRole('tab', { name: 'Tácticas' }), () =>
         expect(page.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible({ timeout: 2000 }));
-    await expect(page.locator('#tactic-square-a1')).toBeAttached();
+    await expect(page.getByText('Una de las 3 tácticas de hoy', { exact: false })).toBeVisible();
+
+    const tactics = (puzzles as Record<string, Puzzle[]>)['english-opening'];
+    for (const [i, puzzle] of tactics.entries()) {
+        await expect(page.getByText(`Táctica ${i + 1} de 3 · Elo ${puzzle.rating}`)).toBeVisible();
+        // The player's moves are every other ply after the opponent's setup move.
+        for (const ply of puzzlePlies(puzzle).filter((_, n) => n % 2 === 1)) {
+            await expect(page.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible();
+            await page.locator(`#tactic-square-${ply.from}`).click();
+            await page.locator(`#tactic-square-${ply.to}`).click();
+        }
+        await expect(page.getByRole('heading', { name: '¡Táctica resuelta!' })).toBeVisible();
+        if (i < 2) await page.getByRole('button', { name: 'Siguiente táctica' }).click();
+    }
+
+    // No endless "next tactic": the day's tactics are done, with what to do next.
+    const done = page.getByTestId('tactics-complete');
+    await expect(done.getByRole('heading', { name: '¡Tácticas de hoy completadas!' })).toBeVisible();
+    await expect(done).toContainText('3 de 3 resueltas');
+    await expect(done).toContainText('Mañana, nueva apertura y tres tácticas nuevas.');
+    await expect(done.getByRole('link', { name: /Batalla/ })).toHaveAttribute('href', '/batalla/');
+    await expect(done.getByRole('link', { name: /Invítame a un café/ })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Siguiente táctica' })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Compartir' })).toBeVisible();
 });
 
 test('serves the English version at /en/', async ({ page }) => {

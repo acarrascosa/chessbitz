@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import puzzles from '../src/data/puzzles.json';
+import battlePuzzles from '../src/data/battle-puzzles.json';
 import {
     COUNTDOWN_MS, FORMATS, FORMATS_ORDER, LOBBY_GRACE_MS, MAX_PLAYERS, TRANSITION_MS,
     backToLobby, boardDeadline, boardPoints, canStart, cleanName, createRoom, disconnect, isRoomCode, joinRoom,
-    kickPlayer, leaveRoom, nextWakeUp, outcomeEmoji, takeHint, parseClientMessage, pickBoards, playMove, publicRoom, randomCode, rankPlayers,
+    kickPlayer, leaveRoom, nextWakeUp, outcomeEmoji, rematch, takeHint, parseClientMessage, pickBoards, playMove, publicRoom, randomCode, rankPlayers,
     seededRandom, setFormat, setReady, startMatch, tick, timeLimit, totalLimit,
     type BattleBoard, type Outcome, type Room,
 } from '../src/lib/battle';
-import { puzzlePlies, type Puzzle } from '../src/lib/puzzle';
+import { puzzleDifficulty, puzzlePlies, type Puzzle } from '../src/lib/puzzle';
 
-const pool = Object.values(puzzles as Record<string, Puzzle[]>).flat();
+const pool = battlePuzzles as Puzzle[];
 
 // Scholar's mate: after the setup move ...Nf6??, Qxf7# mates.
 const MATE: BattleBoard = {
@@ -34,6 +34,20 @@ function lobby(): Room {
 
 const started = () => unwrap(startMatch(lobby(), 'a', BOARDS, T0));
 const START = T0 + COUNTDOWN_MS;
+
+describe('battle pool', () => {
+    it('has 2,000 unique puzzles per tier, all playable', () => {
+        expect(new Set(pool.map(p => p.id)).size).toBe(6000);
+        const tiers = { easy: 0, medium: 0, hard: 0 };
+        for (const puzzle of pool) {
+            tiers[puzzleDifficulty(puzzle)]++;
+            const plies = puzzlePlies(puzzle);
+            expect(plies.length).toBeGreaterThanOrEqual(2);
+            expect(plies.length).toBeLessThanOrEqual(7);
+        }
+        expect(tiers).toEqual({ easy: 2000, medium: 2000, hard: 2000 });
+    });
+});
 
 describe('time and board selection', () => {
     it('gives harder and longer puzzles more time', () => {
@@ -66,6 +80,17 @@ describe('time and board selection', () => {
         };
         expect(average('short')).toBeLessThan(average('normal'));
         expect(average('normal')).toBeLessThan(average('long'));
+    });
+
+    it('avoids the puzzles a table has already played while fresh ones are left', () => {
+        const first = pickBoards(pool, 'short', seededRandom(1));
+        const played = first.map(b => b.id);
+        for (let seed = 2; seed < 50; seed++) {
+            expect(pickBoards(pool, 'short', seededRandom(seed), played).some(b => played.includes(b.id))).toBe(false);
+        }
+        // Every easy puzzle already played: it falls back to the whole pool rather than failing.
+        const allEasy = pool.filter(p => p.rating < 1300).map(p => p.id);
+        expect(pickBoards(pool, 'short', seededRandom(3), allEasy).length).toBeGreaterThanOrEqual(3);
     });
 
     it('is reproducible from a seed', () => {
@@ -243,6 +268,27 @@ describe('match', () => {
         room = unwrap(playMove(room, 'a', 0, 'h5', 'f7', START + 2_000));
         room = unwrap(playMove(room, 'a', 1, 'h5', 'f7', START + 2_000 + TRANSITION_MS + 1_000));
         expect(room.status).toBe('finished');
+    });
+
+    it('starts a rematch straight away with everyone still at the table', () => {
+        let room = unwrap(playMove(started(), 'a', 0, 'h5', 'f7', START + 1));
+        room = unwrap(playMove(room, 'a', 1, 'h5', 'f7', START + 1 + TRANSITION_MS));
+        room = unwrap(playMove(room, 'b', 0, 'h5', 'f7', START + 2));
+        room = unwrap(playMove(room, 'b', 1, 'h5', 'f7', START + 2 + TRANSITION_MS));
+        expect(room.status).toBe('finished');
+        const later = START + 60_000;
+        expect(rematch(room, 'b', BOARDS, later)).toEqual({ ok: false, error: 'notHost' });
+        const next = unwrap(rematch(room, 'a', [{ ...MATE, id: 'mate-3' }], later));
+        expect(next).toMatchObject({ status: 'playing', format: room.format, round: 2, startsAt: later + COUNTDOWN_MS });
+        expect(next.players.map(p => [p.id, p.board, p.results.length])).toEqual([['a', 0, 0], ['b', 0, 0]]);
+        expect(next.played).toEqual(['mate', 'mate-2', 'mate-3']);
+    });
+
+    it('needs two players still there for a rematch', () => {
+        let room = leaveRoom(started(), 'b', START);
+        room = unwrap(playMove(room, 'a', 0, 'h5', 'f7', START + 1));
+        room = unwrap(playMove(room, 'a', 1, 'h5', 'f7', START + 1 + TRANSITION_MS));
+        expect(rematch(room, 'a', BOARDS, START + 60_000)).toEqual({ ok: false, error: 'tooFew' });
     });
 
     it('brings everyone back to the table for a rematch, without those who left', () => {

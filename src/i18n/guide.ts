@@ -29,7 +29,7 @@ export const guide: Record<Lang, Guide> = {
             { title: 'Juega tus jugadas', text: 'Arrastra la pieza o toca origen y destino. Tu rival responde solo con la jugada de la línea. Los puntos del tablero marcan las casillas legales de la pieza elegida.' },
             { title: 'Cuidado con los errores', text: 'Una jugada legal que no es la de la línea cuenta como error y tienes 5 por reto. Las jugadas ilegales no cuentan: simplemente no se hacen.' },
             { title: 'Pide pistas si te atascas', text: 'Hay tres niveles por jugada: qué pieza mover, desde qué casilla y, por último, la flecha con la jugada. La primera pista de una jugada suma medio error y la flecha otro medio, así que una jugada revelada entera cuenta como un error. Las pistas nunca terminan el reto: aprende con ellas todo lo que quieras.' },
-            { title: 'Descubre la teoría', text: 'Al terminar se desbloquean el modo estudio, con una explicación para cada jugada y las ideas de la apertura, y una táctica real de esa apertura.' },
+            { title: 'Descubre la teoría', text: 'Al terminar se desbloquean el modo estudio, con una explicación para cada jugada y las ideas de la apertura, y tres tácticas reales de esa apertura.' },
         ],
         coloursTitle: 'Qué significa cada color',
         colours: [
@@ -77,7 +77,7 @@ export const guide: Record<Lang, Guide> = {
             { title: 'Play your moves', text: "Drag the piece or tap from and to. Your opponent replies on its own with the line's move. The dots on the board show the legal squares of the selected piece." },
             { title: 'Watch your mistakes', text: "A legal move that isn't the move from the line counts as a mistake, and you have 5 per challenge. Illegal moves don't count: they are simply not played." },
             { title: 'Ask for hints when stuck', text: 'There are three levels per move: which piece, from which square and, finally, the arrow with the move. The first hint on a move adds half a mistake and the arrow another half, so a move given away entirely counts as one mistake. Hints never end the challenge: learn with them as much as you like.' },
-            { title: 'Learn the theory', text: 'When you finish you unlock study mode, with an explanation for every move and the ideas behind the opening, plus a real tactic from that opening.' },
+            { title: 'Learn the theory', text: 'When you finish you unlock study mode, with an explanation for every move and the ideas behind the opening, plus three real tactics from that opening.' },
         ],
         coloursTitle: 'What each colour means',
         colours: [

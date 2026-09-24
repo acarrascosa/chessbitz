@@ -95,7 +95,15 @@ const EASIER: Record<Difficulty, Difficulty[]> = { easy: ['easy'], medium: ['med
  * takes a puzzle of its tier that still fits (falling back to easier tiers), so the
  * number of boards follows from the time available.
  */
-export function pickBoards(pool: Puzzle[], format: BattleFormat, random: () => number): BattleBoard[] {
+export function pickBoards(pool: Puzzle[], format: BattleFormat, random: () => number, played: Iterable<string> = []): BattleBoard[] {
+    // A table doesn't see a puzzle twice while there are fresh ones of each tier left.
+    const seen = new Set(played);
+    const fresh = pool.filter(p => !seen.has(p.id));
+    const boards = pickFrom(fresh, format, random);
+    return boards.length >= FORMATS[format].minBoards ? boards : pickFrom(pool, format, random);
+}
+
+function pickFrom(pool: Puzzle[], format: BattleFormat, random: () => number): BattleBoard[] {
     const spec = FORMATS[format];
     const byTier: Record<Difficulty, Puzzle[]> = { easy: [], medium: [], hard: [] };
     for (const puzzle of shuffle(pool, random)) byTier[puzzleDifficulty(puzzle)].push(puzzle);
@@ -200,6 +208,8 @@ export interface DiscordTable {
 
 export interface Room {
     code: string;
+    /** Puzzles this table has already played (latest last), so rematches bring new ones. */
+    played?: string[];
     /** Set for tables inside the Discord Activity (one per activity instance). */
     discord?: DiscordTable;
     status: RoomStatus;
@@ -349,11 +359,32 @@ export function startMatch(room: Room, id: string, boards: BattleBoard[], now: n
     const blocked = canStart(room);
     if (blocked) return fail(blocked);
     if (!boards.length) return fail('invalid');
+    return ok(begin(room, room.players, boards, now));
+}
+
+/** Kept per table: enough to avoid repeats for many rematches without growing forever. */
+const PLAYED_MEMORY = 300;
+
+function begin(room: Room, seated: BattlePlayer[], boards: BattleBoard[], now: number): Room {
     const startsAt = now + COUNTDOWN_MS;
-    const players = room.players.map(p => ({
+    const players = seated.map(p => ({
         ...p, ready: false, left: false, board: 0, boardStartedAt: startsAt, state: firstState(boards[0]), results: [],
     }));
-    return ok(update(room, now, { status: 'playing', boards, startsAt, finishedAt: undefined, players, round: room.round + 1 }));
+    const played = [...(room.played ?? []), ...boards.map(b => b.id)].slice(-PLAYED_MEMORY);
+    return update(ensureHost({ ...room, players }), now, { status: 'playing', boards, startsAt, finishedAt: undefined, played, round: room.round + 1 });
+}
+
+/**
+ * After the podium, the host starts the same kind of match again with everyone still
+ * at the table (no need for them to confirm again). Players who left or dropped lose
+ * their seat; with fewer than two left, the table goes back to the lobby instead.
+ */
+export function rematch(room: Room, id: string, boards: BattleBoard[], now: number): Outcome {
+    if (id !== room.hostId) return fail('notHost');
+    if (room.status !== 'finished' || !boards.length) return fail('invalid');
+    const seated = room.players.filter(p => !p.left && p.online);
+    if (seated.length < MIN_PLAYERS) return fail('tooFew');
+    return ok(begin(room, seated, boards, now));
 }
 
 /** When the player's current board runs out of time. */
@@ -524,6 +555,7 @@ export type ClientMessage =
     | { t: 'move'; board: number; from: Square; to: Square }
     | { t: 'hint'; board: number }
     | { t: 'lobby' }
+    | { t: 'rematch' }
     | { t: 'leave' };
 
 export type ServerMessage =
@@ -558,6 +590,7 @@ export function parseClientMessage(raw: unknown): ClientMessage | null {
         case 'hint':
             return Number.isInteger(data.board) ? { t: 'hint', board: data.board as number } : null;
         case 'start':
+        case 'rematch':
         case 'lobby':
         case 'leave':
             return { t: data.t };

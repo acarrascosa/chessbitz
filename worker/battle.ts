@@ -1,15 +1,16 @@
 import { DurableObject } from 'cloudflare:workers';
-import puzzles from '../src/data/puzzles.json';
+import battlePuzzles from '../src/data/battle-puzzles.json';
 import {
     backToLobby, createRoom, disconnect, joinRoom, kickPlayer, leaveRoom, nextWakeUp, parseClientMessage, pickBoards,
-    playMove, publicRoom, renamePlayer, seededRandom, setFormat, setReady, startMatch, takeHint, tick,
+    playMove, publicRoom, rematch, renamePlayer, seededRandom, setFormat, setReady, startMatch, takeHint, tick,
     type BattleError, type ClientMessage, type Outcome, type Room, type ServerMessage,
 } from '../src/lib/battle';
 import type { Puzzle } from '../src/lib/puzzle';
 import { DISCORD_PLAYER_HEADER, announceResults, type DiscordPlayer } from './discord';
 import type { Env } from './env';
 
-const POOL: Puzzle[] = Object.values(puzzles as Record<string, Puzzle[]>).flat();
+/** 6,000 Lichess puzzles, 2,000 per tier (scripts/battle-puzzles.mjs); only the Worker loads them. */
+const POOL: Puzzle[] = battlePuzzles as Puzzle[];
 /** An idle table is forgotten after this long (nobody connected, nothing happening). */
 const ROOM_TTL_MS = 60 * 60 * 1000;
 const TOKEN = /^[A-Za-z0-9_-]{16,64}$/;
@@ -132,10 +133,10 @@ export class BattleRoom extends DurableObject<Env> {
                 return renamePlayer(room, id, message.name, now);
             case 'kick':
                 return kickPlayer(room, id, message.id, now);
-            case 'start': {
-                const seed = crypto.getRandomValues(new Uint32Array(1))[0];
-                return startMatch(room, id, pickBoards(POOL, room.format, seededRandom(seed)), now);
-            }
+            case 'start':
+                return startMatch(room, id, this.boardsFor(room), now);
+            case 'rematch':
+                return rematch(room, id, this.boardsFor(room), now);
             case 'move':
                 return playMove(room, id, message.board, message.from, message.to, now);
             case 'hint':
@@ -145,6 +146,12 @@ export class BattleRoom extends DurableObject<Env> {
             case 'leave':
                 return { ok: true, room: leaveRoom(room, id, now) };
         }
+    }
+
+    /** Fresh random boards for the table's format, avoiding the puzzles it has already played. */
+    private boardsFor(room: Room) {
+        const seed = crypto.getRandomValues(new Uint32Array(1))[0];
+        return pickBoards(POOL, room.format, seededRandom(seed), room.played);
     }
 
     /** Stores the room, tells everyone and schedules the next time-based change. */

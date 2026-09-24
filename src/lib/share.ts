@@ -1,4 +1,4 @@
-import { MAX_MISTAKES, errorCount, hintsUsed, resultGrid, type ChallengeState } from './challenge';
+import { MAX_MISTAKES, errorCount, hintsUsed, isSolved, resultGrid, summaryEmoji, type ChallengeState } from './challenge';
 import { EXPERT_ATTEMPTS, expertGrid, type ExpertState } from './expert';
 import type { Ply } from './line';
 
@@ -24,6 +24,12 @@ export function buildShareText(state: ChallengeState, plies: Ply[], challengeNum
     const hints = hintsUsed(state) ? ` 💡${hintsUsed(state)}` : '';
     const fire = streak > 1 ? ` 🔥${streak}` : '';
     return `${title(challengeNumber, openingName, tag)}\n${resultGrid(state, plies, contrast)} ${score}${hints}${fire}\n${SITE_URL}`;
+}
+
+/** The day's tactics in one row: a square per puzzle and how many were solved. */
+export function buildTacticsShareText(states: ChallengeState[], challengeNumber: number, openingName: string, label: string, { tag, contrast = false }: ShareOptions = {}): string {
+    const solved = states.filter(isSolved).length;
+    return `${title(challengeNumber, openingName, tag)} · ${label}\n${states.map(s => summaryEmoji(s, contrast)).join('')} ${solved}/${states.length}\n${SITE_URL}`;
 }
 
 /** Expert mode shares every attempt row, like Wordle. */

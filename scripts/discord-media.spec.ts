@@ -1,7 +1,7 @@
 import { test, type Browser, type Page } from '@playwright/test';
 import { Chess, type Square } from 'chess.js';
 import sharp from 'sharp';
-import puzzles from '../src/data/puzzles.json' with { type: 'json' };
+import battlePuzzles from '../src/data/battle-puzzles.json' with { type: 'json' };
 import { FakeTable } from '../e2e/fake-table';
 import {
     COUNTDOWN_MS, TRANSITION_MS, boardPoints, pickBoards, seededRandom,
@@ -19,7 +19,7 @@ import { puzzlePlies, puzzleSide, type Puzzle } from '../src/lib/puzzle';
 const OUT = 'public/media/discord';
 const VIEWPORT = { width: 1280, height: 720 };
 const PLAYERS = [['Ana', '100000000000000011'], ['Leo', '100000000000000012'], ['Maya', '100000000000000013'], ['Sam', '100000000000000014']];
-const boards = pickBoards(Object.values(puzzles as Record<string, Puzzle[]>).flat(), 'normal', seededRandom(2026));
+const boards = pickBoards(battlePuzzles as Puzzle[], 'normal', seededRandom(2026));
 
 const table = new FakeTable(url => {
     const [, id, name] = (url.searchParams.get('session') ?? '').split(':');

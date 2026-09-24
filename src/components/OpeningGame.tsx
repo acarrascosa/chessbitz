@@ -258,7 +258,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
     }
 
     if (tab === 'tactic' && unlocked && puzzles.length) {
-        return <TacticMode puzzles={puzzles} lang={lang} openingName={content.name} renderIntro={renderIntro} />;
+        return <TacticMode puzzles={puzzles} lang={lang} openingName={content.name} challengeNumber={day + 1} daily={daily} renderIntro={renderIntro} />;
     }
 
     // The archive only has past days, so on launch day there is nothing to link to yet.

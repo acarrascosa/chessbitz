@@ -168,6 +168,12 @@ const EMOJI: Record<PlyResult, string> = { perfect: '🟩', assisted: '🟨', re
 /** High-contrast palette for colour-blind players. */
 const CONTRAST_EMOJI: Record<PlyResult, string> = { perfect: '🟦', assisted: '🟧', revealed: '⬛' };
 
+/** One square for a whole line or puzzle: 🟩 clean, 🟨 solved with help, 🟥 not solved. */
+export function summaryEmoji(state: ChallengeState, contrast = false): string {
+    const emoji = contrast ? CONTRAST_EMOJI : EMOJI;
+    return emoji[!isSolved(state) ? 'revealed' : errorHalves(state) ? 'assisted' : 'perfect'];
+}
+
 export function resultGrid(state: ChallengeState, plies: Ply[], contrast = false): string {
     const emoji = contrast ? CONTRAST_EMOJI : EMOJI;
     return playerPlies(plies, state.side)

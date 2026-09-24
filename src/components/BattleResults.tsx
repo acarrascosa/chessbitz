@@ -1,6 +1,6 @@
 import React from 'react';
 import confetti from 'canvas-confetti';
-import { ExternalLink, LogOut, RotateCcw, Trophy } from 'lucide-react';
+import { ExternalLink, LogOut, RotateCcw, Trophy, Users } from 'lucide-react';
 import { Avatar } from './BattleLobby';
 import { useBattleHost } from './battleHost';
 import type { BattleConnection } from './useBattle';
@@ -87,16 +87,23 @@ export default function BattleResults({ battle, room, lang, onLeave }: BattleRes
             <div className="card p-4 flex flex-col sm:flex-row items-center gap-3 justify-between">
                 <p className="text-sm text-ink-muted">{[discord && tb.discord.posted, !isHost && tb.waitingRematch].filter(Boolean).join(' ')}</p>
                 {notice && <p role="alert" className="text-sm text-bad">{tb.errors[notice]}</p>}
-                <div className="flex gap-2 shrink-0">
+                <div className="flex flex-wrap justify-center gap-2 shrink-0">
                     {!discord && (
                         <button onClick={onLeave} className="btn btn-quiet px-4 py-2.5 text-sm">
                             <LogOut size={16} aria-hidden="true" /> {tb.leave}
                         </button>
                     )}
                     {isHost && (
-                        <button onClick={() => send({ t: 'lobby' })} className="btn btn-primary px-5 py-2.5 text-sm">
-                            <RotateCcw size={16} aria-hidden="true" /> {tb.rematch}
-                        </button>
+                        <>
+                            {/* Back at the table: change the match length, wait for someone or let people go. */}
+                            <button onClick={() => send({ t: 'lobby' })} className="btn btn-quiet px-4 py-2.5 text-sm">
+                                <Users size={16} aria-hidden="true" /> {tb.backToTable}
+                            </button>
+                            {/* The same kind of match again, straight away, with new boards. */}
+                            <button onClick={() => send({ t: 'rematch' })} className="btn btn-primary px-5 py-2.5 text-sm">
+                                <RotateCcw size={16} aria-hidden="true" /> {tb.rematch}
+                            </button>
+                        </>
                     )}
                 </div>
             </div>
