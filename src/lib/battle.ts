@@ -1,6 +1,6 @@
 import type { Square } from 'chess.js';
 import type { Ply } from './line';
-import { challengeReducer, createChallenge, isPlayerTurn, type ChallengeState } from './challenge';
+import { challengeReducer, createChallenge, hintsUsed, isPlayerTurn, type ChallengeState } from './challenge';
 import { puzzleDifficulty, puzzlePlies, puzzleSide, type Difficulty, type Puzzle } from './puzzle';
 
 /*
@@ -130,26 +130,38 @@ export type BoardOutcome = 'won' | 'lost' | 'timeout';
 
 export interface BoardResult {
     outcome: BoardOutcome;
+    /** Wrong moves. */
     mistakes: number;
+    /** Hints taken, and the half-errors they cost (see HINT_HALVES in challenge.ts). */
+    hints?: number;
+    hintHalves?: number;
     /** Time spent on the board. */
     ms: number;
     points: number;
 }
 
-/** 🟩 clean, 🟨 with mistakes, 🟥 out of mistakes, ⏱️ out of time. */
+/** 🟩 clean, 🟨 with mistakes or hints, 🟥 out of mistakes, ⏱️ out of time. */
 export function outcomeEmoji(result: BoardResult): string {
     if (result.outcome === 'timeout') return '⏱️';
     if (result.outcome === 'lost') return '🟥';
-    return result.mistakes ? '🟨' : '🟩';
+    return result.mistakes || result.hints ? '🟨' : '🟩';
 }
 
-export const POINTS = { solved: 100, speed: 50, mistake: 15, floor: 25 } as const;
+/** Errors on a board in half points, like the daily challenge: 2 per wrong move, hints their halves. */
+export function resultHalves(result: BoardResult): number {
+    return Math.min(MAX_BOARD_HALVES, result.mistakes * 2 + (result.hintHalves ?? 0));
+}
 
-/** Solving is worth 100, up to 50 more for speed, minus 15 per mistake (never below 25). */
-export function boardPoints(outcome: BoardOutcome, mistakes: number, ms: number, limit: number): number {
+const MAX_BOARD_HALVES = 10;
+
+/** A hint costs a third of a mistake: all three on one move cost the same as a wrong move. */
+export const POINTS = { solved: 100, speed: 50, mistake: 15, hint: 5, floor: 25 } as const;
+
+/** Solving is worth 100, up to 50 more for speed, minus 15 per mistake and 5 per hint (never below 25). */
+export function boardPoints(outcome: BoardOutcome, mistakes: number, ms: number, limit: number, hints = 0): number {
     if (outcome !== 'won') return 0;
     const speed = Math.round(POINTS.speed * Math.max(0, 1 - ms / (limit * 1000)));
-    return Math.max(POINTS.floor, POINTS.solved + speed - POINTS.mistake * mistakes);
+    return Math.max(POINTS.floor, POINTS.solved + speed - POINTS.mistake * mistakes - POINTS.hint * hints);
 }
 
 /* ------------------------------------------------------------------ Room */
@@ -356,7 +368,9 @@ function finishBoard(room: Room, id: string, outcome: BoardOutcome, at: number):
     if (!player || !board) return room;
     const ms = Math.min(board.limit * 1000, Math.max(0, at - player.boardStartedAt));
     const mistakes = player.state?.mistakes ?? 0;
-    const result: BoardResult = { outcome, mistakes, ms, points: boardPoints(outcome, mistakes, ms, board.limit) };
+    const hints = player.state ? hintsUsed(player.state) : 0;
+    const hintHalves = player.state?.hintHalves ?? 0;
+    const result: BoardResult = { outcome, mistakes, hints, hintHalves, ms, points: boardPoints(outcome, mistakes, ms, board.limit, hints) };
     const nextIndex = player.board + 1;
     const next = withPlayer(room, id, p => ({
         ...p,
@@ -391,6 +405,18 @@ export function playMove(room: Room, id: string, boardIndex: number, from: Squar
     let next = withPlayer(ticked, id, p => ({ ...p, state }));
     if (state.status !== 'playing') next = finishBoard(next, id, state.status, now);
     return ok(update(next, now, {}));
+}
+
+/** A hint on the player's current board: it costs points when the board is scored. */
+export function takeHint(room: Room, id: string, boardIndex: number, now: number): Outcome {
+    if (room.status !== 'playing') return fail('invalid');
+    const ticked = tick(room, now);
+    const player = ticked.players.find(p => p.id === id);
+    const board = player && ticked.boards[player.board];
+    if (!player || !board || !player.state || player.board !== boardIndex || now < player.boardStartedAt) return fail('invalid');
+    const state = challengeReducer(puzzlePlies(board))(player.state, { type: 'hint' });
+    if (state === player.state) return fail('invalid');
+    return ok(update(withPlayer(ticked, id, p => ({ ...p, state })), now, {}));
 }
 
 /** Applies what time alone decides: boards that ran out and lobby seats left empty. */
@@ -451,7 +477,8 @@ export interface Standing {
     name: string;
     points: number;
     solved: number;
-    mistakes: number;
+    /** Errors, hints included (1.5 = a wrong move and half a hint). */
+    errors: number;
     ms: number;
     /** Boards finished, for the live race. */
     played: number;
@@ -459,23 +486,23 @@ export interface Standing {
 }
 
 export function standing(player: BattlePlayer): Standing {
-    const sum = (key: 'points' | 'mistakes' | 'ms') => player.results.reduce((total, r) => total + r[key], 0);
+    const sum = (key: 'points' | 'ms') => player.results.reduce((total, r) => total + r[key], 0);
     return {
         id: player.id,
         name: player.name,
         points: sum('points'),
         solved: player.results.filter(r => r.outcome === 'won').length,
-        mistakes: sum('mistakes'),
+        errors: player.results.reduce((total, r) => total + resultHalves(r), 0) / 2,
         ms: sum('ms'),
         played: player.results.length,
         left: Boolean(player.left),
     };
 }
 
-/** Points first, then boards solved, fewer mistakes and less time; those who left go last. */
+/** Points first, then boards solved, fewer errors and less time; those who left go last. */
 export function rankPlayers(players: BattlePlayer[]): Standing[] {
     return players.map(standing).sort((a, b) =>
-        Number(a.left) - Number(b.left) || b.points - a.points || b.solved - a.solved || a.mistakes - b.mistakes || a.ms - b.ms);
+        Number(a.left) - Number(b.left) || b.points - a.points || b.solved - a.solved || a.errors - b.errors || a.ms - b.ms);
 }
 
 /* ------------------------------------------------------------------ Protocol */
@@ -495,6 +522,7 @@ export type ClientMessage =
     | { t: 'kick'; id: string }
     | { t: 'start' }
     | { t: 'move'; board: number; from: Square; to: Square }
+    | { t: 'hint'; board: number }
     | { t: 'lobby' }
     | { t: 'leave' };
 
@@ -527,6 +555,8 @@ export function parseClientMessage(raw: unknown): ClientMessage | null {
             return Number.isInteger(data.board) && SQUARE.test(String(data.from)) && SQUARE.test(String(data.to))
                 ? { t: 'move', board: data.board as number, from: data.from as Square, to: data.to as Square }
                 : null;
+        case 'hint':
+            return Number.isInteger(data.board) ? { t: 'hint', board: data.board as number } : null;
         case 'start':
         case 'lobby':
         case 'leave':

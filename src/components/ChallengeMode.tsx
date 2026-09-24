@@ -5,10 +5,10 @@ import Board, { type SquareStyles } from './Board';
 import Stage from './Stage';
 import { fenAt, moveLabel, pairMoves, type Ply } from '../lib/line';
 import {
-    MAX_HINT_LEVEL, MAX_MISTAKES, isPlayerTurn, judgeAttempt,
+    MAX_HINT_LEVEL, MAX_MISTAKES, errorHalves, isPlayerTurn, judgeAttempt, nextHintHalves,
     type ChallengeAction, type ChallengeState, type PlyResult,
 } from '../lib/challenge';
-import { ui, type Lang } from '../i18n/ui';
+import { formatDecimal, ui, type Lang } from '../i18n/ui';
 
 interface ChallengeModeProps {
     plies: Ply[];
@@ -31,6 +31,8 @@ interface ChallengeModeProps {
     hints?: boolean;
     /** Shown in the panel under the status line (the battle standings). */
     aside?: React.ReactNode;
+    /** What the next hint costs, shown on its button; battles charge points instead of errors. */
+    hintCost?: (state: ChallengeState) => string | null;
 }
 
 type Feedback = { kind: 'correct' | 'wrong'; square: Square };
@@ -64,7 +66,7 @@ function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
 }
 
 const ChallengeMode: React.FC<ChallengeModeProps> = ({
-    plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts, hints = true, aside,
+    plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts, hints = true, aside, hintCost,
 }) => {
     const t = ui[lang];
     const yourTurnText = texts?.yourTurn ?? t.yourTurn;
@@ -130,6 +132,11 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
         t.hintMove.replace('{san}', target.san),
     ].slice(0, state.hintLevel) : [];
 
+    const halves = errorHalves(state);
+    // Each dot is one error: full, half (a hint) or empty.
+    const dotClass = (i: number) => halves >= (i + 1) * 2 ? 'bg-bad' : halves === i * 2 + 1 ? 'bg-[linear-gradient(90deg,var(--bad)_50%,var(--line)_50%)]' : 'bg-line';
+    const nextCost = hintCost ? hintCost(state) : nextHintHalves(state) ? t.hintCostHalf : null;
+
     const statusText = feedback?.kind === 'wrong' ? wrongText
         : feedback?.kind === 'correct' ? t.correctMove
             : playerTurn ? yourTurnText : t.opponentTurn;
@@ -154,9 +161,9 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
                 <span className="eyebrow">
                     {label ?? t.playingAs.replace('{side}', state.side === 'w' ? t.white : t.black)}
                 </span>
-                <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${state.mistakes}/${MAX_MISTAKES}`}>
+                <span className="flex items-center gap-1.5" role="img" aria-label={`${t.mistakes}: ${formatDecimal(lang, halves / 2)}/${MAX_MISTAKES}`} data-testid="error-dots" data-halves={halves}>
                     {Array.from({ length: MAX_MISTAKES }, (_, i) => (
-                        <span key={i} className={`w-2.5 h-2.5 rounded-full transition-colors ${i < state.mistakes ? 'bg-bad' : 'bg-line'}`} />
+                        <span key={i} className={`w-2.5 h-2.5 rounded-full transition-colors ${dotClass(i)}`} />
                     ))}
                 </span>
             </div>
@@ -172,6 +179,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
                         >
                             <Lightbulb size={16} aria-hidden="true" />
                             {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
+                            {nextCost && state.hintLevel < MAX_HINT_LEVEL && <span className="font-normal text-ink-muted">· {nextCost}</span>}
                         </button>
                         <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">
                             {hintLines.map(line => <li key={line}>{line}</li>)}

@@ -9,6 +9,13 @@ const today = getDayNumber(now);
 describe('parseSubmission', () => {
     it('accepts a valid result for today', () => {
         expect(parseSubmission({ day: today, mistakes: 2 }, now)).toEqual({ day: today, mistakes: 2 });
+        // Exact half errors must fall in the bucket they're sent with.
+        expect(parseSubmission({ day: today, mistakes: 2, halves: 3 }, now)).toEqual({ day: today, mistakes: 2, halves: 3 });
+        expect(parseSubmission({ day: today, mistakes: 4, halves: 9 }, now)).toEqual({ day: today, mistakes: 4, halves: 9 });
+        expect(parseSubmission({ day: today, mistakes: LOST, halves: 10 }, now)).toEqual({ day: today, mistakes: LOST, halves: 10 });
+        expect(parseSubmission({ day: today, mistakes: 0, halves: 1 }, now)).toBeNull();
+        expect(parseSubmission({ day: today, mistakes: 2, halves: 11 }, now)).toBeNull();
+        expect(parseSubmission({ day: today, mistakes: 2, halves: 1.5 }, now)).toBeNull();
         expect(parseSubmission({ day: today, mistakes: LOST }, now)).toEqual({ day: today, mistakes: LOST });
     });
 
@@ -66,10 +73,22 @@ describe('toDailyStats', () => {
             { mistakes: 2, plays: 3 },
             { mistakes: LOST, plays: 2 },
         ]);
-        expect(stats).toEqual({ day: 240, players: 12, distribution: [7, 0, 3, 0, 0], lost: 2, averageHints: null, averageSeconds: null });
+        expect(stats).toEqual({ day: 240, players: 12, distribution: [7, 0, 3, 0, 0], lost: 2, averageHints: null, averageSeconds: null, averageErrors: 1.3 });
         expect(flawlessShare(stats)).toBe(58);
         // (7·0 + 3·2 + 2·5) / 12
         expect(averageMistakes(stats)).toBe(1.3);
+    });
+
+    it('averages exact errors where players sent their half points, and buckets for older results', () => {
+        const stats = toDailyStats(240, [
+            // Bucket 1: two exact plays with 0.5 and 1 errors (3 halves), one older play counted as 1.
+            { mistakes: 1, plays: 3, halves: 3, exact: 2 },
+            // Bucket 0: clean.
+            { mistakes: 0, plays: 1, halves: 0, exact: 1 },
+        ]);
+        // (0.5 + 1 + 1 + 0) / 4
+        expect(stats.averageErrors).toBe(0.6);
+        expect(averageMistakes(stats)).toBe(0.6);
     });
 
     it('averages hints and time over the players who reported them', () => {

@@ -7,6 +7,8 @@ export interface GlobalStats {
     /** Averages over the players who reported them; null when nobody did yet. */
     averageHints: number | null;
     averageSeconds: number | null;
+    /** Exact average errors (half points for hints); absent from older Workers. */
+    averageErrors?: number | null;
 }
 
 export interface Summary {
@@ -16,7 +18,10 @@ export interface Summary {
 
 export interface ResultReport {
     day: number;
+    /** Histogram bucket: whole errors rounded up, MAX_MISTAKES when not solved. */
     mistakes: number;
+    /** Exact errors in half points (hints count halves), 0..2×MAX_MISTAKES. */
+    halves: number;
     hints: number;
     seconds: number;
 }
@@ -63,8 +68,9 @@ export function flawlessShare(stats: GlobalStats): number {
     return stats.players ? Math.round(((stats.distribution[0] ?? 0) / stats.players) * 100) : 0;
 }
 
-/** Average mistakes of today's players (a lost line counts as MAX_MISTAKES). */
+/** Average errors of today's players (a lost line counts as MAX_MISTAKES), exact when the Worker reports it. */
 export function averageMistakes(stats: GlobalStats): number {
+    if (stats.averageErrors != null) return stats.averageErrors;
     const total = stats.distribution.reduce((sum, count, mistakes) => sum + count * mistakes, 0) + stats.lost * stats.distribution.length;
     return stats.players ? Math.round((total / stats.players) * 10) / 10 : 0;
 }

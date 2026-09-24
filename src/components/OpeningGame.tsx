@@ -10,7 +10,7 @@ import { notifyGameFinished, notifyProgress, useElapsed } from './hooks';
 import type { Opening } from '../lib/openings';
 import { parseLine, type Ply } from '../lib/line';
 import {
-    challengeReducer, createChallenge, hintsUsed, playerPlies, resultBucket,
+    challengeReducer, createChallenge, errorHalves, hintsUsed, isSolved, playerPlies, resultBucket,
     type ChallengeAction, type ChallengeState,
 } from '../lib/challenge';
 import { createExpert, type ExpertState } from '../lib/expert';
@@ -135,7 +135,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
         let cancelled = false;
         (async () => {
             if (daily && !submitted) {
-                const ok = await submitResult({ day, mistakes: resultBucket(state), hints: hintsUsed(state), seconds: normalMs / 1000 });
+                const ok = await submitResult({ day, mistakes: resultBucket(state), halves: errorHalves(state), hints: hintsUsed(state), seconds: normalMs / 1000 });
                 if (ok && !cancelled) setSubmitted(true);
             }
             const stats = await fetchGlobalStats(day);
@@ -151,7 +151,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
     const was = useRef({ normal: state.status, expert: expert.status });
     useEffect(() => {
         const before = was.current;
-        const wonNow = (state.status === 'won' && before.normal !== 'won') || (expert.status === 'won' && before.expert !== 'won');
+        const wonNow = (isSolved(state) && before.normal !== 'won') || (expert.status === 'won' && before.expert !== 'won');
         const endedNow = (normalDone && before.normal === 'playing') || (expertDone && before.expert === 'playing');
         if (wonNow) celebrate();
         if (endedNow) notifyGameFinished();

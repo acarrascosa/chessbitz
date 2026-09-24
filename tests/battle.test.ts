@@ -3,7 +3,7 @@ import puzzles from '../src/data/puzzles.json';
 import {
     COUNTDOWN_MS, FORMATS, FORMATS_ORDER, LOBBY_GRACE_MS, MAX_PLAYERS, TRANSITION_MS,
     backToLobby, boardDeadline, boardPoints, canStart, cleanName, createRoom, disconnect, isRoomCode, joinRoom,
-    kickPlayer, leaveRoom, nextWakeUp, parseClientMessage, pickBoards, playMove, publicRoom, randomCode, rankPlayers,
+    kickPlayer, leaveRoom, nextWakeUp, outcomeEmoji, takeHint, parseClientMessage, pickBoards, playMove, publicRoom, randomCode, rankPlayers,
     seededRandom, setFormat, setReady, startMatch, tick, timeLimit, totalLimit,
     type BattleBoard, type Outcome, type Room,
 } from '../src/lib/battle';
@@ -151,8 +151,26 @@ describe('match', () => {
         const room = unwrap(playMove(started(), 'a', 0, 'h5', 'f7', START + 6_000));
         const ana = room.players[0];
         expect(ana.board).toBe(1);
-        expect(ana.results[0]).toEqual({ outcome: 'won', mistakes: 0, ms: 6_000, points: 140 });
+        expect(ana.results[0]).toEqual({ outcome: 'won', mistakes: 0, hints: 0, hintHalves: 0, ms: 6_000, points: 140 });
         expect(ana.boardStartedAt).toBe(START + 6_000 + TRANSITION_MS);
+    });
+
+    it('charges 5 points per hint and counts it as half an error', () => {
+        let room = started();
+        expect(takeHint(room, 'a', 1, START + 1)).toEqual({ ok: false, error: 'invalid' });
+        room = unwrap(takeHint(room, 'a', 0, START + 1_000));
+        room = unwrap(takeHint(room, 'a', 0, START + 2_000));
+        expect(room.players[0].state?.hints).toBe(2);
+        room = unwrap(playMove(room, 'a', 0, 'h5', 'f7', START + 6_000));
+        const result = room.players[0].results[0];
+        // 100 + 40 for speed − 2 × 5 for the hints.
+        expect(result).toMatchObject({ outcome: 'won', mistakes: 0, hints: 2, hintHalves: 1, points: 130 });
+        expect(outcomeEmoji(result)).toBe('🟨');
+        expect(rankPlayers(room.players)[0]).toMatchObject({ name: 'Ana', errors: 0.5 });
+    });
+
+    it('costs as much for all three hints on a move as for a wrong move', () => {
+        expect(boardPoints('won', 0, 30_000, 30, 3)).toBe(boardPoints('won', 1, 30_000, 30));
     });
 
     it('counts mistakes and loses the board after five', () => {
@@ -190,7 +208,7 @@ describe('match', () => {
         expect(room.status).toBe('playing');
         room = unwrap(playMove(room, 'b', 1, 'h5', 'f7', START + 2_000 + TRANSITION_MS + 1_000));
         expect(room.status).toBe('finished');
-        expect(rankPlayers(room.players).map(s => [s.name, s.points, s.solved, s.mistakes])).toEqual([
+        expect(rankPlayers(room.players).map(s => [s.name, s.points, s.solved, s.errors])).toEqual([
             ['Ana', 284, 2, 0],
             ['Bea', 280, 2, 1],
         ]);
@@ -252,6 +270,8 @@ describe('protocol', () => {
         expect(parseClientMessage('not json')).toBeNull();
         expect(parseClientMessage(`{"t":"rename","name":"${'x'.repeat(300)}"}`)).toBeNull();
         expect(parseClientMessage('{"t":"start"}')).toEqual({ t: 'start' });
+        expect(parseClientMessage('{"t":"hint","board":2}')).toEqual({ t: 'hint', board: 2 });
+        expect(parseClientMessage('{"t":"hint","board":"x"}')).toBeNull();
     });
 
     it('cleans names and room codes', () => {

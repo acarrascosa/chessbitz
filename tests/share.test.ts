@@ -26,8 +26,10 @@ describe('buildShareText', () => {
         const state = [{ type: 'hint' } as const, move('e2', 'e4'), { type: 'opponent' } as const, move('g1', 'f3')]
             .reduce(challengeReducer(plies), createChallenge(plies, 'w'));
         expect(buildShareText(state, plies, 7, 'Italiana', { tag: 'archivo' })).toBe(
-            'Chessbitz #7 (archivo) · Italiana\n🟨🟩 0/5 💡1\nhttps://chessbitz.com',
+            'Chessbitz #7 (archivo) · Italiana\n🟨🟩 0,5/5 💡1\nhttps://chessbitz.com',
         );
+        // The first hint on a move costs half an error, written the English way in English.
+        expect(buildShareText(state, plies, 7, 'Italian', { lang: 'en' })).toContain('0.5/5');
     });
 
     it('uses the high-contrast palette on request', () => {

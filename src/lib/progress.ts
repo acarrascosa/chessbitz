@@ -1,4 +1,4 @@
-import { MAX_MISTAKES, hintsUsed, type ChallengeState } from './challenge';
+import { MAX_MISTAKES, hintsUsed, isSolved, resultBucket, type ChallengeState } from './challenge';
 import type { ExpertState } from './expert';
 
 export interface DayRecord {
@@ -92,7 +92,8 @@ export function saveTactic(id: string, state: ChallengeState): Tactics {
     return tactics;
 }
 
-const isWon = (record?: DayRecord) => record?.state.status === 'won';
+/** Solved with errors to spare: a line finished with the whole allowance spent on hints doesn't count. */
+const isWon = (record?: DayRecord) => Boolean(record && isSolved(record.state));
 
 export function computeStats(history: History, today: number): Stats {
     const finished = Object.entries(history)
@@ -106,7 +107,7 @@ export function computeStats(history: History, today: number): Stats {
     let previousDay = -Infinity;
     for (const { day, record } of finished) {
         if (isWon(record)) {
-            distribution[record.state.mistakes]++;
+            distribution[resultBucket(record.state)]++;
             run = day === previousDay + 1 ? run + 1 : 1;
             maxStreak = Math.max(maxStreak, run);
         } else {
@@ -117,7 +118,8 @@ export function computeStats(history: History, today: number): Stats {
 
     // Today's challenge still in progress doesn't break the streak.
     let currentStreak = 0;
-    for (let day = isWon(history[today]) ? today : today - 1; isWon(history[day]); day--) currentStreak++;
+    const todayFinished = history[today] && history[today].state.status !== 'playing';
+    for (let day = todayFinished ? today : today - 1; isWon(history[day]); day--) currentStreak++;
 
     const withHints = finished.filter(({ record }) => record.state.hints !== undefined);
     const won = finished.filter(({ record }) => isWon(record)).length;

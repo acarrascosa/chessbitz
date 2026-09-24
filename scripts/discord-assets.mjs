@@ -1,10 +1,14 @@
 // Renders the Discord app's artwork into public/media/discord/ (uploaded by hand in the Developer Portal):
 //   app-icon.png  1024×1024, the knight on the dark club green (Discord crops it to a circle)
 //   banner.png    680×240 bot profile banner (the avatar covers its bottom-left corner)
+//   presence/*.png 1024×1024 Rich Presence art (Portal → Rich Presence → Art Assets; the file
+//                 name is the asset key): the large image shared by the table and small ones per player
 //
 //   node scripts/discord-assets.mjs
 import { mkdirSync, readFileSync } from 'node:fs';
+import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { Hourglass, Trophy } from 'lucide-react';
 import { defaultPieces } from 'react-chessboard';
 import { Chess } from 'chess.js';
 import satori from 'satori';
@@ -66,24 +70,67 @@ await render(
     1024, 1024, 1, 'app-icon.png',
 );
 
-// Banner: title and pitch on the left (clear of the avatar in the bottom-left), a mated board on the right.
-// Scholar's mate, Qxf7#: the most famous tactic there is.
+// Banner: everything readable in the centre. Discord crops it differently everywhere: the app
+// page shows only a wide middle band (top and bottom cut), the Discover card cuts the sides and
+// puts the icon over the bottom-left. Safe zone ≈ x 60–620, y 50–190; the boards at the edges
+// are decoration and may be cut. Scholar's mate, Qxf7#: the most famous tactic there is.
 const MATE_FEN = 'r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 4';
 await render(
-    h('div', { width: 680, height: 240, background: `radial-gradient(circle at 78% 50%, ${COLORS.club}, ${COLORS.night} 70%)`, position: 'relative', overflow: 'hidden' },
-        // Faint pixel knight watermark behind the board.
-        { type: 'img', props: { src: knight(`${COLORS.brass}18`, `${COLORS.ivory}0c`), width: 210, height: 300, style: { position: 'absolute', left: 330, top: -30 } } },
-        // Everything readable sits in the top 60%: Discord puts the avatar over the bottom-left.
-        h('div', { position: 'absolute', left: 32, top: 26, flexDirection: 'column', width: 400 },
-            h('div', { alignItems: 'center', gap: 10 },
-                { type: 'img', props: { src: knight(COLORS.brass, COLORS.ivory), width: 20, height: 28 } },
-                h('div', { fontFamily: 'Inter', fontWeight: 700, fontSize: 12, letterSpacing: 2.6, color: COLORS.brass }, 'CHESSBITZ · CHESS'),
+    h('div', { width: 680, height: 240, background: `radial-gradient(ellipse at 50% 45%, ${COLORS.club} 0%, #13221d 55%, ${COLORS.night} 100%)`, position: 'relative', overflow: 'hidden' },
+        h('div', { position: 'absolute', left: -46, top: 118, transform: 'rotate(-10deg)', opacity: 0.55 }, board(MATE_FEN, 140, ['f7'])),
+        h('div', { position: 'absolute', left: 566, top: -34, transform: 'rotate(8deg)' }, board(MATE_FEN, 156, ['f7'])),
+        h('div', { position: 'absolute', left: 110, top: 58, width: 460, flexDirection: 'column', alignItems: 'center', gap: 8 },
+            h('div', { alignItems: 'center', gap: 9 },
+                { type: 'img', props: { src: knight(COLORS.brass, COLORS.ivory), width: 16, height: 23 } },
+                h('div', { fontFamily: 'Inter', fontWeight: 700, fontSize: 11, letterSpacing: 2.6, color: COLORS.brass }, 'CHESSBITZ · CHESS'),
             ),
-            h('div', { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 42, lineHeight: 1.02, color: COLORS.ivory, marginTop: 10, letterSpacing: -0.5 }, 'Tactics battle'),
-            h('div', { fontFamily: 'Inter', fontWeight: 400, fontSize: 15, lineHeight: 1.4, color: COLORS.muted, marginTop: 10, width: 360 },
-                'The same Lichess puzzles against the clock, for 2\u00a0to\u00a04 players, with a rematch every day.'),
+            h('div', { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 50, lineHeight: 1, color: COLORS.ivory, letterSpacing: -0.5 }, 'Tactics battle'),
+            h('div', { fontFamily: 'Inter', fontWeight: 400, fontSize: 15, lineHeight: 1.4, color: '#b8c1b9', marginTop: 2 }, 'Race your friends through real chess puzzles.'),
         ),
-        h('div', { position: 'absolute', right: 34, top: 26, transform: 'rotate(-4deg)' }, board(MATE_FEN, 180, ['f7'])),
     ),
     680, 240, 3, 'banner.png',
 );
+
+// Rich Presence art. Shown small on profiles, so bold shapes and little detail.
+mkdirSync(`${OUT}/presence`, { recursive: true });
+const PRESENCE_BG = `radial-gradient(circle at 50% 42%, ${COLORS.club}, ${COLORS.night} 75%)`;
+
+/** The heart of the scholar's mate (d5–g8): the queen on f7, highlighted, facing the king. */
+function mateCloseUp(size) {
+    const squares = new Chess(MATE_FEN).board();
+    const cell = size / 4;
+    const rows = squares.slice(0, 4).map(row => row.slice(3, 7));
+    return h('div', { padding: size * 0.05, borderRadius: size * 0.07, background: 'linear-gradient(145deg, #6b4b2e, #3f2a19)', boxShadow: '0 40px 80px rgba(0,0,0,0.5)' },
+        h('div', { flexDirection: 'column', borderRadius: size * 0.02, overflow: 'hidden' },
+            rows.map((row, r) => h('div', {}, row.map((piece, c) => {
+                const square = `${'defg'[c]}${8 - r}`;
+                const base = (r + c + 3) % 2 ? COLORS.dark : COLORS.light;
+                return h('div', { width: cell, height: cell, background: square === 'f7' ? COLORS.mate : base, alignItems: 'center', justifyContent: 'center' },
+                    piece ? [{ type: 'img', props: { src: pieceImages[`${piece.color}${piece.type.toUpperCase()}`], width: cell * 0.9, height: cell * 0.9 } }] : []);
+            })))));
+}
+
+await render(
+    h('div', { width: 1024, height: 1024, alignItems: 'center', justifyContent: 'center', background: PRESENCE_BG },
+        h('div', { transform: 'rotate(-6deg)' }, mateCloseUp(700))),
+    1024, 1024, 1, 'presence/battle.png',
+);
+
+const icon = (Icon, color) => `data:image/svg+xml;base64,${Buffer.from(
+    renderToStaticMarkup(createElement(Icon, { size: 24, color, strokeWidth: 2 })).replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"'),
+).toString('base64')}`;
+
+/** A round badge: Discord shows small images as circles in the corner of the large one. */
+const badge = (fill, content) => h('div', { width: 1024, height: 1024, alignItems: 'center', justifyContent: 'center', borderRadius: 512, background: fill }, content);
+
+const MEDALS = [
+    ['rank-1', 'linear-gradient(145deg, #f3d27a, #b8862b)', '#3b2a08'],
+    ['rank-2', 'linear-gradient(145deg, #eef0f2, #9aa3ab)', '#2b3136'],
+    ['rank-3', 'linear-gradient(145deg, #e8a36a, #9c5a2c)', '#3a1f0c'],
+    ['rank-4', `linear-gradient(145deg, #2f5a4a, ${COLORS.club})`, COLORS.ivory],
+];
+for (const [key, fill, ink] of MEDALS) {
+    await render(badge(fill, h('div', { fontFamily: 'Fraunces', fontWeight: 600, fontSize: 620, lineHeight: 1, color: ink, marginTop: -40 }, key.slice(-1))), 1024, 1024, 1, `presence/${key}.png`);
+}
+await render(badge(PRESENCE_BG, { type: 'img', props: { src: icon(Hourglass, COLORS.brass), width: 560, height: 560 } }), 1024, 1024, 1, 'presence/lobby.png');
+await render(badge('linear-gradient(145deg, #f3d27a, #b8862b)', { type: 'img', props: { src: icon(Trophy, '#3b2a08'), width: 560, height: 560 } }), 1024, 1024, 1, 'presence/winner.png');

@@ -4,9 +4,9 @@ import ChallengeMode from './ChallengeMode';
 import { Avatar } from './BattleLobby';
 import { useTicker, type BattleConnection } from './useBattle';
 import {
-    challengeReducer, createChallenge, type ChallengeAction, type ChallengeState,
+    MAX_HINT_LEVEL, challengeReducer, createChallenge, type ChallengeAction, type ChallengeState,
 } from '../lib/challenge';
-import { outcomeEmoji, rankPlayers, type BattleBoard, type BoardResult, type PublicPlayer, type PublicRoom } from '../lib/battle';
+import { POINTS, outcomeEmoji, rankPlayers, type BattleBoard, type BoardResult, type PublicPlayer, type PublicRoom } from '../lib/battle';
 import { puzzleGoal, puzzlePlies, puzzleSide } from '../lib/puzzle';
 import { fill, formatClock, ui, type Lang } from '../i18n/ui';
 
@@ -42,7 +42,7 @@ function useReachedAt(at: number, serverNow: () => number): boolean {
 }
 
 const PIP: Record<string, string> = { clean: 'bg-good', mistakes: 'bg-warn', lost: 'bg-bad', timeout: 'bg-bad/60' };
-const pipClass = (r: BoardResult) => PIP[r.outcome === 'won' ? (r.mistakes ? 'mistakes' : 'clean') : r.outcome];
+const pipClass = (r: BoardResult) => PIP[r.outcome === 'won' ? (r.mistakes || r.hints ? 'mistakes' : 'clean') : r.outcome];
 
 /** Live standings: points and a pip per board. */
 export function Standings({ room, you, lang }: { room: PublicRoom; you: string; lang: Lang }) {
@@ -189,6 +189,7 @@ function BoardPlay({ battle, room, me, index, board, result, lang, onLeave }: Bo
     const dispatch = useCallback((action: ChallengeAction) => {
         localDispatch(action);
         if (action.type === 'attempt') send({ t: 'move', board: index, from: action.from, to: action.to });
+        if (action.type === 'hint') send({ t: 'hint', board: index });
     }, [send, index]);
 
     const over = result ?? (state.status !== 'playing' ? { outcome: state.status, mistakes: state.mistakes } : expired ? { outcome: 'timeout' as const, mistakes: state.mistakes } : null);
@@ -240,7 +241,7 @@ function BoardPlay({ battle, room, me, index, board, result, lang, onLeave }: Bo
             intro={intro}
             result={summary || undefined}
             boardId="battle"
-            hints={false}
+            hintCost={s => (s.hintLevel < MAX_HINT_LEVEL ? fill(tb.hintCost, { points: POINTS.hint }) : null)}
             aside={(
                 <>
                     <Standings room={room} you={you} lang={lang} />

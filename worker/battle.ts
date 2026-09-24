@@ -2,7 +2,7 @@ import { DurableObject } from 'cloudflare:workers';
 import puzzles from '../src/data/puzzles.json';
 import {
     backToLobby, createRoom, disconnect, joinRoom, kickPlayer, leaveRoom, nextWakeUp, parseClientMessage, pickBoards,
-    playMove, publicRoom, renamePlayer, seededRandom, setFormat, setReady, startMatch, tick,
+    playMove, publicRoom, renamePlayer, seededRandom, setFormat, setReady, startMatch, takeHint, tick,
     type BattleError, type ClientMessage, type Outcome, type Room, type ServerMessage,
 } from '../src/lib/battle';
 import type { Puzzle } from '../src/lib/puzzle';
@@ -94,8 +94,8 @@ export class BattleRoom extends DurableObject<Env> {
             if (message.t === 'kick') this.dismiss(message.id, 'kicked');
             if (message.t === 'leave') this.dismiss(id, 'left');
             await this.commit(outcome.room);
-        } else if (message.t === 'move') {
-            // A move for a board that already timed out: just resync that player.
+        } else if (message.t === 'move' || message.t === 'hint') {
+            // A move or hint for a board that already timed out: just resync that player.
             if (room !== this.room) await this.commit(room);
             else this.send(ws, room, id, now);
         } else {
@@ -138,6 +138,8 @@ export class BattleRoom extends DurableObject<Env> {
             }
             case 'move':
                 return playMove(room, id, message.board, message.from, message.to, now);
+            case 'hint':
+                return takeHint(room, id, message.board, now);
             case 'lobby':
                 return backToLobby(room, id, now);
             case 'leave':

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Modal from './Modal';
 import MiniBars from './MiniBars';
 import { useProgressVersion } from './hooks';
-import { MAX_MISTAKES } from '../lib/challenge';
+import { MAX_MISTAKES, isSolved, resultBucket } from '../lib/challenge';
 import { LAUNCH_DAY_UTC, getDayNumber } from '../lib/daily';
 import { computeStats, loadArchive, loadHistory, loadTactics } from '../lib/progress';
 import { formatDecimal, ui, type Lang } from '../i18n/ui';
@@ -28,15 +28,17 @@ const StatsModal: React.FC<StatsModalProps> = ({ open, onClose, lang }) => {
         const tactics = loadTactics();
         const stats = computeStats(history, today);
         const todayRecord = history[today];
-        const todayBucket = todayRecord && todayRecord.state.status !== 'playing'
-            ? (todayRecord.state.status === 'lost' ? MAX_MISTAKES : todayRecord.state.mistakes)
-            : undefined;
+        const todayBucket = todayRecord && todayRecord.state.status !== 'playing' ? resultBucket(todayRecord.state) : undefined;
         const calendar = Array.from({ length: CALENDAR_DAYS }, (_, i) => today - (CALENDAR_DAYS - 1 - i))
             .filter(day => day >= 0)
-            .map(day => ({ day, status: history[day]?.state.status }));
+            .map(day => {
+                const state = history[day]?.state;
+                // A line finished with every error spent on hints shows as lost, like in the stats.
+                return { day, status: state && state.status !== 'playing' ? (isSolved(state) ? 'won' : 'lost') : state?.status };
+            });
         const archivePlayed = Object.values(archive).filter(r =>
             (r.normal && r.normal.state.status !== 'playing') || (r.expert && r.expert.state.status !== 'playing')).length;
-        const tacticsSolved = Object.values(tactics).filter(r => r.state.status === 'won').length;
+        const tacticsSolved = Object.values(tactics).filter(r => isSolved(r.state)).length;
         return { today, stats, todayBucket, calendar, archivePlayed, tacticsSolved };
         // `version` re-reads storage when progress changes while the panel is open.
     }, [open, version]);

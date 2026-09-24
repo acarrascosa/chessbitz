@@ -3,7 +3,7 @@ import { BarChart3, BookOpen, Check, Flame, Lightbulb, RotateCcw, Share2 } from 
 import { useStore } from '@nanostores/react';
 import GlobalStatsPanel from './GlobalStatsPanel';
 import { openPanel, useCountdown, useShare } from './hooks';
-import { MAX_MISTAKES, hintsUsed, resultBucket, resultGrid, type ChallengeState } from '../lib/challenge';
+import { MAX_MISTAKES, errorCount, hintsUsed, isSolved, resultBucket, resultGrid, type ChallengeState } from '../lib/challenge';
 import { buildShareText } from '../lib/share';
 import { averageMistakes, type GlobalStats } from '../lib/stats-api';
 import type { Ply } from '../lib/line';
@@ -90,16 +90,18 @@ const ResultCard: React.FC<ResultCardProps> = ({
     const t = ui[lang];
     const contrast = useStore(contrastStore);
     const daily = variant === 'daily';
-    const won = state.status === 'won';
+    // Completing the line with the whole allowance spent on hints counts as not solved.
+    const won = isSolved(state);
+    const completed = state.status === 'won';
     const hints = hintsUsed(state);
     const seconds = elapsedMs / 1000;
     const { share, copied } = useShare(() =>
-        buildShareText(state, plies, challengeNumber, openingName, { streak: daily ? streak : 0, tag: daily ? undefined : t.archiveTag, contrast }));
+        buildShareText(state, plies, challengeNumber, openingName, { streak: daily ? streak : 0, tag: daily ? undefined : t.archiveTag, contrast, lang }));
 
     const comparisons: Comparison[] = [
         {
             label: t.statMistakes,
-            value: won ? `${state.mistakes}/${MAX_MISTAKES}` : `✕`,
+            value: completed ? `${formatDecimal(lang, errorCount(state))}/${MAX_MISTAKES}` : `✕`,
             average: global ? formatDecimal(lang, averageMistakes(global)) : undefined,
         },
         {
@@ -122,8 +124,9 @@ const ResultCard: React.FC<ResultCardProps> = ({
                     <p className={`eyebrow ${won ? '' : 'text-bad'}`}>
                         {daily ? '' : `${t.archiveTitle} · `}{fill(t.challengeNumber, { n: challengeNumber })} · {eco}
                     </p>
-                    <h2 id="result-title" className="font-display text-2xl font-semibold">{won ? t.won : t.lost}</h2>
-                    {!won && <p className="text-sm text-ink-muted">{t.lostDesc}</p>}
+                    <h2 id="result-title" className="font-display text-2xl font-semibold">{completed ? t.won : t.lost}</h2>
+                    {!completed && <p className="text-sm text-ink-muted">{t.lostDesc}</p>}
+                    {completed && !won && <p className="text-sm text-ink-muted">{t.allowanceSpent}</p>}
                     <p className="text-2xl tracking-[0.2em] pt-1" aria-hidden="true">{resultGrid(state, plies, contrast)}</p>
                 </div>
 

@@ -17,10 +17,20 @@ describe('computeStats', () => {
         expect(stats.distribution).toEqual([2, 0, 1, 0, 0]);
     });
 
+    it('counts a line finished with every error spent on hints as a loss', () => {
+        const givenAway = { opening: 'x', state: { ...day('won').state, hintHalves: 10 } };
+        const halfHint = { opening: 'x', state: { ...day('won').state, hintHalves: 1 } };
+        const stats = computeStats({ 1: day('won'), 2: halfHint, 3: givenAway }, 3);
+        expect(stats).toMatchObject({ played: 3, won: 2, lost: 1, currentStreak: 0, maxStreak: 2 });
+        expect(stats.distribution).toEqual([1, 1, 0, 0, 0]);
+    });
+
     it('resets the streak after a loss or a skipped day', () => {
         const history: History = { 1: day('won'), 2: day('won'), 3: day('lost'), 5: day('won'), 7: day('won') };
         expect(computeStats(history, 7)).toMatchObject({ played: 5, won: 4, currentStreak: 1, maxStreak: 2 });
         expect(computeStats(history, 9).currentStreak).toBe(0);
+        // Losing today ends the streak straight away (it isn't carried over from yesterday).
+        expect(computeStats({ 1: day('won'), 2: day('lost') }, 2).currentStreak).toBe(0);
     });
 });
 

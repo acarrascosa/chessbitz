@@ -20,6 +20,8 @@ export interface ChallengeState {
     hintLevel: number;
     /** Hints used in the whole challenge (absent in results saved before it existed). */
     hints?: number;
+    /** Half-errors charged for hints (absent in results saved before hints cost errors). */
+    hintHalves?: number;
     /** A wrong attempt was made on the current ply. */
     stumbled: boolean;
     status: ChallengeStatus;
@@ -34,7 +36,7 @@ export type ChallengeAction =
 export type AttemptVerdict = 'correct' | 'wrong' | 'illegal';
 
 export function createChallenge(plies: Ply[], side: Color): ChallengeState {
-    return { side, cursor: 0, results: {}, mistakes: 0, hintLevel: 0, hints: 0, stumbled: false, status: plies.length ? 'playing' : 'won' };
+    return { side, cursor: 0, results: {}, mistakes: 0, hintLevel: 0, hints: 0, hintHalves: 0, stumbled: false, status: plies.length ? 'playing' : 'won' };
 }
 
 export function isPlayerTurn(state: ChallengeState, plies: Ply[]): boolean {
@@ -78,6 +80,32 @@ export function judgeAttempt(state: ChallengeState, plies: Ply[], from: Square, 
 /** Hints used so far; results saved before hints were counted report 0. */
 export const hintsUsed = (state: ChallengeState) => state.hints ?? 0;
 
+/**
+ * What a hint costs, in half-errors, by the level it unlocks: asking for help on a
+ * move (which piece) is half an error, the arrow the other half, so a move given
+ * away entirely counts as one error. The square hint in between is free.
+ */
+export const HINT_HALVES: Record<number, number> = { 1: 1, 2: 0, 3: 1 };
+
+/** Cost of the next hint on the current move, in half-errors (0 once all are used). */
+export const nextHintHalves = (state: ChallengeState) => HINT_HALVES[state.hintLevel + 1] ?? 0;
+
+/**
+ * Errors in half-points: 2 per wrong move plus the hints' halves, up to the whole
+ * allowance. Hints never end a line (only wrong moves do), but a line finished on
+ * hints alone can still reach the maximum, which counts as not solved.
+ */
+export function errorHalves(state: ChallengeState): number {
+    if (state.status === 'lost') return MAX_MISTAKES * 2;
+    return Math.min(MAX_MISTAKES * 2, state.mistakes * 2 + (state.hintHalves ?? 0));
+}
+
+/** Errors as shown to the player (1.5 for a wrong move plus half a hint). */
+export const errorCount = (state: ChallengeState) => errorHalves(state) / 2;
+
+/** Completed with errors to spare: the win for streaks and stats. */
+export const isSolved = (state: ChallengeState) => state.status === 'won' && errorHalves(state) < MAX_MISTAKES * 2;
+
 function settle(state: ChallengeState, plies: Ply[], result: PlyResult): ChallengeState {
     const cursor = state.cursor + 1;
     return {
@@ -112,7 +140,12 @@ export function challengeReducer(plies: Ply[]) {
             case 'hint': {
                 if (!isPlayerTurn(state, plies)) return state;
                 if (state.hintLevel >= MAX_HINT_LEVEL) return state;
-                return { ...state, hintLevel: state.hintLevel + 1, hints: hintsUsed(state) + 1 };
+                return {
+                    ...state,
+                    hintLevel: state.hintLevel + 1,
+                    hints: hintsUsed(state) + 1,
+                    hintHalves: (state.hintHalves ?? 0) + nextHintHalves(state),
+                };
             }
             case 'attempt': {
                 const verdict = judgeAttempt(state, plies, action.from, action.to);
@@ -142,7 +175,12 @@ export function resultGrid(state: ChallengeState, plies: Ply[], contrast = false
         .join('');
 }
 
-/** Bucket reported to global stats: mistakes for a completed line, MAX_MISTAKES when lost. */
+/**
+ * Bucket for the stats histograms: whole errors rounded up (0 means truly clean:
+ * no wrong move and no hint), 0..MAX_MISTAKES-1 for a solved line, MAX_MISTAKES when
+ * lost or finished with the whole allowance spent.
+ */
 export function resultBucket(state: ChallengeState): number {
-    return state.status === 'lost' ? MAX_MISTAKES : state.mistakes;
+    if (!isSolved(state)) return MAX_MISTAKES;
+    return Math.min(MAX_MISTAKES - 1, Math.ceil(errorHalves(state) / 2));
 }

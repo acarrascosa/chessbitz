@@ -52,8 +52,12 @@ test('two players race through the same boards and see the podium', async ({ pag
     await solveBoard(page);
     await expect(page.getByText('Has terminado. Esperando al resto…')).toBeVisible();
 
-    // A wrong move first costs Bea points.
+    // A hint (5 points) and a wrong move (15) cost Bea points.
     await expect(bea.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible();
+    const hint = bea.getByRole('button', { name: /Pista/ });
+    await expect(hint).toContainText('−5 pts');
+    await hint.click();
+    await expect(bea.getByText('Mueve la dama')).toBeVisible();
     await bea.locator('#battle-square-h5').click();
     await bea.locator('#battle-square-h6').click();
     await expect(bea.getByText('Hay algo mejor.')).toBeVisible();

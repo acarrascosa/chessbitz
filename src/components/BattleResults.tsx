@@ -6,7 +6,7 @@ import { useBattleHost } from './battleHost';
 import type { BattleConnection } from './useBattle';
 import { outcomeEmoji, rankPlayers, type PublicRoom } from '../lib/battle';
 import { lichessPuzzleUrl, puzzleGoal } from '../lib/puzzle';
-import { fill, formatClock, ui, type Lang } from '../i18n/ui';
+import { fill, formatClock, formatDecimal, ui, type Lang } from '../i18n/ui';
 
 interface BattleResultsProps {
     battle: BattleConnection;
@@ -74,7 +74,7 @@ export default function BattleResults({ battle, room, lang, onLeave }: BattleRes
                                     </td>
                                     <td className="px-3 py-3 text-right font-display text-xl font-semibold tabular-nums">{s.points}</td>
                                     <td className="px-3 py-3 text-right tabular-nums">{s.solved}/{room.boards.length}</td>
-                                    <td className="px-3 py-3 text-right tabular-nums hidden sm:table-cell">{s.mistakes}</td>
+                                    <td className="px-3 py-3 text-right tabular-nums hidden sm:table-cell">{formatDecimal(lang, s.errors)}</td>
                                     <td className="px-4 py-3 text-right tabular-nums hidden sm:table-cell">{formatClock(s.ms / 1000)}</td>
                                 </tr>
                             );

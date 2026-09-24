@@ -83,13 +83,19 @@ test('counts mistakes and reveals hints step by step', async ({ page }) => {
     // dnd-kit swallows clicks for a moment after a drag ends; wait like a person would.
     await yourTurn(page);
 
+    // Help on a move costs half an error, the square is free and the arrow the other half.
     const hint = page.getByRole('button', { name: /Pista/ });
+    await expect(hint).toContainText('−½ error');
     await hint.click();
     await expect(page.getByText('Mueve un caballo')).toBeVisible();
+    await expect(page.getByRole('img', { name: 'Errores: 1,5/5' })).toBeVisible();
+    await expect(hint).not.toContainText('−½');
     await hint.click();
     await expect(page.getByText('La pieza está en g8')).toBeVisible();
+    await expect(page.getByRole('img', { name: 'Errores: 1,5/5' })).toBeVisible();
     await hint.click();
     await expect(page.getByText('La jugada es Nf6')).toBeVisible();
+    await expect(page.getByRole('img', { name: 'Errores: 2/5' })).toBeVisible();
     await expect(hint).toBeDisabled();
 });
 
@@ -117,6 +123,8 @@ test('records hints in the result and the statistics panel', async ({ page }) =>
     await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
     await expect(page.getByText('🟨')).toBeVisible();
     await expect(page.getByRole('region', { name: 'Tu partida' }).getByText('Pistas')).toBeVisible();
+    // The hint shows up as half an error.
+    await expect(page.getByRole('region', { name: 'Tu partida' })).toContainText('0,5/5');
 
     await clickAfterDrag(page.getByRole('button', { name: 'Tus estadísticas' }), () =>
         expect(page.getByRole('dialog', { name: 'Tus estadísticas' })).toBeVisible({ timeout: 1000 }));

@@ -6,7 +6,7 @@ import { LAUNCH_DAY_UTC, getDayNumber, getRotationIndex } from '../lib/daily';
 import { INDEX_URL, fetchOpening, type IndexEntry, type Opening } from '../lib/openings';
 import { lineDifficulty } from '../lib/puzzle';
 import { loadArchive, loadHistory, type Archive, type History } from '../lib/progress';
-import type { ChallengeState, PlyResult } from '../lib/challenge';
+import { isSolved, type ChallengeState, type PlyResult } from '../lib/challenge';
 import type { ExpertState } from '../lib/expert';
 import { archivePath, fill, homePath, ui, type Lang } from '../i18n/ui';
 
@@ -212,9 +212,9 @@ function ArchiveList({ count, lang, today }: { count: number; lang: Lang; today:
                                         </span>
                                     </span>
                                     <span className="flex flex-col items-end gap-1">
-                                        {daily && daily.status !== 'playing' && <ResultDots state={daily} label={`${t.modeChallenge}: ${daily.status === 'won' ? t.dayWon : t.dayLost}`} />}
+                                        {daily && daily.status !== 'playing' && <ResultDots state={daily} label={`${t.modeChallenge}: ${isSolved(daily) ? t.dayWon : t.dayLost}`} />}
                                         {replay?.normal && replay.normal.state.status !== 'playing' && (
-                                            <ResultDots state={replay.normal.state} label={`${t.archiveTitle}: ${replay.normal.state.status === 'won' ? t.dayWon : t.dayLost}`} />
+                                            <ResultDots state={replay.normal.state} label={`${t.archiveTitle}: ${isSolved(replay.normal.state) ? t.dayWon : t.dayLost}`} />
                                         )}
                                         {replay?.expert && replay.expert.state.status !== 'playing' && (
                                             <span className={`text-[0.65rem] font-bold uppercase tracking-wider ${replay.expert.state.status === 'won' ? 'text-good' : 'text-bad'}`}>

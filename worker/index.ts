@@ -29,11 +29,12 @@ async function submitResult(request: Request, env: Env): Promise<Response> {
 
     const { hints = 0, seconds = 0 } = submission.detail ?? {};
     const detailed = submission.detail ? 1 : 0;
+    const exact = submission.halves === undefined ? 0 : 1;
     await env.DB.prepare(
-        `INSERT INTO daily_results (day, mistakes, plays, hints, seconds, detailed) VALUES (?1, ?2, 1, ?3, ?4, ?5)
+        `INSERT INTO daily_results (day, mistakes, plays, hints, seconds, detailed, halves, exact) VALUES (?1, ?2, 1, ?3, ?4, ?5, ?6, ?7)
          ON CONFLICT (day, mistakes) DO UPDATE SET
-             plays = plays + 1, hints = hints + ?3, seconds = seconds + ?4, detailed = detailed + ?5`,
-    ).bind(submission.day, submission.mistakes, hints, seconds, detailed).run();
+             plays = plays + 1, hints = hints + ?3, seconds = seconds + ?4, detailed = detailed + ?5, halves = halves + ?6, exact = exact + ?7`,
+    ).bind(submission.day, submission.mistakes, hints, seconds, detailed, submission.halves ?? 0, exact).run();
 
     return new Response(null, { status: 204 });
 }
@@ -42,7 +43,7 @@ async function getStats(dayParam: string | undefined, env: Env): Promise<Respons
     const day = parseDay(dayParam);
     if (day === null) return json({ error: 'Invalid day' }, { status: 400 });
 
-    const { results } = await env.DB.prepare('SELECT mistakes, plays, hints, seconds, detailed FROM daily_results WHERE day = ?1')
+    const { results } = await env.DB.prepare('SELECT mistakes, plays, hints, seconds, detailed, halves, exact FROM daily_results WHERE day = ?1')
         .bind(day)
         .all<ResultRow>();
 

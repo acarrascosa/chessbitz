@@ -3,12 +3,12 @@ import { ArrowRight, ExternalLink, RotateCcw, Target } from 'lucide-react';
 import { useStore } from '@nanostores/react';
 import ChallengeMode from './ChallengeMode';
 import { notifyGameFinished, notifyProgress } from './hooks';
-import { MAX_MISTAKES, challengeReducer, createChallenge, hintsUsed, resultGrid } from '../lib/challenge';
+import { MAX_MISTAKES, challengeReducer, createChallenge, errorCount, hintsUsed, isSolved, resultGrid } from '../lib/challenge';
 import { lichessPuzzleUrl, puzzleGoal, puzzleMotifs, puzzlePlies, puzzleSide, type Puzzle } from '../lib/puzzle';
 import { loadTactics, saveTactic } from '../lib/progress';
 import { contrastStore } from '../store/theme';
 import type { IntroText } from './OpeningGame';
-import { fill, ui, type Lang } from '../i18n/ui';
+import { fill, formatDecimal, ui, type Lang } from '../i18n/ui';
 
 interface TacticModeProps {
     puzzles: Puzzle[];
@@ -86,7 +86,7 @@ function TacticBoard({ puzzle, position, total, lang, openingName, renderIntro, 
         title: goal,
         description: fill(t.tacticContext, { name: openingName }),
     });
-    const won = state.status === 'won';
+    const won = isSolved(state);
 
     const result = finished ? (
         <section aria-labelledby="tactic-result" className="card flex flex-col overflow-hidden animate-rise">
@@ -98,7 +98,7 @@ function TacticBoard({ puzzle, position, total, lang, openingName, renderIntro, 
                 </div>
                 <dl className="grid grid-cols-3 gap-2">
                     {[
-                        [t.statMistakes, won ? `${state.mistakes}/${MAX_MISTAKES}` : '✕'],
+                        [t.statMistakes, state.status === 'won' ? `${formatDecimal(lang, errorCount(state))}/${MAX_MISTAKES}` : '✕'],
                         [t.statHints, String(hintsUsed(state))],
                         ['Elo', String(puzzle.rating)],
                     ].map(([name, value]) => (
