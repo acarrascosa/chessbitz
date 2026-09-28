@@ -1,6 +1,7 @@
 import { parseDay, parseSubmission, toDailyStats, type ResultRow } from './stats';
 import { injectDailyPreview } from './preview';
 import { handleDiscord, sendReminders } from './discord';
+import { toHttps, withHsts } from './security';
 import type { Env } from './env';
 import { isRoomCode } from '../src/lib/battle';
 import { isDiscordLaunch } from '../src/lib/discord';
@@ -72,6 +73,8 @@ async function getSummary(env: Env): Promise<Response> {
 export default {
     async fetch(request, env): Promise<Response> {
         const url = new URL(request.url);
+        const insecure = toHttps(url);
+        if (insecure) return insecure;
 
         if (url.pathname === '/api/results') {
             return request.method === 'POST' ? submitResult(request, env) : json({ error: 'Method not allowed' }, { status: 405 });
@@ -94,11 +97,11 @@ export default {
 
         // Discord opens the Activity at the root with ?frame_id=…&instance_id=…: serve only the battle.
         if (url.pathname === '/' && isDiscordLaunch(url.search)) {
-            return env.ASSETS.fetch(new Request(new URL(`/discord/${url.search}`, url), request));
+            return withHsts(await env.ASSETS.fetch(new Request(new URL(`/discord/${url.search}`, url), request)), url);
         }
 
         const response = await env.ASSETS.fetch(request);
-        return injectDailyPreview(url, response, env);
+        return withHsts(await injectDailyPreview(url, response, env), url);
     },
 
     /** Daily reminder in the Discord channels that played a battle yesterday. */

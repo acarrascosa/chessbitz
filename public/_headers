@@ -1,0 +1,4 @@
+# Headers for files served straight from Workers Static Assets; the Worker adds
+# the same to the responses it builds itself (worker/security.ts).
+/*
+  Strict-Transport-Security: max-age=31536000

@@ -69,6 +69,21 @@ La web solo está sin servicio los minutos que pasan entre el paso 1 y el 3.
    - *Status code*: `301`, marcando *Preserve query string*
 3. Comprueba: `curl -I https://www.chessbitz.com/en/` debe responder `301` con `location: https://chessbitz.com/en/`.
 
+### HTTPS obligatorio
+
+Medido el 24-09-2026: `http://chessbitz.com/…` respondía `200` por HTTP sin redirigir, y `http://www.chessbitz.com/` daba **error 522**. La regla de `www` en vigor solo coincide con HTTPS (responde `308`), así que por HTTP la petición intenta llegar al origen ficticio `100::`.
+
+1. **SSL/TLS → Edge Certificates → Always Use HTTPS: On**. Cloudflare redirige cualquier `http://` de la zona (raíz y `www`) a `https://` antes de las Redirect Rules, así que también arregla el 522.
+2. Comprueba (deben dar `301` hacia `https://…` y la cabecera HSTS):
+
+   ```bash
+   curl -sI http://chessbitz.com/como-jugar/ | grep -iE '^(HTTP|location)'
+   curl -sI http://www.chessbitz.com/ | grep -iE '^(HTTP|location)'
+   curl -sI https://chessbitz.com/como-jugar/ | grep -i strict-transport-security
+   ```
+
+El código ya cubre lo que puede: el Worker manda a HTTPS lo que pasa por él (`/`, `/en/`, `/api/*`) y envía HSTS (`worker/security.ts`), y `public/_headers` añade HSTS a los archivos estáticos. Tras una visita por HTTPS, el navegador no vuelve a usar HTTP en un año. Con el token de `wrangler login` no se puede activar el ajuste de la zona (solo tiene `zone:read`).
+
 ## 4. Comprobar
 
 ```bash

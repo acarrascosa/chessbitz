@@ -18,11 +18,13 @@ interface Props {
     lang?: Lang;
     /** Which page this is, to build the language alternates. */
     page?: Page;
+    /** Pages that shouldn't be indexed (404): no canonical or alternates, and robots noindex. */
+    noindex?: boolean;
 }
 
 const PATHS: Record<Page, (lang: Lang) => string> = { home: homePath, legal: legalPath, archive: archivePath, guide: guidePath, battle: battlePath };
 
-const { title, description, lang = defaultLang, page = "home" } = Astro.props;
+const { title, description, lang = defaultLang, page = "home", noindex = false } = Astro.props;
 const t = ui[lang];
 const otherLang: Lang = lang === "es" ? "en" : "es";
 const pathFor = (l: Lang) => PATHS[page](l);
@@ -49,9 +51,15 @@ const navLink = `inline-flex ${navStyle}`;
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <link rel="canonical" href={canonical} />
-        {languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(pathFor(l), Astro.site)} />)}
-        <link rel="alternate" hreflang="x-default" href={new URL(pathFor(defaultLang), Astro.site)} />
+        {noindex ? (
+            <meta name="robots" content="noindex" />
+        ) : (
+            <>
+                <link rel="canonical" href={canonical} />
+                {languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(pathFor(l), Astro.site)} />)}
+                <link rel="alternate" hreflang="x-default" href={new URL(pathFor(defaultLang), Astro.site)} />
+            </>
+        )}
         <link rel="preload" href={frauncesLatin} as="font" type="font/woff2" crossorigin />
         <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -64,7 +72,7 @@ const navLink = `inline-flex ${navStyle}`;
         <meta property="og:site_name" content="Chessbitz" />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={canonical} />
+        {!noindex && <meta property="og:url" content={canonical} />}
         <meta property="og:image" content={ogImage} />
         <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
         <meta name="twitter:card" content="summary_large_image" />

@@ -8,7 +8,7 @@
 
 ## Features
 
-- **Playable daily challenge** — you play the side that defines the opening (black in the Sicilian, white in the Ruy Lopez); the opponent replies on its own. Drag-and-drop or tap-to-move, legal-move hints on the board, difficulty and move count shown up front.
+- **Playable daily challenge** — you play the side that defines the opening (black in the Sicilian, white in the Ruy Lopez); the opponent replies on its own. Drag-and-drop, tap-to-move or the keyboard (arrow keys and Enter, announced to screen readers), legal-move hints on the board, difficulty and move count shown up front.
 - **Wordle-style scoring** — 5 mistakes per line and three hint levels (which piece → from where → the arrow); asking for help on a move costs half a mistake and the arrow the other half, so hints never end a line but a line given away isn't a clean one. Every move ends up 🟩 first try, 🟨 with help or 🟥 revealed, and the grid can be shared without spoilers.
 - **Your game vs. everyone's** — the result card compares your mistakes, hints and playing time with today's averages and highlights your column in the global distribution. Lifetime stats (streaks, mistakes per challenge, a 28-day calendar) live in their own panel.
 - **366 curated openings** — one per day for a full year, each with bilingual names, a description, the strategic ideas behind it and an explanation for *every* move.
@@ -68,11 +68,11 @@ Astro 5 · React 19 · TypeScript · Tailwind CSS 4 · chess.js · react-chessbo
 
 | | |
 | --- | --- |
-| Unit tests | 474 Vitest tests — challenge and expert engines, the reply engine, puzzles (every stored solution is legal), battle rooms (budgets, scoring, clocks, reconnection, leaving), Discord messages, reminders, signed sessions and interaction signatures, dates across time zones and DST, stats, progress import/export, API validation and every opening in the catalog |
-| End-to-end | Playwright on desktop Chrome (drag and drop) and a mobile device (tap to move): daily challenge, hints and stats, tactics, archive, expert mode, settings, the guide, a full two-player battle against a mocked WebSocket server running the real room logic, and the Discord Activity with the SDK's mock |
-| Lighthouse | Mobile **99 / 100 / 100 / 100**, desktop **100 / 100 / 100 / 100** (performance / accessibility / best practices / SEO) |
-| Accessibility | Keyboard navigation, named board pieces for screen readers, live regions for feedback, `prefers-reduced-motion`, AA contrast in both themes |
-| Privacy | Self-hosted fonts, locally generated 3D lighting, no third-party requests or cookies |
+| Unit tests | 496 Vitest tests — challenge and expert engines, the reply engine, puzzles (every stored solution is legal), battle rooms (budgets, scoring, clocks, reconnection, leaving), Discord messages, reminders, signed sessions and interaction signatures, HTTPS redirects and HSTS, dates across time zones and DST, stats, progress import/export, API validation and every opening in the catalog (366 of them are one check per opening) |
+| End-to-end | 46 Playwright tests (23 scenarios on desktop Chrome with drag and drop and on a Pixel 7 with tap-to-move): daily challenge, hints and stats, tactics, archive, expert mode, settings, the guide, playing with the keyboard alone, the pages' HTML without JavaScript (headings, sitemap translations, 404 not indexed), a full two-player battle against a mocked WebSocket server running the real room logic, and the Discord Activity with the SDK's mock |
+| Lighthouse | Production, 24 Sep 2026, home page, median of 5 runs: mobile **95** / 100 / 100 / 100, desktop **100** / 100 / 100 / 100 (performance / accessibility / best practices / SEO). Accessibility, best practices and SEO were 100 in all 34 runs over 5 pages. Details in [`auditoria/INFORME.md`](auditoria/INFORME.md) |
+| Accessibility | axe-core (WCAG 2.2 A and AA rules): 0 violations in 20 pages and game states × 4 palettes (light, dark, both high-contrast) × desktop and mobile. The board is one tab stop, played with the arrow keys and Enter, and it announces each square and piece in the page's language. Skip link, focus kept in dialogs, text contrast ≥ 4.5:1 (board coordinates included), 24 px touch targets, and `prefers-reduced-motion` stops the 3D render loop. Not yet tested with a real screen reader |
+| Privacy | Self-hosted fonts, locally generated 3D lighting: 0 cookies and 0 third-party requests (measured) |
 
 ## Design decisions
 
@@ -80,7 +80,7 @@ Astro 5 · React 19 · TypeScript · Tailwind CSS 4 · chess.js · react-chessbo
 - **Why curate 366 openings by hand?** The first version shipped 1,000 lines with template text ("A solid move.") that any chess player would notice. Fewer, correct lines beat volume. The content is validated by `scripts/check-openings.mjs` and the test suite, and the schedule only ever grows, so no player's history breaks.
 - **Why the tactics and the archive, and not more daily puzzles?** One shared daily challenge keeps results comparable and shareable; everything extra (replays, expert mode, tactics) is counted apart, so it never distorts the streak or today's global stats.
 - **Why no accounts?** The whole point is a one-minute daily ritual. An export code covers "I switched phones" without passwords or personal data.
-- **Why the 3D king loads last.** Three.js is ~280 KB gzipped; it loads on the first interaction or after a few idle seconds, only on large screens, and pauses with reduced motion.
+- **Why the 3D king loads last.** Three.js is ~280 KB gzipped; it loads on the first interaction or after a few idle seconds, only on large screens, and pauses with reduced motion. The model itself is 75 KB: unused UVs pruned and the mesh quantized and Meshopt-compressed with glTF-Transform (`gltf-transform prune` + `gltf-transform meshopt`, down from 467 KB and pixel-identical), decoded by the Meshopt decoder that drei already bundles.
 - **Why Durable Objects for battles.** A battle needs one place that owns the table: who's seated, whose clock is running, who scored what. A Durable Object per table is exactly that, with WebSockets that hibernate (an idle table costs nothing) and alarms for clocks — no separate server, no database for state that only lives a few minutes.
 - **Why Cloudflare Workers + D1.** Static assets are free, the database sits next to the code, and the same Worker powers the API and the link previews.
 

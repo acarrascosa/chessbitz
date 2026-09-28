@@ -40,5 +40,9 @@ const appSchema = {
             window.__dailyOpening.promise.catch(() => {});
         })();
     </script>
-    <DailyManager client:only="react" count={scheduledOpenings.length} lang={lang} />
+    <DailyManager client:only="react" count={scheduledOpenings.length} lang={lang}>
+        <!-- The page heading for crawlers that don't run JavaScript (the Worker writes today's
+             opening into it, see worker/preview.ts); the game renders its own. -->
+        <h1 slot="fallback" id="daily-title" class="sr-only">Chessbitz — {t.siteTagline}</h1>
+    </DailyManager>
 </Layout>

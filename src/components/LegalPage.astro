@@ -10,7 +10,7 @@ const { lang } = Astro.props;
 const t = ui[lang];
 ---
 
-<Layout title={t.legal} lang={lang} page="legal">
+<Layout title={t.legal} description={t.legalMeta} lang={lang} page="legal">
     <article class="card max-w-3xl mx-auto p-6 md:p-10 space-y-8 leading-relaxed">
         <h1 class="font-display text-3xl md:text-4xl font-semibold">{t.legalPageTitle}</h1>
 

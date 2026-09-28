@@ -29,7 +29,7 @@ const es = {
         {
             eyebrow: 'Objetivo',
             title: 'Juega la apertura del día.',
-            text: 'Cada día hay una apertura clásica. Juegas con el bando que le da nombre y tu rival responde solo. Arrastra las piezas o toca origen y destino.',
+            text: 'Cada día hay una apertura clásica. Juegas con el bando que le da nombre y tu rival responde solo. Arrastra las piezas, toca origen y destino o usa el teclado: flechas y Enter.',
         },
         {
             eyebrow: 'Errores y pistas',
@@ -70,6 +70,13 @@ const es = {
         wP: 'peón blanco', wN: 'caballo blanco', wB: 'alfil blanco', wR: 'torre blanca', wQ: 'dama blanca', wK: 'rey blanco',
         bP: 'peón negro', bN: 'caballo negro', bB: 'alfil negro', bR: 'torre negra', bQ: 'dama negra', bK: 'rey negro',
     } as Record<string, string>,
+    // Playing the board with the keyboard (and a screen reader)
+    boardKeys: {
+        label: 'Tablero de ajedrez. Flechas: moverte por las casillas. Enter o espacio: elegir la pieza y después la casilla de destino.',
+        empty: 'vacía',
+        canMoveHere: 'destino posible',
+        picked: '{piece} en {square} elegida. Ve a la casilla de destino y pulsa Enter.',
+    },
     progress: 'Progreso',
     analysis: 'Análisis',
     loading: 'Cargando…',
@@ -334,6 +341,7 @@ const es = {
     guideTitle: 'Cómo se juega',
     guideMeta: 'Cómo se juega a Chessbitz: reglas del reto diario de aperturas, pistas, colores, modo experto, tácticas y preguntas frecuentes.',
     // Legal page
+    legalMeta: 'Aviso legal y privacidad de Chessbitz: quién lo hace, sin cookies ni analítica de terceros, qué se guarda solo en tu navegador y qué estadísticas anónimas se envían.',
     legalPageTitle: 'Aviso legal y privacidad',
     legalAboutTitle: 'Sobre este proyecto',
     legalAboutText1: 'Chessbitz es un proyecto personal de portfolio creado por <strong>Álvaro Carrascosa</strong>. No tiene fines comerciales ni está afiliado a ninguna organización oficial de ajedrez.',
@@ -384,7 +392,7 @@ const en: Strings = {
         {
             eyebrow: 'Goal',
             title: "Play today's opening.",
-            text: 'Every day brings a classic opening. You play the side it is named after and your opponent replies on its own. Drag the pieces or tap from and to.',
+            text: 'Every day brings a classic opening. You play the side it is named after and your opponent replies on its own. Drag the pieces, tap from and to, or use the keyboard: arrow keys and Enter.',
         },
         {
             eyebrow: 'Mistakes and hints',
@@ -425,6 +433,13 @@ const en: Strings = {
         wP: 'white pawn', wN: 'white knight', wB: 'white bishop', wR: 'white rook', wQ: 'white queen', wK: 'white king',
         bP: 'black pawn', bN: 'black knight', bB: 'black bishop', bR: 'black rook', bQ: 'black queen', bK: 'black king',
     } as Record<string, string>,
+    // Playing the board with the keyboard (and a screen reader)
+    boardKeys: {
+        label: 'Chessboard. Arrow keys: move between squares. Enter or space: pick a piece, then its destination square.',
+        empty: 'empty',
+        canMoveHere: 'possible destination',
+        picked: '{piece} on {square} picked. Go to the destination square and press Enter.',
+    },
     progress: 'Progress',
     analysis: 'Analysis',
     loading: 'Loading…',
@@ -689,6 +704,7 @@ const en: Strings = {
     guideTitle: 'How to play',
     guideMeta: 'How to play Chessbitz: rules of the daily opening challenge, hints, colours, expert mode, tactics and frequently asked questions.',
     // Legal page
+    legalMeta: 'Chessbitz legal notice and privacy: who makes it, no cookies or third-party analytics, what stays in your browser and which anonymous statistics are sent.',
     legalPageTitle: 'Legal notice & privacy',
     legalAboutTitle: 'About this project',
     legalAboutText1: 'Chessbitz is a personal portfolio project created by <strong>Álvaro Carrascosa</strong>. It has no commercial purpose and is not affiliated with any official chess organisation.',

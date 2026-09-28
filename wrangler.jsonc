@@ -50,5 +50,8 @@
   // www.chessbitz.com is redirected to the apex by a Cloudflare Redirect Rule
   // (see DEPLOY.md), so it never reaches the Worker.
   "routes": [{ "pattern": "chessbitz.com", "custom_domain": true }],
+  // `wrangler dev` hands the Worker the route's host (chessbitz.com); over https, so the
+  // HTTP → HTTPS redirect (worker/security.ts) doesn't loop locally.
+  "dev": { "upstream_protocol": "https" },
   "observability": { "enabled": true }
 }

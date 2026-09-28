@@ -16,7 +16,8 @@
     --brand: #1f4435;
     --brand-hover: #173628;
     --brand-ink: #f7f2e7;
-    --accent: #8a6630;
+    /* 4.6:1 on surface-2, the darkest background it is used on (WCAG AA for small text). */
+    --accent: #83612e;
     --accent-soft: #e6d3ad;
     --good: #2f7d4f;
     --warn: #b7862c;
@@ -27,6 +28,9 @@
     --logo-to: #1f4435;
     --board-light: #ecdfc7;
     --board-dark: #a47e56;
+    /* Square coordinates, 4.6:1 on their square (the board is the same in both themes). */
+    --board-coord-on-light: #795d40;
+    --board-coord-on-dark: #231b12;
     color-scheme: light;
 }
 
@@ -91,6 +95,9 @@
 @layer base {
     html {
         background: var(--paper);
+        /* Classic scrollbars (Windows, Linux) would otherwise shift the whole page
+           sideways whenever content grows past the viewport or a dialog locks scrolling. */
+        scrollbar-gutter: stable;
     }
 
     body {

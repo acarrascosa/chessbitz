@@ -166,6 +166,32 @@ test('plays the three tactics of the opening and closes the day', async ({ page 
     await expect(page.getByRole('button', { name: 'Compartir' })).toBeVisible();
 });
 
+test('plays with the keyboard alone, announcing every square', async ({ page }) => {
+    await openDay(page, DAY_0);
+    await yourTurn(page);
+
+    // The board is a single tab stop (its 32 pieces are not).
+    const board = page.getByRole('application', { name: /Tablero de ajedrez/ });
+    for (let i = 0; i < 30 && !(await board.evaluate(el => el === document.activeElement)); i++) await page.keyboard.press('Tab');
+    await expect(board).toBeFocused();
+    const said = page.getByTestId('board-announcer');
+
+    // The cursor starts on White's last move (d4); black is at the bottom, so down goes towards rank 8.
+    await expect(said).toHaveText('d4, peón blanco');
+    for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowDown');
+    for (let i = 0; i < 3; i++) await page.keyboard.press('ArrowLeft');
+    await expect(said).toHaveText('g8, caballo negro');
+    await page.keyboard.press('Enter');
+    await expect(said).toHaveText('caballo negro en g8 elegida. Ve a la casilla de destino y pulsa Enter.');
+
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('ArrowRight');
+    await expect(said).toHaveText('f6, vacía, destino posible');
+    await page.keyboard.press('Enter');
+    await expect(page.getByText('¡Correcto!')).toBeVisible();
+});
+
 test('serves the English version at /en/', async ({ page }) => {
     await openDay(page, DAY_0, '/en/');
     await expect(page.getByRole('heading', { level: 1, name: 'Modern Benoni' })).toBeVisible();

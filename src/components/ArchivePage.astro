@@ -14,7 +14,11 @@ const t = ui[lang];
 
 <Layout lang={lang} page="archive" title={t.archiveTitle} description={t.archiveMeta}>
     <ArchiveApp client:only="react" count={scheduledOpenings.length} lang={lang}>
-        <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
-        <div slot="fallback" class="min-h-[85svh]" aria-hidden="true"></div>
+        <Fragment slot="fallback">
+            <!-- The page heading for crawlers that don't run JavaScript; the island renders its own. -->
+            <h1 class="sr-only">{t.archiveTitle}</h1>
+            <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
+            <div class="min-h-[85svh]" aria-hidden="true"></div>
+        </Fragment>
     </ArchiveApp>
 </Layout>

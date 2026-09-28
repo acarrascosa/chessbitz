@@ -72,7 +72,8 @@ const TacticMode: React.FC<TacticModeProps> = ({ puzzles, lang, openingName, cha
 function TacticPips({ states, current, lang, onPick }: { states: (ChallengeState | undefined)[]; current: number; lang: Lang; onPick?: (i: number) => void }) {
     const t = ui[lang];
     return (
-        <span className="inline-flex items-center gap-1.5 align-middle" data-testid="tactic-pips">
+        // Small dots, but 24×24 px targets (WCAG 2.5.8); the negative margins keep the line's height.
+        <span className="inline-flex items-center -mx-[7px] -my-[7px] align-middle" data-testid="tactic-pips">
             {states.map((state, i) => {
                 const color = !finished(state) ? 'bg-line' : isSolved(state!) ? 'bg-good' : 'bg-bad';
                 const label = `${fill(t.tacticOf, { i: i + 1, n: states.length })}: ${!finished(state) ? '—' : isSolved(state!) ? t.tacticSolved : t.tacticFailed}`;
@@ -84,8 +85,10 @@ function TacticPips({ states, current, lang, onPick }: { states: (ChallengeState
                         aria-label={label}
                         title={label}
                         aria-current={i === current ? 'step' : undefined}
-                        className={`w-2.5 h-2.5 rounded-full ${color} ${i === current ? 'ring-2 ring-accent ring-offset-2 ring-offset-paper' : ''}`}
-                    />
+                        className="w-6 h-6 inline-flex items-center justify-center rounded-full"
+                    >
+                        <span className={`w-2.5 h-2.5 rounded-full ${color} ${i === current ? 'ring-2 ring-accent ring-offset-2 ring-offset-paper' : ''}`} aria-hidden="true" />
+                    </button>
                 );
             })}
         </span>

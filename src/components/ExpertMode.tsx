@@ -228,6 +228,7 @@ const ExpertMode: React.FC<ExpertModeProps> = ({
                             onMove={play}
                             canDragPiece={square => playerTurn && ownsPiece(square)}
                             onSquareClick={handleSquareClick}
+                            selected={selected}
                             lang={lang}
                         />
                     </div>

@@ -19,10 +19,18 @@ class SetContent {
     }
 }
 
+class SetText {
+    constructor(private readonly value: string) {}
+
+    element(element: Element) {
+        element.setInnerContent(this.value);
+    }
+}
+
 /**
- * Link previews (WhatsApp, X, Slack…) can't run JavaScript, so the home page
- * HTML is rewritten at the edge to announce today's opening (UTC day) with its
- * pre-rendered Open Graph image.
+ * Link previews (WhatsApp, X, Slack…) and some crawlers can't run JavaScript, so
+ * the home page HTML is rewritten at the edge to announce today's opening (UTC
+ * day): its pre-rendered Open Graph image and the page's <h1>.
  */
 export async function injectDailyPreview(url: URL, response: Response, env: { ASSETS: Fetcher }): Promise<Response> {
     const lang = HOME_PATHS[url.pathname];
@@ -42,6 +50,7 @@ export async function injectDailyPreview(url: URL, response: Response, env: { AS
         .on('meta[property="og:title"]', new SetContent(title))
         .on('meta[property="og:description"]', new SetContent(text.description))
         .on('meta[property="og:image"]', new SetContent(image))
+        .on('#daily-title', new SetText(title))
         .transform(response);
 
     const headers = new Headers(rewritten.headers);

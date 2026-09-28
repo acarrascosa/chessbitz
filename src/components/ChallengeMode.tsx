@@ -230,6 +230,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
                             onMove={attempt}
                             canDragPiece={square => playerTurn && ownsPiece(square)}
                             onSquareClick={handleSquareClick}
+                            selected={selected}
                             lang={lang}
                         />
                     </div>

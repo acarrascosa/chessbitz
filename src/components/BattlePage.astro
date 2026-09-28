@@ -13,7 +13,11 @@ const t = ui[lang].battle;
 
 <Layout lang={lang} page="battle" title={t.title} description={t.meta}>
     <BattleApp client:only="react" lang={lang}>
-        <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
-        <div slot="fallback" class="min-h-[85svh]" aria-hidden="true"></div>
+        <Fragment slot="fallback">
+            <!-- The page heading for crawlers that don't run JavaScript; the island renders its own. -->
+            <h1 class="sr-only">{t.title}</h1>
+            <!-- Reserves the space until the island renders, so the footer doesn't jump. -->
+            <div class="min-h-[85svh]" aria-hidden="true"></div>
+        </Fragment>
     </BattleApp>
 </Layout>

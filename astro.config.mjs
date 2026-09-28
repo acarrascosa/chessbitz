@@ -3,16 +3,36 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { archivePath, battlePath, guidePath, homePath, legalPath } from './src/i18n/ui.ts';
+
+const SITE = 'https://chessbitz.com';
+
+// Every page and its translation. The slugs are translated (/archivo/ ↔ /en/archive/),
+// so the sitemap's own i18n option can't pair them: the alternates are set here.
+const TRANSLATIONS = [homePath, archivePath, battlePath, guidePath, legalPath].map(path => ({
+  es: new URL(path('es'), SITE).href,
+  en: new URL(path('en'), SITE).href,
+}));
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chessbitz.com',
+  site: SITE,
   trailingSlash: 'ignore',
   integrations: [
     react(),
     sitemap({
       filter: page => !page.includes('/data/') && !page.includes('/404') && !page.includes('/discord/'),
-      i18n: { defaultLocale: 'es', locales: { es: 'es-ES', en: 'en-US' } },
+      serialize(item) {
+        const page = TRANSLATIONS.find(({ es, en }) => item.url === es || item.url === en);
+        if (page) {
+          item.links = [
+            { lang: 'es', url: page.es },
+            { lang: 'en', url: page.en },
+            { lang: 'x-default', url: page.es },
+          ];
+        }
+        return item;
+      },
     }),
   ],
   vite: {

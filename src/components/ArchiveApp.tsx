@@ -60,6 +60,9 @@ function randomDay(today: number, history: History, archive: Archive): number {
 
 const DOT: Record<PlyResult, string> = { perfect: 'bg-good', assisted: 'bg-warn', revealed: 'bg-bad' };
 
+/** Height of one list row (py-3, a title and a detail line) plus its divider. */
+const ROW_HEIGHT = '(4rem + 1px)';
+
 /** Coloured dots of a finished line, in move order (no plies needed). */
 function ResultDots({ state, label }: { state: ChallengeState; label: string }) {
     const results = Object.entries(state.results).sort(([a], [b]) => Number(a) - Number(b)).map(([, r]) => r);
@@ -74,25 +77,24 @@ function ResultDots({ state, label }: { state: ChallengeState; label: string }) 
 const ArchiveApp: React.FC<ArchiveAppProps> = ({ count, lang }) => {
     const t = ui[lang];
     const today = useMemo(() => getDayNumber(), []);
-    const [route, setRoute] = useState<Route | null>(null);
+    // Resolved on the first render (the island is client-only), so the list never
+    // flashes the game skeleton first: that jump was the page's layout shift.
+    // ?day=N[&mode=expert] or ?random[&mode=expert].
+    const [route] = useState<Route & { random: boolean }>(() => {
+        const parsed = readRoute(today);
+        return parsed.random && today > 0 ? { ...parsed, day: randomDay(today, loadHistory(), loadArchive()) } : parsed;
+    });
     const [opening, setOpening] = useState<Opening | null>(null);
     const [error, setError] = useState(false);
 
-    // Resolve the URL once: ?day=N[&mode=expert] or ?random[&mode=expert].
+    // A random pick becomes a real ?day= URL, so reloading keeps the same day.
     useEffect(() => {
-        const parsed = readRoute(today);
-        if (parsed.random && today > 0) {
-            const day = randomDay(today, loadHistory(), loadArchive());
-            const url = `${archivePath(lang)}?day=${day}${parsed.mode === 'expert' ? '&mode=expert' : ''}`;
-            window.history.replaceState(null, '', url);
-            setRoute({ day, mode: parsed.mode });
-        } else {
-            setRoute(parsed);
-        }
-    }, [today, lang]);
+        if (!route.random || route.day === undefined) return;
+        window.history.replaceState(null, '', `${archivePath(lang)}?day=${route.day}${route.mode === 'expert' ? '&mode=expert' : ''}`);
+    }, [route, lang]);
 
     useEffect(() => {
-        if (route?.day === undefined) return;
+        if (route.day === undefined) return;
         let cancelled = false;
         fetchOpening(getRotationIndex(route.day, count))
             .then(o => !cancelled && setOpening(o))
@@ -100,10 +102,9 @@ const ArchiveApp: React.FC<ArchiveAppProps> = ({ count, lang }) => {
         return () => {
             cancelled = true;
         };
-    }, [route?.day, count]);
+    }, [route.day, count]);
 
     if (error) return <p role="alert" className="py-24 text-center text-ink-muted">{t.loadError}</p>;
-    if (!route) return <GameSkeleton label={t.loading} />;
     if (route.day !== undefined) {
         return opening
             ? <OpeningGame key={route.day} day={route.day} opening={opening} lang={lang} variant="archive" initialMode={route.mode} />
@@ -188,7 +189,8 @@ function ArchiveList({ count, lang, today }: { count: number; lang: Lang; today:
             </div>
 
             {index === null ? (
-                <div className="card min-h-[85svh] animate-pulse" aria-busy="true" aria-label={t.loading} />
+                // As tall as the rows that are coming (one per day so far), so the footer doesn't jump when they arrive.
+                <div className="card animate-pulse" style={{ height: `min(85svh, ${today + 1} * ${ROW_HEIGHT})` }} aria-busy="true" aria-label={t.loading} />
             ) : rows.length === 0 ? (
                 <p className="text-center text-ink-muted py-12">{t.archiveEmpty}</p>
             ) : (

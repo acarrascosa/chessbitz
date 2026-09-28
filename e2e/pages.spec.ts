@@ -92,3 +92,19 @@ test('suggests a coffee after a few finished games, once', async ({ page }) => {
     await expect(page.getByRole('heading', { name: '¡Línea completada!' })).toBeVisible();
     await expect(page.getByRole('complementary', { name: '¿Te está gustando Chessbitz?' })).toHaveCount(0);
 });
+
+test('serves headings, translations and indexing hints without JavaScript', async ({ request }) => {
+    // The game pages are client-rendered: their HTML still carries the page heading.
+    for (const [path, heading] of [['/', 'Chessbitz — Tu apertura diaria'], ['/archivo/', 'Archivo'], ['/batalla/', 'Batalla de tácticas'], ['/en/archive/', 'Archive']]) {
+        expect(await (await request.get(path)).text()).toContain(`>${heading}</h1>`);
+    }
+    // Translated slugs are paired in the sitemap too.
+    const sitemap = await (await request.get('/sitemap-0.xml')).text();
+    expect(sitemap).toContain('<loc>https://chessbitz.com/archivo/</loc><xhtml:link rel="alternate" hreflang="es" href="https://chessbitz.com/archivo/"/><xhtml:link rel="alternate" hreflang="en" href="https://chessbitz.com/en/archive/"/>');
+    // A missing page says so, and isn't indexed under the home page's address.
+    const missing = await request.get('/no-existe/');
+    expect(missing.status()).toBe(404);
+    const html = await missing.text();
+    expect(html).toContain('<meta name="robots" content="noindex">');
+    expect(html).not.toContain('rel="canonical"');
+});
