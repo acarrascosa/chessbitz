@@ -3,6 +3,10 @@ import { FakeTable } from './fake-table';
 
 /* A two-player battle end to end, against a fake table server (see fake-table.ts). */
 
+/** The battle guide opens by itself on a first visit; tests that aren't about it skip it. */
+const skipGuide = () => localStorage.setItem('chessbitz-battle-guide', 'true');
+test.beforeEach(({ context }) => context.addInitScript(skipGuide));
+
 async function solveBoard(page: Page) {
     await expect(page.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible();
     await page.locator('#battle-square-h5').click();
@@ -24,6 +28,7 @@ test('two players race through the same boards and see the podium', async ({ pag
 
     // Bea follows the invite link.
     const other = await browser.newContext();
+    await other.addInitScript(skipGuide);
     const bea = await other.newPage();
     await route(bea);
     await bea.goto(`/batalla/?mesa=${code}`);
@@ -96,4 +101,32 @@ test('explains that a table code does not exist', async ({ page }) => {
     await page.getByPlaceholder('Código de mesa').fill('zzzz');
     await page.getByRole('button', { name: 'Unirse' }).click();
     await expect(page.getByRole('alert')).toHaveText('No hay ninguna mesa abierta con ese código.');
+});
+
+test('explains the battle on the first visit and again from the rules', async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto('/batalla/');
+    const dialog = page.getByRole('dialog', { name: 'Cómo se juega' });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByText('Siéntate con 1 a 3 amigos.')).toBeVisible();
+    await expect(dialog).toContainText('comparte el enlace o el código');
+    await dialog.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(dialog.getByText('Encuentra la mejor jugada.')).toBeVisible();
+    await dialog.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(dialog).toContainText('+100 pts');
+    await expect(dialog).toContainText('−15 pts');
+    await dialog.getByRole('button', { name: '¡A jugar!' }).click();
+    await expect(dialog).toBeHidden();
+
+    // Only once: not again after a reload (it would open 0.9 s after load).
+    await page.reload();
+    await expect(page.getByRole('heading', { name: 'Batalla de tácticas' })).toBeVisible();
+    await page.waitForTimeout(1_500);
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+
+    // But it's always a click away, next to the rules.
+    await page.locator('main').getByRole('button', { name: 'Cómo se juega' }).click();
+    await expect(dialog.getByText('Siéntate con 1 a 3 amigos.')).toBeVisible();
+    await context.close();
 });

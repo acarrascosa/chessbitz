@@ -9,6 +9,10 @@ import { FakeTable } from './fake-table';
 
 test.use({ locale: 'es-ES' });
 
+/** The battle guide opens by itself on a first visit; tests that aren't about it skip it. */
+const skipGuide = () => localStorage.setItem('chessbitz-battle-guide', 'true');
+test.beforeEach(({ context }) => context.addInitScript(skipGuide));
+
 /** Discord identities come from the session; everyone in the instance may open the table. */
 const discordTable = () => new FakeTable(url => {
     const [, id, name] = (url.searchParams.get('session') ?? '').split(':');
@@ -30,6 +34,7 @@ test('everyone in the Activity sits at the same table and the podium goes to the
     await expect(page.getByRole('button', { name: 'Invitar' })).toBeVisible();
 
     const other = await browser.newContext({ locale: 'es-ES' });
+    await other.addInitScript(skipGuide);
     const bea = await other.newPage();
     await openActivity(bea, table, 'Bea');
     await expect(bea.getByTestId('lobby-player')).toHaveCount(2);
@@ -88,4 +93,19 @@ test('outside Discord it points to the web version', async ({ page }) => {
     await page.goto('/discord/');
     await expect(page.getByText('Esta página es la actividad de Chessbitz para Discord', { exact: false })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Jugar la batalla en la web' })).toHaveAttribute('href', '/batalla/');
+});
+
+test('explains the battle the first time the Activity opens, and from the lobby', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'es-ES' });
+    const page = await context.newPage();
+    await openActivity(page, discordTable(), 'Ana');
+    const dialog = page.getByRole('dialog', { name: 'Cómo se juega' });
+    await expect(dialog).toBeVisible();
+    // Inside Discord the table is the Activity: no code to share.
+    await expect(dialog).toContainText('Todos los que entran en la actividad se sientan en esta mesa');
+    await dialog.getByRole('button', { name: 'Cerrar' }).click();
+    await expect(dialog).toBeHidden();
+    await page.getByRole('button', { name: 'Cómo se juega' }).click();
+    await expect(dialog).toBeVisible();
+    await context.close();
 });

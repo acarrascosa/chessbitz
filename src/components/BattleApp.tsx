@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LogIn, Plus, Swords, WifiOff } from 'lucide-react';
-import BattleLobby from './BattleLobby';
+import BattleLobby, { GuideButton } from './BattleLobby';
 import BattleMatch from './BattleMatch';
 import BattleResults from './BattleResults';
 import { savedName, saveName, savedSeat, saveSeat, tableUrl, useBattle, type BattleConnection, type BattleProblem } from './useBattle';
@@ -163,7 +163,10 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onDismissInvi
             )}
 
             <div className="card p-5 space-y-2">
-                <h2 className="eyebrow">{t.rulesTitle}</h2>
+                <div className="flex items-center justify-between gap-3">
+                    <h2 className="eyebrow">{t.rulesTitle}</h2>
+                    <GuideButton label={t.guide.button} />
+                </div>
                 <ul className="text-sm text-ink-muted space-y-1.5 list-disc pl-5">
                     {t.rules.map(rule => <li key={rule}>{rule}</li>)}
                 </ul>

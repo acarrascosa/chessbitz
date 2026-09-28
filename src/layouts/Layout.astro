@@ -151,7 +151,7 @@ const navLink = `inline-flex ${navStyle}`;
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </button>
                     <div class="flex items-center gap-1 sm:gap-2 min-w-[7.25rem] sm:min-w-[8.5rem] justify-end">
-                        <HeaderActions client:load lang={lang} alternateHref={pathFor(otherLang)} autoGuide={page !== "battle"} />
+                        <HeaderActions client:load lang={lang} alternateHref={pathFor(otherLang)} guide={page === "battle" ? "battle" : "daily"} />
                     </div>
                 </nav>
             </header>

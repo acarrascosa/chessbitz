@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { DiscordSDK, DiscordSDKMock } from '@discord/embedded-app-sdk';
 import { LogIn, Swords } from 'lucide-react';
 import { BattleScreens } from './BattleApp';
+import BattleGuideModal, { useBattleGuide } from './BattleGuideModal';
+import { usePanelRequests } from './hooks';
 import { BattleHostContext, type BattleHost } from './battleHost';
 import { useBattle, type BattleProblem } from './useBattle';
 import { discordLang, isDiscordLaunch } from '../lib/discord';
@@ -150,6 +152,10 @@ function DiscordTable({ sdk, session, lang }: Omit<Connected, 'locale'> & { lang
     const t = ui[lang].battle;
     const [round, setRound] = useState(0);
     const [away, setAway] = useState<BattleProblem | 'left' | null>(null);
+    // No header in the Activity: the guide opens by itself the first time and from the lobby's button.
+    const guide = useBattleGuide();
+    usePanelRequests(panel => panel === 'help' && guide.show());
+    const guideModal = <BattleGuideModal open={guide.open} onClose={guide.close} lang={lang} discord />;
     const host = useMemo<BattleHost>(() => ({
         discord: {
             invite: () => void sdk.commands.openInviteDialog().catch(() => {}),
@@ -172,6 +178,7 @@ function DiscordTable({ sdk, session, lang }: Omit<Connected, 'locale'> & { lang
     return (
         <BattleHostContext.Provider value={host}>
             <InstanceTable key={round} sdk={sdk} session={session} lang={lang} onAway={reason => setAway(reason ?? 'left')} />
+            {guideModal}
         </BattleHostContext.Provider>
     );
 }

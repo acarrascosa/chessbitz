@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Check, Copy, Crown, LogOut, Pencil, Play, Share2, UserPlus, UserX } from 'lucide-react';
+import { Check, Copy, Crown, HelpCircle, LogOut, Pencil, Play, Share2, UserPlus, UserX } from 'lucide-react';
 import { useBattleHost } from './battleHost';
+import { openPanel } from './hooks';
 import type { BattleConnection } from './useBattle';
 import { saveName } from './useBattle';
 import { FORMATS_ORDER, MAX_NAME_LENGTH, MAX_PLAYERS, canStart, cleanName, type PublicPlayer, type PublicRoom } from '../lib/battle';
@@ -99,13 +100,25 @@ export default function BattleLobby({ battle, room, lang, onLeave }: BattleLobby
                 </div>
 
                 <div className="card p-4 space-y-2 order-5 lg:order-none">
-                    <h2 className="eyebrow">{t.rulesTitle}</h2>
+                    <div className="flex items-center justify-between gap-3">
+                        <h2 className="eyebrow">{t.rulesTitle}</h2>
+                        <GuideButton label={t.guide.button} />
+                    </div>
                     <ul className="text-sm text-ink-muted space-y-1.5 list-disc pl-5">
                         {t.rules.map(rule => <li key={rule}>{rule}</li>)}
                     </ul>
                 </div>
             </div>
         </section>
+    );
+}
+
+/** Opens the battle guide (the header's on the web, the Activity's own in Discord). */
+export function GuideButton({ label }: { label: string }) {
+    return (
+        <button onClick={() => openPanel('help')} className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline underline-offset-4" aria-haspopup="dialog">
+            <HelpCircle size={14} aria-hidden="true" /> {label}
+        </button>
     );
 }
 

@@ -19,8 +19,9 @@ export const FADE_LAG = 2;
 const MS_PER_DAY = 86_400_000;
 /** Busier on weekdays, Sunday first (getUTCDay order). */
 const WEEKDAY = [0.7, 1, 1, 1, 0.95, 0.85, 0.65];
-/** How often a crowd player ends in each bucket: 0..LOST-1 errors, then lost. */
-const BUCKET_WEIGHTS = [0.2, 0.25, 0.18, 0.12, 0.08, 0.17];
+/** How often a crowd player ends in each bucket: 0..LOST-1 errors, then lost. Openings are hard to
+ * guess, so most lines end around 4 errors (≈3.5 on average) and few are flawless. */
+const BUCKET_WEIGHTS = [0.02, 0.05, 0.1, 0.19, 0.32, 0.32];
 
 /** mulberry32: small, fast and good enough for plausible numbers. */
 function random(seed: number): () => number {

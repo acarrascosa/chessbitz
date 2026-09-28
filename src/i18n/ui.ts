@@ -297,6 +297,29 @@ const es = {
         connecting: 'Conectando con la mesa…',
         viewPuzzle: 'Ver en Lichess',
         boardsReview: 'Tableros de la partida',
+        guide: {
+            button: 'Cómo se juega',
+            finish: '¡A jugar!',
+            steps: [
+                {
+                    eyebrow: 'La mesa',
+                    title: 'Siéntate con 1 a 3 amigos.',
+                    text: 'Crea una mesa y comparte el enlace o el código de cuatro letras. El anfitrión elige partida corta, normal o larga y empieza cuando todos han marcado «Estoy listo».',
+                },
+                {
+                    eyebrow: 'Los tableros',
+                    title: 'Encuentra la mejor jugada.',
+                    text: 'Todos jugáis los mismos problemas de partidas reales, del más fácil al más difícil: el rival acaba de mover y tú buscas la respuesta ganadora. Cada tablero tiene su reloj y 5 errores; si se agotan, pasas al siguiente.',
+                },
+                {
+                    eyebrow: 'Puntos',
+                    title: 'Gana quien más puntos sume.',
+                    text: 'La clasificación se ve en directo mientras jugáis. Al final hay podio, repaso de los tableros y revancha.',
+                },
+            ],
+            discordTable: 'Todos los que entran en la actividad se sientan en esta mesa; trae a más gente con «Invitar». El anfitrión elige partida corta, normal o larga y empieza cuando todos han marcado «Estoy listo».',
+            points: { solved: 'Resolver el tablero', speed: 'Rapidez, hasta', mistake: 'Cada error', hint: 'Cada pista' },
+        },
         discord: {
             loading: 'Conectando con Discord…',
             error: 'No se pudo conectar con Discord. Cierra la actividad y vuelve a abrirla.',
@@ -662,6 +685,29 @@ const en: Strings = {
         connecting: 'Connecting to the table…',
         viewPuzzle: 'View on Lichess',
         boardsReview: "This match's boards",
+        guide: {
+            button: 'How to play',
+            finish: "Let's play!",
+            steps: [
+                {
+                    eyebrow: 'The table',
+                    title: 'Sit down with 1 to 3 friends.',
+                    text: 'Create a table and share the link or the four-letter code. The host picks a short, normal or long match and starts once everyone has pressed “I’m ready”.',
+                },
+                {
+                    eyebrow: 'The boards',
+                    title: 'Find the best move.',
+                    text: 'Everyone plays the same puzzles from real games, easiest first: your opponent has just moved and you look for the winning reply. Each board has its own clock and 5 mistakes; when they run out, you move on to the next one.',
+                },
+                {
+                    eyebrow: 'Points',
+                    title: 'Most points wins.',
+                    text: 'The standings update live while you play. At the end there is a podium, a review of the boards and a rematch.',
+                },
+            ],
+            discordTable: 'Everyone who joins the activity sits at this table; bring more people with “Invite”. The host picks a short, normal or long match and starts once everyone has pressed “I’m ready”.',
+            points: { solved: 'Solving the board', speed: 'Speed, up to', mistake: 'Each mistake', hint: 'Each hint' },
+        },
         discord: {
             loading: 'Connecting to Discord…',
             error: "Couldn't connect to Discord. Close the activity and open it again.",

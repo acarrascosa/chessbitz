@@ -82,10 +82,29 @@ function LegendIllustration({ lang }: { lang: Lang }) {
     );
 }
 
-const HowToModal: React.FC<HowToModalProps> = ({ open, onClose, lang }) => {
+export interface GuideStep {
+    eyebrow: string;
+    title: string;
+    text: string;
+    illustration: React.ReactNode;
+}
+
+interface StepsModalProps {
+    open: boolean;
+    onClose: () => void;
+    lang: Lang;
+    title: string;
+    steps: GuideStep[];
+    /** Label of the last step's button. */
+    finish: string;
+    /** Shown under the last step (a link to the full guide). */
+    more?: React.ReactNode;
+}
+
+/** A short walkthrough: one step at a time with back / next and progress dots. */
+export function StepsModal({ open, onClose, lang, title, steps, finish, more }: StepsModalProps) {
     const t = ui[lang];
     const [step, setStep] = useState(0);
-    const steps = t.howSteps;
     const current = steps[step];
     const last = step === steps.length - 1;
 
@@ -94,13 +113,11 @@ const HowToModal: React.FC<HowToModalProps> = ({ open, onClose, lang }) => {
         setStep(0);
     };
 
-    const illustrations = [<BoardIllustration key="board" />, <HintsIllustration key="hints" lang={lang} />, <LegendIllustration key="legend" lang={lang} />];
-
     return (
         <Modal
             open={open}
             onClose={close}
-            title={t.navHelp}
+            title={title}
             eyebrow={fill(t.howStep, { n: step + 1, total: steps.length })}
             closeLabel={t.close}
             footer={
@@ -112,7 +129,7 @@ const HowToModal: React.FC<HowToModalProps> = ({ open, onClose, lang }) => {
                         {steps.map((_, i) => <span key={i} className={`h-1.5 rounded-full transition-all ${i === step ? 'w-6 bg-brand' : 'w-3 bg-line'}`} />)}
                     </span>
                     <button onClick={() => (last ? close() : setStep(s => s + 1))} className="btn btn-primary px-4 py-2.5 text-sm">
-                        {last ? t.howPlay : t.howNext} <ArrowRight size={16} aria-hidden="true" />
+                        {last ? finish : t.howNext} <ArrowRight size={16} aria-hidden="true" />
                     </button>
                 </div>
             }
@@ -120,13 +137,27 @@ const HowToModal: React.FC<HowToModalProps> = ({ open, onClose, lang }) => {
             <div className="text-center space-y-4 py-2" aria-live="polite">
                 <p className="eyebrow">{current.eyebrow}</p>
                 <h3 className="font-display text-2xl font-semibold text-balance">{current.title}</h3>
-                <div className="py-2">{illustrations[step]}</div>
+                <div className="py-2">{current.illustration}</div>
                 <p className="text-ink-muted leading-relaxed text-balance">{current.text}</p>
-                {last && (
-                    <a href={guidePath(lang)} className="inline-flex text-sm font-semibold text-accent hover:underline underline-offset-4">{t.howMore}</a>
-                )}
+                {last && more}
             </div>
         </Modal>
+    );
+}
+
+const HowToModal: React.FC<HowToModalProps> = ({ open, onClose, lang }) => {
+    const t = ui[lang];
+    const illustrations = [<BoardIllustration key="board" />, <HintsIllustration key="hints" lang={lang} />, <LegendIllustration key="legend" lang={lang} />];
+    return (
+        <StepsModal
+            open={open}
+            onClose={onClose}
+            lang={lang}
+            title={t.navHelp}
+            steps={t.howSteps.map((step, i) => ({ ...step, illustration: illustrations[i] }))}
+            finish={t.howPlay}
+            more={<a href={guidePath(lang)} className="inline-flex text-sm font-semibold text-accent hover:underline underline-offset-4">{t.howMore}</a>}
+        />
     );
 };
 
