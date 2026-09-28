@@ -44,6 +44,26 @@ export function crowdSize(day: number): number {
     return Math.round(CROWD_MIN + (CROWD_MAX - CROWD_MIN) * (0.1 + 0.9 * u ** 1.8) * WEEKDAY[weekday]);
 }
 
+/**
+ * Traffic weights for each of the 24 hours of the UTC day.
+ * Tuned for a 9-to-5 worker profile in Spain (CET/CEST = UTC+1/+2):
+ * - Dead at night (00:00 - 06:00 ES)
+ * - Peak 1: arriving at office/coffee (08:00 - 10:00 ES -> ~06:00 - 08:00 UTC)
+ * - Peak 2: lunch break (14:00 - 16:00 ES -> ~12:00 - 14:00 UTC)
+ * - Steady small bumps in the evening.
+ */
+const HOURLY_TRAFFIC = [
+    0, 0, 0, 0, 1, 3,       // 00:00 - 05:00 UTC
+    15, 50, 30, 10, 5, 5,   // 06:00 - 11:00 UTC
+    20, 50, 25, 10, 5, 15,  // 12:00 - 17:00 UTC
+    20, 15, 10, 5, 2, 1     // 18:00 - 23:00 UTC
+];
+const TOTAL_TRAFFIC = HOURLY_TRAFFIC.reduce((a, b) => a + b, 0);
+const CUMULATIVE_TRAFFIC = [0];
+for (let i = 0; i < 24; i++) {
+    CUMULATIVE_TRAFFIC.push(CUMULATIVE_TRAFFIC[i] + HOURLY_TRAFFIC[i]);
+}
+
 /** Crowd players who have "played" `day` by `now`: a few over CROWD_MIN at its start, the whole crowd at its end, none for days still to come. */
 export function crowdSoFar(day: number, now: Date = new Date()): number {
     const start = LAUNCH_DAY_UTC + day * MS_PER_DAY;
@@ -51,8 +71,13 @@ export function crowdSoFar(day: number, now: Date = new Date()): number {
     const size = crowdSize(day);
     const first = Math.min(size, CROWD_MIN + Math.floor(random(seedOf(day) ^ 0x27d4eb2f)() * 4));
     const progress = Math.min(1, Math.max(0, (now.getTime() - start) / MS_PER_DAY));
-    // Smoothstep: quiet at night, most plays during the day.
-    const ramp = progress * progress * (3 - 2 * progress);
+    
+    // Map progress to an exact hour of the day and interpolate traffic
+    const hour = progress * 24;
+    const h = Math.floor(hour);
+    const rem = hour - h;
+    const ramp = h >= 24 ? 1 : (CUMULATIVE_TRAFFIC[h] + HOURLY_TRAFFIC[h] * rem) / TOTAL_TRAFFIC;
+    
     return first + Math.round((size - first) * ramp);
 }
 
