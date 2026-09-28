@@ -34,7 +34,7 @@ const es = {
         {
             eyebrow: 'Errores y pistas',
             title: 'Tienes 5 errores por línea.',
-            text: 'Una jugada legal que no es la de la línea cuenta como error. Si te atascas, pide pistas: qué pieza, desde dónde y, por último, la flecha. Pedir ayuda en una jugada suma medio error, y la flecha, otro medio.',
+            text: 'Una jugada legal que no es la de la línea cuenta como error. Si te atascas, pide pistas: qué pieza, desde dónde y, por último, la flecha. Saber qué pieza mover es gratis; la flecha suma un error.',
         },
         {
             eyebrow: 'Resultado',
@@ -61,6 +61,8 @@ const es = {
     mistakes: 'Errores',
     hint: 'Pista',
     hintCostHalf: '−½ error',
+    hintCostOne: '−1 error',
+    hintFree: 'gratis',
     allowanceSpent: 'Con las pistas llegaste a 5 errores: cuenta como no resuelta.',
     hintPiece: 'Mueve {piece}',
     hintSquare: 'La pieza está en {square}',
@@ -397,7 +399,7 @@ const en: Strings = {
         {
             eyebrow: 'Mistakes and hints',
             title: 'You have 5 mistakes per line.',
-            text: "A legal move that isn't the move from the line counts as a mistake. Stuck? Ask for hints: which piece, from where and, finally, the arrow. Asking for help on a move adds half a mistake, and the arrow another half.",
+            text: "A legal move that isn't the move from the line counts as a mistake. Stuck? Ask for hints: which piece, from where and, finally, the arrow. Knowing which piece to move is free; the arrow adds one mistake.",
         },
         {
             eyebrow: 'Result',
@@ -424,6 +426,8 @@ const en: Strings = {
     mistakes: 'Mistakes',
     hint: 'Hint',
     hintCostHalf: '−½ mistake',
+    hintCostOne: '−1 mistake',
+    hintFree: 'free',
     allowanceSpent: 'With the hints you reached 5 mistakes: it counts as not solved.',
     hintPiece: 'Move {piece}',
     hintSquare: 'The piece is on {square}',

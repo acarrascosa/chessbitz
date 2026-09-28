@@ -87,8 +87,45 @@ export const hintsUsed = (state: ChallengeState) => state.hints ?? 0;
  */
 export const HINT_HALVES: Record<number, number> = { 1: 1, 2: 0, 3: 1 };
 
+/**
+ * The daily challenge (and its archive): without knowing the opening every move is
+ * a guess, so which piece moves is free. The arrow still gives the move away for
+ * one whole error.
+ */
+export const OPENING_HINT_HALVES: Record<number, number> = { 1: 0, 2: 0, 3: 2 };
+
+/**
+ * The square hint tells nothing new when only one piece of the kind to move can
+ * move at all ("move the queen" with a single queen): it's skipped.
+ */
+export function squareIsObvious(plies: Ply[], cursor: number): boolean {
+    const ply = plies[cursor];
+    if (!ply) return false;
+    const game = new Chess(fenAt(plies, cursor - 1));
+    const piece = game.get(ply.from)?.type;
+    const from = new Set(game.moves({ verbose: true }).filter(m => m.piece === piece).map(m => m.from));
+    return from.size === 1;
+}
+
+/** Level the next hint on the current move unlocks, skipping the square when it's obvious. */
+export function nextHintLevel(state: ChallengeState, plies: Ply[]): number {
+    const next = state.hintLevel + 1;
+    return next === 2 && squareIsObvious(plies, state.cursor) ? 3 : next;
+}
+
+/** Hints on the current move: how many were taken and how many there are (2 when the square is skipped). */
+export function hintSteps(state: ChallengeState, plies: Ply[]): { taken: number; total: number } {
+    if (!squareIsObvious(plies, state.cursor)) return { taken: state.hintLevel, total: MAX_HINT_LEVEL };
+    return { taken: Math.min(state.hintLevel, MAX_HINT_LEVEL - 1), total: MAX_HINT_LEVEL - 1 };
+}
+
 /** Cost of the next hint on the current move, in half-errors (0 once all are used). */
-export const nextHintHalves = (state: ChallengeState) => HINT_HALVES[state.hintLevel + 1] ?? 0;
+export function nextHintHalves(state: ChallengeState, plies: Ply[], costs: Record<number, number> = HINT_HALVES): number {
+    if (state.hintLevel >= MAX_HINT_LEVEL) return 0;
+    let halves = 0;
+    for (let level = state.hintLevel + 1; level <= nextHintLevel(state, plies); level++) halves += costs[level] ?? 0;
+    return halves;
+}
 
 /**
  * Errors in half-points: 2 per wrong move plus the hints' halves, up to the whole
@@ -127,7 +164,7 @@ function forfeit(state: ChallengeState, plies: Ply[]): ChallengeState {
     return { ...state, results, cursor: plies.length, hintLevel: 0, status: 'lost' };
 }
 
-export function challengeReducer(plies: Ply[]) {
+export function challengeReducer(plies: Ply[], costs: Record<number, number> = HINT_HALVES) {
     return (state: ChallengeState, action: ChallengeAction): ChallengeState => {
         if (state.status !== 'playing') return state;
 
@@ -142,9 +179,9 @@ export function challengeReducer(plies: Ply[]) {
                 if (state.hintLevel >= MAX_HINT_LEVEL) return state;
                 return {
                     ...state,
-                    hintLevel: state.hintLevel + 1,
+                    hintLevel: nextHintLevel(state, plies),
                     hints: hintsUsed(state) + 1,
-                    hintHalves: (state.hintHalves ?? 0) + nextHintHalves(state),
+                    hintHalves: (state.hintHalves ?? 0) + nextHintHalves(state, plies, costs),
                 };
             }
             case 'attempt': {
@@ -182,8 +219,8 @@ export function resultGrid(state: ChallengeState, plies: Ply[], contrast = false
 }
 
 /**
- * Bucket for the stats histograms: whole errors rounded up (0 means truly clean:
- * no wrong move and no hint), 0..MAX_MISTAKES-1 for a solved line, MAX_MISTAKES when
+ * Bucket for the stats histograms: whole errors rounded up (0 means clean: no wrong
+ * move and no hint that costs), 0..MAX_MISTAKES-1 for a solved line, MAX_MISTAKES when
  * lost or finished with the whole allowance spent.
  */
 export function resultBucket(state: ChallengeState): number {

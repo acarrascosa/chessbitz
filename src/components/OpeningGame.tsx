@@ -10,7 +10,7 @@ import { notifyGameFinished, notifyProgress, useElapsed } from './hooks';
 import type { Opening } from '../lib/openings';
 import { parseLine, type Ply } from '../lib/line';
 import {
-    challengeReducer, createChallenge, errorHalves, hintsUsed, isSolved, playerPlies, resultBucket,
+    OPENING_HINT_HALVES, challengeReducer, createChallenge, errorHalves, hintsUsed, isSolved, playerPlies, resultBucket,
     type ChallengeAction, type ChallengeState,
 } from '../lib/challenge';
 import { createExpert, type ExpertState } from '../lib/expert';
@@ -83,7 +83,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
     const playedAsDaily = useMemo(() => !daily && loadHistory()[day]?.opening === opening.slug && loadHistory()[day].state.status !== 'playing', [daily, day, opening.slug]);
 
     const reducer = useMemo(() => {
-        const inner = challengeReducer(plies);
+        const inner = challengeReducer(plies, OPENING_HINT_HALVES);
         return (state: ChallengeState, action: Action) => (action.type === 'reset' ? createChallenge(plies, side) : inner(state, action));
     }, [plies, side]);
     const [state, dispatch] = useReducer(reducer, undefined, () => saved?.normal?.state ?? createChallenge(plies, side));
@@ -307,6 +307,7 @@ const OpeningGame: React.FC<OpeningGameProps> = ({ day, opening, lang, variant, 
             plies={plies}
             state={state}
             dispatch={dispatch}
+            hintHalves={OPENING_HINT_HALVES}
             explanations={content.moves}
             lang={lang}
             intro={intro}

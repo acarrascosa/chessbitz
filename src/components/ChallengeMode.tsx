@@ -5,8 +5,8 @@ import Board, { type SquareStyles } from './Board';
 import Stage from './Stage';
 import { fenAt, moveLabel, pairMoves, type Ply } from '../lib/line';
 import {
-    MAX_HINT_LEVEL, MAX_MISTAKES, errorHalves, isPlayerTurn, judgeAttempt, nextHintHalves,
-    type ChallengeAction, type ChallengeState, type PlyResult,
+    HINT_HALVES, MAX_HINT_LEVEL, MAX_MISTAKES, errorHalves, hintSteps, isPlayerTurn, judgeAttempt, nextHintHalves,
+    squareIsObvious, type ChallengeAction, type ChallengeState, type PlyResult,
 } from '../lib/challenge';
 import { formatDecimal, ui, type Lang } from '../i18n/ui';
 
@@ -33,6 +33,8 @@ interface ChallengeModeProps {
     aside?: React.ReactNode;
     /** What the next hint costs, shown on its button; battles charge points instead of errors. */
     hintCost?: (state: ChallengeState) => string | null;
+    /** Half-errors per hint level; must match the costs of the reducer behind `dispatch`. */
+    hintHalves?: Record<number, number>;
 }
 
 type Feedback = { kind: 'correct' | 'wrong'; square: Square };
@@ -67,6 +69,7 @@ function pieceOf(san: string): 'p' | 'n' | 'b' | 'r' | 'q' | 'k' {
 
 const ChallengeMode: React.FC<ChallengeModeProps> = ({
     plies, state, dispatch, explanations = [], lang, intro, result, boardId = 'challenge', label, texts, hints = true, aside, hintCost,
+    hintHalves = HINT_HALVES,
 }) => {
     const t = ui[lang];
     const yourTurnText = texts?.yourTurn ?? t.yourTurn;
@@ -119,7 +122,9 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
         for (const move of position.moves({ square: selected, verbose: true })) squareStyles[move.to] = STYLE.target;
         squareStyles[selected] = STYLE.selected;
     }
-    if (playerTurn && target && state.hintLevel >= 2) squareStyles[target.from] = { ...squareStyles[target.from], ...STYLE.hint };
+    // With a single piece of its kind that can move, the square comes with the first hint.
+    const obvious = useMemo(() => playerTurn && squareIsObvious(plies, state.cursor), [plies, state.cursor, playerTurn]);
+    if (playerTurn && target && state.hintLevel >= (obvious ? 1 : 2)) squareStyles[target.from] = { ...squareStyles[target.from], ...STYLE.hint };
     if (feedback) squareStyles[feedback.square] = STYLE[feedback.kind];
 
     const arrows = playerTurn && target && state.hintLevel >= MAX_HINT_LEVEL
@@ -130,12 +135,14 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
         t.hintPiece.replace('{piece}', t.pieces[pieceOf(target.san)]),
         t.hintSquare.replace('{square}', target.from),
         t.hintMove.replace('{san}', target.san),
-    ].slice(0, state.hintLevel) : [];
+    ].slice(0, state.hintLevel).filter((_, level) => !(obvious && level === 1)) : [];
+    const steps = hintSteps(state, plies);
 
     const halves = errorHalves(state);
     // Each dot is one error: full, half (a hint) or empty.
     const dotClass = (i: number) => halves >= (i + 1) * 2 ? 'bg-bad' : halves === i * 2 + 1 ? 'bg-[linear-gradient(90deg,var(--bad)_50%,var(--line)_50%)]' : 'bg-line';
-    const nextCost = hintCost ? hintCost(state) : nextHintHalves(state) ? t.hintCostHalf : null;
+    const nextHalves = nextHintHalves(state, plies, hintHalves);
+    const nextCost = hintCost ? hintCost(state) : nextHalves === 2 ? t.hintCostOne : nextHalves === 1 ? t.hintCostHalf : t.hintFree;
 
     const statusText = feedback?.kind === 'wrong' ? wrongText
         : feedback?.kind === 'correct' ? t.correctMove
@@ -178,7 +185,7 @@ const ChallengeMode: React.FC<ChallengeModeProps> = ({
                             className="btn btn-quiet w-full py-2 text-sm"
                         >
                             <Lightbulb size={16} aria-hidden="true" />
-                            {t.hint} · {state.hintLevel}/{MAX_HINT_LEVEL}
+                            {t.hint} · {steps.taken}/{steps.total}
                             {nextCost && state.hintLevel < MAX_HINT_LEVEL && <span className="font-normal text-ink-muted">· {nextCost}</span>}
                         </button>
                         <ul className="text-sm text-hint space-y-1 min-h-[4.25rem]" aria-live="polite">

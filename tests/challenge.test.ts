@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { Square } from 'chess.js';
 import {
-    MAX_MISTAKES, challengeReducer, createChallenge, errorCount, errorHalves, isPlayerTurn, isSolved, judgeAttempt, nextHintHalves, resultBucket, resultGrid,
+    MAX_MISTAKES, OPENING_HINT_HALVES, challengeReducer, createChallenge, errorCount, errorHalves, hintSteps, isPlayerTurn, isSolved, judgeAttempt,
+    nextHintHalves, resultBucket, resultGrid, squareIsObvious,
     type ChallengeAction, type ChallengeState,
 } from '../src/lib/challenge';
 import { parseLine } from '../src/lib/line';
@@ -10,8 +11,8 @@ const RUY = parseLine('1. e4 e5 2. Nf3 Nc6 3. Bb5');
 const SICILIAN = parseLine('1. e4 c5 2. Nf3 d6');
 const CASTLE = parseLine('1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. O-O');
 
-function play(plies = RUY, side: 'w' | 'b' = 'w', actions: ChallengeAction[] = []): ChallengeState {
-    return actions.reduce(challengeReducer(plies), createChallenge(plies, side));
+function play(plies = RUY, side: 'w' | 'b' = 'w', actions: ChallengeAction[] = [], costs?: Record<number, number>): ChallengeState {
+    return actions.reduce(challengeReducer(plies, costs), createChallenge(plies, side));
 }
 const move = (from: string, to: string): ChallengeAction => ({ type: 'attempt', from: from as Square, to: to as Square });
 const opponent: ChallengeAction = { type: 'opponent' };
@@ -51,8 +52,26 @@ describe('challenge', () => {
 
     it('counts every hint used across the line', () => {
         const state = play(RUY, 'w', [hint, hint, move('e2', 'e4'), opponent, hint, move('g1', 'f3'), opponent, hint, hint, hint, hint]);
-        expect(state.hints).toBe(6);
+        // Bb5: only one bishop can move, so its square hint is skipped (2 hints, not 3).
+        expect(state.hints).toBe(5);
         expect(state.hintLevel).toBe(3);
+    });
+
+    it('skips the square hint when only one piece of that kind can move', () => {
+        const beforeBishop = [move('e2', 'e4'), opponent, move('g1', 'f3'), opponent];
+        expect(squareIsObvious(RUY, 0)).toBe(false); // many pawns
+        expect(squareIsObvious(RUY, 2)).toBe(false); // both knights
+        expect(squareIsObvious(RUY, 4)).toBe(true); // the c1 bishop is blocked
+        expect(squareIsObvious(CASTLE, 6)).toBe(true); // a single king
+        let state = play(RUY, 'w', beforeBishop);
+        expect(hintSteps(state, RUY)).toEqual({ taken: 0, total: 2 });
+        state = play(RUY, 'w', [...beforeBishop, hint]);
+        expect(state.hintLevel).toBe(1);
+        expect(nextHintHalves(state, RUY)).toBe(1);
+        state = play(RUY, 'w', [...beforeBishop, hint, hint]);
+        expect(state.hintLevel).toBe(3);
+        expect(hintSteps(state, RUY)).toEqual({ taken: 2, total: 2 });
+        expect(errorCount(state)).toBe(1);
     });
 
     it('accepts castling as king-to-square or king-onto-rook', () => {
@@ -79,15 +98,35 @@ describe('hints cost errors', () => {
 
     it('charges half an error for help on a move and the other half for the arrow', () => {
         let state = play(RUY, 'w');
-        expect(nextHintHalves(state)).toBe(1);
+        expect(nextHintHalves(state, RUY)).toBe(1);
         state = play(RUY, 'w', [hint]);
         expect(errorCount(state)).toBe(0.5);
-        expect(nextHintHalves(state)).toBe(0);
+        expect(nextHintHalves(state, RUY)).toBe(0);
         state = play(RUY, 'w', [hint, hint]);
         expect(errorCount(state)).toBe(0.5);
         state = play(RUY, 'w', [hint, hint, hint]);
         expect(errorCount(state)).toBe(1);
         expect(state.mistakes).toBe(0);
+    });
+
+    it('makes the first hint free in the daily challenge, and the arrow one whole error', () => {
+        let state = play(RUY, 'w', [], OPENING_HINT_HALVES);
+        expect(nextHintHalves(state, RUY, OPENING_HINT_HALVES)).toBe(0);
+        state = play(RUY, 'w', [hint, hint], OPENING_HINT_HALVES);
+        expect(errorCount(state)).toBe(0);
+        expect(nextHintHalves(state, RUY, OPENING_HINT_HALVES)).toBe(2);
+        state = play(RUY, 'w', [hint, hint, hint], OPENING_HINT_HALVES);
+        expect(errorCount(state)).toBe(1);
+        // Skipping the square costs the arrow's price, nothing more.
+        const piece = play(RUY, 'w', [move('e2', 'e4'), opponent, move('g1', 'f3'), opponent, hint], OPENING_HINT_HALVES);
+        expect(nextHintHalves(piece, RUY, OPENING_HINT_HALVES)).toBe(2);
+    });
+
+    it('counts a line solved on free hints as flawless in the stats, yellow in the grid', () => {
+        const state = play(RUY, 'w', [hint, move('e2', 'e4'), opponent, move('g1', 'f3'), opponent, move('f1', 'b5')], OPENING_HINT_HALVES);
+        expect(state.hints).toBe(1);
+        expect(resultBucket(state)).toBe(0);
+        expect(resultGrid(state, RUY)).toBe('🟨🟩🟩');
     });
 
     it('adds up across moves: one hint on two moves is one error', () => {

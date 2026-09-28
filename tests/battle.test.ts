@@ -188,10 +188,11 @@ describe('match', () => {
         expect(room.players[0].state?.hints).toBe(2);
         room = unwrap(playMove(room, 'a', 0, 'h5', 'f7', START + 6_000));
         const result = room.players[0].results[0];
-        // 100 + 40 for speed − 2 × 5 for the hints.
-        expect(result).toMatchObject({ outcome: 'won', mistakes: 0, hints: 2, hintHalves: 1, points: 130 });
+        // 100 + 40 for speed − 2 × 5 for the hints. With a single queen there is no square
+        // hint: the second one is already the arrow, so the move was given away (one error).
+        expect(result).toMatchObject({ outcome: 'won', mistakes: 0, hints: 2, hintHalves: 2, points: 130 });
         expect(outcomeEmoji(result)).toBe('🟨');
-        expect(rankPlayers(room.players)[0]).toMatchObject({ name: 'Ana', errors: 0.5 });
+        expect(rankPlayers(room.players)[0]).toMatchObject({ name: 'Ana', errors: 1 });
     });
 
     it('costs as much for all three hints on a move as for a wrong move', () => {

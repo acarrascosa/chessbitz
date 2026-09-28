@@ -1,4 +1,5 @@
 import { parseDay, parseSubmission, toDailyStats, type ResultRow } from './stats';
+import { FADE_LAG, crowdRows, crowdTotals } from './crowd';
 import { injectDailyPreview } from './preview';
 import { handleDiscord, sendReminders } from './discord';
 import { toHttps, withHsts } from './security';
@@ -48,7 +49,10 @@ async function getStats(dayParam: string | undefined, env: Env): Promise<Respons
         .bind(day)
         .all<ResultRow>();
 
-    return json(toDailyStats(day, results), { headers: { 'Cache-Control': 'public, max-age=60' } });
+    const before = await env.DB.prepare('SELECT COALESCE(SUM(plays), 0) AS plays FROM daily_results WHERE day = ?1')
+        .bind(day - FADE_LAG)
+        .first<{ plays: number }>();
+    return json(toDailyStats(day, [...results, ...crowdRows(day, before?.plays ?? 0)]), { headers: { 'Cache-Control': 'public, max-age=60' } });
 }
 
 /** Tactic battles: each table code is a Durable Object that the players' WebSockets connect to. */
@@ -65,9 +69,11 @@ async function connectBattle(request: Request, code: string, env: Env): Promise<
 
 /** All-time totals for the "how to play" page. */
 async function getSummary(env: Env): Promise<Response> {
-    const row = await env.DB.prepare('SELECT COALESCE(SUM(plays), 0) AS plays, COUNT(DISTINCT day) AS days FROM daily_results')
-        .first<{ plays: number; days: number }>();
-    return json({ plays: row?.plays ?? 0, days: row?.days ?? 0 }, { headers: { 'Cache-Control': 'public, max-age=300' } });
+    const { results } = await env.DB.prepare('SELECT day, SUM(plays) AS plays FROM daily_results GROUP BY day').all<{ day: number; plays: number }>();
+    const real = new Map(results.map(r => [r.day, r.plays]));
+    const crowd = crowdTotals(real);
+    const plays = results.reduce((sum, r) => sum + r.plays, 0) + crowd.plays;
+    return json({ plays, days: real.size + crowd.days }, { headers: { 'Cache-Control': 'public, max-age=300' } });
 }
 
 export default {
