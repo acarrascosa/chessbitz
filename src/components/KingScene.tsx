@@ -27,7 +27,7 @@ const KingModel = ({ animate }: { animate: boolean }) => {
 
     const king = useMemo(() => {
         const clone = scene.clone();
-        const material = new THREE.MeshStandardMaterial({ color: BRASS, metalness: 0.8, roughness: 0.3 });
+        const material = new THREE.MeshStandardMaterial({ color: BRASS, metalness: 0.8, roughness: 0.3, side: THREE.DoubleSide });
         clone.traverse(child => {
             if ((child as THREE.Mesh).isMesh) (child as THREE.Mesh).material = material;
         });

@@ -218,6 +218,7 @@ const es = {
     expertLost: 'Sin intentos',
     expertLostDesc: 'Estudia la línea y vuelve a intentarlo.',
     // Battle
+    navDaily: 'Diario',
     navBattle: 'Batalla',
     battle: {
         title: 'Batalla de tácticas',
@@ -606,6 +607,7 @@ const en: Strings = {
     expertLost: 'Out of attempts',
     expertLostDesc: 'Study the line and try again.',
     // Battle
+    navDaily: 'Daily',
     navBattle: 'Battle',
     battle: {
         title: 'Tactics battle',

@@ -8,6 +8,7 @@ import {
 import type { Puzzle } from '../src/lib/puzzle';
 import { DISCORD_PLAYER_HEADER, announceResults, type DiscordPlayer } from './discord';
 import type { Env } from './env';
+import { recordGhostRuns } from './ghost';
 
 /** 6,000 Lichess puzzles, 2,000 per tier (scripts/battle-puzzles.mjs); only the Worker loads them. */
 const POOL: Puzzle[] = battlePuzzles as Puzzle[];
@@ -169,6 +170,9 @@ export class BattleRoom extends DurableObject<Env> {
         await this.ctx.storage.setAlarm(nextWakeUp(room) ?? now + ROOM_TTL_MS);
         if (finished && room.discord) {
             await announceResults(this.env, room, now).catch(error => console.error('Posting battle results failed', error));
+        }
+        if (finished) {
+            await recordGhostRuns(this.env, room).catch(error => console.error('Recording ghost runs failed', error));
         }
     }
 
