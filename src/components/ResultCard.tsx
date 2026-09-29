@@ -3,6 +3,7 @@ import { BarChart3, BookOpen, Check, Flame, Lightbulb, RotateCcw, Share2 } from 
 import { useStore } from '@nanostores/react';
 import GlobalStatsPanel from './GlobalStatsPanel';
 import { openPanel, useCountdown, useShare } from './hooks';
+import InstallPrompt from './InstallPrompt';
 import { MAX_MISTAKES, errorCount, hintsUsed, isSolved, resultBucket, resultGrid, type ChallengeState } from '../lib/challenge';
 import { buildShareText } from '../lib/share';
 import { averageMistakes, type GlobalStats } from '../lib/stats-api';
@@ -172,6 +173,8 @@ const ResultCard: React.FC<ResultCardProps> = ({
                 )}
 
                 <NextTiles title={t.keepPlaying} items={next} />
+                
+                {daily && <InstallPrompt lang={lang} />}
             </div>
 
             <div className="shrink-0 space-y-2 p-4 border-t border-line bg-surface-2">

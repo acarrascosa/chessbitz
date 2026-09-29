@@ -199,6 +199,9 @@ const es = {
     tacticsShare: 'Tácticas',
     viewOnLichess: 'Ver en Lichess',
     backToResult: 'Volver al resultado',
+    installPrompt: '¿No quieres perderte ningún reto? Añade Chessbitz a tu pantalla de inicio.',
+    installPromptIOS: 'Pulsa Compartir (el icono con la flecha) y selecciona "Añadir a pantalla de inicio".',
+    installAction: 'Instalar',
     // Expert mode
     expertTitle: 'Modo experto',
     expertIntro: 'Juega todas tus jugadas sin ayuda y envíalas. Cada jugada se califica al enviar; tienes 6 intentos.',
@@ -588,6 +591,9 @@ const en: Strings = {
     tacticsShare: 'Tactics',
     viewOnLichess: 'View on Lichess',
     backToResult: 'Back to the result',
+    installPrompt: 'Want to never miss a challenge? Add Chessbitz to your home screen.',
+    installPromptIOS: 'Tap Share (the icon with the arrow) and select "Add to Home Screen".',
+    installAction: 'Install',
     // Expert mode
     expertTitle: 'Expert mode',
     expertIntro: 'Play all your moves without help, then submit them. Every move is graded on submit; you have 6 attempts.',
