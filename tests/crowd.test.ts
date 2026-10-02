@@ -84,3 +84,36 @@ describe('crowd', () => {
         expect(withReal.plays).toBe(empty.plays - crowdSoFar(3, now));
     });
 });
+
+describe('crowd traffic by the hour in Madrid', () => {
+    /** UTC hour in which the most crowd players arrive on `day`. */
+    const busiestHour = (day: number) => {
+        let best = 0;
+        let most = -1;
+        for (let hour = 0; hour < 24; hour++) {
+            const arrivals = crowdSoFar(day, at(day, hour + 1)) - crowdSoFar(day, at(day, hour));
+            if (arrivals > most) [best, most] = [hour, arrivals];
+        }
+        return best;
+    };
+    const weekday = (day: number) => new Date(LAUNCH_DAY_UTC + day * DAY).getUTCDay();
+    const firstWeekday = (from: number) => {
+        let day = from;
+        while ([0, 6].includes(weekday(day)) || crowdSize(day) < 40) day++;
+        return day;
+    };
+
+    it('keeps the morning peak at 9 in Madrid when the clocks change', () => {
+        // Day 0 is in September (CEST, UTC+2); day 50 in November (CET, UTC+1).
+        expect([7, 13]).toContain(busiestHour(firstWeekday(0)));
+        expect([8, 14]).toContain(busiestHour(firstWeekday(50)));
+    });
+
+    it('wakes up later at weekends', () => {
+        let saturday = 0;
+        while (weekday(saturday) !== 6) saturday++;
+        const workday = firstWeekday(0);
+        const morning = (day: number) => (crowdSoFar(day, at(day, 8)) - crowdSoFar(day, at(day, 0))) / Math.max(1, crowdSize(day) - crowdSoFar(day, at(day, 0)));
+        expect(morning(saturday)).toBeLessThan(morning(workday));
+    });
+});

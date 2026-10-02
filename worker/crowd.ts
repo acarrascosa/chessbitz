@@ -45,23 +45,45 @@ export function crowdSize(day: number): number {
 }
 
 /**
- * Traffic weights for each of the 24 hours of the UTC day.
- * Tuned for a 9-to-5 worker profile in Spain (CET/CEST = UTC+1/+2):
- * - Dead at night (00:00 - 06:00 ES)
- * - Peak 1: arriving at office/coffee (08:00 - 10:00 ES -> ~06:00 - 08:00 UTC)
- * - Peak 2: lunch break (14:00 - 16:00 ES -> ~12:00 - 14:00 UTC)
- * - Steady small bumps in the evening.
+ * Share of a day's plays in each hour, by the time in Madrid (where most players
+ * are), so peaks stay put when the clocks change. Workdays follow a 9-to-5 week:
+ * dead at night, a peak with the morning coffee (8–10) and at lunch (14–16), small
+ * bumps in the evening. Weekends wake up later and spread over the day.
  */
-const HOURLY_TRAFFIC = [
-    0, 0, 0, 0, 1, 3,       // 00:00 - 05:00 UTC
-    15, 50, 30, 10, 5, 5,   // 06:00 - 11:00 UTC
-    20, 50, 25, 10, 5, 15,  // 12:00 - 17:00 UTC
-    20, 15, 10, 5, 2, 1     // 18:00 - 23:00 UTC
-];
-const TOTAL_TRAFFIC = HOURLY_TRAFFIC.reduce((a, b) => a + b, 0);
-const CUMULATIVE_TRAFFIC = [0];
-for (let i = 0; i < 24; i++) {
-    CUMULATIVE_TRAFFIC.push(CUMULATIVE_TRAFFIC[i] + HOURLY_TRAFFIC[i]);
+const WORKDAY_TRAFFIC = [2, 1, 0, 0, 0, 0, 1, 3, 15, 50, 30, 10, 5, 5, 20, 50, 25, 10, 5, 15, 20, 15, 10, 5];
+const WEEKEND_TRAFFIC = [4, 3, 1, 0, 0, 0, 0, 1, 2, 5, 12, 18, 20, 15, 10, 10, 12, 15, 15, 12, 12, 14, 10, 6];
+
+const MADRID = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', hour: 'numeric', hourCycle: 'h23', weekday: 'short' });
+
+/** Traffic weight of the hour starting at `time`, by the hour and weekday in Madrid. */
+function trafficAt(time: number): number {
+    const parts = MADRID.formatToParts(new Date(time));
+    const hour = Number(parts.find(p => p.type === 'hour')?.value ?? 0) % 24;
+    const weekend = ['Sat', 'Sun'].includes(parts.find(p => p.type === 'weekday')?.value ?? '');
+    return (weekend ? WEEKEND_TRAFFIC : WORKDAY_TRAFFIC)[hour];
+}
+
+const dayTraffic = new Map<number, number[]>();
+
+/** Traffic weights of the 24 UTC hours of `day` (the challenge's day boundaries are UTC). */
+function hourlyTraffic(day: number): number[] {
+    let hours = dayTraffic.get(day);
+    if (!hours) {
+        const start = LAUNCH_DAY_UTC + day * MS_PER_DAY;
+        hours = Array.from({ length: 24 }, (_, h) => trafficAt(start + h * 3_600_000));
+        dayTraffic.set(day, hours);
+    }
+    return hours;
+}
+
+/** Share of the day's traffic gone by `progress` (0..1 of the UTC day). */
+function rampAt(day: number, progress: number): number {
+    const hours = hourlyTraffic(day);
+    const total = hours.reduce((sum, w) => sum + w, 0);
+    const position = progress * 24;
+    const whole = Math.min(24, Math.floor(position));
+    const done = hours.slice(0, whole).reduce((sum, w) => sum + w, 0) + (whole < 24 ? hours[whole] * (position - whole) : 0);
+    return total ? done / total : progress;
 }
 
 /** Crowd players who have "played" `day` by `now`: a few over CROWD_MIN at its start, the whole crowd at its end, none for days still to come. */
@@ -71,14 +93,7 @@ export function crowdSoFar(day: number, now: Date = new Date()): number {
     const size = crowdSize(day);
     const first = Math.min(size, CROWD_MIN + Math.floor(random(seedOf(day) ^ 0x27d4eb2f)() * 4));
     const progress = Math.min(1, Math.max(0, (now.getTime() - start) / MS_PER_DAY));
-    
-    // Map progress to an exact hour of the day and interpolate traffic
-    const hour = progress * 24;
-    const h = Math.floor(hour);
-    const rem = hour - h;
-    const ramp = h >= 24 ? 1 : (CUMULATIVE_TRAFFIC[h] + HOURLY_TRAFFIC[h] * rem) / TOTAL_TRAFFIC;
-    
-    return first + Math.round((size - first) * ramp);
+    return first + Math.round((size - first) * rampAt(day, progress));
 }
 
 interface CrowdPlay {

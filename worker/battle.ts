@@ -172,7 +172,7 @@ export class BattleRoom extends DurableObject<Env> {
             await announceResults(this.env, room, now).catch(error => console.error('Posting battle results failed', error));
         }
         if (finished) {
-            await recordGhostRuns(this.env, room).catch(error => console.error('Recording ghost runs failed', error));
+            await recordGhostRuns(this.env, room, now).catch(error => console.error('Recording ghost runs failed', error));
         }
     }
 
