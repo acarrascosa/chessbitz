@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Download, X } from 'lucide-react';
 import { isAppleMobile } from '../lib/install';
 import { ui, type Lang } from '../i18n/ui';

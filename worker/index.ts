@@ -3,11 +3,13 @@ import { FADE_LAG, crowdRows, crowdTotals } from './crowd';
 import { injectDailyPreview } from './preview';
 import { handleDiscord, sendReminders } from './discord';
 import { toHttps, withHsts } from './security';
+import { joinQueue, matchmaker, searchLevel } from './queue';
 import type { Env } from './env';
 import { isRoomCode } from '../src/lib/battle';
 import { isDiscordLaunch } from '../src/lib/discord';
 
 export { BattleRoom } from './battle';
+export { Matchmaker } from './matchmaker';
 export type { Env } from './env';
 
 const json = (body: unknown, init: ResponseInit = {}) =>
@@ -67,6 +69,26 @@ async function connectBattle(request: Request, code: string, env: Env): Promise<
     return env.BATTLE.get(env.BATTLE.idFromName(code)).fetch(new Request(request.url, { headers: { Upgrade: 'websocket' } }));
 }
 
+const BATTLE_TOKEN = /^[A-Za-z0-9_-]{16,64}$/;
+
+async function connectQueue(request: Request, url: URL, env: Env): Promise<Response> {
+    if (request.headers.get('Upgrade') !== 'websocket') return json({ error: 'Expected a WebSocket' }, { status: 426 });
+    const token = url.searchParams.get('token') ?? '';
+    if (!BATTLE_TOKEN.test(token)) return json({ error: 'Invalid token' }, { status: 400 });
+    const key = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+    if (env.BATTLE_LIMITER && !(await env.BATTLE_LIMITER.limit({ key })).success) {
+        return json({ error: 'Too many requests' }, { status: 429 });
+    }
+    return joinQueue(env, token, searchLevel(url.searchParams.get('level')));
+}
+
+async function queueStatus(env: Env): Promise<Response> {
+    const queue = matchmaker(env);
+    if (!queue) return json({ error: 'Matchmaking is not available' }, { status: 503 });
+    const response = await queue.fetch('https://match/status');
+    return json(await response.json(), { headers: { 'Cache-Control': 'no-store' } });
+}
+
 /** All-time totals for the "how to play" page. */
 async function getSummary(env: Env): Promise<Response> {
     const { results } = await env.DB.prepare('SELECT day, SUM(plays) AS plays FROM daily_results GROUP BY day').all<{ day: number; plays: number }>();
@@ -90,6 +112,12 @@ export default {
         }
         if (url.pathname.startsWith('/api/discord/')) {
             return handleDiscord(request, url, env);
+        }
+        if (url.pathname === '/api/match/status' && request.method === 'GET') {
+            return queueStatus(env);
+        }
+        if (url.pathname === '/api/match' && request.method === 'GET') {
+            return connectQueue(request, url, env);
         }
         if (url.pathname.startsWith('/api/battle/') && request.method === 'GET') {
             return connectBattle(request, url.pathname.split('/')[3] ?? '', env);

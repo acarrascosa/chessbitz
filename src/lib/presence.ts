@@ -40,6 +40,8 @@ const TEXT = {
         done: 'Tableros terminados',
         waiting: 'esperando',
         won: 'Ganó la batalla',
+        searching: 'Buscando partida',
+        public: 'Partida pública',
     },
     en: {
         battle: 'Battle',
@@ -52,8 +54,21 @@ const TEXT = {
         done: 'All boards done',
         waiting: 'waiting',
         won: 'Won the battle',
+        searching: 'Looking for a match',
+        public: 'Public match',
     },
 } as const;
+
+/** In the public queue. */
+export function searchingPresence(lang: DiscordLang): PresenceActivity {
+    const t = TEXT[lang];
+    return {
+        type: 0,
+        details: `${t.battle} · ${t.public}`,
+        state: t.searching,
+        assets: { large_image: PRESENCE_ASSETS.large, large_text: t.battle, small_image: PRESENCE_ASSETS.lobby, small_text: t.searching },
+    };
+}
 
 /** What the player's profile shows for this state of the table, or null when they aren't seated. */
 export function battlePresence(room: PublicRoom, you: string, lang: DiscordLang): PresenceActivity | null {

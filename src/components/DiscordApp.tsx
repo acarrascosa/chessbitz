@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DiscordSDK, DiscordSDKMock } from '@discord/embedded-app-sdk';
 import { LogIn, Swords } from 'lucide-react';
-import { BattleScreens } from './BattleApp';
+import { BattleScreens, Searching } from './BattleApp';
 import BattleGuideModal, { useBattleGuide } from './BattleGuideModal';
 import { usePanelRequests } from './hooks';
 import { BattleHostContext, type BattleHost } from './battleHost';
-import { useBattle, type BattleProblem } from './useBattle';
+import { savedLevel, useBattle, type BattleProblem } from './useBattle';
 import { discordLang, isDiscordLaunch } from '../lib/discord';
-import { battlePresence, type PresenceActivity } from '../lib/presence';
+import { battlePresence, searchingPresence, type PresenceActivity } from '../lib/presence';
 import type { PublicRoom } from '../lib/battle';
 import { battlePath, ui, type Lang } from '../i18n/ui';
 
@@ -152,11 +152,18 @@ function DiscordTable({ sdk, session, lang }: Omit<Connected, 'locale'> & { lang
     const t = ui[lang].battle;
     const [round, setRound] = useState(0);
     const [away, setAway] = useState<BattleProblem | 'left' | null>(null);
+    // The Activity's own table, the public queue, or a public table from it.
+    const [place, setPlace] = useState<'instance' | 'search' | { code: string }>('instance');
+    const backToInstance = () => {
+        setPlace('instance');
+        setRound(r => r + 1);
+    };
     // No header in the Activity: the guide opens by itself the first time and from the lobby's button.
     const guide = useBattleGuide();
     usePanelRequests(panel => panel === 'help' && guide.show());
     const guideModal = <BattleGuideModal open={guide.open} onClose={guide.close} lang={lang} discord />;
     const host = useMemo<BattleHost>(() => ({
+        search: () => setPlace('search'),
         discord: {
             invite: () => void sdk.commands.openInviteDialog().catch(() => {}),
             openExternal: url => void sdk.commands.openExternalLink({ url }).catch(() => {}),
@@ -175,12 +182,37 @@ function DiscordTable({ sdk, session, lang }: Omit<Connected, 'locale'> & { lang
             </Notice>
         );
     }
+    const level = savedLevel();
+    const queue = `/api/discord/match?${new URLSearchParams({ session, ...(level === undefined ? {} : { level: String(level) }) })}`;
     return (
         <BattleHostContext.Provider value={host}>
-            <InstanceTable key={round} sdk={sdk} session={session} lang={lang} onAway={reason => setAway(reason ?? 'left')} />
+            {place === 'instance' && <InstanceTable key={round} sdk={sdk} session={session} lang={lang} onAway={reason => setAway(reason ?? 'left')} />}
+            {place === 'search' && (
+                <>
+                    <Searching lang={lang} path={queue} onCancel={backToInstance} onMatched={code => setPlace({ code })} />
+                    <SearchPresence sdk={sdk} lang={lang} />
+                </>
+            )}
+            {typeof place === 'object' && <PublicTable key={place.code} code={place.code} sdk={sdk} session={session} lang={lang} onLeave={backToInstance} />}
             {guideModal}
         </BattleHostContext.Provider>
     );
+}
+
+/** "Looking for a match" on the player's profile while in the queue (nothing if they didn't allow it). */
+function SearchPresence({ sdk, lang }: { sdk: Sdk; lang: Lang }) {
+    useEffect(() => {
+        sdk.commands.setActivity({ activity: searchingPresence(lang) }).catch(() => {});
+    }, [sdk, lang]);
+    return null;
+}
+
+/** A public table matchmaking found for this Discord player (not the Activity's own table). */
+function PublicTable({ code, sdk, session, lang, onLeave }: { code: string; sdk: Sdk; session: string; lang: Lang; onLeave: () => void }) {
+    const params = new URLSearchParams({ session }).toString();
+    const battle = useBattle(code, () => `/api/discord/public/${code}?${params}`);
+    usePresence(sdk, battle.room, battle.you, lang);
+    return <BattleScreens battle={battle} lang={lang} onLeave={onLeave} />;
 }
 
 function InstanceTable({ sdk, session, lang, onAway }: { sdk: Sdk; session: string; lang: Lang; onAway: (reason: BattleProblem | null) => void }) {

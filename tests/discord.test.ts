@@ -78,8 +78,10 @@ describe('reminders', () => {
     });
 
     it('mentions yesterday\'s players and offers to play', () => {
-        const message = reminderMessage(row({}));
-        expect(message.content).toBe('♟️ **Nuevo día, nueva batalla.** Ayer ganó <@1> con 284 puntos.\n<@1> <@2>, ¿revancha?');
+        // 2 Oct 2026, 17:00 UTC: tonight's battle hour is 21:00 in Madrid, 19:00 UTC.
+        const message = reminderMessage(row({}), 'es', Date.UTC(2026, 9, 2, 17));
+        const start = Date.UTC(2026, 9, 2, 19) / 1000;
+        expect(message.content).toBe(`♟️ **Nuevo día, nueva batalla.** Ayer ganó <@1> con 284 puntos.\n<@1> <@2>, ¿revancha?\n⚔️ Hora de batalla: <t:${start}:t> (<t:${start}:R>), cuando más gente busca partida pública.`);
         expect(message.allowed_mentions.users).toEqual(['1', '2']);
         expect(JSON.stringify(message.components)).toContain(PLAY_BUTTON_ID);
     });

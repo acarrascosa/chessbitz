@@ -19,6 +19,10 @@ export const COUNTDOWN_MS = 3_000;
 export const TRANSITION_MS = 1_500;
 /** A player who drops out of the lobby keeps their seat this long (page reloads). */
 export const LOBBY_GRACE_MS = 20_000;
+/** Public tables (matchmaking) always play this format, so nobody waits in a queue of their own. */
+export const PUBLIC_FORMAT: BattleFormat = 'normal';
+/** How long a public table waits for its matched players to connect before starting without them. */
+export const PUBLIC_JOIN_MS = 10_000;
 
 /* ------------------------------------------------------------------ Formats */
 
@@ -190,6 +194,11 @@ export interface BattlePlayer {
     left?: boolean;
     /** Discord user id, when playing inside the Discord Activity. */
     discordId?: string;
+    /**
+     * A recorded rival (worker/ghost.ts): the table plays its results back, each board
+     * finished when its recorded time comes. Never sent to clients.
+     */
+    ghost?: BoardResult[];
     /** Index of the board being played; equals boards.length when done. */
     board: number;
     boardStartedAt: number;
@@ -206,8 +215,19 @@ export interface DiscordTable {
     lang: 'es' | 'en';
 }
 
+/** Private tables are a group of friends with a host; public ones come from matchmaking. */
+export type RoomMode = 'private' | 'public';
+
 export interface Room {
     code: string;
+    /** Absent on tables created before matchmaking: private. */
+    mode?: RoomMode;
+    /** Public tables: battle tokens of the players matched to sit here; nobody else can. */
+    seats?: string[];
+    /** Public tables: the match starts at the latest then, with whoever has arrived. */
+    joinBy?: number;
+    /** Public tables: points the players usually score, to pick a recorded rival of their level. */
+    level?: number;
     /** Puzzles this table has already played (latest last), so rematches bring new ones. */
     played?: string[];
     /** Set for tables inside the Discord Activity (one per activity instance). */
@@ -250,6 +270,56 @@ export function createRoom(code: string, now: number): Room {
     return { code, status: 'lobby', hostId: '', format: 'normal', players: [], boards: [], startsAt: 0, round: 0, updatedAt: now };
 }
 
+export const isPublic = (room: Room) => room.mode === 'public';
+export const isGhost = (player: BattlePlayer) => Boolean(player.ghost);
+
+/** A recorded run to play against: its boards, in order, and what the player did on each. */
+export interface GhostRival {
+    name: string;
+    boards: BattleBoard[];
+    results: BoardResult[];
+}
+
+/**
+ * A table made by matchmaking for the players holding `seats`, optionally against a
+ * recorded rival (whose boards it then plays). It starts by itself once everyone has
+ * connected, or at `joinBy` with whoever has.
+ */
+export function createPublicRoom(code: string, seats: string[], boards: BattleBoard[], now: number, ghost?: GhostRival, level?: number): Room {
+    const room: Room = { ...createRoom(code, now), mode: 'public', format: PUBLIC_FORMAT, seats, joinBy: now + PUBLIC_JOIN_MS, boards: ghost?.boards ?? boards, ...(level === undefined ? {} : { level }) };
+    return ghost ? withGhost(room, ghost) : room;
+}
+
+/** Seats a recorded rival at a public table that is still waiting to start. */
+export function withGhost(room: Room, ghost: GhostRival): Room {
+    const player: BattlePlayer = {
+        id: `g${room.players.length + 1}`, token: `ghost:${room.code}:${room.players.length}`, name: ghost.name, ready: true, online: true,
+        board: 0, boardStartedAt: 0, state: null, results: [], ghost: ghost.results,
+    };
+    return { ...room, boards: ghost.boards, players: [...room.players, player] };
+}
+
+/** People (not recorded rivals) at the table who are still in the match. */
+export const humans = (room: Room) => room.players.filter(p => !p.ghost && !p.left);
+
+/**
+ * A public table whose wait is over with a single person and no rival: the Durable
+ * Object seats a recorded one (it needs the database) before the match starts.
+ */
+export function needsGhost(room: Room, now: number): boolean {
+    return isPublic(room) && room.status === 'lobby' && now >= (room.joinBy ?? 0)
+        && humans(room).length === 1 && !room.players.some(isGhost);
+}
+
+/** Everyone matched to a public table has arrived, or the wait is over with at least two players. */
+function publicCanStart(room: Room, now: number): boolean {
+    if (!isPublic(room) || room.status !== 'lobby' || !room.boards.length) return false;
+    const seated = room.players.filter(p => p.online || p.ghost);
+    if (seated.length < MIN_PLAYERS) return false;
+    const everyone = (room.seats ?? []).every(token => room.players.some(p => p.token === token && p.online));
+    return everyone || now >= (room.joinBy ?? 0);
+}
+
 const update = (room: Room, now: number, changes: Partial<Room>): Room => ({ ...room, ...changes, updatedAt: now });
 
 function withPlayer(room: Room, id: string, change: (player: BattlePlayer) => BattlePlayer): Room {
@@ -267,6 +337,7 @@ export function joinRoom(room: Room, player: { id: string; token: string; name: 
     }
     if (room.status !== 'lobby') return fail('started');
     if (room.players.length >= MAX_PLAYERS) return fail('full');
+    if (isPublic(room) && !room.seats?.includes(player.token)) return fail('full');
     const seat = room.players.length + 1;
     const name = cleanName(player.name) || `#${seat}`;
     const joined: BattlePlayer = {
@@ -303,21 +374,25 @@ export function leaveRoom(room: Room, id: string, now: number): Room {
         if (current.board >= next.boards.length) break;
         next = finishBoard(next, id, 'timeout', Math.max(now, current.boardStartedAt));
     }
-    return update(ensureHost(next), now, {});
+    return update(ensureHost(settleGhosts(next, now)), now, {});
 }
 
 export function setReady(room: Room, id: string, ready: boolean, now: number): Outcome {
+    if (isPublic(room)) return fail('invalid');
     if (room.status !== 'lobby') return fail('started');
     return ok(update(withPlayer(room, id, p => ({ ...p, ready })), now, {}));
 }
 
 export function renamePlayer(room: Room, id: string, name: unknown, now: number): Outcome {
+    // At public tables everyone goes by an invented name.
+    if (isPublic(room)) return fail('invalid');
     const clean = cleanName(name);
     if (!clean) return fail('invalid');
     return ok(update(withPlayer(room, id, p => ({ ...p, name: clean })), now, {}));
 }
 
 export function setFormat(room: Room, id: string, format: unknown, now: number): Outcome {
+    if (isPublic(room)) return fail('invalid');
     if (id !== room.hostId) return fail('notHost');
     if (room.status !== 'lobby') return fail('started');
     if (!FORMATS_ORDER.includes(format as BattleFormat)) return fail('invalid');
@@ -327,6 +402,7 @@ export function setFormat(room: Room, id: string, format: unknown, now: number):
 }
 
 export function kickPlayer(room: Room, id: string, target: string, now: number): Outcome {
+    if (isPublic(room)) return fail('invalid');
     if (id !== room.hostId) return fail('notHost');
     if (room.status !== 'lobby' || target === id) return fail('invalid');
     return ok(removePlayer(room, target, now));
@@ -355,6 +431,7 @@ function firstState(board: BattleBoard | undefined): ChallengeState | null {
 }
 
 export function startMatch(room: Room, id: string, boards: BattleBoard[], now: number): Outcome {
+    if (isPublic(room)) return fail('invalid');
     if (id !== room.hostId) return fail('notHost');
     const blocked = canStart(room);
     if (blocked) return fail(blocked);
@@ -380,6 +457,8 @@ function begin(room: Room, seated: BattlePlayer[], boards: BattleBoard[], now: n
  * their seat; with fewer than two left, the table goes back to the lobby instead.
  */
 export function rematch(room: Room, id: string, boards: BattleBoard[], now: number): Outcome {
+    // Strangers don't get a rematch: each goes back to the queue.
+    if (isPublic(room)) return fail('invalid');
     if (id !== room.hostId) return fail('notHost');
     if (room.status !== 'finished' || !boards.length) return fail('invalid');
     const seated = room.players.filter(p => !p.left && p.online);
@@ -393,14 +472,14 @@ export function boardDeadline(room: Room, player: BattlePlayer): number | null {
     return board ? player.boardStartedAt + board.limit * 1000 : null;
 }
 
-function finishBoard(room: Room, id: string, outcome: BoardOutcome, at: number): Room {
+function finishBoard(room: Room, id: string, outcome: BoardOutcome, at: number, recorded?: BoardResult): Room {
     const player = room.players.find(p => p.id === id);
     const board = player && room.boards[player.board];
     if (!player || !board) return room;
     const ms = Math.min(board.limit * 1000, Math.max(0, at - player.boardStartedAt));
-    const mistakes = player.state?.mistakes ?? 0;
-    const hints = player.state ? hintsUsed(player.state) : 0;
-    const hintHalves = player.state?.hintHalves ?? 0;
+    const mistakes = recorded?.mistakes ?? player.state?.mistakes ?? 0;
+    const hints = recorded ? recorded.hints ?? 0 : player.state ? hintsUsed(player.state) : 0;
+    const hintHalves = recorded ? recorded.hintHalves ?? 0 : player.state?.hintHalves ?? 0;
     const result: BoardResult = { outcome, mistakes, hints, hintHalves, ms, points: boardPoints(outcome, mistakes, ms, board.limit, hints) };
     const nextIndex = player.board + 1;
     const next = withPlayer(room, id, p => ({
@@ -434,7 +513,7 @@ export function playMove(room: Room, id: string, boardIndex: number, from: Squar
     const state = opponentReplies(attempted, plies);
 
     let next = withPlayer(ticked, id, p => ({ ...p, state }));
-    if (state.status !== 'playing') next = finishBoard(next, id, state.status, now);
+    if (state.status !== 'playing') next = settleGhosts(finishBoard(next, id, state.status, now), now);
     return ok(update(next, now, {}));
 }
 
@@ -450,19 +529,60 @@ export function takeHint(room: Room, id: string, boardIndex: number, now: number
     return ok(update(withPlayer(ticked, id, p => ({ ...p, state })), now, {}));
 }
 
-/** Applies what time alone decides: boards that ran out and lobby seats left empty. */
+/** When a recorded rival finishes its current board, as it did when it was recorded. */
+export function ghostFinish(room: Room, player: BattlePlayer): number | null {
+    const board = room.boards[player.board];
+    const recorded = player.ghost?.[player.board];
+    if (!board || !recorded) return null;
+    const ms = recorded.outcome === 'timeout' ? board.limit * 1000 : Math.min(board.limit * 1000, recorded.ms);
+    return player.boardStartedAt + ms;
+}
+
+/**
+ * Once every person at a public table is done, nobody waits for a recording: the
+ * recorded rivals' remaining boards are scored as they were played, and the match
+ * ends now (its players are free for matchmaking again).
+ */
+function settleGhosts(room: Room, now: number): Room {
+    if (!isPublic(room) || room.status !== 'playing' || !room.players.some(isGhost)) return room;
+    if (!room.players.filter(p => !p.ghost).every(p => isDone(room, p))) return room;
+    let next = room;
+    for (const ghost of room.players.filter(isGhost)) {
+        while (true) {
+            const current = next.players.find(p => p.id === ghost.id)!;
+            const at = ghostFinish(next, current);
+            if (at === null) break;
+            const recorded = current.ghost![current.board];
+            next = finishBoard(next, ghost.id, recorded.outcome, at, recorded);
+        }
+    }
+    return next.status === 'finished' ? { ...next, finishedAt: now } : next;
+}
+
+/** Applies what time alone decides: boards that ran out, recorded rivals' boards, public tables starting and lobby seats left empty. */
 export function tick(room: Room, now: number): Room {
     let next = room;
+    if (next.status === 'lobby' && publicCanStart(next, now)) {
+        const seated = next.players.filter(p => p.online || p.ghost);
+        next = begin(next, seated, next.boards, now);
+    }
     if (next.status === 'playing') {
         for (const player of next.players) {
             while (true) {
                 const current = next.players.find(p => p.id === player.id)!;
+                const recordedAt = ghostFinish(next, current);
+                if (recordedAt !== null && recordedAt <= now) {
+                    const recorded = current.ghost![current.board];
+                    next = finishBoard(next, player.id, recorded.outcome, recordedAt, recorded);
+                    continue;
+                }
                 const deadline = boardDeadline(next, current);
                 if (deadline === null || deadline > now) break;
                 next = finishBoard(next, player.id, 'timeout', deadline);
             }
         }
     }
+    next = settleGhosts(next, now);
     if (next.status === 'lobby') {
         for (const player of next.players) {
             if (!player.online && player.offlineSince !== undefined && now - player.offlineSince >= LOBBY_GRACE_MS) {
@@ -478,11 +598,12 @@ export function nextWakeUp(room: Room): number | null {
     const times: number[] = [];
     if (room.status === 'playing') {
         for (const player of room.players) {
-            const deadline = boardDeadline(room, player);
+            const deadline = ghostFinish(room, player) ?? boardDeadline(room, player);
             if (deadline !== null) times.push(deadline);
         }
     }
     if (room.status === 'lobby') {
+        if (isPublic(room) && room.joinBy) times.push(room.joinBy);
         for (const player of room.players) {
             if (!player.online && player.offlineSince !== undefined) times.push(player.offlineSince + LOBBY_GRACE_MS);
         }
@@ -492,6 +613,7 @@ export function nextWakeUp(room: Room): number | null {
 
 /** After the podium, the host brings everyone back to the table for a rematch. */
 export function backToLobby(room: Room, id: string, now: number): Outcome {
+    if (isPublic(room)) return fail('invalid');
     if (id !== room.hostId) return fail('notHost');
     if (room.status !== 'finished') return fail('invalid');
     // Players who left mid-match lose their seat now.
@@ -538,12 +660,19 @@ export function rankPlayers(players: BattlePlayer[]): Standing[] {
 
 /* ------------------------------------------------------------------ Protocol */
 
-/** What a client sees: the room without anyone's token. */
-export type PublicPlayer = Omit<BattlePlayer, 'token'>;
-export type PublicRoom = Omit<Room, 'players'> & { players: PublicPlayer[] };
+/** What a client sees: the room without anyone's token, the matched seats or a recorded rival's results to come. */
+export type PublicPlayer = Omit<BattlePlayer, 'token' | 'ghost'>;
+export type PublicRoom = Omit<Room, 'players' | 'seats'> & { players: PublicPlayer[] };
 
 export function publicRoom(room: Room): PublicRoom {
-    return { ...room, players: room.players.map(({ token: _token, ...player }) => player) };
+    const { seats: _seats, ...rest } = room;
+    return { ...rest, players: room.players.map(({ token: _token, ghost: _ghost, ...player }) => player) };
+}
+
+/** When a public table's match ends at the latest (every clock run out), for matchmaking's waits. */
+export function latestEnd(room: Room): number {
+    const start = room.status === 'lobby' ? Math.max(room.joinBy ?? room.updatedAt, room.updatedAt) + COUNTDOWN_MS : room.startsAt;
+    return start + totalLimit(room.boards) * 1000 + Math.max(0, room.boards.length - 1) * TRANSITION_MS;
 }
 
 export type ClientMessage =

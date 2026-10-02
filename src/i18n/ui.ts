@@ -324,6 +324,37 @@ const es = {
             discordTable: 'Todos los que entran en la actividad se sientan en esta mesa; trae a más gente con «Invitar». El anfitrión elige partida corta, normal o larga y empieza cuando todos han marcado «Estoy listo».',
             points: { solved: 'Resolver el tablero', speed: 'Rapidez, hasta', mistake: 'Cada error', hint: 'Cada pista' },
         },
+        match: {
+            search: 'Buscar partida',
+            searchHint: 'Juega ya con quien esté conectado. En las partidas públicas todos usáis un apodo inventado.',
+            searching: 'Buscando rival…',
+            searchingOne: '{n} persona buscando',
+            searchingOther: '{n} personas buscando',
+            playingOne: '{n} jugando una partida pública',
+            playingOther: '{n} jugando partidas públicas',
+            endsSoon: 'Una partida pública termina en {time}: esperamos a sus jugadores.',
+            ghostNotice: 'Si no aparece nadie, en {time} se te pondrá en partida automáticamente con un rival grabado.',
+            waitFor: 'Esperar la partida que termina en {time}',
+            playNow: 'Jugar ya',
+            cancel: 'Cancelar',
+            found: '¡Partida encontrada!',
+            preparing: 'Preparando la partida…',
+            public: 'Partida pública',
+            again: 'Buscar otra',
+            waitingNowOne: 'Hay {n} persona buscando partida ahora mismo.',
+            waitingNowOther: 'Hay {n} personas buscando partida ahora mismo.',
+            lastAgo: 'Última partida pública {ago}',
+            todayOne: '{n} partida pública hoy',
+            todayOther: '{n} partidas públicas hoy',
+            busy: 'No se pudo crear la partida. Vuelve a intentarlo.',
+            unavailable: 'La búsqueda de partidas no está disponible ahora mismo. Crea una mesa e invita a alguien.',
+            discordSearch: 'Buscar rivales',
+            discordSearchHint: '¿Nadie más en la actividad? Juega con quien esté conectado en Chessbitz.',
+            backToActivity: 'Volver a la mesa de la actividad',
+            battleHourLive: '¡Es la hora de batalla! Ahora es más fácil encontrar rival.',
+            battleHourToday: 'Hora de batalla: hoy a las {time}. Pásate a buscar partida.',
+            battleHourTomorrow: 'Hora de batalla: mañana a las {time}. Pásate a buscar partida.',
+        },
         discord: {
             loading: 'Conectando con Discord…',
             error: 'No se pudo conectar con Discord. Cierra la actividad y vuelve a abrirla.',
@@ -716,6 +747,37 @@ const en: Strings = {
             discordTable: 'Everyone who joins the activity sits at this table; bring more people with “Invite”. The host picks a short, normal or long match and starts once everyone has pressed “I’m ready”.',
             points: { solved: 'Solving the board', speed: 'Speed, up to', mistake: 'Each mistake', hint: 'Each hint' },
         },
+        match: {
+            search: 'Find a match',
+            searchHint: 'Play now with whoever is online. In public matches everyone goes by an invented nickname.',
+            searching: 'Looking for a rival…',
+            searchingOne: '{n} person searching',
+            searchingOther: '{n} people searching',
+            playingOne: '{n} playing a public match',
+            playingOther: '{n} playing public matches',
+            endsSoon: 'A public match ends in {time}: we’re waiting for its players.',
+            ghostNotice: 'If nobody turns up, in {time} you’ll automatically be put in a match against a recorded rival.',
+            waitFor: 'Wait for the match that ends in {time}',
+            playNow: 'Play now',
+            cancel: 'Cancel',
+            found: 'Match found!',
+            preparing: 'Getting the match ready…',
+            public: 'Public match',
+            again: 'Find another',
+            waitingNowOne: '{n} person is looking for a match right now.',
+            waitingNowOther: '{n} people are looking for a match right now.',
+            lastAgo: 'Last public match {ago}',
+            todayOne: '{n} public match today',
+            todayOther: '{n} public matches today',
+            busy: 'Couldn’t set the match up. Please try again.',
+            unavailable: 'Matchmaking isn’t available right now. Create a table and invite someone.',
+            discordSearch: 'Find rivals',
+            discordSearchHint: 'Nobody else in the activity? Play with whoever is online on Chessbitz.',
+            backToActivity: 'Back to the activity’s table',
+            battleHourLive: 'It’s battle hour! Finding a rival is easier now.',
+            battleHourToday: 'Battle hour: today at {time}. Drop by and find a match.',
+            battleHourTomorrow: 'Battle hour: tomorrow at {time}. Drop by and find a match.',
+        },
         discord: {
             loading: 'Connecting to Discord…',
             error: "Couldn't connect to Discord. Close the activity and open it again.",
@@ -811,3 +873,12 @@ export function formatClock(seconds: number): string {
 }
 
 export const formatDecimal = (lang: Lang, n: number) => n.toLocaleString(lang, { maximumFractionDigits: 1 });
+
+/** "hace 5 minutos" / "5 minutes ago" for a past moment, `ms` before now. */
+export function timeAgo(lang: Lang, ms: number): string {
+    const format = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
+    const minutes = Math.round(ms / 60_000);
+    if (minutes < 60) return format.format(-Math.max(1, minutes), 'minute');
+    const hours = Math.round(minutes / 60);
+    return hours < 24 ? format.format(-hours, 'hour') : format.format(-Math.round(hours / 24), 'day');
+}

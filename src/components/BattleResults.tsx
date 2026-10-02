@@ -1,12 +1,13 @@
 import React from 'react';
 import confetti from 'canvas-confetti';
-import { ExternalLink, LogOut, RotateCcw, Trophy, Users } from 'lucide-react';
+import { ExternalLink, LogOut, RotateCcw, Search, Trophy, Users } from 'lucide-react';
 import { Avatar } from './BattleLobby';
 import { useBattleHost } from './battleHost';
-import type { BattleConnection } from './useBattle';
-import { outcomeEmoji, rankPlayers, type PublicRoom } from '../lib/battle';
+import { recordLevel, type BattleConnection } from './useBattle';
+import { useMatchSummary } from './useMatchmaking';
+import { PUBLIC_FORMAT, outcomeEmoji, rankPlayers, type PublicRoom } from '../lib/battle';
 import { lichessPuzzleUrl, puzzleGoal } from '../lib/puzzle';
-import { fill, formatClock, formatDecimal, ui, type Lang } from '../i18n/ui';
+import { fill, formatClock, formatDecimal, plural, ui, type Lang } from '../i18n/ui';
 
 interface BattleResultsProps {
     battle: BattleConnection;
@@ -17,15 +18,30 @@ interface BattleResultsProps {
 
 const MEDALS = ['🥇', '🥈', '🥉'];
 
+/** On a public podium: someone may be waiting for a match right now (that's when "find another" pays off). */
+function WaitingNow({ lang }: { lang: Lang }) {
+    const t = ui[lang].battle.match;
+    const summary = useMatchSummary(5_000);
+    if (!summary?.searching) return <p className="text-sm text-ink-muted">{t.public}</p>;
+    return <p className="text-sm font-semibold text-accent" data-testid="waiting-now">{plural(lang, summary.searching, t.waitingNowOne, t.waitingNowOther)}</p>;
+}
+
 /** Final podium, every player's boards, and the rematch button for the host. */
 export default function BattleResults({ battle, room, lang, onLeave }: BattleResultsProps) {
     const t = ui[lang];
     const tb = t.battle;
-    const { discord } = useBattleHost();
+    const { discord, search } = useBattleHost();
     const { you, send, notice } = battle;
     const ranking = rankPlayers(room.players.map(p => ({ ...p, token: '' })));
     const winner = ranking[0];
-    const isHost = room.hostId === you;
+    const isPublic = room.mode === 'public';
+    const isHost = room.hostId === you && !isPublic;
+
+    // What the player scores in normal matches picks recorded rivals of their level.
+    const mine = ranking.find(s => s.id === you);
+    React.useEffect(() => {
+        if (mine && room.format === PUBLIC_FORMAT && !mine.left) recordLevel(`${room.code}:${room.round}`, mine.points);
+    }, [room.code, room.round]);
 
     React.useEffect(() => {
         if (winner?.id !== you || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -85,12 +101,19 @@ export default function BattleResults({ battle, room, lang, onLeave }: BattleRes
             </div>
 
             <div className="card p-4 flex flex-col sm:flex-row items-center gap-3 justify-between">
-                <p className="text-sm text-ink-muted">{[discord && tb.discord.posted, !isHost && tb.waitingRematch].filter(Boolean).join(' ')}</p>
+                {isPublic
+                    ? <WaitingNow lang={lang} />
+                    : <p className="text-sm text-ink-muted">{[discord && tb.discord.posted, !isHost && tb.waitingRematch].filter(Boolean).join(' ')}</p>}
                 {notice && <p role="alert" className="text-sm text-bad">{tb.errors[notice]}</p>}
                 <div className="flex flex-wrap justify-center gap-2 shrink-0">
-                    {!discord && (
+                    {(!discord || isPublic) && (
                         <button onClick={onLeave} className="btn btn-quiet px-4 py-2.5 text-sm">
-                            <LogOut size={16} aria-hidden="true" /> {tb.leave}
+                            <LogOut size={16} aria-hidden="true" /> {discord ? tb.match.backToActivity : tb.leave}
+                        </button>
+                    )}
+                    {isPublic && search && (
+                        <button onClick={search} className="btn btn-primary px-5 py-2.5 text-sm">
+                            <Search size={16} aria-hidden="true" /> {tb.match.again}
                         </button>
                     )}
                     {isHost && (

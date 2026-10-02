@@ -2,6 +2,8 @@ export interface Env {
     ASSETS: Fetcher;
     DB: D1Database;
     BATTLE: DurableObjectNamespace;
+    /** Public matchmaking: a single instance (worker/matchmaker.ts). */
+    MATCHMAKER?: DurableObjectNamespace;
     RESULTS_LIMITER?: RateLimit;
     BATTLE_LIMITER?: RateLimit;
     /** Discord Activity (all optional: without them the /api/discord routes answer 503). Public. */

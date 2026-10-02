@@ -61,6 +61,7 @@ export function Standings({ room, you, lang }: { room: PublicRoom; you: string; 
                             <span className="scale-75 -mx-1"><Avatar name={s.name} index={index} /></span>
                             <span className={`flex-1 min-w-0 truncate ${s.id === you ? 'font-bold' : 'font-medium'}`}>
                                 {s.name}
+                                {s.id === you && <span className="font-normal text-ink-muted"> ({t.you})</span>}
                                 {player.left && <span className="text-xs text-ink-muted"> · {t.leftMatch}</span>}
                                 {!player.left && !player.online && <span className="text-xs text-ink-muted"> · {t.offline}</span>}
                             </span>

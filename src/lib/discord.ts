@@ -1,3 +1,4 @@
+import { battleHour } from './battle-hour';
 import { outcomeEmoji, rankPlayers, type Room } from './battle';
 
 /*
@@ -30,6 +31,7 @@ const TEXT = {
         reminder: (winner: string, points: number) => `♟️ **Nuevo día, nueva batalla.** Ayer ganó ${winner} con ${points} puntos.`,
         reminderNoWinner: '♟️ **Nuevo día, nueva batalla.** Ayer nadie resolvió ningún tablero.',
         reminderCall: (players: string) => `${players}, ¿revancha?`,
+        battleHour: (start: number) => `⚔️ Hora de batalla: <t:${start}:t> (<t:${start}:R>), cuando más gente busca partida pública.`,
         notInDiscord: 'Este botón abre la batalla en Discord.',
     },
     en: {
@@ -44,6 +46,7 @@ const TEXT = {
         reminder: (winner: string, points: number) => `♟️ **New day, new battle.** Yesterday ${winner} won with ${points} points.`,
         reminderNoWinner: '♟️ **New day, new battle.** Nobody solved a board yesterday.',
         reminderCall: (players: string) => `${players}, rematch?`,
+        battleHour: (start: number) => `⚔️ Battle hour: <t:${start}:t> (<t:${start}:R>), when most people look for a public match.`,
         notInDiscord: 'This button opens the battle in Discord.',
     },
 } as const;
@@ -126,7 +129,8 @@ export function dueReminders(rows: ChannelBattle[], today: number): ChannelBattl
     return rows.filter(row => row.day === today - 1 && (row.reminded_day ?? -1) < today);
 }
 
-export function reminderMessage(row: ChannelBattle, lang: DiscordLang = row.lang): DiscordMessage {
+/** `now` gives the battle hour to announce (Discord shows its time in each reader's own time zone). */
+export function reminderMessage(row: ChannelBattle, lang: DiscordLang = row.lang, now = Date.now()): DiscordMessage {
     const t = TEXT[lang];
     let players: string[] = [];
     try {
@@ -138,6 +142,7 @@ export function reminderMessage(row: ChannelBattle, lang: DiscordLang = row.lang
     const winner = row.winner_id ? `<@${row.winner_id}>` : escapeMarkdown(row.winner_name);
     const lines = [row.winner_points > 0 ? t.reminder(winner, row.winner_points) : t.reminderNoWinner];
     if (players.length) lines.push(t.reminderCall(players.map(id => `<@${id}>`).join(' ')));
+    lines.push(t.battleHour(Math.floor(battleHour(now).start / 1000)));
     return {
         content: lines.join('\n'),
         allowed_mentions: { parse: [], users: [...new Set([...players, ...(row.winner_id ? [row.winner_id] : [])])] },

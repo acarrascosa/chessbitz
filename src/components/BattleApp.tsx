@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { LogIn, Plus, Swords, WifiOff } from 'lucide-react';
-import BattleLobby, { GuideButton } from './BattleLobby';
+import React, { useEffect, useMemo, useState } from 'react';
+import { LogIn, Plus, Search, Swords, WifiOff } from 'lucide-react';
+import BattleLobby, { Avatar, GuideButton } from './BattleLobby';
 import BattleMatch from './BattleMatch';
 import BattleResults from './BattleResults';
-import { savedName, saveName, savedSeat, saveSeat, tableUrl, useBattle, type BattleConnection, type BattleProblem } from './useBattle';
-import { CODE_LENGTH, MAX_NAME_LENGTH, cleanName, isRoomCode, randomCode } from '../lib/battle';
-import { battlePath, ui, type Lang } from '../i18n/ui';
+import MatchSearch from './MatchSearch';
+import { BattleHostContext, type BattleHost } from './battleHost';
+import { queuePath, savedName, saveName, savedSeat, saveSeat, tableUrl, useBattle, type BattleConnection, type BattleProblem } from './useBattle';
+import { useMatchmaking, useMatchSummary } from './useMatchmaking';
+import { CODE_LENGTH, MAX_NAME_LENGTH, cleanName, isRoomCode, randomCode, type PublicRoom } from '../lib/battle';
+import { battleHour } from '../lib/battle-hour';
+import { battlePath, fill, plural, timeAgo, ui, type Lang } from '../i18n/ui';
 
 interface BattleAppProps {
     lang: Lang;
@@ -18,6 +22,8 @@ interface Seat {
 }
 
 const readCode = () => new URLSearchParams(location.search).get('mesa')?.toUpperCase() ?? '';
+/** ?buscar=1 (a notification, a link): start looking for a public match straight away. */
+const readSearch = () => new URLSearchParams(location.search).has('buscar');
 
 function setUrlCode(lang: Lang, code: string | null) {
     history.replaceState(null, '', code ? `${battlePath(lang)}?mesa=${code}` : battlePath(lang));
@@ -32,11 +38,16 @@ const BattleApp: React.FC<BattleAppProps> = ({ lang }) => {
     const [invite, setInvite] = useState<string | null>(null);
     const [name, setName] = useState('');
     const [problem, setProblem] = useState<BattleProblem | null>(null);
+    const [searching, setSearching] = useState(false);
 
     useEffect(() => {
         const saved = savedName();
         setName(saved);
         const code = readCode();
+        if (readSearch() && !isRoomCode(code)) {
+            setSearching(true);
+            return;
+        }
         if (!isRoomCode(code)) return;
         // Reloading the page at a table we're sitting at: straight back to the seat.
         if (code === savedSeat()) setSeat({ code, name: saved, create: false });
@@ -65,12 +76,45 @@ const BattleApp: React.FC<BattleAppProps> = ({ lang }) => {
         setUrlCode(lang, null);
     };
 
-    if (seat) return <BattleTable key={seat.code} seat={seat} lang={lang} onLeave={leave} />;
-    return <BattleEntry lang={lang} name={name} onName={setName} invite={invite} problem={problem} onSit={sit} onDismissInvite={() => {
+    // From a public match's podium (or anywhere): back to the queue.
+    const search = () => {
+        setSeat(null);
+        saveSeat(null);
+        setProblem(null);
         setInvite(null);
         setUrlCode(lang, null);
-    }} />;
+        setSearching(true);
+    };
+    const host = useMemo<BattleHost>(() => ({ search }), []);
+
+    let screen: React.ReactNode;
+    if (searching) {
+        screen = <Searching lang={lang} onCancel={() => setSearching(false)} onMatched={code => {
+            setSearching(false);
+            sit(code, false);
+        }} />;
+    } else if (seat) {
+        screen = <BattleTable key={seat.code} seat={seat} lang={lang} onLeave={leave} />;
+    } else {
+        screen = <BattleEntry lang={lang} name={name} onName={setName} invite={invite} problem={problem} onSit={sit} onSearch={search} onDismissInvite={() => {
+            setInvite(null);
+            setUrlCode(lang, null);
+        }} />;
+    }
+    return <BattleHostContext.Provider value={host}>{screen}</BattleHostContext.Provider>;
 };
+
+/** In the public queue until matched; the queue's socket closes (= cancels) when this unmounts. */
+export function Searching({ lang, path = queuePath(), onCancel, onMatched }: { lang: Lang; path?: string; onCancel: () => void; onMatched: (code: string) => void }) {
+    const [queue] = useState(path);
+    const search = useMatchmaking(queue);
+    useEffect(() => {
+        if (!search.matched) return;
+        const timer = setTimeout(() => onMatched(search.matched!), 600);
+        return () => clearTimeout(timer);
+    }, [search.matched]);
+    return <MatchSearch search={search} lang={lang} onCancel={onCancel} />;
+}
 
 interface BattleEntryProps {
     lang: Lang;
@@ -79,11 +123,13 @@ interface BattleEntryProps {
     invite: string | null;
     problem: BattleProblem | null;
     onSit: (code: string, create: boolean) => void;
+    onSearch: () => void;
     onDismissInvite: () => void;
 }
 
-function BattleEntry({ lang, name, onName, invite, problem, onSit, onDismissInvite }: BattleEntryProps) {
+function BattleEntry({ lang, name, onName, invite, problem, onSit, onSearch, onDismissInvite }: BattleEntryProps) {
     const t = ui[lang].battle;
+    const summary = useMatchSummary();
     const [code, setCode] = useState('');
     const validCode = isRoomCode(code);
 
@@ -131,9 +177,18 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onDismissInvi
                     </button>
                 </form>
             ) : (
+                <>
+                <div className="card p-5 space-y-3">
+                    <button onClick={onSearch} className="btn btn-primary w-full py-3" data-testid="find-match">
+                        <Search size={18} aria-hidden="true" /> {t.match.search}
+                    </button>
+                    <p className="text-sm text-ink-muted text-center">{t.match.searchHint}</p>
+                    <BattleHourNote lang={lang} />
+                    {summary && <PublicActivity summary={summary} lang={lang} />}
+                </div>
                 <div className="card p-5 space-y-5">
                     {nameField}
-                    <button onClick={() => onSit(randomCode(), true)} className="btn btn-primary w-full py-3">
+                    <button onClick={() => onSit(randomCode(), true)} className="btn btn-quiet w-full py-3">
                         <Plus size={18} aria-hidden="true" /> {t.create}
                     </button>
                     <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted">
@@ -160,6 +215,7 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onDismissInvi
                         </button>
                     </form>
                 </div>
+                </>
             )}
 
             <div className="card p-5 space-y-2">
@@ -173,6 +229,30 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onDismissInvi
             </div>
         </section>
     );
+}
+
+/** When people meet to look for public matches: now, or today / tomorrow at the player's own time. */
+function BattleHourNote({ lang }: { lang: Lang }) {
+    const t = ui[lang].battle.match;
+    const [now] = useState(() => Date.now());
+    const hour = battleHour(now);
+    if (hour.live) return <p className="text-sm font-semibold text-accent text-center" data-testid="battle-hour">{t.battleHourLive}</p>;
+    const time = new Date(hour.start).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });
+    const today = new Date(hour.start).toDateString() === new Date(now).toDateString();
+    return <p className="text-xs text-ink-muted text-center" data-testid="battle-hour">{fill(today ? t.battleHourToday : t.battleHourTomorrow, { time })}</p>;
+}
+
+/** People searching or playing public matches now, and when the last one was: real figures, shown only when there is something to say. */
+export function PublicActivity({ summary, lang }: { summary: import('../lib/matchmaking').MatchSummary; lang: Lang }) {
+    const t = ui[lang].battle.match;
+    const parts = [
+        summary.searching ? plural(lang, summary.searching, t.searchingOne, t.searchingOther) : '',
+        summary.playing ? plural(lang, summary.playing, t.playingOne, t.playingOther) : '',
+        !summary.searching && !summary.playing && summary.lastAt ? fill(t.lastAgo, { ago: timeAgo(lang, Date.now() - summary.lastAt) }) : '',
+        summary.today ? plural(lang, summary.today, t.todayOne, t.todayOther) : '',
+    ].filter(Boolean);
+    if (!parts.length) return null;
+    return <p className="text-xs text-ink-muted text-center" data-testid="public-activity">{parts.join(' · ')}</p>;
 }
 
 function BattleTable({ seat, lang, onLeave }: { seat: Seat; lang: Lang; onLeave: (reason: BattleProblem | null) => void }) {
@@ -205,7 +285,9 @@ export function BattleScreens({ battle, lang, onLeave }: { battle: BattleConnect
     }
 
     const screen = room.status === 'lobby'
-        ? <BattleLobby battle={battle} room={room} lang={lang} onLeave={leave} />
+        ? room.mode === 'public'
+            ? <PublicLobby room={room} you={battle.you} lang={lang} />
+            : <BattleLobby battle={battle} room={room} lang={lang} onLeave={leave} />
         : room.status === 'playing'
             ? <BattleMatch key={room.round} battle={battle} room={room} lang={lang} onLeave={leave} />
             : <BattleResults battle={battle} room={room} lang={lang} onLeave={leave} />;
@@ -215,6 +297,25 @@ export function BattleScreens({ battle, lang, onLeave }: { battle: BattleConnect
             {screen}
             {banner}
         </>
+    );
+}
+
+/** A public table waiting for its matched players: only for a few seconds. */
+function PublicLobby({ room, you, lang }: { room: PublicRoom; you: string; lang: Lang }) {
+    const t = ui[lang].battle;
+    return (
+        <section className="w-full max-w-md mx-auto card p-6 space-y-5 text-center animate-rise" aria-live="polite" data-testid="public-lobby">
+            <p className="eyebrow">{t.match.public} · {t.formats[room.format].name}</p>
+            <h1 className="font-display text-3xl font-semibold">{t.match.preparing}</h1>
+            <ul className="flex flex-wrap justify-center gap-4">
+                {room.players.map((player, i) => (
+                    <li key={player.id} className="flex flex-col items-center gap-1.5 text-sm">
+                        <Avatar name={player.name} index={i} />
+                        <span className="font-semibold">{player.name}{player.id === you && <span className="font-normal text-ink-muted"> ({t.you})</span>}</span>
+                    </li>
+                ))}
+            </ul>
+        </section>
     );
 }
 

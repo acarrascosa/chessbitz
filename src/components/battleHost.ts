@@ -6,6 +6,8 @@ import { createContext, useContext } from 'react';
  * invites go through Discord's dialog and external links must open through the SDK.
  */
 export interface BattleHost {
+    /** Back to the public queue (from a public match's podium, or Discord's lobby). */
+    search?: () => void;
     discord?: {
         invite: () => void;
         openExternal: (url: string) => void;

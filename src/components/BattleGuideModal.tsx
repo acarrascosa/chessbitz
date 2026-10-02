@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Lightbulb } from 'lucide-react';
 import { Avatar } from './BattleLobby';
 import { StepsModal } from './HowToModal';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Copy, Crown, HelpCircle, LogOut, Pencil, Play, Share2, UserPlus, UserX } from 'lucide-react';
+import { Check, Copy, Crown, HelpCircle, LogOut, Pencil, Play, Search, Share2, UserPlus, UserX } from 'lucide-react';
 import { useBattleHost } from './battleHost';
 import { openPanel } from './hooks';
 import type { BattleConnection } from './useBattle';
@@ -17,7 +17,7 @@ interface BattleLobbyProps {
 /** Seats, format picker and the ready / start buttons. */
 export default function BattleLobby({ battle, room, lang, onLeave }: BattleLobbyProps) {
     const t = ui[lang].battle;
-    const { discord } = useBattleHost();
+    const { discord, search } = useBattleHost();
     const { send, you, notice } = battle;
     const isHost = room.hostId === you;
     const me = room.players.find(p => p.id === you);
@@ -31,7 +31,7 @@ export default function BattleLobby({ battle, room, lang, onLeave }: BattleLobby
         // On phones the columns dissolve (display: contents) so the ready button can sit right under the players.
         <section className="w-full max-w-4xl mx-auto flex flex-col gap-5 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start animate-rise lg:py-4" aria-labelledby="lobby-title">
             <div className="contents lg:block lg:space-y-5">
-                {discord ? <DiscordInvite lang={lang} onInvite={discord.invite} /> : <Invite code={room.code} lang={lang} />}
+                {discord ? <DiscordInvite lang={lang} onInvite={discord.invite} onSearch={search} /> : <Invite code={room.code} lang={lang} />}
 
                 <div className="card overflow-hidden order-2 lg:order-none">
                     <div className="px-5 py-3.5 bg-surface-2 border-b border-line flex items-center justify-between">
@@ -122,7 +122,7 @@ export function GuideButton({ label }: { label: string }) {
     );
 }
 
-function DiscordInvite({ lang, onInvite }: { lang: Lang; onInvite: () => void }) {
+function DiscordInvite({ lang, onInvite, onSearch }: { lang: Lang; onInvite: () => void; onSearch?: () => void }) {
     const t = ui[lang].battle;
     return (
         <header className="card p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between order-1 lg:order-none">
@@ -130,10 +130,18 @@ function DiscordInvite({ lang, onInvite }: { lang: Lang; onInvite: () => void })
                 <p className="eyebrow">Discord</p>
                 <h1 id="lobby-title" className="font-display text-3xl font-semibold">{t.title}</h1>
                 <p className="text-sm text-ink-muted">{t.discord.inviteHint}</p>
+                {onSearch && <p className="text-sm text-ink-muted">{t.match.discordSearchHint}</p>}
             </div>
-            <button onClick={onInvite} className="btn btn-primary px-4 py-2.5 text-sm shrink-0">
-                <UserPlus size={16} aria-hidden="true" /> {t.discord.invite}
-            </button>
+            <div className="flex flex-col gap-2 shrink-0">
+                <button onClick={onInvite} className="btn btn-primary px-4 py-2.5 text-sm">
+                    <UserPlus size={16} aria-hidden="true" /> {t.discord.invite}
+                </button>
+                {onSearch && (
+                    <button onClick={onSearch} className="btn btn-quiet px-4 py-2.5 text-sm">
+                        <Search size={16} aria-hidden="true" /> {t.match.discordSearch}
+                    </button>
+                )}
+            </div>
         </header>
     );
 }

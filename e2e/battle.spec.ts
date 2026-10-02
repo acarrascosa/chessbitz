@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
-import { FakeTable } from './fake-table';
+import { FakeQueue, FakeTable, MATE } from './fake-table';
+import { createPublicRoom } from '../src/lib/battle';
 
 /* A two-player battle end to end, against a fake table server (see fake-table.ts). */
 
@@ -129,4 +130,42 @@ test('explains the battle on the first visit and again from the rules', async ({
     await page.locator('main').getByRole('button', { name: 'Cómo se juega' }).click();
     await expect(dialog.getByText('Siéntate con 1 a 3 amigos.')).toBeVisible();
     await context.close();
+});
+
+test('finds a public match, plays a recorded rival and goes back to the queue', async ({ page }) => {
+    const queue = new FakeQueue();
+    const table = new FakeTable();
+    await page.routeWebSocket(/\/api\/match/, ws => queue.connect(ws));
+    await page.route('**/api/match/status', route => route.fulfill({ json: queue.summary }));
+    await page.routeWebSocket(/\/api\/battle\//, ws => table.connect(ws));
+    await page.goto('/batalla/');
+
+    await page.getByRole('button', { name: 'Buscar partida' }).click();
+    await expect(page.getByRole('heading', { name: 'Buscando rival…' })).toBeVisible();
+    await expect(page.getByTestId('queue-people')).toHaveText('1 persona buscando · 1 jugando una partida pública');
+    // Said up front: a recorded rival steps in when the wait is over.
+    await expect(page.getByTestId('ghost-notice')).toHaveText(/^Si no aparece nadie, en 0:1\d se te pondrá en partida automáticamente con un rival grabado\.$/);
+    await page.getByRole('button', { name: /Esperar la partida que termina en/ }).click();
+    await expect.poll(() => queue.received).toContain('{"t":"wait"}');
+
+    // Matched against a recorded rival: the table plays its boards, under invented names.
+    table.load(createPublicRoom('PUBL', [queue.tokens[0]], [], Date.now(), {
+        name: 'IronFork42',
+        boards: [MATE, { ...MATE, id: 'mate-2' }],
+        results: [{ outcome: 'won', mistakes: 0, hints: 0, hintHalves: 0, ms: 50_000, points: 110 }, { outcome: 'timeout', mistakes: 1, hints: 0, hintHalves: 0, ms: 60_000, points: 0 }],
+    }));
+    queue.match('PUBL');
+    await expect(page.getByText('Tablero 1 de 2 · Elo 1100')).toBeVisible({ timeout: 6_000 });
+    await expect(page.getByText('IronFork42')).toBeVisible();
+    await expect(page.getByText('(tú)')).toBeVisible();
+    for (let board = 0; board < 2; board++) await solveBoard(page);
+
+    // Once the person is done, the rest of the recording is scored at once: no waiting for it.
+    await expect(page.getByRole('heading', { name: '¡Has ganado!' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Revancha' })).toHaveCount(0);
+    queue.summary = { ...queue.summary, searching: 1 };
+    await expect(page.getByTestId('waiting-now')).toHaveText('Hay 1 persona buscando partida ahora mismo.', { timeout: 8_000 });
+    await page.getByRole('button', { name: 'Buscar otra' }).click();
+    await expect(page.getByRole('heading', { name: 'Buscando rival…' })).toBeVisible();
+    expect(queue.tokens).toHaveLength(2);
 });

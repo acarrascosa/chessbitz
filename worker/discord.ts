@@ -1,5 +1,6 @@
 import type { Env } from './env';
-import type { DiscordTable, Room } from '../src/lib/battle';
+import { isRoomCode, type DiscordTable, type Room } from '../src/lib/battle';
+import { joinQueue, searchLevel } from './queue';
 import {
     PLAY_BUTTON_ID, FORGET_AFTER_DAYS, channelBattle, discordText, dueReminders, reminderMessage, resultsMessage, utcDay,
     type ChannelBattle, type DiscordLang, type DiscordMessage,
@@ -25,7 +26,8 @@ export const DISCORD_PLAYER_HEADER = 'X-Battle-Discord';
 export interface DiscordPlayer {
     discordId: string;
     name: string;
-    table: DiscordTable;
+    /** The Activity instance's table; absent at a public table (matchmaking). */
+    table?: DiscordTable;
 }
 
 const json = (body: unknown, init: ResponseInit = {}) =>
@@ -217,6 +219,25 @@ async function connect(request: Request, url: URL, env: Env, instanceId: string)
     return env.BATTLE.get(env.BATTLE.idFromName(`discord:${instanceId}`)).fetch(new Request(`https://battle/discord/${instanceId}`, { headers }));
 }
 
+/** A Discord player looking for a public battle: the same queue as the web, seated as `discord:<id>`. */
+async function searchMatch(request: Request, url: URL, env: Env): Promise<Response> {
+    if (request.headers.get('Upgrade') !== 'websocket') return json({ error: 'Expected a WebSocket' }, { status: 426 });
+    const session = await readSession(url.searchParams.get('session') ?? '', env.DISCORD_CLIENT_SECRET ?? 'mock', Date.now());
+    if (!session) return json({ error: 'Invalid session' }, { status: 401 });
+    return joinQueue(env, `discord:${session.uid}`, searchLevel(url.searchParams.get('level')));
+}
+
+/** A Discord player sitting at the public table matchmaking gave them (not their Activity's own table). */
+async function connectPublic(request: Request, url: URL, env: Env, code: string): Promise<Response> {
+    if (request.headers.get('Upgrade') !== 'websocket') return json({ error: 'Expected a WebSocket' }, { status: 426 });
+    if (!isRoomCode(code)) return json({ error: 'Invalid table' }, { status: 404 });
+    const session = await readSession(url.searchParams.get('session') ?? '', env.DISCORD_CLIENT_SECRET ?? 'mock', Date.now());
+    if (!session) return json({ error: 'Invalid session' }, { status: 401 });
+    const player: DiscordPlayer = { discordId: session.uid, name: session.name };
+    const headers = new Headers({ Upgrade: 'websocket', [DISCORD_PLAYER_HEADER]: JSON.stringify(player) });
+    return env.BATTLE.get(env.BATTLE.idFromName(code)).fetch(new Request(`https://battle/public/${code}`, { headers }));
+}
+
 async function interaction(request: Request, env: Env): Promise<Response> {
     const body = await request.text();
     const signature = request.headers.get('X-Signature-Ed25519') ?? '';
@@ -248,6 +269,8 @@ export async function handleDiscord(request: Request, url: URL, env: Env): Promi
     }
     if (route === 'token' && request.method === 'POST') return token(request, url, env);
     if (route === 'battle' && param && request.method === 'GET') return connect(request, url, env, param);
+    if (route === 'match' && request.method === 'GET') return searchMatch(request, url, env);
+    if (route === 'public' && param && request.method === 'GET') return connectPublic(request, url, env, param);
     return json({ error: 'Not found' }, { status: 404 });
 }
 

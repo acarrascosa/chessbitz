@@ -46,7 +46,8 @@ export class FakeTable {
         if (!joined.ok) return;
         this.sockets.set(ws, joined.room.players.find(p => p.token === token)!.id);
         ws.onMessage(raw => this.receive(ws, String(raw)));
-        this.commit(joined.room);
+        // A public table starts by itself once its players are in.
+        this.commit(tick(joined.room, now));
     }
 
     private receive(ws: WebSocketRoute, raw: string) {
@@ -82,5 +83,37 @@ export class FakeTable {
         for (const [ws, you] of this.sockets) {
             ws.send(JSON.stringify({ t: 'room', room: publicRoom(room), you, now: Date.now() } satisfies ServerMessage));
         }
+    }
+}
+
+/**
+ * Plays the matchmaker's part (worker/matchmaker.ts): the test decides when a
+ * searcher is matched, and sees what they sent.
+ */
+export class FakeQueue {
+    sockets: WebSocketRoute[] = [];
+    /** Tokens the searchers came with (`token` param, or `discord:<id>` from the session). */
+    tokens: string[] = [];
+    received: string[] = [];
+    /** What GET /api/match/status says. */
+    summary = { searching: 0, playing: 0, lastAt: null as number | null, today: 0 };
+
+    connect(ws: WebSocketRoute) {
+        const url = new URL(ws.url());
+        const session = url.searchParams.get('session');
+        this.tokens.push(session ? `discord:${session.split(':')[1]}` : url.searchParams.get('token')!);
+        this.sockets.push(ws);
+        ws.onMessage(raw => this.received.push(String(raw)));
+        const now = Date.now();
+        ws.send(JSON.stringify({ t: 'status', searching: this.sockets.length, playing: 1, waitUntil: now + 15_000, waitingFor: null, canWaitFor: now + 100_000, now }));
+    }
+
+    /** Sends every searcher to table `code`. */
+    match(code: string) {
+        for (const ws of this.sockets) {
+            ws.send(JSON.stringify({ t: 'matched', code, now: Date.now() }));
+            ws.close({ code: 1000 });
+        }
+        this.sockets = [];
     }
 }

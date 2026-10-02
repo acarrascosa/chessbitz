@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
-import { FakeTable } from './fake-table';
+import { FakeQueue, FakeTable, MATE } from './fake-table';
+import { createPublicRoom } from '../src/lib/battle';
 
 /*
  * The Discord Activity page with the SDK's mock (what DISCORD_MOCK=1 does locally):
@@ -108,4 +109,36 @@ test('explains the battle the first time the Activity opens, and from the lobby'
     await page.getByRole('button', { name: 'Cómo se juega' }).click();
     await expect(dialog).toBeVisible();
     await context.close();
+});
+
+test('looks for rivals outside the Activity and comes back to its table', async ({ page }) => {
+    const queue = new FakeQueue();
+    // The public table seats Discord players by their id, from the session.
+    const publicTable = new FakeTable(url => ({ token: `discord:${(url.searchParams.get('session') ?? '').split(':')[1]}`, name: '', create: false }));
+    await page.routeWebSocket(/\/api\/discord\/match/, ws => queue.connect(ws));
+    await page.routeWebSocket(/\/api\/discord\/public\//, ws => publicTable.connect(ws));
+    await openActivity(page, discordTable(), 'Ana');
+
+    await page.getByRole('button', { name: 'Buscar rivales' }).click();
+    await expect(page.getByRole('heading', { name: 'Buscando rival…' })).toBeVisible();
+    await expect.poll(() => queue.tokens).toEqual([expect.stringMatching(/^discord:\d+$/)]);
+    const presence = () => page.evaluate(() => (window as unknown as { chessbitzPresence?: { state: string } }).chessbitzPresence);
+    await expect.poll(presence, { timeout: 8_000 }).toMatchObject({ state: 'Buscando partida' });
+
+    publicTable.load(createPublicRoom('PUBL', [queue.tokens[0]], [], Date.now(), {
+        name: 'IronFork42',
+        boards: [MATE, { ...MATE, id: 'mate-2' }],
+        results: [{ outcome: 'lost', mistakes: 5, hints: 0, hintHalves: 0, ms: 20_000, points: 0 }, { outcome: 'lost', mistakes: 5, hints: 0, hintHalves: 0, ms: 20_000, points: 0 }],
+    }));
+    queue.match('PUBL');
+    for (let board = 0; board < 2; board++) {
+        await expect(page.getByText('Tu turno: encuentra la mejor jugada')).toBeVisible({ timeout: 6_000 });
+        await page.locator('#battle-square-h5').click();
+        await page.locator('#battle-square-f7').click();
+    }
+    await expect(page.getByRole('heading', { name: '¡Has ganado!' })).toBeVisible();
+    // A public match isn't posted in the channel.
+    await expect(page.getByText('El podio se publica en el canal', { exact: false })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Volver a la mesa de la actividad' }).click();
+    await expect(page.getByRole('button', { name: 'Invitar' })).toBeVisible();
 });

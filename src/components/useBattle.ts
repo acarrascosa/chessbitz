@@ -36,6 +36,38 @@ export function battleToken(): string {
 
 export const savedName = () => storage(s => s.getItem(NAME_KEY) ?? '', '');
 export const saveName = (name: string) => storage(s => s.setItem(NAME_KEY, name), undefined);
+/** Points of the player's last normal matches, to meet recorded rivals of their level. */
+const LEVEL_KEY = 'chessbitz-battle-level';
+const LEVEL_MEMORY = 5;
+
+interface LevelRecord {
+    /** Matches already counted (`code:round`), so a reload doesn't count one twice. */
+    seen: string[];
+    points: number[];
+}
+
+const readLevel = (): LevelRecord => storage(s => JSON.parse(s.getItem(LEVEL_KEY) ?? 'null') as LevelRecord | null, null) ?? { seen: [], points: [] };
+
+/** Average of the last few normal matches, or undefined for a newcomer. */
+export function savedLevel(): number | undefined {
+    const { points } = readLevel();
+    return points.length ? Math.round(points.reduce((sum, p) => sum + p, 0) / points.length) : undefined;
+}
+
+export function recordLevel(match: string, points: number) {
+    const record = readLevel();
+    if (record.seen.includes(match)) return;
+    const next: LevelRecord = { seen: [...record.seen, match].slice(-LEVEL_MEMORY), points: [...record.points, points].slice(-LEVEL_MEMORY) };
+    storage(s => s.setItem(LEVEL_KEY, JSON.stringify(next)), undefined);
+}
+
+/** The public queue's path on chessbitz.com. */
+export function queuePath(): string {
+    const level = savedLevel();
+    const params = new URLSearchParams({ token: battleToken(), ...(level === undefined ? {} : { level: String(level) }) });
+    return `/api/match?${params}`;
+}
+
 export const savedSeat = () => storage(s => s.getItem(SEAT_KEY) ?? '', '');
 export const saveSeat = (code: string | null) =>
     storage(s => (code ? s.setItem(SEAT_KEY, code) : s.removeItem(SEAT_KEY)), undefined);
