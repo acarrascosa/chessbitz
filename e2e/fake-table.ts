@@ -96,7 +96,7 @@ export class FakeQueue {
     tokens: string[] = [];
     received: string[] = [];
     /** What GET /api/match/status says. */
-    summary = { searching: 0, playing: 0, lastAt: null as number | null, today: 0 };
+    summary = { searching: 0, playing: 0 };
 
     connect(ws: WebSocketRoute) {
         const url = new URL(ws.url());

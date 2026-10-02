@@ -104,14 +104,10 @@ export type MatchServerMessage =
     | { t: 'matched'; code: string; now: number }
     | { t: 'error'; error: 'invalid' | 'busy'; now: number };
 
-/** What the battle page shows about public matches (GET /api/match/status). */
+/** GET /api/match/status: the podium of a public match says when someone is waiting (without a number). */
 export interface MatchSummary {
     searching: number;
     playing: number;
-    /** When the last public match started; null if none yet. */
-    lastAt: number | null;
-    /** Public matches started today (UTC). */
-    today: number;
 }
 
 export function parseMatchMessage(raw: unknown): MatchClientMessage | null {

@@ -125,4 +125,6 @@ test('offers notifications in the settings and on the battle page', async ({ pag
     await page.goto('/batalla/');
     await expect(page.getByTestId('notify-me')).toHaveText('Avísame cuando alguien busque partida');
     await expect(page.getByTestId('battle-hour')).toContainText(/Hora de batalla|hora de batalla/);
+    // No head counts of searches or matches on the battle page.
+    await expect(page.getByTestId('public-activity')).toHaveCount(0);
 });

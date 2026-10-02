@@ -7,7 +7,7 @@ import { recordLevel, type BattleConnection } from './useBattle';
 import { useMatchSummary } from './useMatchmaking';
 import { PUBLIC_FORMAT, outcomeEmoji, rankPlayers, type PublicRoom } from '../lib/battle';
 import { lichessPuzzleUrl, puzzleGoal } from '../lib/puzzle';
-import { fill, formatClock, formatDecimal, plural, ui, type Lang } from '../i18n/ui';
+import { fill, formatClock, formatDecimal, ui, type Lang } from '../i18n/ui';
 
 interface BattleResultsProps {
     battle: BattleConnection;
@@ -23,7 +23,7 @@ function WaitingNow({ lang }: { lang: Lang }) {
     const t = ui[lang].battle.match;
     const summary = useMatchSummary(5_000);
     if (!summary?.searching) return <p className="text-sm text-ink-muted">{t.public}</p>;
-    return <p className="text-sm font-semibold text-accent" data-testid="waiting-now">{plural(lang, summary.searching, t.waitingNowOne, t.waitingNowOther)}</p>;
+    return <p className="text-sm font-semibold text-accent" data-testid="waiting-now">{t.waitingNow}</p>;
 }
 
 /** Final podium, every player's boards, and the rematch button for the host. */

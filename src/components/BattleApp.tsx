@@ -6,11 +6,11 @@ import BattleResults from './BattleResults';
 import MatchSearch from './MatchSearch';
 import { BattleHostContext, type BattleHost } from './battleHost';
 import { queuePath, savedName, saveName, savedSeat, saveSeat, tableUrl, useBattle, type BattleConnection, type BattleProblem } from './useBattle';
-import { useMatchmaking, useMatchSummary } from './useMatchmaking';
+import { useMatchmaking } from './useMatchmaking';
 import { usePush } from './usePush';
 import { CODE_LENGTH, MAX_NAME_LENGTH, cleanName, isRoomCode, randomCode, type PublicRoom } from '../lib/battle';
 import { battleHour } from '../lib/battle-hour';
-import { battlePath, fill, plural, timeAgo, ui, type Lang } from '../i18n/ui';
+import { battlePath, fill, ui, type Lang } from '../i18n/ui';
 
 interface BattleAppProps {
     lang: Lang;
@@ -130,7 +130,6 @@ interface BattleEntryProps {
 
 function BattleEntry({ lang, name, onName, invite, problem, onSit, onSearch, onDismissInvite }: BattleEntryProps) {
     const t = ui[lang].battle;
-    const summary = useMatchSummary();
     const [code, setCode] = useState('');
     const validCode = isRoomCode(code);
 
@@ -185,7 +184,6 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onSearch, onD
                     </button>
                     <p className="text-sm text-ink-muted text-center">{t.match.searchHint}</p>
                     <BattleHourNote lang={lang} />
-                    {summary && <PublicActivity summary={summary} lang={lang} />}
                     <NotifyMe lang={lang} />
                 </div>
                 <div className="card p-5 space-y-5">
@@ -259,19 +257,6 @@ function BattleHourNote({ lang }: { lang: Lang }) {
     const time = new Date(hour.start).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' });
     const today = new Date(hour.start).toDateString() === new Date(now).toDateString();
     return <p className="text-xs text-ink-muted text-center" data-testid="battle-hour">{fill(today ? t.battleHourToday : t.battleHourTomorrow, { time })}</p>;
-}
-
-/** People searching or playing public matches now, and when the last one was: real figures, shown only when there is something to say. */
-export function PublicActivity({ summary, lang }: { summary: import('../lib/matchmaking').MatchSummary; lang: Lang }) {
-    const t = ui[lang].battle.match;
-    const parts = [
-        summary.searching ? plural(lang, summary.searching, t.searchingOne, t.searchingOther) : '',
-        summary.playing ? plural(lang, summary.playing, t.playingOne, t.playingOther) : '',
-        !summary.searching && !summary.playing && summary.lastAt ? fill(t.lastAgo, { ago: timeAgo(lang, Date.now() - summary.lastAt) }) : '',
-        summary.today ? plural(lang, summary.today, t.todayOne, t.todayOther) : '',
-    ].filter(Boolean);
-    if (!parts.length) return null;
-    return <p className="text-xs text-ink-muted text-center" data-testid="public-activity">{parts.join(' · ')}</p>;
 }
 
 function BattleTable({ seat, lang, onLeave }: { seat: Seat; lang: Lang; onLeave: (reason: BattleProblem | null) => void }) {

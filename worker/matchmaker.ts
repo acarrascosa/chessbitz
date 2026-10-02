@@ -10,15 +10,6 @@ import { SEARCHER_HEADER } from './queue';
 import { notifyTopic } from './push';
 import { MATCH_NOTIFY_EVERY_MS, MATCH_NOTIFY_PERSON_MS } from '../src/lib/push';
 
-const MS_PER_DAY = 86_400_000;
-
-interface Stats {
-    /** UTC day number of `today`. */
-    day: number;
-    today: number;
-    lastAt: number | null;
-}
-
 /**
  * Public matchmaking (rules in src/lib/matchmaking.ts). Searchers hold a
  * hibernatable WebSocket each, with who they are in its attachment; the alarm
@@ -28,7 +19,6 @@ interface Stats {
 export class Matchmaker extends DurableObject<Env> {
     private matches: LiveMatch[] = [];
     private gatherAt: number | null = null;
-    private stats: Stats = { day: 0, today: 0, lastAt: null };
 
     constructor(ctx: DurableObjectState, env: Env) {
         super(ctx, env);
@@ -36,7 +26,6 @@ export class Matchmaker extends DurableObject<Env> {
         ctx.blockConcurrencyWhile(async () => {
             this.matches = (await ctx.storage.get<LiveMatch[]>('matches')) ?? [];
             this.gatherAt = (await ctx.storage.get<number | null>('gatherAt')) ?? null;
-            this.stats = (await ctx.storage.get<Stats>('stats')) ?? this.stats;
         });
     }
 
@@ -160,7 +149,7 @@ export class Matchmaker extends DurableObject<Env> {
         }
         for (const match of this.matches) wakeUps.push((match.finishedAt ?? match.endsBy) + AFTER_END_MS);
 
-        await this.ctx.storage.put({ matches: this.matches, gatherAt: this.gatherAt, stats: this.stats });
+        await this.ctx.storage.put({ matches: this.matches, gatherAt: this.gatherAt });
         if (wakeUps.length) await this.ctx.storage.setAlarm(Math.max(now + 100, Math.min(...wakeUps)));
         else await this.ctx.storage.deleteAlarm();
     }
@@ -198,18 +187,10 @@ export class Matchmaker extends DurableObject<Env> {
         }
         if (!code) return;
         this.matches.push({ code, endsBy, humans: searchers.length });
-        const day = Math.floor(now / MS_PER_DAY);
-        this.stats = { day, today: (this.stats.day === day ? this.stats.today : 0) + 1, lastAt: now };
     }
 
     private summary(now: number): MatchSummary {
-        const day = Math.floor(now / MS_PER_DAY);
-        return {
-            searching: this.searchers().length,
-            playing: playingNow(liveMatches(this.matches, now)),
-            lastAt: this.stats.lastAt,
-            today: this.stats.day === day ? this.stats.today : 0,
-        };
+        return { searching: this.searchers().length, playing: playingNow(liveMatches(this.matches, now)) };
     }
 
     private send(ws: WebSocket, message: MatchServerMessage) {

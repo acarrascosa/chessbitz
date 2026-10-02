@@ -1,7 +1,7 @@
 import { Hourglass, Play, Search, X } from 'lucide-react';
 import { useTicker } from './useBattle';
 import type { Matchmaking } from './useMatchmaking';
-import { fill, formatClock, plural, ui, type Lang } from '../i18n/ui';
+import { fill, formatClock, ui, type Lang } from '../i18n/ui';
 
 interface MatchSearchProps {
     search: Matchmaking;
@@ -10,8 +10,8 @@ interface MatchSearchProps {
 }
 
 /**
- * Looking for a public match: who else is searching or playing, how long until a
- * recorded rival steps in (said up front), and the choice to play now or to wait
+ * Looking for a public match: how long until a recorded rival steps in (said up
+ * front), and the choice to play now or to wait
  * for a match that's about to free its players.
  */
 export default function MatchSearch({ search, lang, onCancel }: MatchSearchProps) {
@@ -32,10 +32,6 @@ export default function MatchSearch({ search, lang, onCancel }: MatchSearchProps
 
             {status && !matched && (
                 <>
-                    <p className="text-sm text-ink-muted" data-testid="queue-people">
-                        {[plural(lang, status.searching, t.searchingOne, t.searchingOther), status.playing ? plural(lang, status.playing, t.playingOne, t.playingOther) : '']
-                            .filter(Boolean).join(' · ')}
-                    </p>
                     {status.waitingFor !== null && (
                         <p className="text-sm flex items-center justify-center gap-1.5">
                             <Hourglass size={14} aria-hidden="true" /> {fill(t.endsSoon, { time: formatClock((status.waitingFor - now) / 1000) })}

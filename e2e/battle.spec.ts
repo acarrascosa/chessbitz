@@ -142,7 +142,8 @@ test('finds a public match, plays a recorded rival and goes back to the queue', 
 
     await page.getByRole('button', { name: 'Buscar partida' }).click();
     await expect(page.getByRole('heading', { name: 'Buscando rival…' })).toBeVisible();
-    await expect(page.getByTestId('queue-people')).toHaveText('1 persona buscando · 1 jugando una partida pública');
+    // No head counts: they say nothing to someone who just wants to play.
+    await expect(page.getByTestId('queue-people')).toHaveCount(0);
     // Said up front: a recorded rival steps in when the wait is over.
     await expect(page.getByTestId('ghost-notice')).toHaveText(/^Si no aparece nadie, en 0:1\d se te pondrá en partida automáticamente con un rival grabado\.$/);
     await page.getByRole('button', { name: /Esperar la partida que termina en/ }).click();
@@ -164,7 +165,7 @@ test('finds a public match, plays a recorded rival and goes back to the queue', 
     await expect(page.getByRole('heading', { name: '¡Has ganado!' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Revancha' })).toHaveCount(0);
     queue.summary = { ...queue.summary, searching: 1 };
-    await expect(page.getByTestId('waiting-now')).toHaveText('Hay 1 persona buscando partida ahora mismo.', { timeout: 8_000 });
+    await expect(page.getByTestId('waiting-now')).toHaveText('Alguien está buscando partida ahora mismo.', { timeout: 8_000 });
     await page.getByRole('button', { name: 'Buscar otra' }).click();
     await expect(page.getByRole('heading', { name: 'Buscando rival…' })).toBeVisible();
     expect(queue.tokens).toHaveLength(2);

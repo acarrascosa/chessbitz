@@ -340,10 +340,6 @@ const es = {
             search: 'Buscar partida',
             searchHint: 'Juega ya con quien esté conectado. En las partidas públicas todos usáis un apodo inventado.',
             searching: 'Buscando rival…',
-            searchingOne: '{n} persona buscando',
-            searchingOther: '{n} personas buscando',
-            playingOne: '{n} jugando una partida pública',
-            playingOther: '{n} jugando partidas públicas',
             endsSoon: 'Una partida pública termina en {time}: esperamos a sus jugadores.',
             ghostNotice: 'Si no aparece nadie, en {time} se te pondrá en partida automáticamente con un rival grabado.',
             waitFor: 'Esperar la partida que termina en {time}',
@@ -353,11 +349,7 @@ const es = {
             preparing: 'Preparando la partida…',
             public: 'Partida pública',
             again: 'Buscar otra',
-            waitingNowOne: 'Hay {n} persona buscando partida ahora mismo.',
-            waitingNowOther: 'Hay {n} personas buscando partida ahora mismo.',
-            lastAgo: 'Última partida pública {ago}',
-            todayOne: '{n} partida pública hoy',
-            todayOther: '{n} partidas públicas hoy',
+            waitingNow: 'Alguien está buscando partida ahora mismo.',
             busy: 'No se pudo crear la partida. Vuelve a intentarlo.',
             unavailable: 'La búsqueda de partidas no está disponible ahora mismo. Crea una mesa e invita a alguien.',
             discordSearch: 'Buscar rivales',
@@ -779,10 +771,6 @@ const en: Strings = {
             search: 'Find a match',
             searchHint: 'Play now with whoever is online. In public matches everyone goes by an invented nickname.',
             searching: 'Looking for a rival…',
-            searchingOne: '{n} person searching',
-            searchingOther: '{n} people searching',
-            playingOne: '{n} playing a public match',
-            playingOther: '{n} playing public matches',
             endsSoon: 'A public match ends in {time}: we’re waiting for its players.',
             ghostNotice: 'If nobody turns up, in {time} you’ll automatically be put in a match against a recorded rival.',
             waitFor: 'Wait for the match that ends in {time}',
@@ -792,11 +780,7 @@ const en: Strings = {
             preparing: 'Getting the match ready…',
             public: 'Public match',
             again: 'Find another',
-            waitingNowOne: '{n} person is looking for a match right now.',
-            waitingNowOther: '{n} people are looking for a match right now.',
-            lastAgo: 'Last public match {ago}',
-            todayOne: '{n} public match today',
-            todayOther: '{n} public matches today',
+            waitingNow: 'Someone is looking for a match right now.',
             busy: 'Couldn’t set the match up. Please try again.',
             unavailable: 'Matchmaking isn’t available right now. Create a table and invite someone.',
             discordSearch: 'Find rivals',
@@ -906,11 +890,3 @@ export function formatClock(seconds: number): string {
 
 export const formatDecimal = (lang: Lang, n: number) => n.toLocaleString(lang, { maximumFractionDigits: 1 });
 
-/** "hace 5 minutos" / "5 minutes ago" for a past moment, `ms` before now. */
-export function timeAgo(lang: Lang, ms: number): string {
-    const format = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' });
-    const minutes = Math.round(ms / 60_000);
-    if (minutes < 60) return format.format(-Math.max(1, minutes), 'minute');
-    const hours = Math.round(minutes / 60);
-    return hours < 24 ? format.format(-hours, 'hour') : format.format(-Math.round(hours / 24), 'day');
-}
