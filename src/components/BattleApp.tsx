@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { LogIn, Plus, Search, Swords, WifiOff } from 'lucide-react';
+import { Bell, BellRing, LogIn, Plus, Search, Swords, WifiOff } from 'lucide-react';
 import BattleLobby, { Avatar, GuideButton } from './BattleLobby';
 import BattleMatch from './BattleMatch';
 import BattleResults from './BattleResults';
@@ -7,6 +7,7 @@ import MatchSearch from './MatchSearch';
 import { BattleHostContext, type BattleHost } from './battleHost';
 import { queuePath, savedName, saveName, savedSeat, saveSeat, tableUrl, useBattle, type BattleConnection, type BattleProblem } from './useBattle';
 import { useMatchmaking, useMatchSummary } from './useMatchmaking';
+import { usePush } from './usePush';
 import { CODE_LENGTH, MAX_NAME_LENGTH, cleanName, isRoomCode, randomCode, type PublicRoom } from '../lib/battle';
 import { battleHour } from '../lib/battle-hour';
 import { battlePath, fill, plural, timeAgo, ui, type Lang } from '../i18n/ui';
@@ -185,6 +186,7 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onSearch, onD
                     <p className="text-sm text-ink-muted text-center">{t.match.searchHint}</p>
                     <BattleHourNote lang={lang} />
                     {summary && <PublicActivity summary={summary} lang={lang} />}
+                    <NotifyMe lang={lang} />
                 </div>
                 <div className="card p-5 space-y-5">
                     {nameField}
@@ -228,6 +230,23 @@ function BattleEntry({ lang, name, onName, invite, problem, onSit, onSearch, onD
                 </ul>
             </div>
         </section>
+    );
+}
+
+/** One tap to hear about people looking for a match (and the battle hour); the rest is in the settings. */
+function NotifyMe({ lang }: { lang: Lang }) {
+    const t = ui[lang];
+    const { topics, busy, problem, set } = usePush(lang);
+    if (topics.includes('match')) {
+        return <p className="text-xs text-ink-muted text-center flex items-center justify-center gap-1.5"><BellRing size={13} className="text-accent" aria-hidden="true" /> {t.battle.match.notifyOn}</p>;
+    }
+    return (
+        <div className="text-center space-y-1">
+            <button onClick={() => set([...new Set([...topics, 'match' as const, 'battle' as const])])} disabled={busy} className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline underline-offset-4 disabled:opacity-60" data-testid="notify-me">
+                <Bell size={14} aria-hidden="true" /> {t.battle.match.notifyMe}
+            </button>
+            {problem && <p role="alert" className="text-xs text-ink-muted">{t.notifyProblem[problem]}</p>}
+        </div>
     );
 }
 

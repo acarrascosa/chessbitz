@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Box, Check, Cloud, Code2, Copy, Cpu, Crown, Download, ExternalLink, Palette, Upload } from 'lucide-react';
 import { useStore } from '@nanostores/react';
 import Modal from './Modal';
+import NotificationSettings from './NotificationSettings';
 import { notifyProgress } from './hooks';
 import { exportProgress, importProgress } from '../lib/progress';
 import { contrastStore, themeStore, type Theme } from '../store/theme';
@@ -98,6 +99,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ open, onClose, lang, alte
                             <span className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-surface shadow transition-transform ${contrast ? 'translate-x-5' : ''}`} />
                         </button>
                     </label>
+                </Section>
+
+                <Section title={t.notifyTitle}>
+                    <NotificationSettings lang={lang} />
                 </Section>
 
                 <Section title={t.language}>

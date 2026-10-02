@@ -108,3 +108,21 @@ test('serves headings, translations and indexing hints without JavaScript', asyn
     expect(html).toContain('<meta name="robots" content="noindex">');
     expect(html).not.toContain('rel="canonical"');
 });
+
+test('offers notifications in the settings and on the battle page', async ({ page }) => {
+    await page.addInitScript(() => {
+        localStorage.setItem('chessbitz-onboarded', 'true');
+        localStorage.setItem('chessbitz-battle-guide', 'true');
+    });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Ajustes' }).click();
+    const dialog = page.getByRole('dialog', { name: 'Ajustes' });
+    await expect(dialog.getByRole('heading', { name: 'Avisos' })).toBeVisible();
+    await expect(dialog.getByRole('switch', { name: /Recordatorio del reto diario/ })).toHaveAttribute('aria-checked', 'false');
+    await expect(dialog.getByRole('switch', { name: /Hora de batalla/ })).toBeVisible();
+    await expect(dialog.getByRole('switch', { name: 'Cuando alguien busca partida' })).toBeVisible();
+
+    await page.goto('/batalla/');
+    await expect(page.getByTestId('notify-me')).toHaveText('Avísame cuando alguien busque partida');
+    await expect(page.getByTestId('battle-hour')).toContainText(/Hora de batalla|hora de batalla/);
+});

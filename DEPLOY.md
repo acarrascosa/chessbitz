@@ -114,6 +114,17 @@ Las batallas usan un **Durable Object** por mesa (`BattleRoom`, en `worker/battl
 - `BATTLE_LIMITER` limita las conexiones a mesas (30 por minuto e IP; la IP no se guarda).
 - Si alguna vez se renombra o elimina la clase `BattleRoom`, hay que añadir una migración nueva (`renamed_classes` o `deleted_classes`) en lugar de editar la `v1`.
 
+### Partidas públicas y avisos
+
+- **Emparejamiento:** un único Durable Object `Matchmaker` (migración `v2` de `wrangler.jsonc`, se aplica sola al desplegar). Las partidas grabadas viven en D1 (`ghost_runs`, migraciones `0005` y `0006`); los rivales simulados de arranque se regeneran con `node scripts/seed-ghost-runs.mjs > seed.sql` y `npx wrangler d1 execute chessbitz --remote --file seed.sql` (solo sustituye los `seed`).
+- **Avisos (Web Push):** la clave pública VAPID está en `vars` (`VAPID_PUBLIC_KEY`) y la privada es un secreto. Si alguna vez hay que cambiarlas, se generan juntas (P-256) y:
+
+   ```bash
+   npx wrangler secret put VAPID_PRIVATE_KEY
+   ```
+
+   Las suscripciones están en D1 (`push_subscriptions`, migración `0007`). El cron horario (`0 * * * *`) manda el recordatorio diario a las 20:00 y la hora de batalla a las 21:00 de Madrid; el de las 17:00 UTC sigue siendo el recordatorio de Discord. En local, `.dev.vars` lleva `VAPID_PRIVATE_KEY` (no se sube al repositorio).
+
 ## 5. Actividad de Discord (solo la Batalla)
 
 Chessbitz puede jugarse dentro de Discord como **Actividad**: el iframe de Discord carga `https://<client_id>.discordsays.com/?instance_id=…&frame_id=…`, su proxy lo reenvía a `chessbitz.com` y el Worker sirve la página `/discord/` (solo la batalla). Todo el que se une a la actividad se sienta en la misma mesa (un Durable Object por instancia). Al terminar, el bot publica el podio en el canal y, al día siguiente a las 17:00 UTC, un recordatorio con un botón **Jugar** que abre la actividad.

@@ -7,6 +7,8 @@ import {
 import { battleHour } from '../src/lib/battle-hour';
 import type { Env } from './env';
 import { SEARCHER_HEADER } from './queue';
+import { notifyTopic } from './push';
+import { MATCH_NOTIFY_EVERY_MS, MATCH_NOTIFY_PERSON_MS } from '../src/lib/push';
 
 const MS_PER_DAY = 86_400_000;
 
@@ -70,6 +72,7 @@ export class Matchmaker extends DurableObject<Env> {
         this.ctx.acceptWebSocket(server);
         server.serializeAttachment({ token: searcher.token, since: Date.now(), level } satisfies Searcher);
         await this.update();
+        await this.callForRivals(searcher.token);
         return new Response(null, { status: 101, webSocket: client });
     }
 
@@ -97,6 +100,21 @@ export class Matchmaker extends DurableObject<Env> {
 
     async alarm(): Promise<void> {
         await this.update();
+    }
+
+    /**
+     * Alone in the queue: tell the people who asked to know when someone is looking
+     * for a match (not more than every few minutes overall, nor each person more
+     * than every half hour, and never the searcher themselves).
+     */
+    private async callForRivals(token: string) {
+        const now = Date.now();
+        if (this.searchers().length !== 1) return;
+        const last = (await this.ctx.storage.get<number>('calledAt')) ?? 0;
+        if (now - last < MATCH_NOTIFY_EVERY_MS) return;
+        await this.ctx.storage.put('calledAt', now);
+        this.ctx.waitUntil(notifyTopic(this.env, 'match', { gapMs: MATCH_NOTIFY_PERSON_MS, exceptToken: token, now })
+            .catch(error => console.error('Calling for rivals failed', error)));
     }
 
     private searchers(): { ws: WebSocket; searcher: Searcher }[] {

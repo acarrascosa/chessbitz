@@ -14,6 +14,9 @@ export interface Env {
     DISCORD_CLIENT_SECRET?: string;
     /** Secret: the bot that posts results and reminders and checks activity instances. */
     DISCORD_BOT_TOKEN?: string;
+    /** Web Push: the public VAPID key (a var) and its private half `d` (a secret). Without them notifications are off. */
+    VAPID_PUBLIC_KEY?: string;
+    VAPID_PRIVATE_KEY?: string;
     /** "1" in .dev.vars only: a fake Discord for local testing (only on localhost). */
     DISCORD_MOCK?: string;
 }

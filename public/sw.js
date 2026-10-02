@@ -56,3 +56,35 @@ self.addEventListener('fetch', event => {
         event.respondWith(networkFirst(request, DATA));
     }
 });
+
+// Notifications the person opted into (worker/push.ts sends them; src/lib/push.ts has the texts).
+self.addEventListener('push', event => {
+    let message = { title: 'Chessbitz', body: '', url: '/', tag: 'chessbitz' };
+    try {
+        message = { ...message, ...event.data.json() };
+    } catch {
+        // An empty or unreadable push still shows something.
+    }
+    event.waitUntil(self.registration.showNotification(message.title, {
+        body: message.body,
+        tag: message.tag,
+        icon: '/icon-192.png',
+        badge: '/icon-192.png',
+        data: { url: message.url },
+    }));
+});
+
+self.addEventListener('notificationclick', event => {
+    event.notification.close();
+    const target = new URL(event.notification.data?.url ?? '/', self.location.origin).href;
+    event.waitUntil((async () => {
+        const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+        const open = windows.find(client => client.url === target) ?? windows.find(client => new URL(client.url).origin === self.location.origin);
+        if (open) {
+            await open.focus();
+            if (open.url !== target && 'navigate' in open) await open.navigate(target);
+            return;
+        }
+        await self.clients.openWindow(target);
+    })());
+});

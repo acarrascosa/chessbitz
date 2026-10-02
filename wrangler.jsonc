@@ -36,11 +36,14 @@
   // Discord Activity (see DEPLOY.md). Public values here; DISCORD_CLIENT_SECRET and
   // DISCORD_BOT_TOKEN are secrets (`wrangler secret put`); without them /api/discord answers 503.
   "vars": {
+    // Web Push (worker/push.ts): the public VAPID key; the private one is the secret VAPID_PRIVATE_KEY.
+    "VAPID_PUBLIC_KEY": "BHLoPR4imnxH51DsvxSaA-iCRBwctOY52mMyLF6KQcx-10oLL9Xea6_BUtKy-uKJR0R1YqsIuZRvX5xfa1O0R6Y",
     "DISCORD_CLIENT_ID": "1552269812141391913",
     "DISCORD_PUBLIC_KEY": "0d2f104fe680e92a9b740d8b21b80fc9144fed796eb2177eae617f9f5935ad1f"
   },
   // Reminder in the Discord channels that played a battle the day before (17:00 UTC).
-  "triggers": { "crons": ["0 17 * * *"] },
+  // 17:00 UTC: Discord reminders. Every hour: notifications due at a Madrid hour (worker/index.ts).
+  "triggers": { "crons": ["0 17 * * *", "0 * * * *"] },
   "ratelimits": [
     {
       "name": "RESULTS_LIMITER",

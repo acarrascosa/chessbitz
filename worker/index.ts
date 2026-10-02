@@ -4,6 +4,9 @@ import { injectDailyPreview } from './preview';
 import { handleDiscord, sendReminders } from './discord';
 import { toHttps, withHsts } from './security';
 import { joinQueue, matchmaker, searchLevel } from './queue';
+import { handlePush, notifyTopic } from './push';
+import { BATTLE_HOUR } from '../src/lib/battle-hour';
+import { DAILY_REMINDER_HOUR } from '../src/lib/push';
 import type { Env } from './env';
 import { isRoomCode } from '../src/lib/battle';
 import { isDiscordLaunch } from '../src/lib/discord';
@@ -71,6 +74,10 @@ async function connectBattle(request: Request, code: string, env: Env): Promise<
 
 const BATTLE_TOKEN = /^[A-Za-z0-9_-]{16,64}$/;
 
+const MADRID_HOUR = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid', hour: 'numeric', hourCycle: 'h23' });
+/** Hour of the day in Madrid at `time` (scheduled notifications follow Spanish time, clock changes included). */
+export const madridHour = (time: number) => Number(MADRID_HOUR.format(new Date(time))) % 24;
+
 async function connectQueue(request: Request, url: URL, env: Env): Promise<Response> {
     if (request.headers.get('Upgrade') !== 'websocket') return json({ error: 'Expected a WebSocket' }, { status: 426 });
     const token = url.searchParams.get('token') ?? '';
@@ -119,6 +126,9 @@ export default {
         if (url.pathname === '/api/match' && request.method === 'GET') {
             return connectQueue(request, url, env);
         }
+        if (url.pathname.startsWith('/api/push/')) {
+            return handlePush(request, url, env);
+        }
         if (url.pathname.startsWith('/api/battle/') && request.method === 'GET') {
             return connectBattle(request, url.pathname.split('/')[3] ?? '', env);
         }
@@ -138,8 +148,15 @@ export default {
         return withHsts(await injectDailyPreview(url, response, env), url);
     },
 
-    /** Daily reminder in the Discord channels that played a battle yesterday. */
+    /** 17:00 UTC: reminders in the Discord channels that played yesterday. Hourly: notifications due at this hour in Madrid. */
     async scheduled(controller, env, ctx) {
-        ctx.waitUntil(sendReminders(env, controller.scheduledTime));
+        if (controller.cron === '0 17 * * *') {
+            ctx.waitUntil(sendReminders(env, controller.scheduledTime));
+            return;
+        }
+        const hour = madridHour(controller.scheduledTime);
+        // Once a day each: the gap keeps a retried run from sending twice.
+        if (hour === DAILY_REMINDER_HOUR) ctx.waitUntil(notifyTopic(env, 'daily', { gapMs: 20 * 3600_000, now: controller.scheduledTime }));
+        if (hour === BATTLE_HOUR) ctx.waitUntil(notifyTopic(env, 'battle', { gapMs: 20 * 3600_000, now: controller.scheduledTime }));
     },
 } satisfies ExportedHandler<Env>;
